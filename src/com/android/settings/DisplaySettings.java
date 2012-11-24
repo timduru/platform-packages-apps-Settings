@@ -46,6 +46,8 @@ import android.util.Log;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.DreamSettings;
 
+import org.teameos.jellybean.settings.EOSConstants;
+
 import java.util.ArrayList;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
@@ -61,6 +63,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
+	private static final String KEY_SCREENSHOT_FACTOR = "screenshot_scaling";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -77,6 +80,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private WifiDisplayStatus mWifiDisplayStatus;
     private Preference mWifiDisplayPreference;
+	private ListPreference mScreenshotFactor;
 
     private final RotationPolicy.RotationPolicyListener mRotationPolicyListener =
             new RotationPolicy.RotationPolicyListener() {
@@ -143,6 +147,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mWifiDisplayPreference);
             mWifiDisplayPreference = null;
         }
+
+		mScreenshotFactor = (ListPreference) findPreference(KEY_SCREENSHOT_FACTOR);
+        mScreenshotFactor.setOnPreferenceChangeListener(this);
+        int currentVal = Settings.System.getInt(resolver, EOSConstants.SYSTEMUI_SCREENSHOT_SCALE_INDEX, 0);
+        mScreenshotFactor.setValue(String.valueOf(currentVal));
+        updateScreenshotFactorSummary(currentVal);
     }
 
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
@@ -326,6 +336,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private void updateScreenshotFactorSummary(int val) {
+        // little cheat as the percent sign used in the pref entries
+        // does not play nice with getStringArray
+        String[] mScreenshotEntries = {
+                "1.0", "0.75", "0.50", "0.25"
+        };
+        StringBuilder b = new StringBuilder()
+                .append(getResources().getString(R.string.eos_screenshot_scaling_summary))
+                .append(mScreenshotEntries[val]);
+        mScreenshotFactor.setSummary(b.toString());
+    }
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mAccelerometer) {
@@ -353,6 +375,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
+        }
+		if(KEY_SCREENSHOT_FACTOR.equals(key)) {
+            int val = Integer.parseInt((String) objValue);
+            Settings.System.putInt(getContentResolver(), EOSConstants.SYSTEMUI_SCREENSHOT_SCALE_INDEX, val);
+            updateScreenshotFactorSummary(val);
         }
 
         return true;

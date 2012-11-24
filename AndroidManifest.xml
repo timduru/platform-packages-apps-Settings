@@ -61,6 +61,9 @@
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
+    
+    <!-- for torch capability check -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
@@ -83,6 +86,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="Settings$EosInterfaceSettingsActivity"
+	        android:taskAffinity=""
+                android:icon="@mipmap/ic_launcher_settings_eos"
+                android:label="@string/eos_interface_launch"
+                android:parentActivityName="Settings">
+            <intent-filter>
+                <action android:name="android.settings.EOS_INTERFACE" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.eos.InterfaceSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/eos_interface" />
+        </activity>
+	
+	<activity android:name=".eos.InterfaceSettings"
+                android:taskAffinity=""
+                android:parentActivityName="Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+	
+	<activity android:name=".eos.SystemSettings"
+                android:taskAffinity=""
+                android:parentActivityName="Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        	
 
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"
@@ -304,9 +343,11 @@
         <activity android:name="Settings$TetherSettingsActivity"
                 android:label="@string/tether_settings_title_all"
                 android:taskAffinity=""
-                android:excludeFromRecents="true">
+                android:excludeFromRecents="true"
+		android:parentActivityName="Settings$WirelessSettingsActivity">>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+		<action android:name="android.settings.TETHER_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
                 <category android:name="com.android.settings.SHORTCUT" />
@@ -603,6 +644,36 @@
                 android:value="com.android.settings.DisplaySettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/display_settings" />
+        </activity-alias>
+
+        <activity android:name="Settings$DockSettingsActivity"
+                android:label="@string/dock_settings_title"
+                android:enabled="@bool/has_dock_settings"
+                android:clearTaskOnLaunch="true"
+                android:parentActivityName="Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.android.settings.DOCK_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.DockSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/dock_settings" />
+        </activity>
+
+        <!-- Keep compatibility with old shortcuts. -->
+        <activity-alias android:name="DockSettings"
+                android:label="@string/dock_settings_title"
+                android:enabled="@bool/has_dock_settings"
+                android:clearTaskOnLaunch="true"
+                android:exported="true"
+                android:targetActivity="Settings$DockSettingsActivity">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.DockSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/dock_settings" />
         </activity-alias>
 
         <activity android:name="Settings$DeviceInfoSettingsActivity"

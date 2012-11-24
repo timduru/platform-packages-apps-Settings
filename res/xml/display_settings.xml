@@ -57,6 +57,14 @@
             android:key="notification_pulse"
             android:title="@string/notification_pulse_title"
             android:persistent="false" />
+	    
+	<ListPreference
+                android:key="screenshot_scaling"
+                android:title="@string/eos_screenshot_scaling_title"
+                android:summary="@string/eos_screenshot_scaling_summary"
+                android:entries="@array/eos_screenshot_scaling_entries"
+                android:entryValues="@array/eos_screenshot_scaling_values"
+                android:dialogTitle="@string/eos_screenshot_scaling_dialog_title" />
 
         <PreferenceScreen
                 android:key="wifi_display"

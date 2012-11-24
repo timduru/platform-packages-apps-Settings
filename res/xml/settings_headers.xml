@@ -156,10 +156,30 @@
         <intent
             android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
     </header>
+    <!-- EOS Settings -->
+    <header android:title="@string/eos_settings" />
 
+    <header
+        android:id="@+id/eos_interface"
+        android:fragment="com.android.settings.eos.InterfaceSettings"
+        android:title="@string/eos_interface"
+        android:icon="@drawable/eos_interface" />
+
+    <!-- System Settings -->
+    <header
+        android:id="@+id/eos_system"
+        android:icon="@drawable/eos_system"
+        android:fragment="com.android.settings.eos.SystemSettings"
+        android:title="@string/eos_system_settings" />
     <!-- SYSTEM -->
     <header android:id="@+id/system_section"
         android:title="@string/header_category_system" />
+	    <!-- Dock -->
+    <header
+        android:id="@+id/dock_settings"
+        android:fragment="com.android.settings.DockSettings"
+        android:icon="@drawable/ic_settings_dock"
+        android:title="@string/dock_settings" />
 
     <!-- Date & Time -->
     <header

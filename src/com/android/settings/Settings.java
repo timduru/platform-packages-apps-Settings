@@ -422,7 +422,10 @@ public class Settings extends PreferenceActivity
             Header header = target.get(i);
             // Ids are integers, so downcasting
             int id = (int) header.id;
-            if (id == R.id.operator_settings || id == R.id.manufacturer_settings) {
+            if (id == R.id.dock_settings) {
+                if (!needsDockSettings())
+                    target.remove(i);
+            } else if (id == R.id.operator_settings || id == R.id.manufacturer_settings) {
                 Utils.updateHeaderToSpecificActivityFromMetaDataOrRemove(this, target, header);
             } else if (id == R.id.wifi_settings) {
                 // Remove WiFi Settings if WiFi service is not available.
@@ -538,6 +541,10 @@ public class Settings extends PreferenceActivity
             mListeningToAccountUpdates = true;
         }
         return headerIndex;
+    }
+
+    private boolean needsDockSettings() {
+        return getResources().getBoolean(R.bool.has_dock_settings);
     }
 
     private void getMetaData() {
@@ -821,6 +828,7 @@ public class Settings extends PreferenceActivity
     public static class SecuritySettingsActivity extends Settings { /* empty */ }
     public static class LocationSettingsActivity extends Settings { /* empty */ }
     public static class PrivacySettingsActivity extends Settings { /* empty */ }
+    public static class DockSettingsActivity extends Settings { /* empty */ }
     public static class RunningServicesActivity extends Settings { /* empty */ }
     public static class ManageAccountsSettingsActivity extends Settings { /* empty */ }
     public static class PowerUsageSummaryActivity extends Settings { /* empty */ }
@@ -833,4 +841,5 @@ public class Settings extends PreferenceActivity
     public static class TextToSpeechSettingsActivity extends Settings { /* empty */ }
     public static class AndroidBeamSettingsActivity extends Settings { /* empty */ }
     public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
+	public static class EosInterfaceSettingsActivity extends Settings { /*empty */ }
 }

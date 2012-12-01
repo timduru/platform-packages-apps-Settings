@@ -841,13 +841,11 @@
     <string-array name="eos_interface_eos_settings_location">
         <item>Disable</item>
         <item>Top</item>
-        <item>Bottom</item>
     </string-array>
 
     <string-array name="eos_interface_eos_settings_location_values">
         <item>disabled</item>
         <item>top</item>
-        <item>bottom</item>
     </string-array>
 
     <string-array name="eos_clock_am_pm_entries">

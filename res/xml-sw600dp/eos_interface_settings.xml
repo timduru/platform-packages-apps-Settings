@@ -15,8 +15,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/eos_interface" >
+        android:title="@string/eos_interface"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     <PreferenceCategory
         android:key="eos_interface_theme"
         android:title="@string/eos_interface_theme" >
@@ -32,7 +32,7 @@
 
     <PreferenceCategory
         android:key="eos_interface_statusbar"
-        android:title="@string/eos_interface_systembar" >
+        android:title="@string/eos_interface_statusbar" >
         <PreferenceScreen
             android:fragment="com.android.settings.eos.BatteryActions"
             android:key="eos_battery_settings"
@@ -45,33 +45,8 @@
             android:fragment="com.android.settings.eos.StatusBarColor"
             android:key="eos_statbar_color_settings"
             android:title="@string/eos_interface_statusbar_color" />
-        <PreferenceScreen
-            android:fragment="com.android.settings.eos.NavigationAreaActions"
-            android:key="eos_systembar_color"
-            android:title="@string/eos_interface_systembar_color" />
-        <PreferenceScreen
-            android:fragment="com.android.settings.eos.SoftKeyActions"
-            android:key="eos_softkey_settings"
-            android:title="@string/eos_interface_softkey_settings" />
-        <PreferenceScreen
-            android:fragment="com.android.settings.eos.NavRingActions"
-            android:key="eos_navring_settings"
-            android:title="@string/eos_interface_navring_settings"
-            android:summary="@string/eos_interface_navring_settings_summary" />
-        <ListPreference
-            android:entries="@array/eos_interface_rotationlock_toggle_entries"
-            android:entryValues="@array/eos_interface_rotationlock_toggle_values"
-            android:key="eos_interface_rotationlock_toggle"
-            android:title="@string/eos_interface_rotationlock_toggle"
-            android:summary="@string/eos_interface_rotationlock_toggle_summary" />
-        <CheckBoxPreference
-            android:key="eos_interface_statusbar_use_tablet_ui"
-            android:title="@string/eos_interface_statusbar_use_tablet_ui" />
-        <CheckBoxPreference
-            android:key="eos_interface_systembar_fat_fingers"
-            android:title="@string/eos_interface_systembar_fat_fingers_title"
-            android:summary="@string/eos_interface_systembar_fat_fingers_summary" />
     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="eos_interface_navbar"
         android:title="@string/eos_interface_navbar" >
@@ -83,7 +58,7 @@
             android:fragment="com.android.settings.eos.SoftKeyActions"
             android:key="eos_softkey_settings"
             android:title="@string/eos_interface_softkey_settings" />
-         <PreferenceScreen
+        <PreferenceScreen
             android:fragment="com.android.settings.eos.NavRingActions"
             android:key="eos_navring_settings"
             android:title="@string/eos_interface_navring_settings"
@@ -93,25 +68,19 @@
             android:summary="@string/eos_interface_navbar_low_profile_summary"
             android:key="eos_interface_navbar_low_profile" />
     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="eos_interface_settings"
         android:title="@string/eos_interface_settings" >
-        <com.android.settings.eos.EosMultiSelectListPreference
-            android:entries="@array/eos_interface_settings_standard_entries"
-            android:entryValues="@array/eos_interface_settings_standard_values"
-            android:key="eos_interface_normal_settings"
-            android:title="@string/eos_interface_settings_standard" />
-        <CheckBoxPreference
-            android:key="eos_interface_settings_eos_enabled"
-            android:title="@string/eos_interface_settings" />
         <ListPreference
             android:entries="@array/eos_interface_eos_settings_location"
             android:entryValues="@array/eos_interface_eos_settings_location_values"
             android:key="eos_interface_settings_eos_settings_location"
             android:title="@string/eos_interface_eos_settings_location" />
+
         <com.android.settings.eos.EosMultiSelectListPreference
             android:key="eos_interface_eos_quick_enabled"
-            android:title="@string/eos_interface_eos_settings_enabled"
+            android:title="@string/eos_interface_eos_settings_enabled" 
             android:summary="@string/eos_interface_eos_settings_summary" />
         <CheckBoxPreference
             android:title="@string/eos_interface_eos_settings_indicator_visibility_title"
@@ -123,17 +92,5 @@
         <Preference
             android:key="eos_interface_settings_indicator_color_default"
             android:title="@string/eos_interface_settings_color_default_title"/>
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="eos_interface_recents"
-        android:title="@string/eos_interface_recents" >
-        <CheckBoxPreference
-            android:title="@string/eos_interface_recents_killall_button_title"
-            android:summary="@string/eos_interface_recents_killall_button_description"
-            android:key="eos_interface_recents_killall_button" />
-        <CheckBoxPreference
-            android:title="@string/eos_interface_recents_mem_display_title"
-            android:summary="@string/eos_interface_recents_mem_display_description"
-            android:key="eos_interface_recents_mem_display" />
     </PreferenceCategory>
 </PreferenceScreen>

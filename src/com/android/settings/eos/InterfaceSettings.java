@@ -104,53 +104,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             populateStandardSettingsList();
         }
 
-        if (mUseTabletUI != null) {
-            mIsTabletMode = Settings.System.getInt(mContext.getContentResolver(),
-                    EOSConstants.SYSTEMUI_USE_TABLET_UI,
-                    EOSConstants.SYSTEMUI_USE_TABLET_UI_DEF) == 1;
-            mUseTabletUI.setChecked(mIsTabletMode);
-            mUseTabletUI.setOnPreferenceChangeListener(this);
-            PreferenceScreen ps = this.getPreferenceScreen();
-            PreferenceCategory pc = (PreferenceCategory) ps.findPreference("eos_interface_settings");
-            PreferenceCategory sb = (PreferenceCategory) ps.findPreference("eos_interface_statusbar");
-            if (mIsTabletMode) {
-                pc.removePreference(mSystemUISettingsLocation);
-                mSystemUISettingsLocation = null;
-                ps.removePreference(mRotationLockTogglePreference);
-                PreferenceScreen mSetColor = (PreferenceScreen) findPreference("eos_statbar_color_settings");
-                if (mSetColor != null) {
-                    sb.removePreference(mSetColor);
-                }
-            } else {
-                sb.setTitle(mContext.getResources().getString(R.string.eos_interface_statusbar));
-                PreferenceScreen mSystemBarColor = (PreferenceScreen) findPreference("eos_systembar_color");
-                PreferenceScreen mSoftKeys = (PreferenceScreen) findPreference("eos_softkey_settings");
-                PreferenceScreen mRingTargets = (PreferenceScreen) findPreference("eos_navring_settings");
-                if (mSystemBarColor != null) {
-                    sb.removePreference(mSystemBarColor);
-                }
-                if(mSoftKeys != null) {
-                    sb.removePreference(mSoftKeys);
-                }
-                if (mRingTargets != null) {
-                    sb.removePreference(mRingTargets);
-                }
-                if (mFatFingers != null) {
-                    sb.removePreference(mFatFingers);
-                    mFatFingers = null;
-                }
-                if (mStandardSettingsView != null) {
-                    pc.removePreference(mStandardSettingsView);
-                    mStandardSettingsView = null;
-                }
-                if (mSystemUISettings != null) {
-                    pc.removePreference(mSystemUISettings);
-                    mSystemUISettings = null;
-                }
-
-            }
-        }
-
         if(!mHasNavBar) {
             PreferenceScreen ps = this.getPreferenceScreen();
             PreferenceCategory pc = (PreferenceCategory) ps.findPreference("eos_interface_navbar");
@@ -162,13 +115,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             mLowProfileNavBar.setChecked(Settings.System.getInt(getContentResolver(),
                     EOSConstants.SYSTEMUI_BAR_SIZE_MODE, 0) == 1);
             mLowProfileNavBar.setOnPreferenceChangeListener(this);
-        }
-
-        // only for tablet ui
-        if(mFatFingers != null) {
-            mFatFingers.setChecked(Settings.System.getInt(getContentResolver(),
-                    EOSConstants.SYSTEMUI_TABLET_BIG_CLEAR_BUTTON, 0) == 1);
-            mFatFingers.setOnPreferenceChangeListener(this);
         }
 
         if (mContext.getResources().getBoolean(R.bool.eos_tablet) || mIsTabletMode) {
@@ -186,21 +132,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             boolean eosSettingsTop = Settings.System.getInt(getContentResolver(),
                     EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP,
                     EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP_DEF) == 1;
-            boolean eosSettingsBottom = Settings.System.getInt(getContentResolver(),
-                    EOSConstants.SYSTEMUI_SETTINGS_PHONE_BOTTOM,
-                    EOSConstants.SYSTEMUI_SETTINGS_PHONE_BOTTOM_DEF) == 1;
             if (mSystemUISettingsLocation != null) {
                 if (!eosSettingsEnabled) {
                     mSystemUISettingsLocation.setValue("disabled");
                     mSystemUISettingsLocation.notifyDependencyChange(true);
                     mEosSettingsEnabled = false;
-                } else if ((eosSettingsEnabled && eosSettingsTop)
-                        || (eosSettingsEnabled && !(eosSettingsTop || eosSettingsBottom))) {
+                } else if ((eosSettingsEnabled && eosSettingsTop)) {
                     mSystemUISettingsLocation.setValue("top");
-                    mSystemUISettingsLocation.notifyDependencyChange(false);
-                    mEosSettingsEnabled = true;
-                } else if (eosSettingsBottom) {
-                    mSystemUISettingsLocation.setValue("bottom");
                     mSystemUISettingsLocation.notifyDependencyChange(false);
                     mEosSettingsEnabled = true;
                 }

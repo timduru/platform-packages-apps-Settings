@@ -83,29 +83,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements OnPref
             Preference ps = (Preference) findPreference(EOS_DEVICE_SETTINGS);
             if (ps != null) root.removePreference(ps);
         }
-
-        if (mHasOnlyStatBar) {
-            PreferenceScreen ps = (PreferenceScreen) findPreference(EOS_PERFORMANCE_SETTINGS);
-            if (ps != null) root.removePreference(ps);
-        }
-
-        mVolumeKeysSwitch = (CheckBoxPreference) findPreference("eos_system_volume_keys_rotate");
-        mVolumeKeysSwitch.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                EOSConstants.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION,
-                EOSConstants.SYSTEM_VOLUME_KEYS_SWITCH_ON_ROTATION_DEF) == 1);
-        mVolumeKeysSwitch.setOnPreferenceChangeListener(this);
-
-        mWifiChannelsPreference = (ListPreference) findPreference("eos_wifi_regulatory_domain_selector");
-        mWifiChannelsPreference.setOnPreferenceChangeListener(this);
-
-        mDefaultVolumeStreamPreference = (ListPreference) findPreference("eos_system_default_volume_stream");
-        mDefaultVolumeStreamPreference.setOnPreferenceChangeListener(this);
-        String currentStreamValue = Settings.System.getString(getContentResolver(),
-                EOSConstants.SYSTEM_DEFAULT_VOLUME_STREAM);
-        if (!("ring".equals(currentStreamValue) || "media".equals(currentStreamValue))) {
-            currentStreamValue = "default";
-        }
-        mDefaultVolumeStreamPreference.setValue(currentStreamValue);
     }
 
     @Override

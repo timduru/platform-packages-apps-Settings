@@ -394,35 +394,29 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     }
 
     private boolean hasTorch() {
-        Camera mCamera;
+        Camera mCamera = null;
         Parameters parameters;
         try {
             mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_BACK);
+            try {
+                parameters = mCamera.getParameters();
+            } catch (NullPointerException e) {
+                Log.i("EosInterfaceSettings", "Unable to acquire camera");
+                return false;
+            }
+            if (parameters == null) return false;
+
+            List<String> flashModes = parameters.getSupportedFlashModes();
+            if (flashModes == null) return false;
+            if (flashModes.contains(Parameters.FLASH_MODE_TORCH)) return true;
+
         } catch (RuntimeException e) {
             Log.i("EosInterfaceSettings", "Device is not Torch capable " + e.getMessage());
             return false;
         }
-        try {
-            parameters = mCamera.getParameters();
-        } catch (NullPointerException e) {
-            Log.i("EosInterfaceSettings", "Unable to acquire camera");
-            return false;
-        }
-        if (parameters == null) {
+        finally {
             mCamera.release();
             mCamera = null;
-            return false;
-        }
-        List<String> flashModes = parameters.getSupportedFlashModes();
-        if (flashModes == null) {
-            mCamera.release();
-            mCamera = null;
-            return false;
-        }
-        if (flashModes.contains(Parameters.FLASH_MODE_TORCH)) {
-            mCamera.release();
-            mCamera = null;
-            return true;
         }
         return false;
     }

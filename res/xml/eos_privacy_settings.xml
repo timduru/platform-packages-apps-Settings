@@ -29,7 +29,7 @@
                 android:entries="@array/eos_logger_mode_entries"
                 android:entryValues="@array/eos_logger_mode_values" />
 
-            <Preference
+            <PreferenceScreen
                 android:fragment="com.android.settings.eos.LoggerPackages"
                 android:key="eos_logger_packages"
                 android:title="@string/eos_logger_packages" />

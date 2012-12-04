@@ -29,6 +29,11 @@
             android:entryValues="@array/eos_wifi_regulatory_domain_values">
         </ListPreference>
 
+        <PreferenceScreen
+           android:title="@string/eos_privacy_settings"
+           android:key="eos_privacy_settings"
+           android:fragment="com.android.settings.eos.PrivacySettings" />
+
         <Preference
             android:title="@string/eos_device_settings"
             android:key="eos_device_settings">

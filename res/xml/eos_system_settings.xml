@@ -27,6 +27,15 @@
             android:summary="@string/eos_system_volume_keys_rotate_description"
             android:key="eos_system_volume_keys_rotate"
             />
+
+        <ListPreference
+            android:key="eos_system_default_volume_stream"
+            android:title="@string/eos_system_volume_default_stream"
+            android:summary="@string/eos_system_volume_default_stream_description"
+            android:entries="@array/eos_system_default_volume_stream"
+            android:entryValues="@array/eos_system_default_volume_stream_values">
+        </ListPreference>
+
         <ListPreference
             android:key="eos_wifi_regulatory_domain_selector"
             android:title="@string/eos_wifi_regulatory_domain_selector"

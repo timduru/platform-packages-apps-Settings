@@ -2,7 +2,6 @@
 package com.android.settings.eos;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -10,22 +9,15 @@ import java.util.Map.Entry;
 
 import org.teameos.jellybean.settings.EOSConstants;
 
-import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.RILConstants;
 import com.android.settings.R;
 
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.CheckBoxPreference;
@@ -45,23 +37,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private Context mContext;
-    private ContentResolver mContentResolver;
 
-    private CheckBoxPreference mUseTabletUI;
-    private CheckBoxPreference mSystemUISettings;
     private CheckBoxPreference mRecentsKillallButtonPreference;
     private CheckBoxPreference mRecentsMemDisplayPreference;
     private CheckBoxPreference mLowProfileNavBar;
-    private CheckBoxPreference mFatFingers;
+    private CheckBoxPreference mEosTogglesEnabled;
     private CheckBoxPreference mHideIndicator;
     private ColorPreference mIndicatorColor;
     private Preference mIndicatorDefaultColor;
-    private ListPreference mRotationLockTogglePreference;
-    private ListPreference mSystemUISettingsLocation;
-    private EosMultiSelectListPreference mStandardSettingsView;
     private EosMultiSelectListPreference mEosQuickSettingsView;
     private boolean mEosSettingsEnabled = false;
-    private boolean mIsTabletMode = false;
     private boolean mHasNavBar = false;
 
     @Override
@@ -69,7 +54,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
 
         mContext = getActivity();
-        mContentResolver = mContext.getContentResolver();
         IWindowManager mWindowManager = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
         try {
@@ -81,28 +65,14 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.eos_interface_settings);
 
-        mUseTabletUI = (CheckBoxPreference) findPreference("eos_interface_statusbar_use_tablet_ui");
-        mSystemUISettings = (CheckBoxPreference) findPreference("eos_interface_settings_eos_enabled");
         mEosQuickSettingsView = (EosMultiSelectListPreference) findPreference("eos_interface_eos_quick_enabled");
-        mSystemUISettingsLocation = (ListPreference) findPreference("eos_interface_settings_eos_settings_location");
-        mRotationLockTogglePreference = (ListPreference) findPreference("eos_interface_rotationlock_toggle");
+        mEosTogglesEnabled = (CheckBoxPreference) findPreference("eos_interface_settings_eos_settings_enabled");
         mRecentsKillallButtonPreference = (CheckBoxPreference) findPreference("eos_interface_recents_killall_button");
         mRecentsMemDisplayPreference = (CheckBoxPreference) findPreference("eos_interface_recents_mem_display");
         mLowProfileNavBar = (CheckBoxPreference) findPreference("eos_interface_navbar_low_profile");
-        mFatFingers = (CheckBoxPreference) findPreference("eos_interface_systembar_fat_fingers");
         mHideIndicator = (CheckBoxPreference)findPreference("eos_interface_settings_indicator_visibility");
         mIndicatorColor = (ColorPreference) findPreference("eos_interface_settings_indicator_color");
         mIndicatorDefaultColor = (Preference) findPreference("eos_interface_settings_indicator_color_default");
-
-        if (findPreference("eos_interface_normal_settings") != null) {
-            mStandardSettingsView = (EosMultiSelectListPreference) findPreference("eos_interface_normal_settings");
-            mStandardSettingsView.setOnPreferenceChangeListener(this);
-            mStandardSettingsView.setEntries(getResources().getStringArray(
-                    R.array.eos_interface_settings_standard_entries));
-            mStandardSettingsView.setEntryValues(getResources().getStringArray(
-                    R.array.eos_interface_settings_standard_values));
-            populateStandardSettingsList();
-        }
 
         if(!mHasNavBar) {
             PreferenceScreen ps = this.getPreferenceScreen();
@@ -117,33 +87,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             mLowProfileNavBar.setOnPreferenceChangeListener(this);
         }
 
-        if (mContext.getResources().getBoolean(R.bool.eos_tablet) || mIsTabletMode) {
-
-            if (mSystemUISettings != null) {
-                mSystemUISettings.setChecked(Settings.System.getInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_ENABLED, 0) == 1);
-                mSystemUISettings.setOnPreferenceChangeListener(this);
-                mEosSettingsEnabled = mSystemUISettings.isChecked();
-            }
-        } else {
-            boolean eosSettingsEnabled = Settings.System.getInt(getContentResolver(),
-                    EOSConstants.SYSTEMUI_SETTINGS_ENABLED,
-                    EOSConstants.SYSTEMUI_SETTINGS_ENABLED_DEF) == 1;
-            boolean eosSettingsTop = Settings.System.getInt(getContentResolver(),
-                    EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP,
-                    EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP_DEF) == 1;
-            if (mSystemUISettingsLocation != null) {
-                if (!eosSettingsEnabled) {
-                    mSystemUISettingsLocation.setValue("disabled");
-                    mSystemUISettingsLocation.notifyDependencyChange(true);
-                    mEosSettingsEnabled = false;
-                } else if ((eosSettingsEnabled && eosSettingsTop)) {
-                    mSystemUISettingsLocation.setValue("top");
-                    mSystemUISettingsLocation.notifyDependencyChange(false);
-                    mEosSettingsEnabled = true;
-                }
-                mSystemUISettingsLocation.setOnPreferenceChangeListener(this);
-            }
+        mEosSettingsEnabled = Settings.System.getInt(getContentResolver(),
+                EOSConstants.SYSTEMUI_SETTINGS_ENABLED,
+                EOSConstants.SYSTEMUI_SETTINGS_ENABLED_DEF) == 1;
+        if (mEosTogglesEnabled != null) {
+            mEosTogglesEnabled.setChecked(mEosSettingsEnabled);
+            mEosTogglesEnabled.notifyDependencyChange(mEosSettingsEnabled);
+            mEosTogglesEnabled.setOnPreferenceChangeListener(this);
         }
 
         if (mEosQuickSettingsView != null) {
@@ -161,10 +111,12 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     EOSConstants.SYSTEMUI_SETTINGS_INDICATOR_HIDDEN,
                     EOSConstants.SYSTEMUI_SETTINGS_INDICATOR_HIDDEN_DEF) == 1);
             mHideIndicator.setOnPreferenceChangeListener(this);
+            mHideIndicator.setEnabled(mEosSettingsEnabled);
         }
 
         if (mIndicatorColor != null) {
             mIndicatorColor.setProviderTarget(EOSConstants.SYSTEMUI_SETTINGS_INDICATOR_COLOR);
+            mIndicatorColor.setEnabled(mEosSettingsEnabled);
         }
 
         if (mIndicatorDefaultColor != null) {
@@ -180,15 +132,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                             return true;
                         }
                     });
-        }
-
-        if (mRotationLockTogglePreference != null) {
-            mRotationLockTogglePreference.setOnPreferenceChangeListener(this);
-            String currentValue = Settings.System.getString(mContentResolver, EOSConstants.SYSTEMUI_INTERFACE_ROTATIONLOCK_TOGGLE);
-            if (!("show".equals(currentValue) || "hide".equals(currentValue))) {
-                currentValue = "default";
-            }
-            mRotationLockTogglePreference.setValue(currentValue);
+            mIndicatorDefaultColor.setEnabled(mEosSettingsEnabled);
         }
 
 	    if (mRecentsKillallButtonPreference != null) {
@@ -197,72 +141,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 	    if (mRecentsMemDisplayPreference != null) {
             mRecentsMemDisplayPreference.setOnPreferenceChangeListener(this);
         }
-    }
-
-
-    class UiModeDialog {
-        BroadcastReceiver mBarStateReceiver;
-        ProgressDialog dialog;
-        boolean isTabletMode;
-        int message;
-        String title;
-
-        public UiModeDialog(Context context, boolean tabletMode) {
-            IntentFilter filter = new IntentFilter();
-            filter.addAction(EOSConstants.INTENT_SYSTEMUI_KILL_SERVICE);
-            filter.addAction(EOSConstants.INTENT_SYSTEMUI_BAR_RESTORED);
-            mBarStateReceiver = new BroadcastReceiver() {
-
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    // TODO Auto-generated method stub\
-                    if (EOSConstants.INTENT_SYSTEMUI_BAR_RESTORED.equals(intent.getAction())) {
-                        mContext.unregisterReceiver(mBarStateReceiver);
-                        dialog.dismiss();
-                        // send this off right before we die
-                        mContext.sendBroadcast(new Intent()
-                            .setAction(EOSConstants.INTENT_SETTINGS_RESTART_INTERFACE_SETTINGS));
-                        finishFragment();
-                    } else if (EOSConstants.INTENT_SYSTEMUI_KILL_SERVICE.equals(intent.getAction())) {
-                        new Handler().postDelayed(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                // TODO Auto-generated method stub
-                                Intent i = new Intent();
-                                i.setComponent(ComponentName
-                                        .unflattenFromString("com.android.systemui/.SystemUIService"));
-                                mContext.startService(i);
-                            }
-                        }, 500);
-                    }
-                };
-            };
-            mContext.registerReceiver(mBarStateReceiver, filter);
-            message = tabletMode ?
-                    R.string.eos_interface_hybridui_change_tablet_message :
-                    R.string.eos_interface_hybridui_change_hybrid_message;
-
-            title = getString(R.string.eos_interface_hybridui_change_title);
-            dialog = ProgressDialog.show(mContext, title, getString(message), true);
-            mContext.sendBroadcast(new Intent()
-                    .setAction(EOSConstants.INTENT_SYSTEMUI_REMOVE_BAR));
-        }
-    }
-
-    private void populateStandardSettingsList() {
-        HashSet<String> selectedvalues = new HashSet<String>();
-        int defaultValues[] = getResources().getIntArray(
-                R.array.eos_interface_settings_standard_defaults);
-        String preferences[] = getResources().getStringArray(
-                R.array.eos_interface_settings_standard_values);
-
-        for (int i = 0; i < preferences.length; i++) {
-            if (Settings.System.getInt(getContentResolver(), preferences[i], defaultValues[i]) == 1)
-                selectedvalues.add(preferences[i]);
-
-        }
-        mStandardSettingsView.setValues(selectedvalues);
     }
 
     private void populateEosSettingsList() {
@@ -298,19 +176,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference.equals(mUseTabletUI)) {
-            Boolean value = (Boolean) newValue;
-            Settings.System.putInt(mContentResolver, EOSConstants.SYSTEMUI_USE_TABLET_UI,
-                    value.booleanValue() ? 1 : 0);
-            new UiModeDialog(mContext,value.booleanValue());
-            return true;
-        } else if (preference.equals(mStandardSettingsView)) {
-            Map<String, Boolean> changes = (Map<String, Boolean>) newValue;
-            for (Entry<String, Boolean> entry : changes.entrySet()) {
-                Settings.System.putInt(getContentResolver(), entry.getKey(), (entry.getValue() ? 1 : 0));
-            }
-           return true;
-        } else if (preference.equals(mEosQuickSettingsView)) {
+        if (preference.equals(mEosQuickSettingsView)) {
             Map<String, Boolean> values = (Map<String, Boolean>) newValue;
             StringBuilder newPreferenceValue = new StringBuilder();
             for (Entry entry : values.entrySet()) {
@@ -321,12 +187,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     EOSConstants.SYSTEMUI_SETTINGS_ENABLED_CONTROLS,
                     newPreferenceValue.toString());
             return true;
-        } else if (preference.equals(mRotationLockTogglePreference)) {
-            final String newToggleMode = (String) newValue;
-            Settings.System.putString(getContentResolver(),
-                    EOSConstants.SYSTEMUI_INTERFACE_ROTATIONLOCK_TOGGLE,
-                    newToggleMode);
-          return true;
         } else if (preference.equals(mRecentsKillallButtonPreference)) {
             Settings.System.putInt(mContext.getContentResolver(),
                     EOSConstants.SYSTEMUI_RECENTS_KILLALL_BUTTON,
@@ -337,53 +197,22 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     EOSConstants.SYSTEMUI_RECENTS_MEM_DISPLAY,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
           return true;
-        } else if (preference.equals(mSystemUISettings)) {
+        } else if (preference.equals(mEosTogglesEnabled)) {
+            mEosSettingsEnabled = ((Boolean) newValue).booleanValue();
+            int val = mEosSettingsEnabled ? 1 : 0;
             Settings.System.putInt(getContentResolver(),
-                    EOSConstants.SYSTEMUI_SETTINGS_ENABLED,
-                    ((Boolean) newValue).booleanValue() ? 1 : 0);
-            mEosQuickSettingsView.setEnabled(((Boolean) newValue).booleanValue());
-            return true;
-        } else if (preference.equals(mSystemUISettingsLocation)) {
-            String value = (String) newValue;
-            if (value.equals("disabled")) {
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_ENABLED, 0);
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP, 0);
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_PHONE_BOTTOM, 0);
-                preference.notifyDependencyChange(true);
-                mEosQuickSettingsView.setEnabled(false);
-            } else if (value.equals("top")) {
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_ENABLED, 1);
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP, 1);
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_PHONE_BOTTOM, 0);
-                preference.notifyDependencyChange(false);
-                mEosQuickSettingsView.setEnabled(true);
-            } else if (value.equals("bottom")) {
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_ENABLED, 1);
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_PHONE_TOP, 0);
-                Settings.System.putInt(getContentResolver(),
-                        EOSConstants.SYSTEMUI_SETTINGS_PHONE_BOTTOM, 1);
-                preference.notifyDependencyChange(false);
-                mEosQuickSettingsView.setEnabled(true);
-            }
+                    EOSConstants.SYSTEMUI_SETTINGS_ENABLED, val);
+            mEosTogglesEnabled.notifyDependencyChange(mEosSettingsEnabled ? false : true);
+            mEosQuickSettingsView.setEnabled(mEosSettingsEnabled);
+            mHideIndicator.setEnabled(mEosSettingsEnabled);
+            mIndicatorColor.setEnabled(mEosSettingsEnabled);
+            mIndicatorDefaultColor.setEnabled(mEosSettingsEnabled);
             return true;
         } else if (preference.equals(mLowProfileNavBar)) {
             Settings.System.putInt(mContext.getContentResolver(),
                     EOSConstants.SYSTEMUI_BAR_SIZE_MODE,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
           return true;
-        } else if (preference.equals(mFatFingers)) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    EOSConstants.SYSTEMUI_TABLET_BIG_CLEAR_BUTTON,
-                    ((Boolean) newValue).booleanValue() ? 1 : 0);
-            return true;
         } else if (preference.equals(mHideIndicator)) {
             Settings.System.putInt(mContext.getContentResolver(),
                     EOSConstants.SYSTEMUI_SETTINGS_INDICATOR_HIDDEN,

@@ -72,12 +72,10 @@
     <PreferenceCategory
         android:key="eos_interface_settings"
         android:title="@string/eos_interface_settings" >
-        <ListPreference
-            android:entries="@array/eos_interface_eos_settings_location"
-            android:entryValues="@array/eos_interface_eos_settings_location_values"
-            android:key="eos_interface_settings_eos_settings_location"
-            android:title="@string/eos_interface_eos_settings_location" />
-
+        <CheckBoxPreference
+            android:key="eos_interface_settings_eos_settings_enabled"
+            android:title="@string/eos_interface_eos_settings_enable_title"
+            android:summary="@string/eos_interface_eos_settings_enable_summary" />
         <com.android.settings.eos.EosMultiSelectListPreference
             android:key="eos_interface_eos_quick_enabled"
             android:title="@string/eos_interface_eos_settings_enabled" 

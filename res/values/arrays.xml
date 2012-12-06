@@ -772,35 +772,8 @@
         <!-- Always allow app to send to premium SMS short code. -->
         <item>Always allow</item>
     </string-array>
-        <string-array name="eos_interface_settings_standard_entries">
-        <item>Airplane mode</item>
-        <item>Wifi</item>
-        <item>Rotation</item>
-        <item>Brightness</item>
-        <item>Notifications</item>
-        <item>Volume</item>
-        <item>Settings</item>
-    </string-array>
 
-    <string-array name="eos_interface_settings_standard_values">
-        <item>eos_systemui_settings_standard_airplane</item>
-        <item>eos_systemui_settings_standard_wifi</item>
-        <item>eos_systemui_settings_standard_rotation</item>
-        <item>eos_systemui_settings_standard_brightness</item>
-        <item>eos_systemui_settings_standard_notifications</item>
-        <item>eos_systemui_settings_standard_volume</item>
-        <item>eos_systemui_settings_standard_settings</item>
-    </string-array>
-    
-    <integer-array name="eos_interface_settings_standard_defaults">
-        <item>1</item>
-        <item>1</item>
-        <item>1</item>
-        <item>1</item>
-        <item>1</item>
-        <item>0</item>
-        <item>1</item>
-    </integer-array>
+<!-- Eos Values -->
 
 <!-- ANY changes to these values must also be reflected in the Settings class file where the preference key string and the default values are located. Any changes that are not made in both files are likely to be rejected. -->
 
@@ -836,16 +809,6 @@
         <item>90 Degrees</item>
         <item>180 Degrees</item>
         <item>270 Degrees</item>
-    </string-array>
-
-    <string-array name="eos_interface_eos_settings_location">
-        <item>Disable</item>
-        <item>Top</item>
-    </string-array>
-
-    <string-array name="eos_interface_eos_settings_location_values">
-        <item>disabled</item>
-        <item>top</item>
     </string-array>
 
     <string-array name="eos_clock_am_pm_entries">

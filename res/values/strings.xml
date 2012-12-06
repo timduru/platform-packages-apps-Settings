@@ -4406,8 +4406,9 @@
     <string name="eos_interface_theme_pref_title">Select a theme</string>
     <string name="eos_interface_settings_standard">Standard Quick settings</string>
     <string name="eos_interface_settings">Eos toggle settings</string>
-    <string name="eos_interface_eos_settings_location">Location</string>
-    <string name="eos_interface_eos_settings_enabled">Enabled Eos toggles</string>
+    <string name="eos_interface_eos_settings_enable_title">Enable Eos toggles</string>
+    <string name="eos_interface_eos_settings_enable_summary">Traditional toggles will show in notification panel</string>
+    <string name="eos_interface_eos_settings_enabled">Select toggles</string>
     <string name="eos_interface_eos_settings_indicator_visibility_title">Hide toggle indicator</string>
     <string name="eos_interface_eos_settings_indicator_visibility_summary">Use with themes with multi-state icons</string>
     <string name="eos_interface_settings_color_title">Indicator color</string>

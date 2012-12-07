@@ -33,7 +33,4 @@
     <!-- Whether to show a preference item for regulatory information in About phone -->
     <bool name="config_show_regulatory_info">false</bool>
         <bool name="eos_tablet">false</bool>
-
-    <!-- Device proprietary settings disabled by default -->
-    <bool name="config_hasDeviceSettings">false</bool>
 </resources>

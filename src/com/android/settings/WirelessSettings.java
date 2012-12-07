@@ -16,8 +16,6 @@
 
 package com.android.settings;
 
-import org.teameos.jellybean.settings.EOSConstants;
-
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -30,12 +28,9 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
-import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Switch;
@@ -45,7 +40,7 @@ import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
 import com.android.settings.NsdEnabler;
 
-public class WirelessSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class WirelessSettings extends SettingsPreferenceFragment {
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
     private static final String KEY_TOGGLE_NFC = "toggle_nfc";
@@ -66,7 +61,6 @@ public class WirelessSettings extends SettingsPreferenceFragment implements OnPr
     private NfcEnabler mNfcEnabler;
     private NfcAdapter mNfcAdapter;
     private NsdEnabler mNsdEnabler;
-    private EditTextPreference mHostnamePreference;
 
     /**
      * Invoked on each preference click in this hierarchy, overrides
@@ -204,13 +198,6 @@ public class WirelessSettings extends SettingsPreferenceFragment implements OnPr
             Preference ps = findPreference(KEY_CELL_BROADCAST_SETTINGS);
             if (ps != null) root.removePreference(ps);
         }
-
-        mHostnamePreference = (EditTextPreference) findPreference("eos_net_hostname");
-        String hostname = Settings.System.getString(getContentResolver(), EOSConstants.NET_HOSTNAME);
-        if (TextUtils.isEmpty(hostname)) hostname = SystemProperties.get("net.hostname");
-        mHostnamePreference.setText(hostname);
-        mHostnamePreference.setSummary(hostname);
-        mHostnamePreference.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -252,20 +239,5 @@ public class WirelessSettings extends SettingsPreferenceFragment implements OnPr
     @Override
     protected int getHelpResource() {
         return R.string.help_url_more_networks;
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (mHostnamePreference.equals(preference)) {
-            String value = (String) newValue;
-            if (!value.matches("^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\\-]*[A-Za-z0-9])$")) {
-                return false;
-            }
-            Settings.System.putString(getContentResolver(), EOSConstants.NET_HOSTNAME, value);
-            SystemProperties.set("net.hostname", value);
-            mHostnamePreference.setSummary(value);
-            return true;
-        }
-        return false;
     }
 }

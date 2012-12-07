@@ -85,9 +85,4 @@
             android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
     </PreferenceScreen>
 
-    <EditTextPreference
-        android:key="eos_net_hostname"
-        android:title="@string/eos_net_hostname"
-        />
-
 </PreferenceScreen>

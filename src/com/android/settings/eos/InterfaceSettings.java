@@ -164,8 +164,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             mEosQuickSettingsView.removeValueEntry(EOSConstants.SYSTEMUI_SETTINGS_USBTETHER);
         }
         TelephonyManager tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
-        if(!(tm.getCurrentPhoneType() == TelephonyManager.PHONE_TYPE_CDMA)
-                || !(tm.getNetworkType() == RILConstants.NETWORK_MODE_LTE_CDMA_EVDO)) {
+        if (!(tm.getCurrentPhoneType() == TelephonyManager.PHONE_TYPE_CDMA)
+                || !(tm.getLteOnCdmaMode() == RILConstants.LTE_ON_CDMA_TRUE)) {
             mEosQuickSettingsView.removeValueEntry(EOSConstants.SYSTEMUI_SETTINGS_LTE);
         }
         if(!hasTorch()) {

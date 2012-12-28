@@ -454,11 +454,7 @@ public class Settings extends PreferenceActivity
                         || Utils.isMonkeyRunning()) {
                     target.remove(i);
                 }
-            } else if (id == R.id.development_settings) {
-                if (!showDev) {
-                    target.remove(i);
-                }
-            }
+            } 
 
             if (target.get(i) == header
                     && UserHandle.MU_ENABLED && UserHandle.myUserId() != 0

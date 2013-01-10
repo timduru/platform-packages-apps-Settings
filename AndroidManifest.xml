@@ -253,23 +253,16 @@
 
         <activity android:name="Settings$ApnSettingsActivity" android:label="@string/apn_settings"
                   android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:launchMode="singleTask">
+                  android:launchMode="singleTask" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.APN_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
             </intent-filter>
-                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.ApnSettings" />
         </activity>
-
-        <!-- Keep compatibility with old shortcuts. -->
-        <activity-alias android:name=".ApnSettings"
-                android:label="@string/apn_settings"
-                android:exported="true"
-                android:targetActivity="Settings$ApnSettingsActivity">
-        </activity-alias>
 
         <activity android:name="Settings$BluetoothSettingsActivity"
                 android:label="@string/bluetooth_settings_title"
@@ -1001,9 +994,9 @@
         <activity android:name=".deviceinfo.MiscFilesHandler"
                 android:theme="@android:style/Theme.Holo.DialogWhenLarge"/>
 
-        <activity android:name="ApnEditor"
+        <activity android:name="Settings$ApnEditorActivity"
                 android:label="@string/apn_edit"
-                android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+                android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
@@ -1016,6 +1009,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="vnd.android.cursor.dir/telephony-carrier" />
             </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ApnEditor" />
         </activity>
 
         <activity android:name="MediaFormat" android:label="@string/media_format_title">
@@ -1189,7 +1184,7 @@
 
         <activity android:name="ActivityPicker"
                 android:label="@string/activity_picker_label"
-                android:theme="@*android:style/Theme.Dialog.Alert"
+                android:theme="@*android:style/Theme.Holo.Dialog.Alert"
                 android:finishOnCloseSystemDialogs="true">
             <intent-filter>
                 <action android:name="android.intent.action.PICK_ACTIVITY" />

@@ -157,16 +157,16 @@
             android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
     </header>
     
-    <!-- EOS Settings -->
-    <header android:title="@string/eos_settings" />
+    <!-- Kat Settings -->
+    <header android:title="@string/kat_settings" />
     <header
-        android:id="@+id/eos_control_center"
-        android:title="@string/eos_settings"
-        android:icon="@drawable/eos_control_center">
+        android:id="@+id/kat_control_center"
+        android:title="@string/kat_settings"
+        android:icon="@drawable/kat_control_center">
 		<intent
             android:action="android.intent.action.MAIN"
-            android:targetClass="org.eos.controlcenter.Main"
-            android:targetPackage="org.eos.controlcenter" />
+            android:targetClass="org.kat.controlcenter.Main"
+            android:targetPackage="org.kat.controlcenter" />
 	</header>
 		
     <!-- SYSTEM -->

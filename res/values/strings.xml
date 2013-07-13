@@ -4388,6 +4388,6 @@
     <!-- Cell Broadcast settings description [CHAR LIMIT=100] -->
     <string name="cell_broadcast_settings_summary">Select the types of emergency alerts to display.</string>
 
-    <!-- EOS String -->
-    <string name="eos_settings">EOS Control Center</string>
+    <!-- Kat String -->
+    <string name="kat_settings">Control Center</string>
 </resources>

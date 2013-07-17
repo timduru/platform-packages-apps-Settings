@@ -4534,4 +4534,8 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
+
+    <!-- Kat String -->
+    <string name="kat_settings">Control Center</string>
+    <string name="su_start">SuperSU settings</string>
 </resources>

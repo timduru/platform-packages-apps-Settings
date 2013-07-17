@@ -17,7 +17,6 @@
 <preference-headers
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <!-- WIRELESS and NETWORKS -->
     <header android:id="@+id/wireless_section"
         android:title="@string/header_category_wireless_networks" />
@@ -57,6 +56,18 @@
         android:breadCrumbTitle="@string/wireless_networks_settings_title"
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
+
+    <!-- Kat Settings -->
+    <header android:title="@string/kat_settings" />
+    <header
+        android:id="@+id/kat_control_center"
+        android:title="@string/kat_settings"
+        android:icon="@drawable/kat_control_center">
+                <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="org.kat.controlcenter.Main"
+            android:targetPackage="org.kat.controlcenter" />
+    </header>
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
@@ -174,6 +185,16 @@
         android:fragment="com.android.settings.AccessibilitySettings"
         android:icon="@drawable/ic_settings_accessibility"
         android:title="@string/accessibility_settings" />
+
+    <header
+        android:id="@+id/su_start"
+        android:title="@string/su_start"
+        android:icon="@drawable/ic_settings_security">
+                <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="eu.chainfire.supersu.MainActivity"
+            android:targetPackage="eu.chainfire.supersu" />
+    </header>
 
     <!-- Development -->
     <header

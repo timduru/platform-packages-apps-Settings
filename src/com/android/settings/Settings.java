@@ -448,10 +448,10 @@ public class Settings extends PreferenceActivity
                         || Utils.isMonkeyRunning()) {
                     target.remove(i);
                 }
-            } else if (id == R.id.development_settings) {
+/*            } else if (id == R.id.development_settings) {
                 if (!showDev) {
                     target.remove(i);
-                }
+                }*/
             } else if (id == R.id.account_add) {
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                     target.remove(i);

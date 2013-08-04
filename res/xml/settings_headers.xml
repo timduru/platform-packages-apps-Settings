@@ -58,7 +58,7 @@
         android:icon="@drawable/empty_icon" />
 
     <!-- Kat Settings -->
-    <header android:title="@string/kat_settings" />
+<!--    <header android:title="@string/kat_settings" />
     <header
         android:id="@+id/kat_control_center"
         android:title="@string/kat_settings"
@@ -68,7 +68,7 @@
             android:targetClass="org.kat.controlcenter.Main"
             android:targetPackage="org.kat.controlcenter" />
     </header>
-
+-->
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />

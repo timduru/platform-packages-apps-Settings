@@ -4538,4 +4538,5 @@
     <!-- Kat String -->
     <string name="kat_settings">Control Center</string>
     <string name="su_start">SuperSU settings</string>
+    <string name="settings_app_ops_title">Apps Advanced Permissions (AppOps)</string>
 </resources>

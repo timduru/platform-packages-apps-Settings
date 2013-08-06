@@ -4540,4 +4540,5 @@
     <string name="su_start">SuperSU settings</string>
     <string name="settings_app_ops_title">Apps Advanced Permissions (AppOps)</string>
     <string name="autoparts_dock_settings">Dock Settings</string>
+    <string name="mediascanner_filters">MediaScanner Filters</string>
 </resources>

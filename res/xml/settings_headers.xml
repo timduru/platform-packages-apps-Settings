@@ -196,6 +196,16 @@
         android:icon="@drawable/ic_settings_date_time"
         android:title="@string/date_and_time_settings_title" />
 
+    <header
+        android:id="@+id/mediascanner_filters"
+        android:title="@string/mediascanner_filters"
+        android:icon="@drawable/ic_settings_storage">
+                <intent
+            android:targetClass="com.android.providers.media.MediaScannerServiceFilter"
+            android:targetPackage="com.android.providers.media" />
+            />
+    </header>
+
     <!-- Accessibility feedback -->
     <header
         android:id="@+id/accessibility_settings"

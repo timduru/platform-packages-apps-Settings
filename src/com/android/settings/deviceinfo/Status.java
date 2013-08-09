@@ -222,7 +222,8 @@ public class Status extends PreferenceActivity {
         mRes = getResources();
         sUnknown = mRes.getString(R.string.device_info_default);
         if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-            mPhone = PhoneFactory.getDefaultPhone();
+            try { mPhone = PhoneFactory.getDefaultPhone(); } 
+            catch(RuntimeException e) {}
         }
         // Note - missing in zaku build, be careful later...
         mSignalStrength = findPreference(KEY_SIGNAL_STRENGTH);

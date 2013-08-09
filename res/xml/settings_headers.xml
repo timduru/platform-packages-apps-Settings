@@ -86,6 +86,13 @@
         android:icon="@drawable/ic_settings_display"
         android:fragment="com.android.settings.DisplaySettings"
         android:title="@string/display_settings" />
+ 
+    <!-- UI -->
+    <header
+        android:id="@+id/ui_settings"
+        android:icon="@drawable/ic_desktop"
+        android:fragment="com.android.settings.katkiss.UISettings"
+        android:title="@string/kk_ui_settings" />
 
     <!-- Storage -->
     <header

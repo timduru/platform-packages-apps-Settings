@@ -4535,15 +4535,4 @@
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
 
-    <!-- Kat String -->
-    <string name="kat_settings">Control Center</string>
-    <string name="su_start">SuperSU settings</string>
-    <string name="settings_app_ops_title">Apps Advanced Permissions (AppOps)</string>
-    <string name="autoparts_dock_settings">Dock Settings</string>
-    <string name="mediascanner_filters">MediaScanner Filters</string>
-
-    <string name="kk_ui_settings">User Interface Settings</string>
-    <string name="kk_ui_mode">Interface Mode</string>
-    <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
-
 </resources>

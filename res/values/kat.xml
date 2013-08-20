@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Strings -->
+    <string name="kat_settings">Control Center</string>
+    <string name="su_start">SuperSU settings</string>
+    <string name="settings_app_ops_title">Apps Advanced Permissions (AppOps)</string>
+    <string name="autoparts_dock_settings">Dock Settings</string>
+    <string name="mediascanner_filters">MediaScanner Filters</string>
+
+    <string name="kk_ui_settings">User Interface Settings</string>
+    <string name="kk_ui_mode">Interface Mode</string>
+    <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
+
+    <string name="kk_wifi_regulatory_domain_selector">Change wifi regulatory domain</string>
+    <string name="kk_wifi_regulatory_domain_changed">Wifi regulatory domain changed</string>
+    <string name="kk_wifi_restarting">Restarting wifi...</string>
+
+
+
+<!-- Arrays -->
+
+    <string-array name="kk_ui_mode_entries">
+        <item>Phablet UI</item>
+<!--        <item>Phablet UI - Nav Bar Left Aligned</item> -->
+        <item>Phablet UI - No Nav Bar</item>
+        <item>Tablet UI</item>
+        <item>Expanded Desktop - No Bars</item>
+    </string-array>
+    <string-array name="kk_ui_mode_values">
+        <item>4</item>
+<!--        <item>0</item> -->
+        <item>1</item>
+        <item>3</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="kk_wifi_regulatory_domain_entries">
+        <item>United States</item>
+        <item>Japan</item>
+        <item>EMEA and Rest of World</item>
+    </string-array>
+    <string-array name="kk_wifi_regulatory_domain_values">
+        <item>US</item>
+        <item>JP</item>
+        <item>EU</item>
+    </string-array>
+
+</resources>
+

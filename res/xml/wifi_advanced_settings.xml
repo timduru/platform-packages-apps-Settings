@@ -17,6 +17,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/wifi_advanced_titlebar">
 
+    <com.android.settings.katkiss.WifiRegulatoryListPreference
+            android:entries="@array/kk_wifi_regulatory_domain_entries"
+            android:entryValues="@array/kk_wifi_regulatory_domain_values"
+            android:key="kk_wifi_regulatory_domain_selector"
+            android:title="@string/kk_wifi_regulatory_domain_selector" >
+    </com.android.settings.katkiss.WifiRegulatoryListPreference>
+
     <!-- android:dependency="enable_wifi" -->
     <CheckBoxPreference
             android:key="notify_open_networks"

@@ -3,12 +3,12 @@
 
     <!-- Strings -->
     <string name="kat_settings">Control Center</string>
-    <string name="su_start">SuperSU settings</string>
+    <string name="su_start">SuperSU</string>
     <string name="settings_app_ops_title">Apps Advanced Permissions (AppOps)</string>
-    <string name="autoparts_dock_settings">Dock Settings</string>
+    <string name="autoparts_dock_settings">Dock</string>
     <string name="mediascanner_filters">MediaScanner Filters</string>
 
-    <string name="kk_ui_settings">User Interface Settings</string>
+    <string name="kk_ui_settings">User Interface</string>
     <string name="kk_ui_mode">Interface Mode</string>
     <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
 
@@ -16,6 +16,26 @@
     <string name="kk_wifi_regulatory_domain_changed">Wifi regulatory domain changed</string>
     <string name="kk_wifi_restarting">Restarting wifi...</string>
 
+
+    <string name="kk_performance">Performance</string>
+    <string name="kk_performance_cpu">CPU Overclocking</string>
+    <string name="kk_performance_cpu_on_boot">Set clock values on boot</string>
+    <string name="kk_performance_cpu_governor">Governor</string>
+    <string name="kk_performance_cpu_min">Minimum frequency</string>
+    <string name="kk_performance_cpu_max">Maximum frequency</string>
+    <string name="kk_performance_current_value">Current value: </string>
+    <string name="kk_performance_boot_value">Boot value: </string>
+    <string name="kk_performance_iosched">I/O scheduler</string>
+    <string name="kk_performance_iosched_on_boot">Set value on boot</string>
+    <string name="kk_performance_fast_charge">USB Fast Charge</string>
+    <string name="kk_performance_sweep2wake">Sweep2Wake</string>
+    <string name="kk_performance_sweep2wake_on_boot">Start on boot</string>
+    <string name="kk_performance_zram_category">ZRAM</string>
+    <string name="kk_performance_zram_title">Enable ZRAM on boot</string>
+    <string name="kk_performance_zram_summary">10% of RAM will be used as swap space</string>
+    <string name="kk_performance_not_applied">Overclocking not applied</string>
+    <string name="kk_performance_notification_title">Overclocking</string>
+    <string name="kk_performance_notification_text">Not been applied due to recent reboot (less than 2 minutes).</string>
 
 
 <!-- Arrays -->

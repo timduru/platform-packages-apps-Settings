@@ -196,12 +196,11 @@
     <header android:id="@+id/system_section"
         android:title="@string/header_category_system" />
 
-    <!-- Date & Time -->
     <header
-        android:id="@+id/date_time_settings"
-        android:fragment="com.android.settings.DateTimeSettings"
-        android:icon="@drawable/ic_settings_date_time"
-        android:title="@string/date_and_time_settings_title" />
+        android:fragment="com.android.settings.katkiss.Performance"
+        android:icon="@drawable/ic_rocket"
+        android:key="kk_performance_settings"
+        android:title="@string/kk_performance" />
 
     <header
         android:id="@+id/mediascanner_filters"
@@ -212,6 +211,13 @@
             android:targetPackage="com.android.providers.media" />
             />
     </header>
+
+    <!-- Date & Time -->
+    <header
+        android:id="@+id/date_time_settings"
+        android:fragment="com.android.settings.DateTimeSettings"
+        android:icon="@drawable/ic_settings_date_time"
+        android:title="@string/date_and_time_settings_title" />
 
     <!-- Accessibility feedback -->
     <header

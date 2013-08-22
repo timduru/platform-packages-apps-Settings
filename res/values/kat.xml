@@ -13,7 +13,7 @@
     <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
 
     <string name="kk_wifi_regulatory_domain_selector">Change wifi regulatory domain</string>
-    <string name="kk_wifi_regulatory_domain_changed">Wifi regulatory domain changed</string>
+    <string name="kk_wifi_regulatory_domain_changed">Wifi regulatory domain changed (might need a reboot)</string>
     <string name="kk_wifi_restarting">Restarting wifi...</string>
 
 

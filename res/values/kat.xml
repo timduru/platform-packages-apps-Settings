@@ -12,6 +12,9 @@
     <string name="kk_ui_mode">Interface Mode</string>
     <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
 
+    <string name="kk_ui_barsize_title">Navigation Bar Size</string>
+    <string name="kk_ui_barsize_summary">Choose between standard bar size and smaller sizes</string>
+
     <string name="kk_wifi_regulatory_domain_selector">Change wifi regulatory domain</string>
     <string name="kk_wifi_regulatory_domain_changed">Wifi regulatory domain changed (might need a reboot)</string>
     <string name="kk_wifi_restarting">Restarting wifi...</string>
@@ -55,6 +58,18 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="kk_ui_navbar_size_entries">
+        <item>Normal (48dp)</item>
+        <item>Slim (36dp)</item>
+        <item>Small (24dp)</item>
+    </string-array>
+    <string-array name="kk_ui_navbar_size_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
     <string-array name="kk_wifi_regulatory_domain_entries">
         <item>United States</item>
         <item>Japan</item>
@@ -65,6 +80,7 @@
         <item>JP</item>
         <item>EU</item>
     </string-array>
+
 
 </resources>
 

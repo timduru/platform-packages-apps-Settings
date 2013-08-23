@@ -33,6 +33,7 @@ import android.util.Log;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.app.Dialog;
+import android.app.Activity;
 
 import java.util.ArrayList;
 
@@ -40,9 +41,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private static final String TAG = "UISettings";
 
     private static final String KEY_UI_MODE = "kk_ui_mode";
+    private static final String KEY_UI_BARSIZE = "kk_ui_barsize";
     private ContentResolver mResolver; 
 
-    private ListPreference _uiMode;
+    private ListPreference _uiModeList, _uiBarSizeList;
     private boolean _prevTabletUIMode;
 
     @Override
@@ -51,10 +53,12 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         mResolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.kk_ui_settings);
-        _uiMode = (ListPreference) findPreference(KEY_UI_MODE);
+        _uiModeList = (ListPreference) findPreference(KEY_UI_MODE);
+        _uiBarSizeList = (ListPreference) findPreference(KEY_UI_BARSIZE);
         refreshState();
 
-        _uiMode.setOnPreferenceChangeListener(this);
+        _uiModeList.setOnPreferenceChangeListener(this);
+        _uiBarSizeList.setOnPreferenceChangeListener(this);
 
     }
 
@@ -62,9 +66,12 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private void refreshState() {
         int uiVal =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR );
         _prevTabletUIMode = (uiVal == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
+        _uiModeList.setDefaultValue(String.valueOf(uiVal));
+        _uiModeList.setValue(String.valueOf(uiVal));
 
-        _uiMode.setDefaultValue(String.valueOf(uiVal));
-        _uiMode.setValue(String.valueOf(uiVal));
+        int uiBarSize =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_BARSIZE, KKC.S.SYSTEMUI_BARSIZE_MODE_NORMAL );
+        _uiBarSizeList.setDefaultValue(String.valueOf(uiBarSize));
+        _uiBarSizeList.setValue(String.valueOf(uiBarSize));
     }
     
     @Override
@@ -89,7 +96,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         final String key = preference.getKey();
 	if(key == null) return true;
 
-        if (key.equals(KEY_UI_MODE)) {
+        if (key.equals(KEY_UI_MODE)) 
+        {
           int mode = Integer.parseInt((String) objValue);
 
           boolean tabletUIMode = (mode == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
@@ -97,7 +105,12 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           sendIntentToWindowManager(KKC.I.CMD_BARTYPE_CHANGED, true);
           _prevTabletUIMode = tabletUIMode;
         }
-
+        else if(key.equals(KEY_UI_BARSIZE));
+        {
+          int size = Integer.parseInt((String) objValue);
+          Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_BARSIZE, size);
+          sendIntentToWindowManager(KKC.I.CMD_BARSIZE_CHANGED, true);
+        }
         return true;
     }
 
@@ -123,6 +136,4 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
                 .putExtra(KKC.I.EXTRA_RESTART_SYSTEMUI, shouldRestartUI);
         getActivity().sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_ALL));
     }
-
-
 }

@@ -10,9 +10,6 @@ import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.util.Log;
 
-import org.teameos.jellybean.settings.EOSConstants;
-import org.teameos.jellybean.settings.EOSUtils;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -46,7 +43,7 @@ public final class Utils {
     public static final String LEGACY_TOGGLES_FRAGMENT_TAG = "kk_legacy_toggles_fragment";
     public static final String QUICK_SETTINGS_FRAGMENT_TAG = "kk_quick_settings_fragment";
 
-    public static final String DEFAULT_TITLE = "EOS Control Center";
+    public static final String DEFAULT_TITLE = "Control Center";
     public static final String INTERFACE_SETTINGS_TITLE = "Interface";
     public static final String NAVBAR_SETTINGS_TITLE = "Navigation";
     public static final String STATUSBAR_SETTINGS_TITLE = "Statusbar";

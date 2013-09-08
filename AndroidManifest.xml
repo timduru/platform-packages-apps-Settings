@@ -1582,6 +1582,7 @@
 
         <activity android:name=".katkiss.UISettings" />
         <activity android:name=".katkiss.Performance" />
+        <activity android:name=".katkiss.SoftKeyActions" />
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"

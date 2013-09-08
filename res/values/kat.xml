@@ -14,7 +14,28 @@
 
     <string name="kk_ui_barsize_title">Navigation Bar Size</string>
     <string name="kk_ui_barsize_summary">Choose between standard bar size and smaller sizes</string>
+    
+    
+    <string name="kk_ui_interface_navkeys">Navigation Buttons Settings</string>
+    <string name="kk_ui_interface_navkeys_summary">Change Nav Buttons Features</string>
+    <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
+    <string name="kk_ui_recent_longpress_title">Recent Button Long Press Action</string>
+    <string name="kk_ui_menu_longpress_title">Menu Button Long Press Action</string>  
+    <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
+    <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
+    <string name="kk_ui_menu_target_uri">kk_ui_menu_target_uri</string>
+    
+    <string name="kk_ui_screenshot_title">Screenshot</string>
+    <string name="kk_ui_screenoff_title">Screen Off</string>
+    <string name="kk_ui_kill_process_title">Kill Current Process</string>
+    <string name="kk_ui_assist_title">Google Now</string>
+    <string name="kk_ui_package_removed">The previously selected package was not found</string>
+    <string name="kk_ui_activity_pref_default_title">No Activity Selected</string>
+    <string name="kk_ui_activity_pref_default_summary">Tap to select a custom long press activity</string>
+    <string name="kk_activity_dialog_title">Select Activity</string>
 
+    
+    
     <string name="kk_wifi_regulatory_domain_selector">Change wifi regulatory domain</string>
     <string name="kk_wifi_regulatory_domain_changed">Wifi regulatory domain changed (might need a reboot)</string>
     <string name="kk_wifi_restarting">Restarting wifi...</string>
@@ -81,6 +102,30 @@
         <item>EU</item>
     </string-array>
 
+    
+    <string-array name="kk_action_dialog_entries">
+        <item>None</item>
+        <item>Take screenshot</item>
+        <item>Kill process</item>
+        <item>Screen off</item>
+        <item>Google Now</item>
+<!--        <item>Power Menu</item> -->
+        <item>Select Application</item>
+    </string-array>
+    <string-array name="kk_action_dialog_values">
+        <item>none</item>
+        <item>screenshot</item>
+        <item>killcurrent</item>
+        <item>screenoff</item>
+        <item>assist</item>
+<!--        <item>powermenu</item> -->
+        <item>app</item>
+    </string-array>
 
+<!-- styles  -->
+    <declare-styleable name="ActionPreference">
+        <attr name="providerUri" format="reference" />
+    </declare-styleable>
+ 
 </resources>
 

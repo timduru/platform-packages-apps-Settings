@@ -20,4 +20,10 @@
             android:summary="@string/kk_ui_barsize_summary"
             android:title="@string/kk_ui_barsize_title" />
 
+        <PreferenceScreen
+            android:fragment="com.android.settings.katkiss.SoftKeyActions"
+            android:key="owner_info_settings"
+            android:title="@string/kk_ui_interface_navkeys"
+            android:summary="@string/kk_ui_interface_navkeys_summary"/>
+
 </PreferenceScreen>

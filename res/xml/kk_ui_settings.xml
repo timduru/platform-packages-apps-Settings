@@ -22,8 +22,15 @@
 
         <PreferenceScreen
             android:fragment="com.android.settings.katkiss.SoftKeyActions"
-            android:key="owner_info_settings"
+            android:key="ui_interface_navkeys"
             android:title="@string/kk_ui_interface_navkeys"
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
+
+        <CheckBoxPreference
+            android:key="inputmethod_shownotification" 
+            android:defaultValue="false"
+            android:title="@string/inputmethod_shownotification_title"
+            android:summary="@string/inputmethod_shownotification_summary"
+        />
 
 </PreferenceScreen>

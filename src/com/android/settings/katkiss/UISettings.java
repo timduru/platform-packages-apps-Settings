@@ -45,6 +45,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private ContentResolver mResolver; 
 
     private ListPreference _uiModeList, _uiBarSizeList;
+    private CheckBoxPreference _inputNotification;
     private boolean _prevTabletUIMode;
 
     @Override
@@ -55,11 +56,12 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         addPreferencesFromResource(R.xml.kk_ui_settings);
         _uiModeList = (ListPreference) findPreference(KEY_UI_MODE);
         _uiBarSizeList = (ListPreference) findPreference(KEY_UI_BARSIZE);
+        _inputNotification = (CheckBoxPreference) findPreference(KKC.S.INPUTMETHOD_SHOWNOTIFICATION);
         refreshState();
 
         _uiModeList.setOnPreferenceChangeListener(this);
         _uiBarSizeList.setOnPreferenceChangeListener(this);
-
+        _inputNotification.setOnPreferenceChangeListener(this);
     }
 
 
@@ -105,12 +107,18 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           sendIntentToWindowManager(KKC.I.CMD_BARTYPE_CHANGED, true);
           _prevTabletUIMode = tabletUIMode;
         }
-        else if(key.equals(KEY_UI_BARSIZE));
+        else if(key.equals(KEY_UI_BARSIZE))
         {
           int size = Integer.parseInt((String) objValue);
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_BARSIZE, size);
           sendIntentToWindowManager(KKC.I.CMD_BARSIZE_CHANGED, true);
         }
+        else if (key.equals(KKC.S.INPUTMETHOD_SHOWNOTIFICATION))
+        {
+          Boolean val = (Boolean) objValue;
+          Settings.System.putInt(getContentResolver(), key, val?1:0);
+        }
+
         return true;
     }
 

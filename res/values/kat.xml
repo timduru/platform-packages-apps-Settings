@@ -61,6 +61,9 @@
     <string name="kk_performance_notification_title">Overclocking</string>
     <string name="kk_performance_notification_text">Not been applied due to recent reboot (less than 2 minutes).</string>
 
+    <string name="inputmethod_shownotification_title">Show InputMethod Chooser Notification</string>
+    <string name="inputmethod_shownotification_summary">Enable/Disable the permanent InputMethod Notification</string>
+
 
 <!-- Arrays -->
 

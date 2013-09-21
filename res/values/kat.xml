@@ -8,6 +8,9 @@
     <string name="autoparts_dock_settings">Dock</string>
     <string name="mediascanner_filters">MediaScanner Filters</string>
 
+    <string name="kk_ui_general_title">General</string>
+    <string name="kk_ui_misc_title">Misc</string>
+    
     <string name="kk_ui_settings">User Interface</string>
     <string name="kk_ui_mode">Interface Mode</string>
     <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
@@ -61,6 +64,13 @@
     <string name="kk_performance_notification_title">Overclocking</string>
     <string name="kk_performance_notification_text">Not been applied due to recent reboot (less than 2 minutes).</string>
 
+    <string name="kk_ui_battery_title">Battery</string>
+    <string name="kk_ui_battery_settings">Battery Settings</string>
+    <string name="kk_ui_battery_icon_title">Show battery icon</string>
+    <string name="kk_ui_battery_text_title">Show battery text</string>
+    <string name="kk_ui_battery_text_percent_title">Show percent</string>
+    
+    
     <string name="inputmethod_shownotification_title">Show InputMethod Chooser Notification</string>
     <string name="inputmethod_shownotification_summary">Enable/Disable the permanent InputMethod Notification</string>
 
@@ -124,7 +134,7 @@
 <!--        <item>powermenu</item> -->
         <item>app</item>
     </string-array>
-
+    
 <!-- styles  -->
     <declare-styleable name="ActionPreference">
         <attr name="providerUri" format="reference" />

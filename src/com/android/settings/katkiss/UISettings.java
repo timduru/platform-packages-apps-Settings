@@ -45,7 +45,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private ContentResolver mResolver; 
 
     private ListPreference _uiModeList, _uiBarSizeList;
-    private CheckBoxPreference _inputNotification;
+    private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextPercent ;
     private boolean _prevTabletUIMode;
 
     @Override
@@ -57,23 +57,41 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _uiModeList = (ListPreference) findPreference(KEY_UI_MODE);
         _uiBarSizeList = (ListPreference) findPreference(KEY_UI_BARSIZE);
         _inputNotification = (CheckBoxPreference) findPreference(KKC.S.INPUTMETHOD_SHOWNOTIFICATION);
+        _batteryIcon = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_ICON);
+        _batteryText = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT);
+        _batteryTextPercent = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT);
         refreshState();
 
         _uiModeList.setOnPreferenceChangeListener(this);
         _uiBarSizeList.setOnPreferenceChangeListener(this);
         _inputNotification.setOnPreferenceChangeListener(this);
+        _batteryIcon.setOnPreferenceChangeListener(this);
+        _batteryText.setOnPreferenceChangeListener(this);
+        _batteryTextPercent.setOnPreferenceChangeListener(this);
     }
 
 
     private void refreshState() {
-        int uiVal =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR );
-        _prevTabletUIMode = (uiVal == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
-        _uiModeList.setDefaultValue(String.valueOf(uiVal));
-        _uiModeList.setValue(String.valueOf(uiVal));
+        int valInt;
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR );
+        _prevTabletUIMode = (valInt == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
+        _uiModeList.setDefaultValue(String.valueOf(valInt));
+        _uiModeList.setValue(String.valueOf(valInt));
 
-        int uiBarSize =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_BARSIZE, KKC.S.SYSTEMUI_BARSIZE_MODE_NORMAL );
-        _uiBarSizeList.setDefaultValue(String.valueOf(uiBarSize));
-        _uiBarSizeList.setValue(String.valueOf(uiBarSize));
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_BARSIZE, KKC.S.SYSTEMUI_BARSIZE_MODE_NORMAL );
+        _uiBarSizeList.setDefaultValue(String.valueOf(valInt));
+        _uiBarSizeList.setValue(String.valueOf(valInt));
+        
+        valInt =  Settings.System.getInt(mResolver, KKC.S.INPUTMETHOD_SHOWNOTIFICATION, 0);
+        _inputNotification.setChecked(valInt == 1);
+
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_ICON, 1);
+        _batteryIcon.setChecked(valInt == 1);
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT, 1);
+        _batteryText.setChecked(valInt == 1);
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1);
+        _batteryTextPercent.setChecked(valInt == 1);
+
     }
     
     @Override
@@ -113,7 +131,9 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_BARSIZE, size);
           sendIntentToWindowManager(KKC.I.CMD_BARSIZE_CHANGED, true);
         }
-        else if (key.equals(KKC.S.INPUTMETHOD_SHOWNOTIFICATION))
+        else if (key.equals(KKC.S.INPUTMETHOD_SHOWNOTIFICATION)
+        		 || key.equals(KKC.S.SYSTEMUI_BATTERY_ICON) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT )
+        		)
         {
           Boolean val = (Boolean) objValue;
           Settings.System.putInt(getContentResolver(), key, val?1:0);

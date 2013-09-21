@@ -4,7 +4,10 @@
         android:title="@string/kk_ui_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <ListPreference
+    <PreferenceCategory
+        android:key="kk_ui_general"
+        android:title="@string/kk_ui_general_title" >
+    <ListPreference
                 android:key="kk_ui_mode"
                 android:title="@string/kk_ui_mode"
                 android:summary="@string/kk_ui_mode_summary"
@@ -25,12 +28,31 @@
             android:key="ui_interface_navkeys"
             android:title="@string/kk_ui_interface_navkeys"
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
-
+    </PreferenceCategory>
+        
+    <PreferenceCategory
+        android:key="kk_ui_battery"
+        android:title="@string/kk_ui_battery_title" >
         <CheckBoxPreference
+            android:key="kk_ui_battery_icon"
+            android:title="@string/kk_ui_battery_icon_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_battery_text"
+            android:title="@string/kk_ui_battery_text_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_battery_text_percent"
+            android:title="@string/kk_ui_battery_text_percent_title" />
+    </PreferenceCategory>
+        
+    <PreferenceCategory
+        android:key="kk_ui_misc"
+        android:title="@string/kk_ui_misc_title" >
+    <CheckBoxPreference
             android:key="inputmethod_shownotification" 
             android:defaultValue="false"
             android:title="@string/inputmethod_shownotification_title"
             android:summary="@string/inputmethod_shownotification_summary"
         />
+    </PreferenceCategory>
 
 </PreferenceScreen>

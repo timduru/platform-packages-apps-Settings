@@ -47,6 +47,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private ListPreference _uiModeList, _uiBarSizeList;
     private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextPercent ;
     private CheckBoxPreference _clockTime, _clockDate;
+    private CheckBoxPreference _recentsKillall, _recentsMem;
     private boolean _prevTabletUIMode;
 
     @Override
@@ -63,6 +64,9 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _batteryTextPercent = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT);
         _clockTime = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_TIME);
         _clockDate = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_DATE);
+        _recentsKillall =  (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON);
+        _recentsMem = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY);
+
         refreshState();
 
         _uiModeList.setOnPreferenceChangeListener(this);
@@ -74,6 +78,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         _clockTime.setOnPreferenceChangeListener(this);
         _clockDate.setOnPreferenceChangeListener(this);
+        
+        _recentsKillall.setOnPreferenceChangeListener(this);
+        _recentsMem.setOnPreferenceChangeListener(this);
+        
     }
 
 
@@ -88,20 +96,17 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _uiBarSizeList.setDefaultValue(String.valueOf(valInt));
         _uiBarSizeList.setValue(String.valueOf(valInt));
         
-        valInt =  Settings.System.getInt(mResolver, KKC.S.INPUTMETHOD_SHOWNOTIFICATION, 0);
-        _inputNotification.setChecked(valInt == 1);
+        _inputNotification.setChecked(Settings.System.getInt(mResolver, KKC.S.INPUTMETHOD_SHOWNOTIFICATION, 0) == 1);
 
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_ICON, 1);
-        _batteryIcon.setChecked(valInt == 1);
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT, 1);
-        _batteryText.setChecked(valInt == 1);
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1);
-        _batteryTextPercent.setChecked(valInt == 1);
+        _batteryIcon.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_ICON, 1) == 1);
+        _batteryText.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT, 1) == 1);
+        _batteryTextPercent.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1) == 1);
 
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1);
-        _clockTime.setChecked(valInt == 1);
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0);
-        _clockDate.setChecked(valInt == 1);
+        _clockTime.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1) == 1);
+        _clockDate.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0) == 1);
+        
+        _recentsKillall.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON, 1) == 1);
+        _recentsMem.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);        
     }
     
     @Override
@@ -145,6 +150,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         else if (key.equals(KKC.S.INPUTMETHOD_SHOWNOTIFICATION)
        		 || key.equals(KKC.S.SYSTEMUI_BATTERY_ICON) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT )
     		 || key.equals(KKC.S.SYSTEMUI_CLOCK_TIME) || key.equals(KKC.S.SYSTEMUI_CLOCK_DATE)
+    		 || key.equals(KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON) || key.equals(KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY)
         		)
         {
           Boolean val = (Boolean) objValue;

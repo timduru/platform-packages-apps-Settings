@@ -13,6 +13,7 @@
     <string name="kk_ui_misc_title">Misc</string>
     <string name="kk_ui_clock_title">Clock</string>
     <string name="kk_ui_battery_title">Battery</string>
+    <string name="kk_ui_recents_title">Recent Apps Screen</string>
     
     <string name="kk_ui_settings">User Interface</string>
     <string name="kk_ui_mode">Interface Mode</string>
@@ -77,6 +78,8 @@
     <string name="inputmethod_shownotification_title">Show InputMethod Chooser Notification</string>
     <string name="inputmethod_shownotification_summary">Enable/Disable the permanent InputMethod Notification</string>
 
+    <string name="kk_ui_recents_killall_button_title">Show KillAll Button</string>
+    <string name="kk_ui_recents_mem_display_title">Show Mem Info</string>    
 
 <!-- Arrays -->
 

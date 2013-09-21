@@ -53,8 +53,19 @@
         <CheckBoxPreference
             android:key="kk_ui_clock_date"
             android:title="@string/kk_ui_clock_date_title" />
+     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="kk_ui_recents"
+        android:title="@string/kk_ui_recents_title" >
+        <CheckBoxPreference
+            android:key="kk_ui_recents_killall_button"
+            android:title="@string/kk_ui_recents_killall_button_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_recents_mem_display"
+            android:title="@string/kk_ui_recents_mem_display_title" />
         </PreferenceCategory>
-        
+    
     <PreferenceCategory
         android:key="kk_ui_misc"
         android:title="@string/kk_ui_misc_title" >

@@ -46,6 +46,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
     private ListPreference _uiModeList, _uiBarSizeList;
     private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextPercent ;
+    private CheckBoxPreference _clockTime, _clockDate;
     private boolean _prevTabletUIMode;
 
     @Override
@@ -60,6 +61,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _batteryIcon = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_ICON);
         _batteryText = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT);
         _batteryTextPercent = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT);
+        _clockTime = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_TIME);
+        _clockDate = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_DATE);
         refreshState();
 
         _uiModeList.setOnPreferenceChangeListener(this);
@@ -68,6 +71,9 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _batteryIcon.setOnPreferenceChangeListener(this);
         _batteryText.setOnPreferenceChangeListener(this);
         _batteryTextPercent.setOnPreferenceChangeListener(this);
+
+        _clockTime.setOnPreferenceChangeListener(this);
+        _clockDate.setOnPreferenceChangeListener(this);
     }
 
 
@@ -92,6 +98,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1);
         _batteryTextPercent.setChecked(valInt == 1);
 
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1);
+        _clockTime.setChecked(valInt == 1);
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0);
+        _clockDate.setChecked(valInt == 1);
     }
     
     @Override
@@ -131,8 +141,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_BARSIZE, size);
           sendIntentToWindowManager(KKC.I.CMD_BARSIZE_CHANGED, true);
         }
+        // CheckBox
         else if (key.equals(KKC.S.INPUTMETHOD_SHOWNOTIFICATION)
-        		 || key.equals(KKC.S.SYSTEMUI_BATTERY_ICON) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT )
+       		 || key.equals(KKC.S.SYSTEMUI_BATTERY_ICON) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT )
+    		 || key.equals(KKC.S.SYSTEMUI_CLOCK_TIME) || key.equals(KKC.S.SYSTEMUI_CLOCK_DATE)
         		)
         {
           Boolean val = (Boolean) objValue;

@@ -28,7 +28,7 @@ public class HDMIReceiver extends Activity
 /*        StatusBarManager statusbarmanager = (StatusBarManager)getSystemService("statusbar");
         if(statusbarmanager != null)
             statusbarmanager.collapse();*/
-        new HDMIOutChooserFragment().show(getFragmentManager(), "hdmiselector");
+        new HDMIOutChooserDialogFragment().show(getFragmentManager(), "hdmiselector");
         IntentFilter intentfilter = new IntentFilter("android.intent.action.HDMI_PLUGGED");
         registerReceiver(mReceiver, intentfilter);
     }

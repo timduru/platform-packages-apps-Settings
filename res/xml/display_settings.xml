@@ -18,6 +18,11 @@
         android:title="@string/display_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <Preference
+                android:key="hdmi"
+                android:title="@string/kk_hdmi_modes_title"
+                android:persistent="false"/>
+
         <com.android.settings.BrightnessPreference
                 android:title="@string/brightness"
                 android:persistent="false"/>

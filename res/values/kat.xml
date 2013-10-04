@@ -81,6 +81,8 @@
     <string name="kk_ui_recents_killall_button_title">Show KillAll Button</string>
     <string name="kk_ui_recents_mem_display_title">Show Mem Info</string>    
 
+    <string name="kk_hdmi_modes_title">HDMIOut Mode</string>    
+
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">
@@ -141,6 +143,12 @@
         <item>app</item>
     </string-array>
     
+    <string-array name="kk_hdmi_modes">
+        <item>Center</item>
+        <item>Crop</item>
+        <item>Scale</item>
+    </string-array>
+
 <!-- styles  -->
     <declare-styleable name="ActionPreference">
         <attr name="providerUri" format="reference" />

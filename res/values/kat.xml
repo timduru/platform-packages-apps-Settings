@@ -37,9 +37,10 @@
     <string name="kk_ui_kill_process_title">Kill Current Process</string>
     <string name="kk_ui_assist_title">Google Now</string>
     <string name="kk_ui_package_removed">The previously selected package was not found</string>
-    <string name="kk_ui_activity_pref_default_title">No Activity Selected</string>
+    <string name="kk_ui_activity_pref_default_title">No Action Selected</string>
     <string name="kk_ui_activity_pref_default_summary">Tap to select a custom long press activity</string>
     <string name="kk_activity_dialog_title">Select Activity</string>
+    <string name="kk_action_dialog_title">Select Action</string>
 
     
     
@@ -125,22 +126,22 @@
 
     
     <string-array name="kk_action_dialog_entries">
-        <item>None</item>
+        <item>Start Application</item>
         <item>Take screenshot</item>
         <item>Kill process</item>
         <item>Screen off</item>
         <item>Google Now</item>
 <!--        <item>Power Menu</item> -->
-        <item>Select Application</item>
+        <item>None</item>
     </string-array>
     <string-array name="kk_action_dialog_values">
-        <item>none</item>
+        <item>app</item>
         <item>screenshot</item>
         <item>killcurrent</item>
         <item>screenoff</item>
         <item>assist</item>
 <!--        <item>powermenu</item> -->
-        <item>app</item>
+        <item>none</item>
     </string-array>
     
     <string-array name="kk_hdmi_modes">

@@ -1,7 +1,7 @@
 
 package com.android.settings.katkiss;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
@@ -19,10 +19,10 @@ import com.android.settings.R;
 public class PackageAdapter extends BaseAdapter {
 
     List<ResolveInfo> mPackageList;
-    Activity mContext;
+    Context mContext;
     PackageManager mPm;
 
-    public PackageAdapter(Activity context, List<ResolveInfo> packageList,
+    public PackageAdapter(Context context, List<ResolveInfo> packageList,
             PackageManager packageManager) {
         super();
         mContext = context;
@@ -49,7 +49,7 @@ public class PackageAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        LayoutInflater inflater = mContext.getLayoutInflater();
+        LayoutInflater inflater = LayoutInflater.from(mContext);
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.kk_activity_item, null);

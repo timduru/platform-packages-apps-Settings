@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.android.settings.R;
 
 
-public class SoftKeyActions extends ActionFragment {
+public class SoftKeyActions extends ActionMultiPreferenceFragment {
 
     public static SoftKeyActions newInstance(Bundle args) {
         SoftKeyActions frag = new SoftKeyActions();

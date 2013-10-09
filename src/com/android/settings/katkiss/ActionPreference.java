@@ -19,7 +19,7 @@ import android.widget.Toast;
 import org.meerkats.katkiss.KKC;
 import com.android.settings.R;
 
-public class ActionPreference extends Preference {
+public class ActionPreference extends Preference implements ActionPicker.ICallBackResult {
     private Context mContext;
     private ContentResolver mResolver;
     private Resources mRes;
@@ -207,7 +207,7 @@ public class ActionPreference extends Preference {
             setDefaultSettings(false);
         }
     }
-
+/*
     public void setResourcesFromPackage(String name, String component, Drawable d) {
         setTitle(name);
         setIcon(d);
@@ -219,4 +219,9 @@ public class ActionPreference extends Preference {
         String tmp = "app:" + component;
         setTargetValue(tmp);
     }
+*/
+
+    //ICallBackResult
+    public void pickedAction(String choice) { setTargetValue(choice); setResources(choice); }
+
 }

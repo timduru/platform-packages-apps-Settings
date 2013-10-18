@@ -543,7 +543,8 @@
     <!-- LocalePicker -->
     <!-- Title for the locale picker activity -->
     <string name="language_picker_title">Language</string>
-
+    <string name="language_category">Language</string>
+    
     <!-- The title of the dialog to pick an activity.  This is shown when there are multiple activities that can do a particular action.  For example, suppose you click on the "Share" menu item in the Browser.  Since you can share the webpage URL via many communication methods, this dialog would come up with choices like "Email", "IM", etc.  This is a generic message, and the previous example is a single possible scenario (so please don't assume it's for the browser or anything :) ). -->
     <string name="activity_picker_label">Choose activity</string>
     <!-- Do not translate. -->

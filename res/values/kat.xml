@@ -84,6 +84,23 @@
 
     <string name="kk_hdmi_modes_title">HDMIOut Mode</string>    
 
+    <string name="kk_keyoverride_category_title">Global Shortcuts / KeyOverride</string>    
+    <string name="kk_keyoverride_title">Add Key Override Actions</string>    
+    <string name="kk_keyoverride_noentries">No Key Override Defined</string>    
+    <string name="kk_keyoverride_functionkeys">Function Keys</string>    
+    <string name="kk_keyoverride_specialkeys">Special Keys</string>    
+    <string name="kk_keyoverride_category_current_actions">Current Key Override Actions</string>    
+    
+    <string name="add">Add</string>    
+    
+    <string name="shiftL">ShiftL</string>    
+    <string name="shiftR">ShiftR</string>    
+    <string name="ctrlL">CtrlL</string>    
+    <string name="ctrlR">CtrlR</string>    
+    <string name="altL">AltL</string>    
+    <string name="altR">AltR</string>    
+    
+    
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">
@@ -150,6 +167,73 @@
         <item>Scale</item>
     </string-array>
 
+    <string-array name="kk_keyoverride_function_entries">
+        <item>Wifi</item>
+        <item>Bluetooth</item>
+        <item>TouchPad</item>
+        <item>Brightness Down</item>
+        <item>Brightness Up</item>
+        <item>Brightness Auto</item>
+        <item>ScreenShot</item>
+        <item>Explorer</item>
+        <item>Settings</item>
+        <item>Media Previous</item>
+        <item>Media Pause</item>
+        <item>Media Next</item>
+        <item>Volume Mute</item>
+        <item>Volume Down</item>
+        <item>Volume Up</item>
+        <item>Sleep</item>
+
+    </string-array>
+
+    <string-array name="kk_keyoverride_function_values">
+        <item>KEYCODE_WIRELESS</item>
+        <item>KEYCODE_BLUETOOTH</item>
+        <item>KEYCODE_TOUCHPAD</item>
+        <item>KEYCODE_BRIGHTNESS_DOWN</item>
+        <item>KEYCODE_BRIGHTNESS_UP</item>
+        <item>KEYCODE_BRIGHTNESS_AUTO</item>
+        <item>KEYCODE_CAPTURE</item>
+        <item>KEYCODE_EXPLORER</item>
+        <item>KEYCODE_SETTINGS</item>
+        <item>KEYCODE_MEDIA_PREVIOUS</item>
+        <item>KEYCODE_MEDIA_PLAY_PAUSE</item>
+        <item>KEYCODE_MEDIA_NEXT</item>
+        <item>KEYCODE_VOLUME_MUTE</item>
+        <item>KEYCODE_VOLUME_DOWN</item>
+        <item>KEYCODE_VOLUME_UP</item>
+        <item>KEYCODE_SLEEP</item>
+    </string-array>
+
+    <string-array name="kk_keyoverride_special_entries">
+     <item>Back</item>
+<!--     <item>Home</item> -->
+     <item>Search</item>
+     <item>Menu</item>
+     <item>Tab</item>
+     <item>Enter</item>
+     <item>BackSpace</item>
+	 <item>Left</item>
+     <item>Right</item>
+     <item>Up</item>
+     <item>Down</item>
+    </string-array>
+   
+    <string-array name="kk_keyoverride_special_values">
+     <item>4</item>
+<!--     <item>3</item> -->
+     <item>84</item>
+     <item>82</item>
+     <item>61</item>
+     <item>66</item>
+     <item>67</item>
+     <item>21</item>
+	 <item>22</item>
+     <item>19</item>
+     <item>20</item>
+    </string-array>
+    
 <!-- styles  -->
     <declare-styleable name="ActionPreference">
         <attr name="providerUri" format="reference" />

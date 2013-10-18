@@ -18,6 +18,16 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/language_keyboard_settings_title">
 
+    <PreferenceCategory android:key="keyoverride_cat"
+            android:title="@string/kk_keyoverride_category_title">
+      <PreferenceScreen
+        android:key="keyoverride"
+        android:title="@string/kk_keyoverride_title"
+        android:fragment="com.android.settings.katkiss.KeyOverrideFragment" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:key="language_cat"
+            android:title="@string/language_category">
     <PreferenceScreen
             android:fragment="com.android.settings.LocalePicker"
             android:key="phone_language"
@@ -30,7 +40,8 @@
     <!-- User dictionary preference title and fragment will be set programmatically. -->
     <PreferenceScreen
             android:key="key_user_dictionary_settings" />
-
+    </PreferenceCategory>
+    
     <PreferenceCategory android:key="keyboard_settings_category"
             android:title="@string/keyboard_settings_category">
         <PreferenceScreen android:key="current_input_method"
@@ -102,4 +113,5 @@
                 android:summaryOff="@string/vibrate_input_devices_summary"
                 android:persistent="false"/>
     </PreferenceCategory>
+
 </PreferenceScreen>

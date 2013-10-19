@@ -1,0 +1,11 @@
+
+.classpath
+.project
+bin/
+gen/
+project.properties
+tests/.classpath
+tests/.project
+tests/bin/
+tests/project.properties
+

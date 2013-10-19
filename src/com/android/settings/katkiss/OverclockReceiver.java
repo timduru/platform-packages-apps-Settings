@@ -56,11 +56,14 @@ public class OverclockReceiver extends BroadcastReceiver {
         } else {
             if (Utils.prefFlagExists(context, Utils.CLOCKS_ON_BOOT_PREF)) {
                 String val = Utils.readPrefValue(context, Utils.MIN_PREF);
-                Utils.writeKernelValue(Utils.CPU_MIN_SCALE, val);
+                Utils.writeKernelValue(Utils.CPU_BASEPATH + "0/" + Utils.CPU_MIN_SCALE, val);
+                Utils.writeKernelValue(Utils.CPU_BASEPATH + "1/" + Utils.CPU_MIN_SCALE, val);
                 val = Utils.readPrefValue(context, Utils.MAX_PREF);
-                Utils.writeKernelValue(Utils.CPU_MAX_SCALE, val);
+                Utils.writeKernelValue(Utils.CPU_BASEPATH + "0/" + Utils.CPU_MAX_SCALE, val);
+                Utils.writeKernelValue(Utils.CPU_BASEPATH + "1/" + Utils.CPU_MAX_SCALE, val);
                 val = Utils.readPrefValue(context, Utils.GOV_PREF);
-                Utils.writeKernelValue(Utils.CPU_GOV, val);
+                Utils.writeKernelValue(Utils.CPU_BASEPATH + "0/" + Utils.CPU_GOV, val);
+                Utils.writeKernelValue(Utils.CPU_BASEPATH + "1/" + Utils.CPU_GOV, val);
             }
             if (Utils.prefFlagExists(context, Utils.IOSCHED_PREF)) {
                 String val = Utils.readPrefValue(context, Utils.IOSCHED_PREF);

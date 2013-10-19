@@ -290,21 +290,25 @@ public class Performance extends PreferenceFragment implements
      * @return boolean of whether the writes completed or failed miserably.
      */
     private boolean writeToCpuFiles(CLOCK_TYPE clockType, String contents) {
-        String outputFile = null;
+        String target = null;
+        boolean res= false;
 
         switch (clockType) {
             case MIN:
-                outputFile = Utils.CPU_MIN_SCALE;
+                target = Utils.CPU_MIN_SCALE;
                 break;
             case MAX:
-                outputFile = Utils.CPU_MAX_SCALE;
+                target = Utils.CPU_MAX_SCALE;
                 break;
             case GOV:
-                outputFile = Utils.CPU_GOV;
+                target = Utils.CPU_GOV;
                 break;
         }
+	res = Utils.writeKernelValue(Utils.CPU_BASEPATH + "0/" + target, contents);
+	if(!res) return false;
+	res = Utils.writeKernelValue(Utils.CPU_BASEPATH + "1/" + target, contents);
 
-        return Utils.writeKernelValue(outputFile, contents);
+        return res; 
     }
 
     private void updatePreferenceSummary(Preference preference, String currentValue,
@@ -334,15 +338,15 @@ public class Performance extends PreferenceFragment implements
 
         switch (clockType) {
             case MIN:
-                currentClockFile = Utils.CPU_MIN_SCALE;
+                currentClockFile = Utils.CPU_BASEPATH + "0/" + Utils.CPU_MIN_SCALE;
                 bootClockFile = Utils.MIN_PREF;
                 break;
             case MAX:
-                currentClockFile = Utils.CPU_MAX_SCALE;
+                currentClockFile = Utils.CPU_BASEPATH + "0/" + Utils.CPU_MAX_SCALE;
                 bootClockFile = Utils.MAX_PREF;
                 break;
             case GOV:
-                currentClockFile = Utils.CPU_GOV;
+                currentClockFile = Utils.CPU_BASEPATH + "0/" + Utils.CPU_GOV;
                 bootClockFile = Utils.GOV_PREF;
                 break;
         }

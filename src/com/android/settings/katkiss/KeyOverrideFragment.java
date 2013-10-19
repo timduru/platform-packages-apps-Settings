@@ -211,7 +211,9 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 	{
 		KeyActions keyAction = new KeyActions(_context, Integer.parseInt(_currentKeyCode) );
 		keyAction.initFromSettings();
-		keyAction.addFlagAction(_currentFlags, choice);
+
+		if(choice.equals("none")) keyAction.delFlag(_currentFlags);
+		else keyAction.addFlagAction(_currentFlags, choice);
 		keyAction.writeToSettings();
 
 		refreshKeyActionsList();

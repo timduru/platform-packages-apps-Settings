@@ -61,11 +61,12 @@ public final class Utils {
      * kernel constants and their pref flags We only use detected paths and
      * features
      */
+    public static final String CPU_BASEPATH = "/sys/devices/system/cpu/cpu";
     public static final String CPU_AVAIL_FREQ = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies";
     public static final String CPU_AVAIL_GOV = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
-    public static final String CPU_MIN_SCALE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
-    public static final String CPU_MAX_SCALE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
-    public static final String CPU_GOV = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
+    public static final String CPU_MIN_SCALE = "cpufreq/scaling_min_freq";
+    public static final String CPU_MAX_SCALE = "cpufreq/scaling_max_freq";
+    public static final String CPU_GOV = "cpufreq/scaling_governor";
     public static final String IO_SCHED = "/sys/block/mmcblk0/queue/scheduler";
     public static final String ZRAM = "/sys/block/zram0/disksize";
     public static final String S2W_PATH = "/sys/android_touch/sweep2wake";

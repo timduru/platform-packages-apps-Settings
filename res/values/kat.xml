@@ -146,6 +146,8 @@
         <item>Start Application</item>
         <item>Switch Top Application to SplitView</item>
         <item>Switch Top Application to FullScreen</item>
+        <item>Display Recent Apps</item>
+        <item>Switch To Previous App</item>
         <item>Take screenshot</item>
         <item>Kill process</item>
         <item>Screen off</item>
@@ -157,6 +159,8 @@
         <item>app</item>
         <item>splitview_auto</item>
         <item>splitview_fullscreen</item>
+        <item>recent</item>
+        <item>switch_toprevious_task</item>
         <item>screenshot</item>
         <item>killcurrent</item>
         <item>screenoff</item>

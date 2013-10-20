@@ -144,6 +144,8 @@
     
     <string-array name="kk_action_dialog_entries">
         <item>Start Application</item>
+        <item>Switch Top Application to SplitView</item>
+        <item>Switch Top Application to FullScreen</item>
         <item>Take screenshot</item>
         <item>Kill process</item>
         <item>Screen off</item>
@@ -153,6 +155,8 @@
     </string-array>
     <string-array name="kk_action_dialog_values">
         <item>app</item>
+        <item>splitview_auto</item>
+        <item>splitview_fullscreen</item>
         <item>screenshot</item>
         <item>killcurrent</item>
         <item>screenoff</item>

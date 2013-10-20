@@ -53,6 +53,7 @@ public class ActionPreference extends Preference implements ActionPicker.ICallBa
     private static int PACKAGE_NOT_FOUND_SUMMARY = R.string.kk_ui_package_removed;
     private static int DEFAULT_TITLE = R.string.kk_ui_activity_pref_default_title;
     private static int DEFAULT_ICON = com.android.internal.R.drawable.sym_def_app_icon;
+    private static int GENERIC_ACTIONS_ICON = com.android.internal.R.drawable.sym_def_app_icon;
 
     public ActionPreference(Context context) {
         this(context, null);
@@ -110,11 +111,11 @@ public class ActionPreference extends Preference implements ActionPicker.ICallBa
         } else if (uriValue.startsWith("app:")) {
             setResourcesFromUri(uriValue);
         } else {
-            loadCustomApp(uriValue);
+            loadCustomAction(uriValue);
         }
     }
 
-    public void loadCustomApp(String uriValue) {
+    public void loadCustomAction(String uriValue) {
 /*        if (uriValue.equals(REBOOT_VAL)) {
             setTitle(mRes.getString(REBOOT_TITLE));
             setIcon(mRes.getDrawable(REBOOT_ICON));
@@ -155,10 +156,13 @@ public class ActionPreference extends Preference implements ActionPicker.ICallBa
                     .append(" ")
                     .append(mRes.getString(ASSIST_TITLE));
             setSummary(builder.toString());
-        } else if (uriValue.equals("none")) {
+        } else if (uriValue.equals("none") || uriValue.equals("")) {
             setDefaultSettings(false);
         } else {
-            setDefaultSettings(false);
+            setIcon(mRes.getDrawable(GENERIC_ACTIONS_ICON));
+            String actionLabel = ActionPicker.getGenericActionLabel(mRes, uriValue);
+            setTitle(actionLabel);
+            setSummary(actionLabel);
         }
     }
 

@@ -53,6 +53,22 @@ public class ActionPicker
       public void pickedAction(String choice);
     }
 
+
+    public static String getGenericActionLabel(Resources res, String actionID)
+    {
+        final CharSequence[] item_entries = res.getStringArray(R.array.kk_action_dialog_entries);
+        final CharSequence[] item_values = res.getStringArray(R.array.kk_action_dialog_values);
+        
+        int foundID = -1;
+        for(int i=0;i<item_values.length; i++)
+        {
+        	String id = (String) item_values[i];
+        	if(id.equals(actionID)) { foundID = i; break; } 
+        }
+        if (foundID != -1) return (String)item_entries[foundID];
+        else return actionID;
+    }
+    
     protected void showActionPickerDialog(final ICallBackResult callback) 
     {
         final CharSequence[] item_entries = mRes.getStringArray(R.array.kk_action_dialog_entries);

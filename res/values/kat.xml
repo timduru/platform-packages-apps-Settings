@@ -144,8 +144,7 @@
     
     <string-array name="kk_action_dialog_entries">
         <item>Start Application</item>
-        <item>Switch Top Application to SplitView</item>
-        <item>Switch Top Application to FullScreen</item>
+        <item>Switch Top Application between SplitView and FullScreen</item>
         <item>Display Recent Apps</item>
         <item>Switch To Previous App</item>
         <item>Take screenshot</item>
@@ -158,7 +157,6 @@
     <string-array name="kk_action_dialog_values">
         <item>app</item>
         <item>splitview_auto</item>
-        <item>splitview_fullscreen</item>
         <item>recent</item>
         <item>switch_toprevious_task</item>
         <item>screenshot</item>

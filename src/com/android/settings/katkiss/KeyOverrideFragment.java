@@ -175,21 +175,21 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 			break;
 		}
 
-		refreshCurrentFlags();
+		refreshCurrentFlags(_currentKeyCode);
 
 		if(_currentKeyCode != null)
 			_actionPicker.showActionPickerDialog(this);
  	}
 
-	private void refreshCurrentFlags()
+	private void refreshCurrentFlags(String keyCode)
 	{ 
 		_currentFlags = 0;
-		if(shiftL.isChecked()) _currentFlags |= KeyEvent.META_SHIFT_LEFT_ON | KeyEvent.META_SHIFT_ON;
-		if(shiftR.isChecked()) _currentFlags |= KeyEvent.META_SHIFT_RIGHT_ON | KeyEvent.META_SHIFT_ON;
-		if(ctrlL.isChecked()) _currentFlags |= KeyEvent.META_CTRL_LEFT_ON | KeyEvent.META_CTRL_ON;
-		if(ctrlR.isChecked()) _currentFlags |= KeyEvent.META_CTRL_RIGHT_ON | KeyEvent.META_CTRL_ON;
-		if(altL.isChecked()) _currentFlags |= KeyEvent.META_ALT_LEFT_ON | KeyEvent.META_ALT_ON;
-		if(altR.isChecked()) _currentFlags |= KeyEvent.META_ALT_RIGHT_ON | KeyEvent.META_ALT_ON;
+		if(shiftL.isChecked() || "59".equals(keyCode)) _currentFlags |= KeyEvent.META_SHIFT_LEFT_ON | KeyEvent.META_SHIFT_ON;
+		if(shiftR.isChecked() || "60".equals(keyCode)) _currentFlags |= KeyEvent.META_SHIFT_RIGHT_ON | KeyEvent.META_SHIFT_ON;
+		if(ctrlL.isChecked() || "113".equals(keyCode)) _currentFlags |= KeyEvent.META_CTRL_LEFT_ON | KeyEvent.META_CTRL_ON;
+		if(ctrlR.isChecked() || "114".equals(keyCode)) _currentFlags |= KeyEvent.META_CTRL_RIGHT_ON | KeyEvent.META_CTRL_ON;
+		if(altL.isChecked() || "57".equals(keyCode)) _currentFlags |= KeyEvent.META_ALT_LEFT_ON | KeyEvent.META_ALT_ON;
+		if(altR.isChecked() || "58".equals(keyCode)) _currentFlags |= KeyEvent.META_ALT_RIGHT_ON | KeyEvent.META_ALT_ON;
 	}
 
 	private  String getSelectedKeyCode(int spinnerViewId, int valuesArrayId, boolean convertFromString)

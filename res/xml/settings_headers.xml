@@ -116,14 +116,11 @@
         android:title="@string/power_usage_summary_title" />
 
     <header
+        android:fragment="com.android.settings.katkiss.DockSettingsFragment"
         android:key="autoparts_dock_settings"
         android:icon="@drawable/ic_keyboard"
-        android:title="@string/autoparts_dock_settings" >
-        <intent
-            android:action="org.autoparts.action.LAUNCH_DEVICE_SETTINGS"
-            android:targetClass="org.autoparts.settings.device.DeviceSettings"
-            android:targetPackage="org.autoparts.settings.device" />
-    </header>
+        android:title="@string/autoparts_dock_settings" 
+    />
 
 
     <!-- Application Settings -->

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<!--
+    <PreferenceCategory
+     android:title="@string/dock_settings_title">
+
+    <ListPreference android:key="keyboard_layout"
+        android:title="@string/keyboard_language_title"
+        android:summary="@string/keyboard_language_summary"
+        android:entries="@array/keyboard_layout_array"
+        android:entryValues="@array/keyboard_layout_array_values" />
+    </PreferenceCategory>
+
+-->
+
+    <PreferenceCategory android:key="keyoverride_cat"
+            android:title="@string/kk_keyoverride_category_title">
+      <PreferenceScreen
+        android:key="keyoverride"
+        android:title="@string/kk_keyoverride_title"
+        android:fragment="com.android.settings.katkiss.KeyOverrideFragment" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/touchpad_setting_title">
+    <ListPreference android:key="touchpad"
+        android:title="@string/touchpad_mode_selector"
+        android:entries="@array/touchpad_mode_selector_entries"
+        android:defaultValue="@string/touchpad_mode_value_android32"
+        android:entryValues="@array/touchpad_mode_selector_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="pointer_settings_category"
+            android:title="@string/pointer_settings_category">
+        <com.android.settings.PointerSpeedPreference
+                android:key="pointer_speed"
+                android:title="@string/pointer_speed"
+                android:dialogTitle="@string/pointer_speed" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

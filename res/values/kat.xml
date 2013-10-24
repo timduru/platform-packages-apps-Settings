@@ -99,6 +99,15 @@
     <string name="ctrlR">CtrlR</string>    
     <string name="altL">AltL</string>    
     <string name="altR">AltR</string>    
+
+    <!-- touchpad mode -->
+    <string name="touchpad_mode_selector">Touchpad mode</string>
+    <string name="touchpad_setting_title">Touchpad</string>
+    <string name="touchpad_mode_entry_android32">Gestures</string>
+    <string name="touchpad_mode_entry_classic">Trackpad</string>
+    <string name="touchpad_mode_value_android32">0</string>
+    <string name="touchpad_mode_value_classic">1</string>
+
     
     
 <!-- Arrays -->
@@ -272,6 +281,18 @@
      <item>93</item>
     </string-array>
     
+
+
+<!-- DOCK Settings -->
+    <array name="touchpad_mode_selector_values">
+        <item>@string/touchpad_mode_value_android32</item>
+        <item>@string/touchpad_mode_value_classic</item>
+    </array>
+    <array name="touchpad_mode_selector_entries">
+        <item>@string/touchpad_mode_entry_android32</item>
+        <item>@string/touchpad_mode_entry_classic</item>
+    </array>
+
 <!-- styles  -->
     <declare-styleable name="ActionPreference">
         <attr name="providerUri" format="reference" />

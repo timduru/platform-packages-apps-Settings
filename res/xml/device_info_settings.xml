@@ -137,4 +137,9 @@
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"/>
 
+        <Preference android:key="changelog"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/changelog"
+        />
+
 </PreferenceScreen>

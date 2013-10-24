@@ -100,6 +100,8 @@
     <string name="altL">AltL</string>    
     <string name="altR">AltR</string>    
 
+    <string name="changelog">ChangeLog</string>
+
     <!-- touchpad mode -->
     <string name="touchpad_mode_selector">Touchpad mode</string>
     <string name="touchpad_setting_title">Touchpad</string>

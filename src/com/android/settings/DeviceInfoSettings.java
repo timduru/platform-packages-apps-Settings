@@ -37,6 +37,8 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.android.settings.katkiss.TextInfoFragment;
+
 public class DeviceInfoSettings extends SettingsPreferenceFragment {
 
     private static final String LOG_TAG = "DeviceInfoSettings";
@@ -63,6 +65,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
+    private static final String KEY_CHANGELOG = "changelog";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -84,6 +87,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
+        findPreference(KEY_CHANGELOG).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
 
         if (!SELinux.isSELinuxEnabled()) {
@@ -207,7 +211,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                         Toast.LENGTH_LONG);
                 mDevHitToast.show();
             }
+        } else if (preference.getKey().equals(KEY_CHANGELOG)) {
+                changelog();
         }
+
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -327,5 +334,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             // Fail quietly, returning empty string should be sufficient
         }
         return "";
+    }
+
+    private  void changelog() {
+        Bundle b = new Bundle();
+        b.putString(TextInfoFragment.TITLE_KEY, "Changelog");
+        b.putInt(TextInfoFragment.TEXT_RES_KEY, R.raw.change_log);
+        TextInfoFragment textFragment = TextInfoFragment.newInstance(b);
+        textFragment.show(getFragmentManager(), "Changelog");
     }
 }

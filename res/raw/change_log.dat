@@ -1,0 +1,193 @@
+=10/26/13 - V027=
+
+- MultiWindow: Add framework base WiP from Omni + KK specifics
+- MultiWindow: Add clicking on app Icon in Recents will add to split view
+- MultiWindow: Add method to autoswitch TopApp between SplitView and FullScreen
+- MultiWindow: Add icons in Recents for auto mode or to choose view position directly
+- MultiWindow: Add position selection for App that has already been closed in Recents too
+
+- Add More Global Actions (Available for KeyOverride/Shorcuts + LongPress on NavButtons)
+ + Switch Top Running App between MultiWindow/SplitView and FullScreenMode
+ + Switch Top Running App between 1st or 2nd SplitView Spot and FullScreenMode
+ + Switch To Previous App (Allows to go back and forth between the 2 latest apps)
+ + Display Recent applications screen
+
+- KeyOverride/Shorcuts: Add More Special Keys:
+  + Space, shift, ctrl, alt, move home, end, pgup, pgdown
+
+- NavBar: Add Button to switch directly to Previous App
+- NavBar: Add Button to autoswitch between SplitView and FullScreen
+
+- Webkit/Browser: Change thread priority to improve response
+- Webkit/Browser: Improve Scrolling response
+- Webkit/Browser: Add Specific actions if DoubleTap on a known element
+    DoubleTap in empty space will zoom like before
+    DoubleTap on an image will save it
+    DoubleTap on a link will open it in a new background Tab
+    (Disable/Enable in Settings => Advanced => Double Tap Contextual Mode)
+- Date: fix NPE
+- DockSettings:
+ + Integrate into Settings right panel
+ + Add PointerSpeed settings
+ + Add KeyOverride Settings too
+
+- Add ChangeLog in Settings => About tablet
+- Performance Settings: Fix CPU settings not being applied
+( Update to KatKernel 108d : add permissions to cpu1 sysfs for system group (Take#2))
+
+
+
+=10/18/13 - V026=
+
+- Upgrade to Android 4.3.1 Release 1
+- Add Global Key Override/Shorcut Mecanism
+  (Language & Input => Add Key Override Actions)
+  Allows to execute commands based on Key pressed + Meta Key(Shift,Ctrl...)
+- Fix Croatian and Slovenian Hardware Keyboard C~ key
+- Fix DateView memory leak when visibility changes, also speeds up Notification expands
+- Fix potential leak in libpng
+- Fix Performance cpu settings not applied to cpu1 until next reboot
+- PhabletUI: Do not hide clock when expanding notifications
+- PhabletUI: Log display flags only in debug mode (speeds up Notification expands)
+- Update to KatKernel 108c : add permissions to cpu1 sysfs for system group + cleanup redundant perms for cpu0
+
+
+=10/06/13 - V025=
+
+- Upgrade to Android 4.3 Release 3.1
+- Fix Bluetooth Tethering
+- Add Custom QuickSettings
+- Recents: Move KillAll Button Up
+- Add HDMI out modes to display Settings: crop, scale, center options.
+- Update to KatKernel 108b : mem tweak
+
+
+=9/28/13 - V024=
+
+- Fix SDCard/USBDisks not being remounted after forced eject or dock sleep
+- TrafficStats: Add compatibility with older kernels
+  (Fixes the traffic stats for apps + traffic icons on signal cluster: wifi...)
+- Fix Czech + German(Switzerland) Keyboard layout to qwertz
+- Remove dock Keyboard layout option from Dock settings
+  (use Language&Input Settings, cf post #2)
+- Fix NPE if an app sends a motion event without a proper deviceID
+- Recents: Fix Mem Stats being cut in PhabletUI
+- Update to KatKernel 108:
+  ** Bring netfilter: xt_qtaguid from Kernel 3.4
+  ** Add LIB802.11 + HostAP
+  ** Restrict slave mountspace so Dalvik apps can mount system-wide volumes
+   (Fixes "empty folders" with CIFS and other mount apps)
+
+
+=9/21/13 - V023=
+
+- TabletUI + MultiUser : Do not display other users notifications
+- Add Custom Battery show/hide options (icon,text,percent)
+- Add Display Date feature in NavBar / StatusBar
+- Add Clock/Date show/hide options
+- Recents: Add Mem usage show/hide options
+- Recents: Add KillAll show/hide options
+- Add Support for HTTP basic authentication download in default Browser
+
+
+=9/14/13 - V022=
+
+- Add Ethernet Settings panel support
+- Add option in UISettings to enable/disable ChooseInputMethod Notification (disabled by default)
+- Update Bluetooth
+- Fixes long press actions not being activated the first time if it was set to no action before.
+- Fix NavBar Height being reset after UI Change
+
+
+=9/08/13 - V021=
+
+- Add LongPress NavButtons feature
+- Fix wrong display state of Back /IME down Keyboard icons in NavBars
+- Remove extra Input Method icon/panel in Tablet mode
+- Disable recurrent  "Choose Input Method" Notification
+- Change Right TouchPad/Mouse Button to send Back command
+- Update KatKernel to 107b
+
+
+
+=8/27/13 - V020=
+
+- Upgrade to new Android 4.3 release 2.2
+
+
+=8/23/13 - V019=
+
+- PhabletUI: Add Nav buttons align left or center UI setting (Settings => User Interface)
+- Add NavBar size options (Settings => User Interface)
+- Default resize & reorg of Nav buttons
+- Update bootanimation by mgeniusm
+- Fix Menu not showing in expanded desktop mode
+- Cleanups (you'll need to set the touchpad mode again after switching to this version)
+
+
+
+=8/21/13 - V018=
+
+- Add Wifi Channels Regulatory Domain change (Settings => Wifi => Advanced)
+- Add Performance settings (cpu governor & overclocking + ioschedulers..)
+- Apply cpu governor & overclocking directly at boot start for speeding up boot time
+- Remove dummy arBase app
+- Add missing vpx encoder codec
+
+
+=8/18/13 - V017=
+
+- Fix OMX hardware video codecs (Fixes media player, youtube HD ... )
+- Fix Camera
+
+
+=8/11/13 - V016=
+
+- Fix Location provider issue in 015
+
+
+=8/11/13 - V015=
+- Fix Bluetooth
+- Misc 4.3 cleanups
+- Add static rsync util
+
+=8/10/13 - V014=
+- Add TabletUI capabilities
+- Settings: Add User Interface Settings Menu entry
+- Fix empty space left in notification after clearing up a service notification
+
+=8/08/13 - V012=
+- Add dual mode expanded desktop (hide both bars or keep status bar)
+- Allow to clear SD removed notification
+- Allow to clear services permanent notifications
+
+=8/07/13 - V011=
+- Fix screen capture + previews in Recents
+- Fix missing KatKiss version in V010
+- Fix Settings FC on About Tablet => Status
+
+=8/06/13 - V010=
+- Add Expanded Desktop
+- Add Recents KillAll button
+- Add new power menu options: Expanded desktop, reboot, recovery...
+- Add MediaScanner Filters to Settings/System
+
+=8/05/13 - V009=
+- Fix error installing paid apps ("Error Cannot install on USB or SD" ..) 
+- Move Nav Buttons to bottom left
+- Fix dock battery support
+- Add dock battery icon + battery levels
+- Settings: Add SuperSU link
+- Settings: Show Development menu by default
+- Settings: Add Application Advanced Permissions Management (AppOps)
+- Settings: Add Dock Settings directly in menu
+- Fix not rebooting issue on Keyboard layout change through Dock Settings
+- Add more keyboard layouts for live switching in asusec + fix Polish layout
+- Fix lock screen clock digit being cut
+- Decrease default number of background apps
+- Add Android 4.3 default Launcher back
+
+=8/04/13 - V008=
+- Initial 4.3 version
+
+

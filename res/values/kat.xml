@@ -89,6 +89,7 @@
     <string name="kk_keyoverride_noentries">No Key Override Defined</string>    
     <string name="kk_keyoverride_functionkeys">Function Keys</string>    
     <string name="kk_keyoverride_specialkeys">Special Keys</string>    
+    <string name="kk_keyoverride_otherkeys">Other Keys</string>    
     <string name="kk_keyoverride_category_current_actions">Current Key Override Actions</string>    
     
     <string name="add">Add</string>    

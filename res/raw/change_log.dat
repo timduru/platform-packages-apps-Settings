@@ -16,8 +16,9 @@
  + Show Notification Panel (very useful if you run fullscreen)
  + Show QuickSettings Panel (PhabletUI)
 
-- KeyOverride/Shorcuts: Add More Special Keys:
-  + Space, shift, ctrl, alt, move home, end, pgup, pgdown
+- KeyOverride/Shorcuts: Add More Keys:
+  + SpecialKeys: Space, shift, ctrl, alt, move home, end, pgup, pgdown
+  + Other Keys: Top Numeric keys + `
 
 - NavBar: Add Button to switch directly to Previous App
 - NavBar: Add Button to autoswitch between SplitView and FullScreen

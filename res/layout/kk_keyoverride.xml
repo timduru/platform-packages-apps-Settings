@@ -156,6 +156,27 @@
                 android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kk_keyoverride_otherkeys"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <Spinner
+                    android:id="@+id/otherkeys_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/otherkeys_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:src="@android:drawable/ic_input_add"
+                     />
+
             </TableRow>
 
             <TableRow

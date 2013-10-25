@@ -101,6 +101,13 @@
         android:fragment="com.android.settings.katkiss.UISettings"
         android:title="@string/kk_ui_settings" />
 
+    <header
+        android:fragment="com.android.settings.katkiss.DockSettingsFragment"
+        android:key="autoparts_dock_settings"
+        android:icon="@drawable/ic_keyboard"
+        android:title="@string/autoparts_dock_settings"
+    />
+
     <!-- Storage -->
     <header
         android:id="@+id/storage_settings"
@@ -114,14 +121,6 @@
         android:fragment="com.android.settings.fuelgauge.PowerUsageSummary"
         android:icon="@drawable/ic_settings_battery"
         android:title="@string/power_usage_summary_title" />
-
-    <header
-        android:fragment="com.android.settings.katkiss.DockSettingsFragment"
-        android:key="autoparts_dock_settings"
-        android:icon="@drawable/ic_keyboard"
-        android:title="@string/autoparts_dock_settings" 
-    />
-
 
     <!-- Application Settings -->
     <header

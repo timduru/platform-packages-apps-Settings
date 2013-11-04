@@ -265,7 +265,7 @@ public class DraggableGridView extends ViewGroup implements
     }
 
     void toggleAddDelete(boolean delete) {
-        int resid = R.drawable.ic_menu_add;
+        int resid = R.drawable.ic_menu_add_dark;
         int stringid = R.string.profiles_add;
         if (delete) {
             resid = R.drawable.ic_menu_delete_holo_dark;

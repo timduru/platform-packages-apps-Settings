@@ -28,9 +28,13 @@
     <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
     <string name="kk_ui_recent_longpress_title">Recent Button Long Press Action</string>
     <string name="kk_ui_menu_longpress_title">Menu Button Long Press Action</string>  
+    <string name="kk_ui_switch_toprevious_task_longpress_title">Swith To Previous App Long Press Action</string>  
+    <string name="kk_ui_splitview_auto_longpress_title">Split View Long Press Action</string>  
     <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
     <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
     <string name="kk_ui_menu_target_uri">kk_ui_menu_target_uri</string>
+    <string name="kk_ui_switch_toprevious_task_target_uri">kk_ui_switch_toprevious_task_target_uri</string>
+    <string name="kk_ui_splitview_auto_target_uri">kk_ui_splitview_auto_target_uri</string>
     
     <string name="kk_ui_screenshot_title">Screenshot</string>
     <string name="kk_ui_screenoff_title">Screen Off</string>

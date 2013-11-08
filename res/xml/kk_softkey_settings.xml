@@ -52,4 +52,26 @@
             settings:providerUri="@string/kk_ui_menu_target_uri" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="kk_ui_switch_toprevious_task"
+        android:title="@string/kk_ui_switch_toprevious_task_longpress_title" >
+        <com.android.settings.katkiss.ActionPreference
+            android:key="kk_ui_switch_toprevious_task_longpress"
+            android:title="@string/kk_ui_switch_toprevious_task_longpress_title"
+            android:layout="@layout/kk_longpress_preference"
+            android:widgetLayout="@layout/kk_longpress_preference_widget"
+            settings:providerUri="@string/kk_ui_switch_toprevious_task_target_uri" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="kk_ui_splitview_auto"
+        android:title="@string/kk_ui_splitview_auto_longpress_title" >
+        <com.android.settings.katkiss.ActionPreference
+            android:key="kk_ui_splitview_auto_longpress"
+            android:title="@string/kk_ui_splitview_auto_longpress_title"
+            android:layout="@layout/kk_longpress_preference"
+            android:widgetLayout="@layout/kk_longpress_preference_widget"
+            settings:providerUri="@string/kk_ui_splitview_auto_target_uri" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

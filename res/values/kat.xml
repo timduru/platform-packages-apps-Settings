@@ -25,11 +25,18 @@
     
     <string name="kk_ui_interface_navkeys">Navigation Buttons Settings</string>
     <string name="kk_ui_interface_navkeys_summary">Change Nav Buttons Features</string>
+
     <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
     <string name="kk_ui_recent_longpress_title">Recent Button Long Press Action</string>
     <string name="kk_ui_menu_longpress_title">Menu Button Long Press Action</string>  
     <string name="kk_ui_switch_toprevious_task_longpress_title">Swith To Previous App Long Press Action</string>  
     <string name="kk_ui_splitview_auto_longpress_title">Split View Long Press Action</string>  
+
+    <string name="kk_ui_multiwindow_title">MultiWindow Settings</string>  
+    <string name="kk_ui_switch_toprevious_task_visibility_title">Show Swith To Previous App NavBar Button</string>  
+    <string name="kk_ui_splitview_auto_visibility_title">Show Split View NavBar Button</string>  
+    <string name="kk_ui_recents_multiwindow_icons_visibility_title">Show MultiWindow Icons On Recent Apps Screen</string>  
+
     <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
     <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
     <string name="kk_ui_menu_target_uri">kk_ui_menu_target_uri</string>

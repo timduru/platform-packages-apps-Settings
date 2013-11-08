@@ -47,7 +47,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private ListPreference _uiModeList, _uiBarSizeList;
     private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextPercent ;
     private CheckBoxPreference _clockTime, _clockDate;
-    private CheckBoxPreference _recentsKillall, _recentsMem;
+    private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
+    private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto;
     private boolean _prevTabletUIMode;
 
     @Override
@@ -66,6 +67,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _clockDate = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_DATE);
         _recentsKillall =  (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON);
         _recentsMem = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY);
+        _recentsMultiWindowIcons = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS);
+
+        _btnSwitchToPrevious = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS);
+        _btnSplitViewAuto = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO);
 
         refreshState();
 
@@ -81,6 +86,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         
         _recentsKillall.setOnPreferenceChangeListener(this);
         _recentsMem.setOnPreferenceChangeListener(this);
+        _recentsMultiWindowIcons.setOnPreferenceChangeListener(this);
+
+        _btnSwitchToPrevious.setOnPreferenceChangeListener(this);
+        _btnSplitViewAuto.setOnPreferenceChangeListener(this);
         
     }
 
@@ -107,6 +116,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         
         _recentsKillall.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON, 1) == 1);
         _recentsMem.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);        
+        _recentsMultiWindowIcons.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS, 1) == 1);        
+
+        _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
+        _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
     }
     
     @Override
@@ -151,6 +164,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
        		 || key.equals(KKC.S.SYSTEMUI_BATTERY_ICON) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT )
     		 || key.equals(KKC.S.SYSTEMUI_CLOCK_TIME) || key.equals(KKC.S.SYSTEMUI_CLOCK_DATE)
     		 || key.equals(KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON) || key.equals(KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY)
+    		 || key.equals(KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS)
+    		 || key.equals(KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS) || key.equals(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO)
         		)
         {
           Boolean val = (Boolean) objValue;

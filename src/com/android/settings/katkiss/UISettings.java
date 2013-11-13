@@ -82,7 +82,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _batteryTextPercent.setOnPreferenceChangeListener(this);
 
         _clockTime.setOnPreferenceChangeListener(this);
-        _clockDate.setOnPreferenceChangeListener(this);
+        //_clockDate.setOnPreferenceChangeListener(this);
         
         _recentsKillall.setOnPreferenceChangeListener(this);
         _recentsMem.setOnPreferenceChangeListener(this);
@@ -112,7 +112,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _batteryTextPercent.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1) == 1);
 
         _clockTime.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1) == 1);
-        _clockDate.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0) == 1);
+        //_clockDate.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0) == 1);
         
         _recentsKillall.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON, 1) == 1);
         _recentsMem.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);        

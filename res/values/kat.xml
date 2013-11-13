@@ -177,8 +177,8 @@
         <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>
         <item>Switch To Previous App</item>
         <item>Display Recent Apps</item>
-        <item>Display Notifications Panel</item>
-        <item>Display Quick Settings Panel</item>
+        <item>Expand/Collapse Notifications Panel</item>
+        <item>Expand Quick Settings Panel</item>
         <item>Take screenshot</item>
         <item>Kill process</item>
         <item>Screen off</item>

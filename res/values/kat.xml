@@ -33,7 +33,7 @@
     <string name="kk_ui_splitview_auto_longpress_title">Split View Long Press Action</string>  
 
     <string name="kk_ui_multiwindow_title">MultiWindow Settings</string>  
-    <string name="kk_ui_switch_toprevious_task_visibility_title">Show Swith To Previous App NavBar Button</string>  
+    <string name="kk_ui_switch_toprevious_task_visibility_title">Show Switch To Previous App NavBar Button</string>  
     <string name="kk_ui_splitview_auto_visibility_title">Show Split View NavBar Button</string>  
     <string name="kk_ui_recents_multiwindow_icons_visibility_title">Show MultiWindow Icons On Recent Apps Screen</string>  
 
@@ -125,6 +125,7 @@
     <string name="touchpad_mode_value_classic">1</string>
 
     
+    <string name="auto_expanded_desktop_ondock_title">Auto Expanded Desktop When Docked</string>
     
 <!-- Arrays -->
 

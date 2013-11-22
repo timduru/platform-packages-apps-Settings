@@ -1,3 +1,13 @@
+=11/23/13 - V028=
+
+- MultiWindow: Allow to hide NavButtons + Recents icons
+- Add Auto Expanded Desktop option when docked (UI Settings => Misc)
+- SystemUI: Hide new Nav Buttons when needed (Lockscreen ... )
+- Bar: remove DateView
+- Actions: Add send key action
+- Actions: Collapse Notification Panel if already showing
+- KatKernel 109c: compile with linaro-4.8.2  + fix smartassV2 typo
+
 =10/26/13 - V027=
 
 - MultiWindow: Add framework base WiP from Omni + KK specifics

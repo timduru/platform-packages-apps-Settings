@@ -23,23 +23,14 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
-
 import android.provider.Settings;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.app.Dialog;
-import android.app.Activity;
-
-import java.util.ArrayList;
 
 public class UISettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
-    private static final String TAG = "UISettings";
-
     private static final String KEY_UI_MODE = "kk_ui_mode";
     private static final String KEY_UI_BARSIZE = "kk_ui_barsize";
     private ContentResolver mResolver; 
@@ -49,8 +40,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _clockTime, _clockDate;
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
     private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto;
-    private boolean _prevTabletUIMode;
-
+    private CheckBoxPreference _autoExpanded;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +62,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _btnSwitchToPrevious = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS);
         _btnSplitViewAuto = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO);
 
+        _autoExpanded = (CheckBoxPreference) findPreference(KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK);
+
         refreshState();
 
         _uiModeList.setOnPreferenceChangeListener(this);
@@ -91,13 +83,13 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _btnSwitchToPrevious.setOnPreferenceChangeListener(this);
         _btnSplitViewAuto.setOnPreferenceChangeListener(this);
         
+        _autoExpanded.setOnPreferenceChangeListener(this);
     }
 
 
     private void refreshState() {
         int valInt;
         valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR );
-        _prevTabletUIMode = (valInt == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
         _uiModeList.setDefaultValue(String.valueOf(valInt));
         _uiModeList.setValue(String.valueOf(valInt));
 
@@ -120,6 +112,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
         _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
+
+        _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);        
     }
     
     @Override
@@ -151,7 +145,6 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           boolean tabletUIMode = (mode == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_MODE, mode);
           sendIntentToWindowManager(KKC.I.CMD_BARTYPE_CHANGED, true);
-          _prevTabletUIMode = tabletUIMode;
         }
         else if(key.equals(KEY_UI_BARSIZE))
         {
@@ -160,16 +153,11 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           sendIntentToWindowManager(KKC.I.CMD_BARSIZE_CHANGED, true);
         }
         // CheckBox
-        else if (key.equals(KKC.S.INPUTMETHOD_SHOWNOTIFICATION)
-       		 || key.equals(KKC.S.SYSTEMUI_BATTERY_ICON) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT) || key.equals(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT )
-    		 || key.equals(KKC.S.SYSTEMUI_CLOCK_TIME) || key.equals(KKC.S.SYSTEMUI_CLOCK_DATE)
-    		 || key.equals(KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON) || key.equals(KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY)
-    		 || key.equals(KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS)
-    		 || key.equals(KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS) || key.equals(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO)
-        		)
+        else if (preference instanceof CheckBoxPreference)
         {
           Boolean val = (Boolean) objValue;
           Settings.System.putInt(getContentResolver(), key, val?1:0);
+          
         }
 
         return true;

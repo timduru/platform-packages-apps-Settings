@@ -97,6 +97,12 @@
             android:title="@string/inputmethod_shownotification_title"
             android:summary="@string/inputmethod_shownotification_summary"
         />
+    <CheckBoxPreference
+            android:key="auto_expanded_desktop_ondock"
+            android:defaultValue="false"
+            android:title="@string/auto_expanded_desktop_ondock_title"
+        />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

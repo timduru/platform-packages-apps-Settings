@@ -29,7 +29,7 @@
     <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
     <string name="kk_ui_recent_longpress_title">Recent Button Long Press Action</string>
     <string name="kk_ui_menu_longpress_title">Menu Button Long Press Action</string>  
-    <string name="kk_ui_switch_toprevious_task_longpress_title">Swith To Previous App Long Press Action</string>  
+    <string name="kk_ui_switch_toprevious_task_longpress_title">Switch To Previous App Long Press Action</string>  
     <string name="kk_ui_splitview_auto_longpress_title">Split View Long Press Action</string>  
 
     <string name="kk_ui_multiwindow_title">MultiWindow Settings</string>  

@@ -102,7 +102,12 @@
             android:defaultValue="false"
             android:title="@string/auto_expanded_desktop_ondock_title"
         />
-
+    <CheckBoxPreference
+            android:key="enable_panels_dropshadow"
+            android:defaultValue="false"
+            android:title="@string/enable_panels_dropshadow_title"
+        />
+    
     </PreferenceCategory>
 
 </PreferenceScreen>

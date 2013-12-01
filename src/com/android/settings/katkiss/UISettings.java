@@ -41,6 +41,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
     private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto;
     private CheckBoxPreference _autoExpanded;
+    private CheckBoxPreference _enablePanelsDropShadow;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         addPreferencesFromResource(R.xml.kk_ui_settings);
         _uiModeList = (ListPreference) findPreference(KEY_UI_MODE);
         _uiBarSizeList = (ListPreference) findPreference(KEY_UI_BARSIZE);
+        
         _inputNotification = (CheckBoxPreference) findPreference(KKC.S.INPUTMETHOD_SHOWNOTIFICATION);
         _batteryIcon = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_ICON);
         _batteryText = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT);
@@ -63,6 +66,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _btnSplitViewAuto = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO);
 
         _autoExpanded = (CheckBoxPreference) findPreference(KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK);
+        _enablePanelsDropShadow = (CheckBoxPreference) findPreference(KKC.S.ENABLE_PANELS_DROPSHADOW);
 
         refreshState();
 
@@ -84,6 +88,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _btnSplitViewAuto.setOnPreferenceChangeListener(this);
         
         _autoExpanded.setOnPreferenceChangeListener(this);
+        _enablePanelsDropShadow.setOnPreferenceChangeListener(this);
     }
 
 
@@ -113,7 +118,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
         _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
 
-        _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);        
+        _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);
+        _enablePanelsDropShadow.setChecked(Settings.System.getInt(mResolver, KKC.S.ENABLE_PANELS_DROPSHADOW, 0) == 1);
     }
     
     @Override

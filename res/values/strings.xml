@@ -4993,4 +4993,11 @@
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
 
+    <!-- Battery Info screen. Units shown after a value.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging_dock_ac">(DockAC)</string>
+    <!-- Battery Info screen. Units shown after a value.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging_dock_usb">(DockUSB)</string>
+   <!-- Menu label for reset the battery stats -->
+    <string name="menu_stats_reset">Reset</string>
+
 </resources>

@@ -25,12 +25,23 @@
     
     <string name="kk_ui_interface_navkeys">Navigation Buttons Settings</string>
     <string name="kk_ui_interface_navkeys_summary">Change Nav Buttons Features</string>
+
     <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
     <string name="kk_ui_recent_longpress_title">Recent Button Long Press Action</string>
     <string name="kk_ui_menu_longpress_title">Menu Button Long Press Action</string>  
+    <string name="kk_ui_switch_toprevious_task_longpress_title">Switch To Previous App Long Press Action</string>  
+    <string name="kk_ui_splitview_auto_longpress_title">Split View Long Press Action</string>  
+
+    <string name="kk_ui_multiwindow_title">MultiWindow Settings</string>  
+    <string name="kk_ui_switch_toprevious_task_visibility_title">Show Switch To Previous App NavBar Button</string>  
+    <string name="kk_ui_splitview_auto_visibility_title">Show Split View NavBar Button</string>  
+    <string name="kk_ui_recents_multiwindow_icons_visibility_title">Show MultiWindow Icons On Recent Apps Screen</string>  
+
     <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
     <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
     <string name="kk_ui_menu_target_uri">kk_ui_menu_target_uri</string>
+    <string name="kk_ui_switch_toprevious_task_target_uri">kk_ui_switch_toprevious_task_target_uri</string>
+    <string name="kk_ui_splitview_auto_target_uri">kk_ui_splitview_auto_target_uri</string>
     
     <string name="kk_ui_screenshot_title">Screenshot</string>
     <string name="kk_ui_screenoff_title">Screen Off</string>
@@ -91,6 +102,8 @@
     <string name="kk_keyoverride_specialkeys">Special Keys</string>    
     <string name="kk_keyoverride_otherkeys">Other Keys</string>    
     <string name="kk_keyoverride_category_current_actions">Current Key Override Actions</string>    
+
+    <string name="kk_sendkey_title">Send Key</string>    
     
     <string name="add">Add</string>    
     
@@ -112,6 +125,8 @@
     <string name="touchpad_mode_value_classic">1</string>
 
     
+    <string name="auto_expanded_desktop_ondock_title">Auto Expanded Desktop When Docked</string>
+    <string name="enable_panels_dropshadow_title">Enable Screen Shadow When Panels Expanded (PhabletUI)</string>
     
 <!-- Arrays -->
 
@@ -156,6 +171,7 @@
     
     <string-array name="kk_action_dialog_entries">
         <item>Start Application</item>
+        <item>Send Key</item>
         <item>Expanded Desktop</item>
         <item>Expanded Desktop Keep Top Status Bar (PhabletUI Only)</item>
         <item>Switch Top Application between SplitView and FullScreen</item>
@@ -163,8 +179,8 @@
         <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>
         <item>Switch To Previous App</item>
         <item>Display Recent Apps</item>
-        <item>Display Notifications Panel</item>
-        <item>Display Quick Settings Panel</item>
+        <item>Expand/Collapse Notifications Panel</item>
+        <item>Expand Quick Settings Panel</item>
         <item>Take screenshot</item>
         <item>Kill process</item>
         <item>Screen off</item>
@@ -174,6 +190,7 @@
     </string-array>
     <string-array name="kk_action_dialog_values">
         <item>app</item>
+        <item>sendkey</item>
         <item>expanded_desktop</item>
         <item>expanded_desktop_keepstatusbar</item>
         <item>splitview_auto</item>

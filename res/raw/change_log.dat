@@ -1,3 +1,24 @@
+=12/01/13 - V029=
+- PhabletUI: fix lag when expanding notifications or QuickSettings
+- PhabletUI: fix new navbar icon not being hidden in portrait after changing settings
+- PhabletUI: fix clock settings and navbar button hiding not being applied without restart
+- PhabletUI: disable screen shadow by default when panels are expanded (reenable in Settings => UISettings => Misc)
+- NavBar: fix gap left when hiding new buttons
+- NavBar: make Switch to SplitView Button follow rotation
+- Action: sendKey send also keyUp
+    Fixes certain keys stopping to work
+    after sending a KeyCode that is normally repeating like Volume+/-
+
+=11/23/13 - V028=
+
+- MultiWindow: Allow to hide NavButtons + Recents icons
+- Add Auto Expanded Desktop option when docked (UI Settings => Misc)
+- SystemUI: Hide new Nav Buttons when needed (Lockscreen ... )
+- Bar: remove DateView
+- Actions: Add send key action
+- Actions: Collapse Notification Panel if already showing
+- KatKernel 109c: compile with linaro-4.8.2  + fix smartassV2 typo
+
 =10/26/13 - V027=
 
 - MultiWindow: Add framework base WiP from Omni + KK specifics

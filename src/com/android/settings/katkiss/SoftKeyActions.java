@@ -37,5 +37,7 @@ public class SoftKeyActions extends ActionMultiPreferenceFragment {
         addActionPreference((ActionPreference) findPreference("kk_ui_back_longpress"));
         addActionPreference((ActionPreference) findPreference("kk_ui_recent_longpress"));
         addActionPreference((ActionPreference) findPreference("kk_ui_menu_longpress"));
+        addActionPreference((ActionPreference) findPreference("kk_ui_switch_toprevious_task_longpress"));
+        addActionPreference((ActionPreference) findPreference("kk_ui_splitview_auto_longpress"));
     }
 }

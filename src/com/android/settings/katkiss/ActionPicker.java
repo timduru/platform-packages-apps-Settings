@@ -17,11 +17,15 @@ import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import com.android.settings.R;
+import org.meerkats.katkiss.KKC;
+import android.app.Activity;
+
 
 public class ActionPicker 
 {
@@ -92,7 +96,9 @@ public class ActionPicker
                         // be sure to keep applications menu as the first item
                         if (which == 0)
                             showActivityPickerDialog(callback);
-                        else
+                        else if(which ==1) // Sendkey
+                            showSendKeyPickerDialog(callback);
+                        else // Custom Action
                             callback.pickedAction(choice);
                       }
                 }).create().show();
@@ -156,4 +162,40 @@ public class ActionPicker
         protected void onPostExecute(ArrayList<ResolveInfo> list) 
         { super.onPostExecute(list); }
     }
+
+    private class KeyPickerCallBack implements ChooserDialogFragment.ICallBackResult
+    {
+        ICallBackResult mFinalActionCallBack;
+        public KeyPickerCallBack(final ICallBackResult finalActionCallback) {mFinalActionCallBack = finalActionCallback;}
+
+        @Override
+        public void choice(String choice) { if(choice != null) mFinalActionCallBack.pickedAction(KKC.A.SENDKEY_BASE + choice); }
+    }
+
+    private void showSendKeyPickerDialog(final ICallBackResult callback)
+    {
+        String[] labelsFunctionKeys = mContext.getResources().getStringArray(R.array.kk_keyoverride_function_entries);
+        String[] valuesFunctionKeys = mContext.getResources().getStringArray(R.array.kk_keyoverride_function_values); // String KEY
+	for(int i=0; i<valuesFunctionKeys.length; i++)
+		valuesFunctionKeys[i] = "" + android.view.KeyEvent.keyCodeFromString(valuesFunctionKeys[i]);
+
+        String[] labelsSpecialKeys = mContext.getResources().getStringArray(R.array.kk_keyoverride_special_entries);
+        String[] valuesSpecialKeys = mContext.getResources().getStringArray(R.array.kk_keyoverride_special_values);
+
+// concatenate both key lists
+	int totalSize = labelsFunctionKeys.length + labelsSpecialKeys.length;
+	String[] labels = new String[totalSize];
+	String[] values = new String[totalSize];
+
+        for(int i=0; i<labelsFunctionKeys.length; i++)
+	{ labels[i] = labelsFunctionKeys[i]; values[i] = valuesFunctionKeys[i]; }
+
+        for(int i=0; i<labelsSpecialKeys.length; i++)
+        { labels[labelsFunctionKeys.length + i] = labelsSpecialKeys[i]; values[labelsFunctionKeys.length + i] = valuesSpecialKeys[i]; }
+
+// Display Dialog
+        ChooserDialogFragment keyChooserDialog = new ChooserDialogFragment(R.string.kk_sendkey_title, new KeyPickerCallBack(callback), labels, values);
+        keyChooserDialog.show((Activity) mContext);
+    }
+
 }

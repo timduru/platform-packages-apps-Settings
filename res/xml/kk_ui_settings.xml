@@ -36,6 +36,21 @@
             android:title="@string/quick_settings_panel_title" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="kk_ui_multiwindow"
+        android:title="@string/kk_ui_multiwindow_title" >
+        <CheckBoxPreference
+            android:key="kk_ui_btn_switch_toprevious"
+            android:title="@string/kk_ui_switch_toprevious_task_visibility_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_btn_splitview_auto"
+            android:title="@string/kk_ui_splitview_auto_visibility_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_recents_multiwindow_icons"
+            android:title="@string/kk_ui_recents_multiwindow_icons_visibility_title" />
+    </PreferenceCategory>
+
         
     <PreferenceCategory
         android:key="kk_ui_battery"
@@ -82,6 +97,17 @@
             android:title="@string/inputmethod_shownotification_title"
             android:summary="@string/inputmethod_shownotification_summary"
         />
+    <CheckBoxPreference
+            android:key="auto_expanded_desktop_ondock"
+            android:defaultValue="false"
+            android:title="@string/auto_expanded_desktop_ondock_title"
+        />
+    <CheckBoxPreference
+            android:key="enable_panels_dropshadow"
+            android:defaultValue="false"
+            android:title="@string/enable_panels_dropshadow_title"
+        />
+    
     </PreferenceCategory>
 
 </PreferenceScreen>

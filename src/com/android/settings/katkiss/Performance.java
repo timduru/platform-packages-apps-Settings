@@ -306,7 +306,7 @@ public class Performance extends PreferenceFragment implements
         }
 	res = Utils.writeKernelValue(Utils.CPU_BASEPATH + "0/" + target, contents);
 	if(!res) return false;
-	res = Utils.writeKernelValue(Utils.CPU_BASEPATH + "1/" + target, contents);
+	Utils.writeKernelValue(Utils.CPU_BASEPATH + "1/" + target, contents);
 
         return res; 
     }

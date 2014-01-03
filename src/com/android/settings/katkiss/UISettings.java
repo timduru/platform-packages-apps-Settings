@@ -94,11 +94,11 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
     private void refreshState() {
         int valInt;
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR );
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_NAVBAR_LEFT );
         _uiModeList.setDefaultValue(String.valueOf(valInt));
         _uiModeList.setValue(String.valueOf(valInt));
 
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_BARSIZE, KKC.S.SYSTEMUI_BARSIZE_MODE_NORMAL );
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_BARSIZE, KKC.S.SYSTEMUI_BARSIZE_MODE_SLIM );
         _uiBarSizeList.setDefaultValue(String.valueOf(valInt));
         _uiBarSizeList.setValue(String.valueOf(valInt));
         

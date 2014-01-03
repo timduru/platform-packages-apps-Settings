@@ -1,6 +1,14 @@
-=01/XX/14 - V015=
+=01/03/14 - V015=
+- Upgrade to Android 4.4.2
+- Fix Dock Battery
 - Fix reboot to recovery feature
-- Add back Allow to clear notifications even from foreground services
+- Fix Bluetooth
+- Allow to clear foreground services notifications
+- Update busybox
+- Settings: Fix missing UI & dock icons
+- Default to PhabletUI NavBarLeft + SlimNavBar
+- Unify battery text & dock icon colors with kitkat grey
+
 
 =01/01/14 - V014=
 - Initial public version

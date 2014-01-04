@@ -1,3 +1,15 @@
+=01/XX/14 - V016=
+- Fix HDMIOut options not being applied
+- Fix Date not showing in Notifications
+- Fix /storage/sdcard0 showing up as empty
+- Fix Dock Battery still showing up when booting undocked
+- Reactivate rotation by default
+- Deactivate MultiWindow icons until fixed
+- Add egl cfg back
+- Report battery charging correctly
+- Misc conf change
+
+
 =01/03/14 - V015=
 - Upgrade to Android 4.4.2
 - Fix Dock Battery
@@ -8,6 +20,7 @@
 - Settings: Fix missing UI & dock icons
 - Default to PhabletUI NavBarLeft + SlimNavBar
 - Unify battery text & dock icon colors with kitkat grey
+- Move KillAll button up
 
 
 =01/01/14 - V014=

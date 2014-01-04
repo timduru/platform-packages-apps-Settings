@@ -113,10 +113,10 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         
         _recentsKillall.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON, 1) == 1);
         _recentsMem.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);        
-        _recentsMultiWindowIcons.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS, 1) == 1);        
+        _recentsMultiWindowIcons.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS, 0) == 1);        
 
         _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
-        _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
+        _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 0) == 1);        
 
         _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);
         _enablePanelsDropShadow.setChecked(Settings.System.getInt(mResolver, KKC.S.ENABLE_PANELS_DROPSHADOW, 0) == 1);

@@ -3,11 +3,13 @@
 - Fix Date not showing in Notifications
 - Fix /storage/sdcard0 showing up as empty
 - Fix Dock Battery still showing up when booting undocked
+- Fix SDCard not being remounted after forced eject or dock sleep
+- Browser: Fix img src being used instead of href when long pushing on a linked img and clicking open
 - Reactivate rotation by default
 - Deactivate MultiWindow icons until fixed
-- Add egl cfg back
 - Report battery charging correctly
 - Misc conf change
+- Migrate Expanded Desktop to Immersive Mode
 
 
 =01/03/14 - V015=

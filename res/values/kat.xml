@@ -125,7 +125,7 @@
     <string name="touchpad_mode_value_classic">1</string>
 
     
-    <string name="auto_expanded_desktop_ondock_title">Auto Expanded Desktop When Docked</string>
+    <string name="auto_expanded_desktop_ondock_title">Auto Immersive Mode When Docked</string>
     <string name="enable_panels_dropshadow_title">Enable Screen Shadow When Panels Expanded (PhabletUI)</string>
     
 <!-- Arrays -->
@@ -135,7 +135,7 @@
         <item>Phablet UI - Nav Bar Left Aligned</item>
         <item>Phablet UI - No Nav Bar</item>
 <!--        <item>Tablet UI</item> -->
-        <item>Expanded Desktop - No Bars</item>
+        <item>Immersive Mode - No Bars</item>
     </string-array>
     <string-array name="kk_ui_mode_values">
         <item>4</item>
@@ -172,8 +172,8 @@
     <string-array name="kk_action_dialog_entries">
         <item>Start Application</item>
         <item>Send Key</item>
-        <item>Expanded Desktop</item>
-        <item>Expanded Desktop Keep Top Status Bar (PhabletUI Only)</item>
+        <item>Immersive Mode</item>
+        <item>Immersive Mode - Keep Top Status Bar</item>
         <item>Switch Top Application between SplitView and FullScreen</item>
         <item>Switch Top Application between 1st SplitView Slot and FullScreen</item>
         <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>

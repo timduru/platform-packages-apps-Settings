@@ -1,15 +1,19 @@
-=01/XX/14 - V016=
+=01/06/14 - V016=
 - Fix HDMIOut options not being applied
 - Fix Date not showing in Notifications
 - Fix /storage/sdcard0 showing up as empty
 - Fix Dock Battery still showing up when booting undocked
 - Fix SDCard not being remounted after forced eject or dock sleep
 - Browser: Fix img src being used instead of href when long pushing on a linked img and clicking open
+- Browser: remove incognito entries (not implemented in kitkat chromium yet)
+- Browser: remove debug mode from labs (not implemented in kitkat chromium yet)
 - Reactivate rotation by default
 - Deactivate MultiWindow icons until fixed
 - Report battery charging correctly
 - Misc conf change
-- Migrate Expanded Desktop to Immersive Mode
+- Switch Window Animation Scale to 1.0 by default
+- Migrate Expanded Desktop to Immersive Mode 
+(Window Animation Scale must not be 0 for swipe down to work)
 
 
 =01/03/14 - V015=

@@ -42,6 +42,8 @@ import com.android.settings.katkiss.HDMIOutChooserDialogFragment;
 ;
 
 import java.util.ArrayList;
+import org.meerkats.katkiss.KKC;
+import com.android.settings.katkiss.WallpaperModes;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
@@ -60,8 +62,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
     private CheckBoxPreference mAccelerometer;
+    private CheckBoxPreference mDisableWallpaper;
     private WarnedListPreference mFontSizePref;
     private Preference mHDMIPref;
+    private Preference mWallpaperPref;
     private CheckBoxPreference mNotificationPulse;
 
     private final Configuration mCurConfig = new Configuration();
@@ -116,6 +120,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mHDMIPref = (Preference) findPreference(KEY_HDMI);
         mHDMIPref.setOnPreferenceChangeListener(this);
         mHDMIPref.setOnPreferenceClickListener(this);
+
+        mWallpaperPref = (Preference) findPreference(KKC.S.SYSTEMUI_WALLPAPER_MODE);
+        mWallpaperPref.setOnPreferenceChangeListener(this);
+        mWallpaperPref.setOnPreferenceClickListener(this);
         
         mNotificationPulse = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_PULSE);
         if (mNotificationPulse != null
@@ -336,7 +344,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         else if (preference == mHDMIPref)
             new HDMIOutChooserDialogFragment().show(getFragmentManager(), "hdmiselector");
+        else if (preference == mWallpaperPref)
+            new WallpaperModes().show(getFragmentManager(), "wallpapermodeselector");
 
         return false;
     }
+
 }

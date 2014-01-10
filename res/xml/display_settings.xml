@@ -20,6 +20,11 @@
         settings:keywords="@string/keywords_display">
 
         <Preference
+                android:key="kk_ui_wallpaper_mode"
+                android:title="@string/kk_ui_wallpaper_mode_title"
+                android:persistent="false"/>
+
+        <Preference
                 android:key="hdmi"
                 android:title="@string/kk_hdmi_modes_title"
                 android:persistent="false"/>

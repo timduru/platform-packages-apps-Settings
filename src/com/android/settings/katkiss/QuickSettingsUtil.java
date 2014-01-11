@@ -24,6 +24,7 @@ import static org.meerkats.katkiss.QSConstants.TILE_BLUETOOTH;
 import static org.meerkats.katkiss.QSConstants.TILE_BRIGHTNESS;
 import static org.meerkats.katkiss.QSConstants.TILE_CAMERA;
 import static org.meerkats.katkiss.QSConstants.TILE_DELIMITER;
+import static org.meerkats.katkiss.QSConstants.TILE_EXPANDEDDESKTOP;
 import static org.meerkats.katkiss.QSConstants.TILE_GPS;
 import static org.meerkats.katkiss.QSConstants.TILE_LOCKSCREEN;
 import static org.meerkats.katkiss.QSConstants.TILE_NETWORKMODE;
@@ -80,6 +81,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_GPS, R.string.title_tile_gps,
                 "com.android.systemui:drawable/ic_qs_location_on"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_EXPANDEDDESKTOP, R.string.title_tile_expanded_desktop,
+                "com.android.systemui:drawable/ic_qs_expanded_desktop_neutral"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_LOCKSCREEN, R.string.title_tile_lockscreen,
                 "com.android.systemui:drawable/ic_qs_lock_screen_off"));

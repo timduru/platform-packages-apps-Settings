@@ -1,3 +1,29 @@
+=01/11/14 - V017=
+- Fix GPS/Location Quick Settings Tile
+- Fix error when opening linked image in new tab if the link is already an absolute url
+- Disable audio level warning
+- Disable Dream by default
+- Remove old android launcher
+- Misc perf tweaks
+- Use /dev/input for microphone/headset jack detection (Those who had external microphone detection issue, test and report if that helps or not)
+- QuickSettings: Add Immersive Mode Tile
+- QuickSettings: Add Location + Immersive Mode Tiles by default
+- Add Czech qwerty keyboard layout
+- Add new wallpaper mode settings (Settings => Display)
+  ** Normal(regular android mode)
+  ** Disable System Wallpaper rendering (set as default)
+  ** Disable Wallpaper service
+  2nd setting will prevent the wallpaper being rendered by system and also freeing resources
+   That's the recommended setting you want to use if you are using a launcher that has internal wallpaper rendering
+   If you see a black wallpaper that means that your launcher was using system rendering which is not good on our tf101
+  3rd setting disables wallpaper completely, depending on your launcher it might be better
+
+- New gapps package 20140110
+  Remove Google Home Launcher from package
+- Add separate zip for Google Home Launcher
+
+
+
 =01/06/14 - V016=
 - Fix HDMIOut options not being applied
 - Fix Date not showing in Notifications

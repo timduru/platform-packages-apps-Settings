@@ -79,7 +79,7 @@ public class QuickSettingsUtil {
                 "com.android.systemui:drawable/ic_qs_camera"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_GPS, R.string.title_tile_gps,
-                "com.android.systemui:drawable/ic_qs_gps_neutral"));
+                "com.android.systemui:drawable/ic_qs_location_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_LOCKSCREEN, R.string.title_tile_lockscreen,
                 "com.android.systemui:drawable/ic_qs_lock_screen_off"));

@@ -1,3 +1,14 @@
+=01/15/14 - V018=
+- Fix NTFS & exFAT volumes not being automounted
+- Revert use /dev/input for audio jack detection
+- chromium webkit: restrict use of absolute href only if link on image
+- chromium webkit: misc updates
+- Browser: Add History back
+- Browser: Add Debug back
+- Add Thai Font
+- Add libnetcmdiface
+- KatKernel 112: add ip6table filter mangle raw + usbaudio
+
 =01/11/14 - V017=
 - Fix GPS/Location Quick Settings Tile
 - Fix error when opening linked image in new tab if the link is already an absolute url

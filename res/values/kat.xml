@@ -17,7 +17,7 @@
     
     <string name="kk_ui_settings">User Interface</string>
     <string name="kk_ui_mode">Interface Mode</string>
-    <string name="kk_ui_mode_summary">Choose between TabletUI and PhableUI modes</string>
+    <string name="kk_ui_mode_summary">Select Interface mode</string>
 
     <string name="kk_ui_barsize_title">Navigation Bar Size</string>
     <string name="kk_ui_barsize_summary">Choose between standard bar size and smaller sizes</string>

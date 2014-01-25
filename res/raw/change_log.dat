@@ -1,3 +1,18 @@
+=01/26/14 - V019=
+- Fix VPN
+- Fix ext4 volumes not being mounted when inserted
+- Browser: Keep URL bar when using Pie Quick Controls from Labs (Fixes refresh issues with new chromium webview)
+- Browser: sync javascript console debug setting with default value (disabled)
+- Fix a bootloop problem on xml parsing errors (after improper shutdown ...)
+- Fix reference leak in ActivityManager
+- Keyguard: fix statusbar lags when default widget shown
+- Make ImageView drawable update more efficient if same size
+- Fix tablet battery icon alignment
+- Location: fix missing break statement
+- bcmdhd: add missing interface command fini
+- KatKernel 113b: add missing Netfilter/IP options
+
+
 =01/15/14 - V018=
 - Fix NTFS & exFAT volumes not being automounted
 - Revert use /dev/input for audio jack detection

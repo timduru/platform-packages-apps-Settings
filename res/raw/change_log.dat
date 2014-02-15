@@ -1,3 +1,12 @@
+=02/16/14 - V020=
+- Update to 4.4.2_r2 KVT49L
+- HWComposer 1.0 for TF101
+- Cleanup deprecated HWC <1.0 
+- Use HAL VSync
+- SurfaceFlinger: Change to support framebuffer flip for 2D blitters
+- Surfaceflinger: Consolidate display orientation compensation hooks
+- Sensorservice: Set the rate for pre-1.1 HALs _after_ activation
+
 =01/26/14 - V019=
 - Fix VPN
 - Fix ext4 volumes not being mounted when inserted

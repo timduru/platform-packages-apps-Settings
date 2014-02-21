@@ -1,3 +1,18 @@
+=02/22/14 - V021=
+- New Trebuchet
+- Trebuchet: Reimplement Internal Wallpaper rendering
+- Browser: Reimplement Incognito mode support
+- Browser: Report UserAgent as Chrome3.0 compat
+- Camera: Fix panorama mode preview not showing
+- Switch HWC
+- Misc cleanups + updates
+
+New gapps 20140221: 
+- Gallery: Fix FC on Editing/applying filters...
+- Camera: Fix FC on selecting Panorama
+- Remove GoogleCamera from default gapps zip to use rom's Camera by default which should be stable (but no photosphere)
+- Fix Photosphere mode with GoogleCamera (might still crash when switching between photosphere and other modes)
+
 =02/16/14 - V020=
 - Update to 4.4.2_r2 KVT49L
 - HWComposer 1.0 for TF101

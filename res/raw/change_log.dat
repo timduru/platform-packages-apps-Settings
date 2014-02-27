@@ -1,4 +1,23 @@
-=02/22/14 - V021=
+=02/28/14 - V022=
+- Move to GCC target 4.8
+- Switch to Linaro-4.8.3 14.01
+- Trebuchet: Fix wallpaper not rendering internally when using only 1 desktop
+- LockScreen: Display wallpaper when System wallpaper rendering is disabled.  (after 1st lock)
+- Recents: Increase KillAll button size
+- Add libemoji.so
+- Fix command line reboot
+- Boot tasks parallelizing (should speed up boot by ~30-50% depending on the overclocking and number of packages)
+  Add multithreading support to Installer/installd
+  Parallelize package scanning
+  Parallelize boot dexopt
+
+KatKernel 114:
+- Rebuild with Linaro-4.8.3 14.01
+- Add isofs + udf modules
+
+
+
+=02/21/14 - V021=
 - New Trebuchet
 - Trebuchet: Reimplement Internal Wallpaper rendering
 - Browser: Reimplement Incognito mode support

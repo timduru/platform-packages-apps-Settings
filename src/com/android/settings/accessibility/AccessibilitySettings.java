@@ -63,6 +63,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.meerkats.katkiss.KatUtils;
+
+
 /**
  * Activity with the accessibility settings.
  */
@@ -290,8 +293,8 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     }
 
     private void handleLockScreenRotationPreferenceClick() {
-        RotationPolicy.setRotationLockForAccessibility(getActivity(),
-                !mToggleLockScreenRotationPreference.isChecked());
+        KatUtils.rotationToggle(getActivity(), mToggleLockScreenRotationPreference.isChecked());
+       // RotationPolicy.setRotationLockForAccessibility(getActivity(), !mToggleLockScreenRotationPreference.isChecked());
     }
 
     private void handleToggleSpeakPasswordPreferenceClick() {

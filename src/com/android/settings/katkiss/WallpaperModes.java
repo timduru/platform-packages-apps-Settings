@@ -34,9 +34,9 @@ public class WallpaperModes extends DialogFragment implements android.content.Di
         android.provider.Settings.System.putInt(mContentRes, KKC.S.SYSTEMUI_WALLPAPER_MODE, i);
 
 	if(i == KKC.S.WALLPAPER_MODE_DISABLE_ALL || prevMode == KKC.S.WALLPAPER_MODE_DISABLE_ALL)
-		sendIntentToWindowManager(KKC.I.CMD_REBOOT, false);
+          KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_REBOOT, false);
 	else if(i == KKC.S.WALLPAPER_MODE_DISABLE_SYSTEM || prevMode == KKC.S.WALLPAPER_MODE_DISABLE_SYSTEM)
-		sendIntentToWindowManager(null, true);
+          KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED,null, true);
 
         getActivity().finish();
     }
@@ -51,14 +51,5 @@ public class WallpaperModes extends DialogFragment implements android.content.Di
         builder.setNegativeButton(android.R.string.cancel, this);
         return builder.create();
     }
-
-    private void sendIntentToWindowManager(String cmd, boolean shouldRestartUI) {
-        Intent intent = new Intent()
-                .setAction(KKC.I.UI_CHANGED)
-                .putExtra(KKC.I.CMD,  cmd)
-                .putExtra(KKC.I.EXTRA_RESTART_SYSTEMUI, shouldRestartUI);
-        getActivity().sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_ALL));
-    }
-
 }
 

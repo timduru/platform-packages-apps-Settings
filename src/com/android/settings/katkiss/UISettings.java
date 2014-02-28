@@ -16,6 +16,7 @@
 
 package com.android.settings.katkiss;
 import org.meerkats.katkiss.KKC;
+import org.meerkats.katkiss.KatUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -150,13 +151,13 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
           boolean tabletUIMode = (mode == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_MODE, mode);
-          sendIntentToWindowManager(KKC.I.CMD_BARTYPE_CHANGED, true);
+          KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARTYPE_CHANGED, true);
         }
         else if(key.equals(KEY_UI_BARSIZE))
         {
           int size = Integer.parseInt((String) objValue);
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_BARSIZE, size);
-          sendIntentToWindowManager(KKC.I.CMD_BARSIZE_CHANGED, true);
+          KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARSIZE_CHANGED, true);
         }
         // CheckBox
         else if (preference instanceof CheckBoxPreference)
@@ -182,13 +183,5 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         }
 */
         return false;
-    }
-
-    private void sendIntentToWindowManager(String cmd, boolean shouldRestartUI) {
-        Intent intent = new Intent()
-                .setAction(KKC.I.UI_CHANGED)
-                .putExtra(KKC.I.CMD,  cmd)
-                .putExtra(KKC.I.EXTRA_RESTART_SYSTEMUI, shouldRestartUI);
-        getActivity().sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_ALL));
     }
 }

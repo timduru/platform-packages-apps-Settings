@@ -1,3 +1,15 @@
+=03/XX/14 - V023=
+- Settings => Accessibility: Fix Autoration locking up
+- QuickSettings: Fix Orientation Tile locking up
+- QuickSettings: Add Orientation tile, remove battery tile by default
+- QuickSettings: Fix Orientation Tile Long Press, open Accessibility
+- Turn off Autoration by default
+- Add Global Actions (Available for LongPress + Key Override): 
+ + Autoration toggle
+ + Wifi, Bluetooth, Touchpad toggles
+ + Show Power Menu
+ + Launch Settings
+
 =02/28/14 - V022=
 - Move to GCC target 4.8
 - Switch to Linaro-4.8.3 14.01

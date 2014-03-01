@@ -190,6 +190,15 @@
         <item>Touchpad Toggle</item>
         <item>Launch Settings</item>
         <item>Take screenshot</item>
+        <item>Brightness Down</item>
+        <item>Brightness Up</item>
+        <item>Brightness Auto</item>
+        <item>Media Previous</item>
+        <item>Media Next</item>
+        <item>Media Play/Pause</item>
+<!--        <item>Audio Down</item>
+        <item>Audio Up</item> -->
+        <item>Audio Mute</item>
         <item>Screen off</item>
         <item>Google Now</item>
         <item>Switch Top Application between SplitView and FullScreen</item>
@@ -215,6 +224,15 @@
         <item>touchpad_toggle</item>
         <item>launch_settings</item>
         <item>screenshot</item>
+        <item>brightness_down</item>
+        <item>brightness_up</item>
+        <item>brightness_auto</item>
+        <item>media_previous</item>
+        <item>media_next</item>
+        <item>media_playpause</item>
+<!--        <item>audio_down</item>
+        <item>audio_up</item> -->
+        <item>audio_mute</item>
         <item>screenoff</item>
         <item>assist</item>
         <item>splitview_auto</item>

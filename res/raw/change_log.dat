@@ -1,14 +1,20 @@
 =03/XX/14 - V023=
+- Fix MultiWindow
+- Display MultiWindow icons by default
 - Settings => Accessibility: Fix Autoration locking up
 - QuickSettings: Fix Orientation Tile locking up
 - QuickSettings: Add Orientation tile, remove battery tile by default
 - QuickSettings: Fix Orientation Tile Long Press, open Accessibility
 - Turn off Autoration by default
+- Hardware Keyboards: Make capslock key behave as shift for all keys including numerics
 - Add Global Actions (Available for LongPress + Key Override): 
  + Autoration toggle
  + Wifi, Bluetooth, Touchpad toggles
  + Show Power Menu
  + Launch Settings
+ + Brightness Up, Down, Auto
+ + Media Next, Previous, Play/Pause
+ + Audio Mute
 
 =02/28/14 - V022=
 - Move to GCC target 4.8

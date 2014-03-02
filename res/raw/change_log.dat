@@ -7,6 +7,7 @@
 - QuickSettings: Fix Orientation Tile Long Press, open Accessibility
 - Turn off Autoration by default
 - Hardware Keyboards: Make capslock key behave as shift for all keys including numerics
+- Merge Add custom groups
 - Add Global Actions (Available for LongPress + Key Override): 
  + Autoration toggle
  + Wifi, Bluetooth, Touchpad toggles

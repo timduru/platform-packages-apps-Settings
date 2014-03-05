@@ -1,4 +1,4 @@
-=03/XX/14 - V023=
+=03/05/14 - V023=
 - Fix MultiWindow
 - Display MultiWindow icons by default
 - Settings => Accessibility: Fix Autoration locking up
@@ -6,8 +6,11 @@
 - QuickSettings: Add Orientation tile, remove battery tile by default
 - QuickSettings: Fix Orientation Tile Long Press, open Accessibility
 - Turn off Autoration by default
+- Rebuild with Linaro 14.02
 - Hardware Keyboards: Make capslock key behave as shift for all keys including numerics
 - Merge Add custom groups
+- Avoid logcat spam with text relocation warnings
+- Make Switch to previous app and MW buttons also drop alpha when NavBar transparent
 - Add Global Actions (Available for LongPress + Key Override): 
  + Autoration toggle
  + Wifi, Bluetooth, Touchpad toggles

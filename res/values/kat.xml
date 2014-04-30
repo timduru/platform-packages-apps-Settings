@@ -137,6 +137,8 @@
     <string name="auto_expanded_desktop_ondock_title">Auto Immersive Mode When Docked</string>
     <string name="enable_panels_dropshadow_title">Enable Screen Shadow When Panels Expanded (PhabletUI)</string>
     
+    <string name="bluetooth_accept_all_files">Accept all file types</string>
+
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">

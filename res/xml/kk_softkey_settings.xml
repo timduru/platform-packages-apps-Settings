@@ -74,4 +74,15 @@
             settings:providerUri="@string/kk_ui_splitview_auto_target_uri" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="kk_ui_relaunch_floating"
+        android:title="@string/kk_ui_relaunch_floating_longpress_title" >
+        <com.android.settings.katkiss.ActionPreference
+            android:key="kk_ui_relaunch_floating_longpress"
+            android:title="@string/kk_ui_relaunch_floating_longpress_title"
+            android:layout="@layout/kk_longpress_preference"
+            android:widgetLayout="@layout/kk_longpress_preference_widget"
+            settings:providerUri="@string/kk_ui_relaunch_floating_target_uri" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

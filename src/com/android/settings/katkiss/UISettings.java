@@ -40,7 +40,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextPercent ;
     private CheckBoxPreference _clockTime, _clockDate;
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
-    private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto;
+    private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto, _btnRelaunchFloating;
     private CheckBoxPreference _autoExpanded;
     private CheckBoxPreference _enablePanelsDropShadow;
     
@@ -65,6 +65,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         _btnSwitchToPrevious = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS);
         _btnSplitViewAuto = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO);
+        _btnRelaunchFloating = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING);
 
         _autoExpanded = (CheckBoxPreference) findPreference(KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK);
         _enablePanelsDropShadow = (CheckBoxPreference) findPreference(KKC.S.ENABLE_PANELS_DROPSHADOW);
@@ -87,6 +88,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         _btnSwitchToPrevious.setOnPreferenceChangeListener(this);
         _btnSplitViewAuto.setOnPreferenceChangeListener(this);
+        _btnRelaunchFloating.setOnPreferenceChangeListener(this);
         
         _autoExpanded.setOnPreferenceChangeListener(this);
         _enablePanelsDropShadow.setOnPreferenceChangeListener(this);
@@ -118,6 +120,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
         _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
+        _btnRelaunchFloating.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING, 1) == 1);        
 
         _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);
         _enablePanelsDropShadow.setChecked(Settings.System.getInt(mResolver, KKC.S.ENABLE_PANELS_DROPSHADOW, 0) == 1);

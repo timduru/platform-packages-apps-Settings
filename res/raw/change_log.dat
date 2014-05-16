@@ -4,8 +4,9 @@
 - Global Actions: Add relaunch TopApp into Floating/Non Floating mode action
 - Global Actions: Add Show/Hide All Floating Apps action
 - NavBar: Add icon to relaunch TopApp into Floating/Non Floating mode
+- NavButton: Add show/hide all floating apps as default long click action on FloatingMode NavButton
 - Settings: Add Long Press action + Show/Hide for the Relaunch Floating NavBar Button
-- Recents: List floating windows
+- Recents: Display floating Apps too
 - Heartbleed openssl fix for platform & chromium webkit
 - Trebuchet: update to latest version
 - Settings - Storage: Fix Formatting/Erasing SDcard

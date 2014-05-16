@@ -1,3 +1,36 @@
+
+=17/05/14 - V024=
+- Add floating & resizable windows base code
+- Global Actions: Add relaunch TopApp into Floating/Non Floating mode action
+- Global Actions: Add Show/Hide All Floating Apps action
+- NavBar: Add icon to relaunch TopApp into Floating/Non Floating mode
+- Settings: Add Long Press action + Show/Hide for the Relaunch Floating NavBar Button
+- Recents: List floating windows
+- Heartbleed openssl fix for platform & chromium webkit
+- Trebuchet: update to latest version
+- Settings - Storage: Fix Formatting/Erasing SDcard
+- Vold misc updates
+- LatinIME: Add fallback loader for JNI lib
+- Browser: Fix tab preview memory leak
+- Fix reboot on Blank SD card format notification
+ (+Take to Settings=>Storage to make sure to format the correct device if there are multiple external devices)
+- Upgrade libpng
+- Add miracast overlay flag
+- av: misc changes:
+-- ACodec: Add video codec fallback logic
+-- stagefright: Smooth Streaming in OMXCodec
+-- stagefright: Enable GraphicBuffer usage to decoder before querying formats
+-- stagefright: provide a custom key to prefer adaptive playback
+- Misc graphic fixes merge
+-- Release locked buffer when it fails to acquire graphics buffer
+-- Fix for positioning of glyphs within a bitmap
+-- Fix graphics corruption caused by HWUI caches
+- Rebuild with latest linaro toolchain
+
+ 
+=03/20/14 - V023c=
+- Include Hebrew, Hungarian + de_ch Keyboard Fix
+
 =03/05/14 - V023=
 - Fix MultiWindow
 - Display MultiWindow icons by default

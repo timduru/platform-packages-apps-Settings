@@ -1,3 +1,14 @@
+=24/05/14 - V025=
+- Build optimize
+-- Reactivate global LTO optimization + Fix compile issues
+-- Reactivate global strict-aliasing
+-- Turn on C++11
+-- Misc compile flags
+- Fix strict-aliasing & C++11 build in following projects:
+-- external/stlport bionic external/dnsmasq/ frameworks/av/ frameworks/base external/iputils/ 
+-- framework/native external/powertop external/v8 frameworks/wilhelm packages/apps/Camera2 
+-- system/core frameworks/ex/ external/chromium-libpac/ external/chromium_org/ external/chromium/ hardware/ril framework/rs
+- Set framework/rs version
 
 =17/05/14 - V024=
 - Add floating & resizable windows base code

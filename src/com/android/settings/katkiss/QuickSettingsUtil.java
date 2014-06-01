@@ -33,6 +33,7 @@ import static org.meerkats.katkiss.QSConstants.TILE_SYNC;
 import static org.meerkats.katkiss.QSConstants.TILE_USER;
 import static org.meerkats.katkiss.QSConstants.TILE_VOLUME;
 import static org.meerkats.katkiss.QSConstants.TILE_WIFI;
+import static org.meerkats.katkiss.QSConstants.TILE_ETHERNET;
 import static org.meerkats.katkiss.QSConstants.TILE_WIFIAP;
 
 import android.content.ContentResolver;
@@ -108,6 +109,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_WIFI, R.string.title_tile_wifi,
                 "com.android.systemui:drawable/ic_qs_wifi_4"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_ETHERNET, R.string.title_tile_ethernet,
+                "com.android.systemui:drawable/stat_sys_ethernet_disconnected"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_WIFIAP, R.string.title_tile_wifiap,
                 "com.android.systemui:drawable/ic_qs_wifi_ap_neutral"));

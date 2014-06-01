@@ -189,6 +189,7 @@
         <item>Expand/Collapse Notifications Panel</item>
         <item>Expand Quick Settings Panel</item>
         <item>Wifi Toggle</item>
+        <item>Ethernet Toggle</item>
         <item>Bluetooth Toggle</item>
         <item>Touchpad Toggle</item>
         <item>Launch Settings</item>
@@ -225,6 +226,7 @@
         <item>show_notifications_panel</item>
         <item>show_settings_panel</item>
         <item>wifi_toggle</item>
+        <item>ethernet_toggle</item>
         <item>bluetooth_toggle</item>
         <item>touchpad_toggle</item>
         <item>launch_settings</item>

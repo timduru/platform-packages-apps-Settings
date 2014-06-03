@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -96,8 +97,10 @@ public class ActionPicker
                         // be sure to keep applications menu as the first item
                         if (which == 0)
                             showActivityPickerDialog(callback);
-                        else if(which ==1) // Sendkey
+                        else if(which == 1) // Sendkey
                             showSendKeyPickerDialog(callback);
+                        else if(which == 2) // Sendkeycode
+                            showSendKeyCodePicker(callback);
                         else // Custom Action
                             callback.pickedAction(choice);
                       }
@@ -197,5 +200,27 @@ public class ActionPicker
         ChooserDialogFragment keyChooserDialog = new ChooserDialogFragment(R.string.kk_sendkey_title, new KeyPickerCallBack(callback), labels, values);
         keyChooserDialog.show((Activity) mContext);
     }
+
+    private void showSendKeyCodePicker(final ICallBackResult callback)
+    {
+        UserPromptDialog picker = new UserPromptDialog((Activity) mContext,  R.string.kk_keycode_title, R.string.kk_keycode_msg)
+           {
+             @Override
+              public boolean onChoiceValidate(String choice)
+              {
+                Integer val = null;
+		try { val = Integer.parseInt(choice); }
+		catch(Exception e) {}
+
+		if(val == null || val <=0 || val > 230)  { Toast.makeText(mContext, "Not a Valid Keycode (0 < KeyCode < 230) ", Toast.LENGTH_LONG).show();return false; }
+
+		callback.pickedAction(KKC.A.SENDKEY_BASE + choice); 
+               	return true; // true = close dialog
+              }
+           };
+        picker.show();
+    }
+
+
 
 }

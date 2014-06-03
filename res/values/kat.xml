@@ -59,6 +59,8 @@
 
     <string name="kk_activity_dialog_title">Select Activity</string>
     <string name="kk_action_dialog_title">Select Action</string>
+    <string name="kk_keycode_title">Enter Keycode</string>
+    <string name="kk_keycode_msg">Keycode:</string>
 
     
     
@@ -179,6 +181,7 @@
     <string-array name="kk_action_dialog_entries">
         <item>Start Application</item>
         <item>Send Key</item>
+        <item>Send KeyCode</item>
         <item>Kill process</item>
         <item>Switch To Previous App</item>
         <item>Immersive Mode</item>
@@ -215,6 +218,7 @@
     </string-array>
     <string-array name="kk_action_dialog_values">
         <item>app</item>
+        <item>sendkey</item>
         <item>sendkey</item>
         <item>killcurrent</item>
         <item>switch_toprevious_task</item>

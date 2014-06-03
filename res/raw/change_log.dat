@@ -1,4 +1,35 @@
-=24/05/14 - V025=
+=06/03/14 - V026=
+- OMX: Prevent NVDestroy from crashing - Fix Netflix crash on opening (ESPN and other apps should benefit from that too)
+- Rotation Lock: Keep last rotation position when locking
+- Floating Windows: Add option to disable/enable AutoSnap
+- Global Actions (Available for Long Press & Key Override) :
+-- Add Ethernet Toggle Action
+-- Add Send KeyCode Action
+- Quick Settings: Add Ethernet Toggle Tile
+- Settings: Reuse 2 Panes mode
+- Fix strict-aliasing in HWComposer
+- Fix descriptor leak after accepting connections
+- Fix socket descriptor leak from Zygote to child app
+- libstagefright: Copy the entire buffer from/to OMX component
+- Add mkfs.f2fs
+- Optimize:
+-- Use -O3 in GLOBAL FLAGS too
+-- bionic: target cortex-a9
+-- bionic: use linaro optimized string handling routines
+-- Reswitch to linaro optimize built libkia
+-- Misc compile flags
+
+- Rom zip:
+-- Force /system format first (prevents rom camera from disappearing with old gapps if not formatting system manually)
+-- skip backup tools
+
+- KatKernel 115:
+-- Rebuild with Linaro 4.9
+-- Update ROW scheduler from codeaurora
+-- block: Add support for reinsert a dispatched req
+-- block: Add API for urgent request handling
+
+=05/24/14 - V025=
 - Build optimize
 -- Reactivate global LTO optimization + Fix compile issues
 -- Reactivate global strict-aliasing
@@ -10,7 +41,7 @@
 -- system/core frameworks/ex/ external/chromium-libpac/ external/chromium_org/ external/chromium/ hardware/ril framework/rs
 - Set framework/rs version
 
-=17/05/14 - V024=
+=05/17/14 - V024=
 - Add floating & resizable windows base code
 - Global Actions: Add relaunch TopApp into Floating/Non Floating mode action
 - Global Actions: Add Show/Hide All Floating Apps action

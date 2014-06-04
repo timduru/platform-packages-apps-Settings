@@ -1,3 +1,11 @@
+=06/03/14 - V027=
+beta1:
+- Upgrade to Android 4.4.3_r1.1
+beta2:
+- Fix Bluetooth
+final:
+- Fix Settings crash in portrait
+
 =06/03/14 - V026=
 - OMX: Prevent NVDestroy from crashing - Fix Netflix crash on opening (ESPN and other apps should benefit from that too)
 - Rotation Lock: Keep last rotation position when locking

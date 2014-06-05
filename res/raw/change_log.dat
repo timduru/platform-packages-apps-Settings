@@ -1,10 +1,21 @@
-=06/03/14 - V027=
-beta1:
+=06/05/14 - V028 =
+- Fix OfficePro crashing with default rom
+- Fix PlayStore update image artifacts with default rom
+
+- Rom zip:
+-- unmount /system first
+
+
+=06/03/14 - V027 =
+beta1: 
 - Upgrade to Android 4.4.3_r1.1
 beta2:
-- Fix Bluetooth
+- Fix Bluetooth crashing
+beta3:
+- Linaro + All Optimizations
 final:
 - Fix Settings crash in portrait
+
 
 =06/03/14 - V026=
 - OMX: Prevent NVDestroy from crashing - Fix Netflix crash on opening (ESPN and other apps should benefit from that too)

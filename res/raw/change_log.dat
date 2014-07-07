@@ -1,3 +1,48 @@
+=XX/XX/14 - V031 =
+- Fix Activity chooser Always button not always working
+- Misc changes for TF300T
+- misc updates: libstlports, vold, fsck_msdos
+
+-KatKernel 117 : 
+-- build with Linaro 4.10
+
+
+
+=06/20/14 - V030 =
+- Update to android 4.4.4
+- Default to RGB565
+- misc framework/native changes
+
+- KatKernel 116:
+-- Backport part of mmc changes from kernels 3.4 & 3.10
+-- Fix Security issue CVE-2014-3153
+-- Writeback: fix occasional slow sync(1)
+-- Softirq: reduce latencies
+-- Set readahead to 128
+-- Turn io_is_busy on by default
+-- Config changes: 
+--- IPV6: enable contrack, log, frag
+--- Turn off debugging on some features
+--- Turn off perf events recording
+--- Turn off block dev throttling
+--- Misc perf tweaks
+
+
+=06/09/14 - V029 =
+- Fix CandyCrush Crashing on start in default Linaro Rom
+- Fix PlayStore update image artifacts with optimized libskia
+- Trebuchet: update to latest
+- Settings: Add Location On/Off Switch in Menu
+- Settings: Draw Dock battery graph on Battery stats
+- Rom + chromium OpenSSL: Fix multiple vulnerabilities: CVE-2014-3470, CVE-2014-0221, CVE-2014-0224, CVE-2014-0195
+- Upgrade libpng from 1.2 to 1.6.10
+- Misc libhardware_legacy changes
+- Bring back fully optimized libskia (overall smoother)
+--> will still make OfficePro suite crash => Those who need it: flash separate Non-Linaro optimized libskia
+-- The overall smoothness is better, so if it's only one app that has issues, those who use it will just need to flash the additional libskia
+
+- Make separe Non-Linaro optimized libskia flashable zip
+
 =06/05/14 - V028 =
 - Fix OfficePro crashing with default rom
 - Fix PlayStore update image artifacts with default rom

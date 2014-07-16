@@ -1,11 +1,42 @@
-=XX/XX/14 - V031 =
+=07/16/14 - V031 =
+
+<pre>
 - Fix Activity chooser Always button not always working
-- Misc changes for TF300T
-- misc updates: libstlports, vold, fsck_msdos
+- Improve scrolling cache
+- Misc updates: libstlports, vold, fsck_msdos
+- TF300T: Changes for initial version bring in
 
--KatKernel 117 : 
+- TF101 KatKernel 117 :
 -- build with Linaro 4.10
+-- Add Asynchronous fsync from HTC
+-- Remove fsync on/off
+-- lowmemorykiller: compact memory on killing process
+-- lowmemorykiller: Use asynchronous compaction
+-- sched: don't call task_group() many times in set_task_rq()
+-- Add Multicast
 
+- TF300T KatKernel 010:
+-- Asus 10_6_1_27_5 base
+-- Fix compile issues with Linaro 4.10
+-- O3 + Optimize
+-- Overclock to 1700, GPU overclock to 520
+-- add user voltage control from motley-git Nexus 7 kernel source
+-- add pegasusq governor from motley-git Nexus 7 kernel source
+-- iosched: add BFQV7r5, ROW, SIO, deadline
+-- Asynchronous Fsync: initial extraction of Async Fsync from HTC
+-- Switch do_fsync() to fget_light()
+-- Add F2FS, NFSV3+4, CIFS
+-- add more USB NET drivers
+-- lowmemorykiller: misc optimisations & fixes
+-- SLUB
+-- add support for ec_wakeup (kernel)
+-- cardhu: bluetooh: add bluesleep
+-- expose SOS/LNX hack
+-- Restrict slave mountspace so Dalvik apps can mount system-wide volumes
+-- mach-tegra: add tegra ahb driver
+-- video: tegra: backport Tegra SD Gen2 support from Tegra 4
+-- Misc optimization & fixes: cpufreq, block, mmc, i2c, sched, arm specific routines, ...
+-- Misc security fixes, futex, tty ...
 
 
 =06/20/14 - V030 =

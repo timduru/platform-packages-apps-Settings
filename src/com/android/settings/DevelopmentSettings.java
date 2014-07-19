@@ -294,7 +294,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mWindowAnimationScale = addListPreference(WINDOW_ANIMATION_SCALE_KEY);
         mTransitionAnimationScale = addListPreference(TRANSITION_ANIMATION_SCALE_KEY);
         mAnimatorDurationScale = addListPreference(ANIMATOR_DURATION_SCALE_KEY);
-        mOverlayDisplayDevices = addListPreference(OVERLAY_DISPLAY_DEVICES_KEY);
+//        mOverlayDisplayDevices = addListPreference(OVERLAY_DISPLAY_DEVICES_KEY);
         mOpenGLTraces = addListPreference(OPENGL_TRACES_KEY);
 
         mImmediatelyDestroyActivities = (CheckBoxPreference) findPreference(
@@ -488,7 +488,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateDebugHwOverdrawOptions();
         updateDebugLayoutOptions();
         updateAnimationScaleOptions();
-        updateOverlayDisplayDevicesOptions();
+        //updateOverlayDisplayDevicesOptions();
         updateOpenGLTracesOptions();
         updateImmediatelyDestroyActivitiesOptions();
         updateAppProcessLimitOptions();
@@ -512,7 +512,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
-        writeOverlayDisplayDevicesOptions(null);
+        //writeOverlayDisplayDevicesOptions(null);
         writeAppProcessLimitOptions(null);
         mHaveDebugSettings = false;
         updateAllOptions();

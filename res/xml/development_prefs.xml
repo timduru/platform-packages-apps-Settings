@@ -37,12 +37,13 @@
         android:title="@string/keep_screen_on" 
         android:summary="@string/keep_screen_on_summary"/>
 
-    <ListPreference
+<!--    <ListPreference
         android:key="select_runtime"
         android:title="@string/select_runtime_title"
         android:dialogTitle="@string/select_runtime_dialog_title"
         android:entries="@array/select_runtime_titles"
         android:entryValues="@array/select_runtime_values" />
+-->
 
     <ListPreference
         android:key="hdcp_checking"
@@ -161,13 +162,13 @@
             android:entries="@array/animator_duration_scale_entries"
             android:entryValues="@array/animator_duration_scale_values" />
 
-        <ListPreference
+<!--        <ListPreference
             android:key="overlay_display_devices"
             android:title="@string/overlay_display_devices_title"
             android:persistent="false"
             android:entries="@array/overlay_display_devices_entries"
             android:entryValues="@array/overlay_display_devices_values" />
-
+-->
     </PreferenceCategory>
 
     <PreferenceCategory android:key="debug_hw_drawing_category"

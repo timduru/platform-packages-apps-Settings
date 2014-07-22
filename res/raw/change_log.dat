@@ -1,6 +1,31 @@
+=07/22/14 - V032 =
+
+- Switch to android-4.4.4_r2 (only device specific changes not related to us, so just a version bump for us)
+- Add Search Key Quick Launch in Settings => Dock + Language & Input
+- Use gms location provider
+- Set 128 read_ahead on blk0 & 512 on blk1
+- Use synchronization framework
+- Fix Brightness bouncing when adjusting manually with dock function keys
+- Global Actions, Brightness up/down/auto: also display brightness dialog
+- Development Settings cleanup: remove Simulate 2nd display, runtime.
+- TF101: add audio.r_submix.default
+- TF101: New gapps-KatKiss-4.4.4_20140720.zip
+
+- TF101 KatKernel 118 :
+-- revert memory compaction + async fsync
+-- re-add fsync on/off
+-- switch bcmdhd
+-- add synchronization framework
+
+- TF300T KatKernel 011-012 :
+-- F2FS compatibility update
+-- Add TCP advanced congestion controls: illinois cubic veno reno bic westwood highspeed htcp vegas scalable yeah
+-- Default to Veno
+-- add synchronization framework
+
+
 =07/16/14 - V031 =
 
-<pre>
 - Fix Activity chooser Always button not always working
 - Improve scrolling cache
 - Misc updates: libstlports, vold, fsck_msdos

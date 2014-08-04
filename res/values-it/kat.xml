@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Strings -->
+    <string name="kat_settings">Centro di Controllo</string>
+    <string name="su_start">SuperSU</string>
+    <string name="settings_app_ops_title">Apps Permessi Avanzati (AppOps)</string>
+    <string name="autoparts_dock_settings">Dock</string>
+    <string name="mediascanner_filters">Filtri MediaScanner</string>
+
+    <!-- Categories -->
+    <string name="kk_ui_general_title">Generale</string>
+    <string name="kk_ui_misc_title">Miscellanea</string>
+    <string name="kk_ui_clock_title">Orologio</string>
+    <string name="kk_ui_battery_title">Batteria</string>
+    <string name="kk_ui_recents_title">Recent Apps Screen</string>
+    
+    <string name="kk_ui_settings">Interfaccia Utente</string>
+    <string name="kk_ui_mode">Modalità</string>
+    <string name="kk_ui_mode_summary">Seleziona la modalità di interfaccia</string>
+
+    <string name="kk_ui_barsize_title">Dimensioni della barra di navigazione</string>
+    <string name="kk_ui_barsize_summary">Scegli tra le dimensioni a barre standard e formati più piccoli</string>
+    
+    
+    <string name="kk_ui_interface_navkeys">Opzioni Tasti di Navigazione</string>
+    <string name="kk_ui_interface_navkeys_summary">Cambia le funzionalità dei Tasti di Navigazione</string>
+
+    <string name="kk_ui_back_longpress_title">Tasto Indietro Azione alla pressione prolungata</string>
+    <string name="kk_ui_recent_longpress_title">Tasto App Recenti Azione alla pressione prolungata</string>
+    <string name="kk_ui_menu_longpress_title">Tasto Menu Azione alla pressione prolungata</string>
+    <string name="kk_ui_switch_toprevious_task_longpress_title">Tasto Passa App Precedente Azione alla pressione prolungata</string>
+    <string name="kk_ui_splitview_auto_longpress_title">Tasto Finestre Divise Azione alla pressione prolungata</string>
+    <string name="kk_ui_relaunch_floating_longpress_title">Tasto Finestre Flottanti Azione alla pressione prolungata</string>
+
+    <string name="kk_ui_multiwindow_title">Opzioni MultiFinestra</string>
+    <string name="kk_ui_switch_toprevious_task_visibility_title">Mostra Tasto App Precedente nella Barra di Navigazione</string>
+    <string name="kk_ui_splitview_auto_visibility_title">Mostra Tasto Finestre Divise nella Barra di Navigazione</string>
+    <string name="kk_ui_relaunch_floating_visibility_title">Mostra Tasto Finestre Flottanti nella Barra di Navigazione</string>
+    <string name="kk_ui_recents_multiwindow_icons_visibility_title">Mostra le Icone MultiFinestra nella schermata della App Recenti</string>
+
+    <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
+    <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
+    <string name="kk_ui_menu_target_uri">kk_ui_menu_target_uri</string>
+    <string name="kk_ui_switch_toprevious_task_target_uri">kk_ui_switch_toprevious_task_target_uri</string>
+    <string name="kk_ui_splitview_auto_target_uri">kk_ui_splitview_auto_target_uri</string>
+    <string name="kk_ui_relaunch_floating_target_uri">kk_ui_relaunch_floating_target_uri</string>
+    
+    <string name="kk_ui_screenshot_title">Screenshot</string>
+    <string name="kk_ui_screenoff_title">Screen Off</string>
+    <string name="kk_ui_kill_process_title">Chiudi il Processo Corrente</string>
+    <string name="kk_ui_assist_title">Google Now</string>
+    <string name="kk_ui_package_removed">Il pacchetto precedentemente selezionato non è stato trovato</string>
+    <string name="kk_ui_activity_pref_default_title">Nessuna Azione Selezionata</string>
+    <string name="kk_ui_activity_pref_default_summary">Tocca per selezionare un\'azione personalizzata alla pressione prolungata</string>
+
+    <string name="kk_ui_wallpaper_mode_title">Modalità Sfondo/Disattivazioni</string>
+
+
+    <string name="kk_activity_dialog_title">Seleziona Attività</string>
+    <string name="kk_action_dialog_title">Seleziona Azione</string>
+    <string name="kk_keycode_title">Immetti Codice Tasto</string>
+    <string name="kk_keycode_msg">Codice Tasto:</string>
+
+    
+    
+    <string name="kk_wifi_regulatory_domain_selector">Cambia il dominio normativo del Wifi</string>
+    <string name="kk_wifi_regulatory_domain_changed">dominio normativo del Wifi cambiato (potrebbe essere necessario il riavvio)</string>
+    <string name="kk_wifi_restarting">Riavvio Wifi...</string>
+
+
+    <string name="kk_performance">Performance</string>
+    <string name="kk_performance_cpu">Overclock della CPU</string>
+    <string name="kk_performance_cpu_on_boot">Imposta i valori di clock all\'avvio Set clock values on boot</string>
+    <string name="kk_performance_cpu_governor">Governor</string>
+    <string name="kk_performance_cpu_min">Frequenza Minima</string>
+    <string name="kk_performance_cpu_max">Frequenza Massima</string>
+    <string name="kk_performance_current_value">Valore corrente: </string>
+    <string name="kk_performance_boot_value">Vallore al Boot: </string>
+    <string name="kk_performance_iosched">Schedulatore I/O</string>
+    <string name="kk_performance_iosched_on_boot">Imposta il valore all\'avvio</string>
+    <string name="kk_performance_fast_charge">USB Carica Rapida</string>
+    <string name="kk_performance_sweep2wake">Sweep2Wake</string>
+    <string name="kk_performance_sweep2wake_on_boot">Inizializza all\'avvio</string>
+    <string name="kk_performance_zram_category">ZRAM</string>
+    <string name="kk_performance_zram_title">Abilita ZRAM all\'avvio</string>
+    <string name="kk_performance_zram_summary">10% della RAM sarà usata come spazio per lo swap</string>
+    <string name="kk_performance_not_applied">Overclock non applicato</string>
+    <string name="kk_performance_notification_title">Overclock</string>
+    <string name="kk_performance_notification_text">Non è stato applicato a causa del recente riavvio (meno di 2 minuti).</string>
+
+    <string name="kk_ui_battery_icon_title">Mostra l\'Icona Batteria</string>
+	
+    <string name="kk_ui_battery_text_title">Mostra percentuale batteria</string>
+    <string name="kk_ui_battery_text_percent_title">Mostra simbolo %</string>
+    
+    <string name="kk_ui_clock_time_title">Mostra Ora</string>
+    <string name="kk_ui_clock_date_title">Mostra orologio</string>
+    
+    <string name="inputmethod_shownotification_title">Mostra icona scelta metodo di immissione</string>
+    <string name="inputmethod_shownotification_summary">Abilita/Disabilita la notifica del metodo di immissione</string>
+
+    <string name="kk_ui_recents_killall_button_title">Mostra il pulsante "Chiudi Tutto"</string>
+    <string name="kk_ui_recents_mem_display_title">Mostra Informazioni sulla memoria</string>
+
+    <string name="kk_hdmi_modes_title">Modalità uscita HDMI</string>
+
+    <string name="kk_keyoverride_category_title">Scorciatoie/Override</string>
+    <string name="kk_keyoverride_title">Aggiungi tasto Azioni Override</string>
+    <string name="kk_keyoverride_noentries">Nessun tasto override definito</string>
+    <string name="kk_keyoverride_functionkeys">Tasti funzionali</string>
+    <string name="kk_keyoverride_specialkeys">Tasti speciali</string>
+    <string name="kk_keyoverride_otherkeys">Altri tasti</string>
+    <string name="kk_keyoverride_category_current_actions">Impostazione tasti override corrente</string>
+
+    <string name="kk_sendkey_title">Send Key</string>
+    
+    <string name="add">Aggiungi</string>
+    
+
+    <!-- touchpad mode -->
+    <string name="touchpad_mode_selector">Modalità Touchpad</string>
+    <string name="touchpad_setting_title">Touchpad</string>
+    <string name="touchpad_mode_entry_android32">Gesti</string>
+    <string name="touchpad_mode_entry_classic">Trackpad</string>
+    <string name="touchpad_mode_value_android32">0</string>
+    <string name="touchpad_mode_value_classic">1</string>
+
+    
+    <string name="auto_expanded_desktop_ondock_title">Modo Immersivo automatico quando collegata alla Dock</string>
+    <string name="enable_panels_dropshadow_title">Abilita ombra schermo quando espansi i pannelli (PhabletUI)</string>
+    
+    <string name="bluetooth_accept_all_files">Accetta tutti i tipi di file</string>
+
+<!-- Arrays -->
+
+    <string-array name="kk_ui_mode_entries">
+        <item>Phablet UI</item>
+        <item>Phablet UI - Barra di navigazione allineata a sinistra</item>
+        <item>Phablet UI - Nessuna barra di navigazione</item>
+<!-- <item>Tablet UI</item> -->
+        <item>Modo Immersivo - Barra di navigazione</item>
+    </string-array>
+    <string-array name="kk_ui_mode_values">
+        <item>4</item>
+        <item>0</item>
+        <item>1</item>
+<!-- <item>3</item> -->
+        <item>2</item>
+    </string-array>
+
+    <string-array name="kk_ui_navbar_size_entries">
+        <item>Normale (48dp)</item>
+        <item>Media (36dp)</item>
+        <item>Piccola (24dp)</item>
+    </string-array>
+    <string-array name="kk_ui_navbar_size_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
+    <string-array name="kk_wifi_regulatory_domain_entries">
+        <item>Stati Uniti</item>
+        <item>Giappone</item>
+        <item>EMEA e resto del mondo</item>
+    </string-array>
+    <string-array name="kk_wifi_regulatory_domain_values">
+        <item>US</item>
+        <item>JP</item>
+        <item>EU</item>
+    </string-array>
+
+    
+    <string-array name="kk_action_dialog_entries">
+        <item>Avvia applicazione</item>
+        <item>Invia chiave</item>
+        <item>Invia codice tasto</item>
+        <item>Chiudi processo</item>
+        <item>Passa all\'applicazione precedente</item>
+        <item>Modo Immersivo</item>
+        <item>Modo Immersivo - Mantieni la Barra di stato</item>
+        <item>Autorotation Toggle</item>
+        <item>Mostra Applicazioni recenti</item>
+        <item>Show Power Menu</item>
+        <item>Espandi/Chiudi il pannello delle notifiche</item>
+        <item>Espandi il pannello settaggi veloci</item>
+        <item>Wifi Toggle</item>
+        <item>Ethernet Toggle</item>
+        <item>Bluetooth Toggle</item>
+        <item>Touchpad Toggle</item>
+        <item>Launch Settings</item>
+        <item>Take screenshot</item>
+        <item>Diminuisci luminosità</item>
+        <item>Aumenta luminosità</item>
+        <item>Luminosità Automatica</item>
+        <item>Media Previous</item>
+        <item>Media Next</item>
+        <item>Media Play/Pause</item>
+<!-- <item>Audio Down</item>
+<item>Audio Up</item> -->
+        <item>Audio Mute</item>
+        <item>Schermo spento</item>
+        <item>Google Now</item>
+        <item>Passa Applicazione pricipale durante Vista Divisa e Schermo Intero</item>
+        <item>Switch Top Application between 1st SplitView Slot and FullScreen</item>
+        <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>
+        <item>Rilancia applicazione principale come flottante</item>
+        <item>Mostra/Nascondi tutte le applicazioni flottanti</item>
+<!-- <item>Power Menu</item> -->
+        <item>Nessuno</item>
+    </string-array>
+    
+    <string-array name="kk_hdmi_modes">
+        <item>Center</item>
+        <item>Crop</item>
+        <item>Scale</item>
+    </string-array>
+
+    <string-array name="kk_wallpaper_modes">
+        <item>Normale</item>
+        <item>Disabilita il rendering dello sfondo di sistema</item>
+        <item>Disabilita il servizio di gestione sfondi (Necessario il riavvio)</item>
+    </string-array>
+
+
+    <string-array name="kk_keyoverride_function_entries">
+        <item>Wifi</item>
+        <item>Bluetooth</item>
+        <item>TouchPad</item>
+        <item>Diminuisci luminosità</item>
+        <item>Aumenta luminosità</item>
+        <item>Luminosità Automatica</item>
+        <item>ScreenShot</item>
+        <item>Explorer</item>
+        <item>Impostazioni</item>
+        <item>Media Precedente</item>
+        <item>Media Pausa</item>
+        <item>Media Successivo</item>
+        <item>Volume Mute</item>
+        <item>Volume Diminuzione</item>
+        <item>Volume Aumento</item>
+        <item>Sleep</item>
+
+    </string-array>
+
+    <string-array name="kk_keyoverride_special_entries">
+     <item>Indietro</item>
+<!-- <item>Home</item> -->
+     <item>Ricerca</item>
+     <item>Menu</item>
+     <item>Tab</item>
+     <item>Spazio</item>
+     <item>Invio</item>
+     <item>BackSpace</item>
+
+     <item>Shift Sinistro</item>
+     <item>Shift Destro</item>
+     <item>Ctrl Sinistro</item>
+     <item>Ctrl Destro</item>
+     <item>Alt Sinistro</item>
+     <item>Alt Destro</item>
+
+     <item>Sinistra</item>
+     <item>Destra</item>
+     <item>Su</item>
+     <item>Giù</item>
+
+     <item>Vai a Inizio</item>
+     <item>Vai a Fine</item>
+     <item>Pagina su</item>
+     <item>Pagina giù</item>
+    </string-array>
+   
+</resources>
+

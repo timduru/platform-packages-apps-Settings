@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Strings -->
+    <string name="kat_settings">Центр Управления</string>
+    <string name="su_start">SuperSU</string>
+    <string name="settings_app_ops_title">Разрешения Приложений</string>
+    <string name="autoparts_dock_settings">Док-станция</string>
+    <string name="mediascanner_filters">Фильтры Сканера Медиа</string>
+
+    <!--  Categories -->
+    <string name="kk_ui_general_title">Общее</string>
+    <string name="kk_ui_misc_title">Прочее</string>
+    <string name="kk_ui_clock_title">Часы</string>
+    <string name="kk_ui_battery_title">Батарея</string>
+    <string name="kk_ui_recents_title">Недавние Приложения</string>
+    
+    <string name="kk_ui_settings">Интерфейс</string>
+    <string name="kk_ui_mode">Режим Интерфейса</string>
+    <string name="kk_ui_mode_summary">Выбрать режим интерфейса</string>
+
+    <string name="kk_ui_barsize_title">Высота Панели Навигации</string>
+    <string name="kk_ui_barsize_summary">Изменить высоту панели навигации</string>
+    
+    
+    <string name="kk_ui_interface_navkeys">Кнопки Панели Навигации</string>
+    <string name="kk_ui_interface_navkeys_summary">Назначить действия кнопок</string>
+
+    <string name="kk_ui_back_longpress_title">Долгое Нажатие Кнопки "Назад"</string>
+    <string name="kk_ui_recent_longpress_title">Долгое Нажатие Кнопки Недавних Приложений</string>
+    <string name="kk_ui_menu_longpress_title">Долгое Нажатие Кнопки Меню</string>  
+    <string name="kk_ui_switch_toprevious_task_longpress_title">Долгое Нажатие Кнопки Перехода к Предыдущему Приложению</string>  
+    <string name="kk_ui_splitview_auto_longpress_title">Долгое Нажатие Кнопки Режима Разделенного Экрана</string>  
+    <string name="kk_ui_relaunch_floating_longpress_title">Долгое Нажатие Кнопки Режима Окна</string>  
+
+    <string name="kk_ui_multiwindow_title">Настройки Мультиоконного Режима</string>  
+    <string name="kk_ui_switch_toprevious_task_visibility_title">Показать Кнопку Перехода к Предыдущему Приложению</string>  
+    <string name="kk_ui_splitview_auto_visibility_title">Показать Кнопку Режима Разделенного Экрана</string>  
+    <string name="kk_ui_relaunch_floating_visibility_title">Показать Кнопку Перехода в Режим Окна</string>  
+    <string name="kk_ui_recents_multiwindow_icons_visibility_title">Показать Иконки Мультиоконного Режима в Недавних Приложениях</string>  
+
+    <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
+    <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
+    <string name="kk_ui_menu_target_uri">kk_ui_menu_target_uri</string>
+    <string name="kk_ui_switch_toprevious_task_target_uri">kk_ui_switch_toprevious_task_target_uri</string>
+    <string name="kk_ui_splitview_auto_target_uri">kk_ui_splitview_auto_target_uri</string>
+    <string name="kk_ui_relaunch_floating_target_uri">kk_ui_relaunch_floating_target_uri</string>
+    
+    <string name="kk_ui_screenshot_title">Снимок Экрана</string>
+    <string name="kk_ui_screenoff_title">Выключить Экран</string>
+    <string name="kk_ui_kill_process_title">Закрыть Текущее приложение</string>
+    <string name="kk_ui_assist_title">Google Now</string>
+    <string name="kk_ui_package_removed">Ранее выбраный пакет не найден</string>
+    <string name="kk_ui_activity_pref_default_title">Не Выбрано</string>
+    <string name="kk_ui_activity_pref_default_summary">Выберите настраиваемое действие долгого нажатия</string>
+
+    <string name="kk_ui_wallpaper_mode_title">Режим Обоев</string>
+
+
+    <string name="kk_activity_dialog_title">Выбор Действия</string>
+    <string name="kk_action_dialog_title">Выбор Действия</string>
+    <string name="kk_keycode_title">Введите Ключ</string>
+    <string name="kk_keycode_msg">Ключ:</string>
+
+    
+    
+    <string name="kk_wifi_regulatory_domain_selector">Выбор региона Wi-Fi</string>
+    <string name="kk_wifi_regulatory_domain_changed">Регион Wi-Fi изменён (возможно потребуется перезагрузка)</string>
+    <string name="kk_wifi_restarting">Перезапуск Wi-Fi...</string>
+
+
+    <string name="kk_performance">Производительность</string>
+    <string name="kk_performance_cpu">Настройки CPU</string>
+    <string name="kk_performance_cpu_on_boot">Применить настройки при запуске</string>
+    <string name="kk_performance_cpu_governor">Говернор</string>
+    <string name="kk_performance_cpu_min">Минимальная частота</string>
+    <string name="kk_performance_cpu_max">Максимальная частота</string>
+    <string name="kk_performance_current_value">Текущее значение: </string>
+    <string name="kk_performance_boot_value">Значение при запуске: </string>
+    <string name="kk_performance_iosched">Шедулер I/O</string>
+    <string name="kk_performance_iosched_on_boot">Применить при запуске</string>
+    <string name="kk_performance_fast_charge">Быстрая Зарядка USB</string>
+    <string name="kk_performance_sweep2wake">Sweep2Wake</string>
+    <string name="kk_performance_sweep2wake_on_boot">Запуск при загрузке</string>
+    <string name="kk_performance_zram_category">ZRAM</string>
+    <string name="kk_performance_zram_title">Включить ZRAM при запуске</string>
+    <string name="kk_performance_zram_summary">10% of RAM will be used as swap space </string>
+    <string name="kk_performance_not_applied">Overclocking not applied</string>
+    <string name="kk_performance_notification_title">Overclocking</string>
+    <string name="kk_performance_notification_text">Not been applied due to recent reboot (less than 2 minutes).</string>
+
+    <string name="kk_ui_battery_icon_title">Отображать иконку батареи</string>
+    <string name="kk_ui_battery_text_title">Отображать заряд в процентах</string>
+    <string name="kk_ui_battery_text_percent_title">Отображать % </string>
+    
+    <string name="kk_ui_clock_time_title">Отображать Время</string>
+    <string name="kk_ui_clock_date_title">Отображать Дату</string>
+    
+    <string name="inputmethod_shownotification_title">Отображать Уведомление Выбора Метода Ввода</string>
+    <string name="inputmethod_shownotification_summary">Включить/выключить отображение уведомление выбора метода ввода</string>
+
+    <string name="kk_ui_recents_killall_button_title">Отображать Кнопку "Закрыть Всё"</string>
+    <string name="kk_ui_recents_mem_display_title">Отображать Информацию о Памяти</string>    
+
+    <string name="kk_hdmi_modes_title">Режим Выхода HDMI</string>    
+
+    <string name="kk_keyoverride_category_title">Комбинации Клавиш / Быстрый Запуск</string>    
+    <string name="kk_keyoverride_title">Добавить Действие Комбинации Клавиш</string>    
+    <string name="kk_keyoverride_noentries">Комбинация Клавиш Не Определена</string>    
+    <string name="kk_keyoverride_functionkeys">Функциональные Клавиши</string>    
+    <string name="kk_keyoverride_specialkeys">Спецклавиши</string>    
+    <string name="kk_keyoverride_otherkeys">Другие Клавиши</string>    
+    <string name="kk_keyoverride_category_current_actions">Текущие Действия Комбинаций</string>    
+
+    <string name="kk_sendkey_title">Отправить Ключ</string>    
+    
+    <string name="add">Добавить</string>    
+    
+    <string name="shiftL">ShiftL</string>    
+    <string name="shiftR">ShiftR</string>    
+    <string name="ctrlL">CtrlL</string>    
+    <string name="ctrlR">CtrlR</string>    
+    <string name="altL">AltL</string>    
+    <string name="altR">AltR</string>    
+
+    <string name="changelog">Список Изменений</string>
+
+    <!-- touchpad mode -->
+    <string name="touchpad_mode_selector">Режим тачпада</string>
+    <string name="touchpad_setting_title">Тачпад</string>
+    <string name="touchpad_mode_entry_android32">Жесты</string>
+    <string name="touchpad_mode_entry_classic">Трекпад</string>
+    <string name="touchpad_mode_value_android32">0</string>
+    <string name="touchpad_mode_value_classic">1</string>
+
+    
+    <string name="auto_expanded_desktop_ondock_title">Автоматический Расширенный Экран При Подключении Док-станции</string>
+    <string name="enable_panels_dropshadow_title">Включить Затемнение Экрана При Раскрытых Панелях </string>
+    
+    <string name="bluetooth_accept_all_files">Принимать все файлы</string>
+
+<!-- Arrays -->
+
+    <string-array name="kk_ui_mode_entries">
+        <item>Phablet UI</item>
+        <item>Phablet UI - Панель Навигации По Левому Краю</item>
+        <item>Phablet UI - Панель Навигации Скрыта</item>
+<!--        <item>Tablet UI</item> -->
+        <item>Режим Расширенного Экрана - Панели Скрыты</item>
+    </string-array>
+    <string-array name="kk_ui_mode_values">
+        <item>4</item>
+        <item>0</item>
+        <item>1</item>
+<!--        <item>3</item> -->
+        <item>2</item>
+    </string-array>
+
+    <string-array name="kk_ui_navbar_size_entries">
+        <item>Нормальный (48dp)</item>
+        <item>Мелкий (36dp)</item>
+        <item>Минимальный (24dp)</item>
+    </string-array>
+    <string-array name="kk_ui_navbar_size_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
+    <string-array name="kk_wifi_regulatory_domain_entries">
+        <item>США</item>
+        <item>Япония</item>
+        <item>Другие Регионы</item>
+    </string-array>
+    <string-array name="kk_wifi_regulatory_domain_values">
+        <item>US</item>
+        <item>JP</item>
+        <item>EU</item>
+    </string-array>
+
+    
+    <string-array name="kk_action_dialog_entries">
+        <item>Запуск Приложения</item>
+        <item>Send Key</item>
+        <item>Send KeyCode</item>
+        <item>Закрыть Приложение</item>
+        <item>Переключиться На Предыдущее Приложение</item>
+        <item>Расширенный Экран</item>
+        <item>Расширенный Экран - Оставить Панель Уведомлений</item>
+        <item>Автоповорот Экрана</item>
+        <item>Недавние Приложения</item>
+        <item>Меню Питания</item>
+        <item>Развернуть/Свернуть Панель Уведомлений</item>
+        <item>Развернуть Панель Быстрых Настроек</item>
+        <item>Включить Wi-Fi</item>
+        <item>Включить Ethernet</item>
+        <item>Включить Bluetooth</item>
+        <item>Тачпад</item>
+        <item>Запуск Настроек</item>
+        <item>Снимок Экрана</item>
+        <item>Уменьшить Яркость</item>
+        <item>Увеличить Яркость</item>
+        <item>Автояркость</item>
+        <item>Медиа: Назад</item>
+        <item>Медиа: Далее</item>
+        <item>Медиа: Играть/Пауза</item>
+<!--        <item>Audio Down</item>
+        <item>Audio Up</item> -->
+        <item>Выключить Звук</item>
+        <item>Выключить Экран</item>
+        <item>Google Now</item>
+        <item>Переключение Запущенного Приложения Между Режимом Разделенного Экрана и Полноэкранным Режимом</item>
+        <item>Переключение Запущенного Приложения Между Первой Половиной Разделенного Экрана и Полноэкранным Режимом</item>
+        <item>Переключение Запущенного Приложения Между Второй Половиной Разделенного Экрана и Полноэкранным Режимом</item>
+        <item>Запустить Приложение в Окне</item>
+        <item>Показать/Скрыть Все Открытые Окна</item>
+<!--        <item>Power Menu</item> -->
+        <item>None</item>
+    </string-array>
+    <string-array name="kk_action_dialog_values">
+        <item>app</item>
+        <item>sendkey</item>
+        <item>sendkey</item>
+        <item>killcurrent</item>
+        <item>switch_toprevious_task</item>
+        <item>expanded_desktop</item>
+        <item>expanded_desktop_keepstatusbar</item>
+        <item>autorotation</item>
+        <item>recent</item>
+        <item>show_powermenu</item>
+        <item>show_notifications_panel</item>
+        <item>show_settings_panel</item>
+        <item>wifi_toggle</item>
+        <item>ethernet_toggle</item>
+        <item>bluetooth_toggle</item>
+        <item>touchpad_toggle</item>
+        <item>launch_settings</item>
+        <item>screenshot</item>
+        <item>brightness_down</item>
+        <item>brightness_up</item>
+        <item>brightness_auto</item>
+        <item>media_previous</item>
+        <item>media_next</item>
+        <item>media_playpause</item>
+<!--        <item>audio_down</item>
+        <item>audio_up</item> -->
+        <item>audio_mute</item>
+        <item>screenoff</item>
+        <item>assist</item>
+        <item>splitview_auto</item>
+        <item>splitview_1</item>
+        <item>splitview_2</item>
+        <item>relaunch_floating</item>
+        <item>show_hide_all_floating</item>
+<!--        <item>powermenu</item> -->
+        <item>none</item>
+    </string-array>
+    
+    <string-array name="kk_hdmi_modes">
+        <item>Центр</item>
+        <item>Обрезать</item>
+        <item>Растянуть</item>
+    </string-array>
+
+    <string-array name="kk_wallpaper_modes">
+        <item>Нормальный</item>
+        <item>Отключить Системный Рендеринг Обоев</item>
+        <item>Отключить Системный Сервис Обоев (Требуется Перезагрузка)</item>
+    </string-array>
+
+
+    <string-array name="kk_keyoverride_function_entries">
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Тачпад</item>
+        <item>Уменьшить Яркость</item>
+        <item>Увеличить Яркость</item>
+        <item>Автояркость</item>
+        <item>Снимок Экрана</item>
+        <item>Проводник</item>
+        <item>Настройки</item>
+        <item>Медиа: Назад</item>
+        <item>Медиа: Пауза</item>
+        <item>Медиа: Даылее</item>
+        <item>Выключить Звук</item>
+        <item>Уменьшить Громкость</item>
+        <item>Увеличить Громкость</item>
+        <item>Режим Сна</item>
+
+    </string-array>
+
+    <string-array name="kk_keyoverride_function_values">
+        <item>KEYCODE_WIRELESS</item>
+        <item>KEYCODE_BLUETOOTH</item>
+        <item>KEYCODE_TOUCHPAD</item>
+        <item>KEYCODE_BRIGHTNESS_DOWN</item>
+        <item>KEYCODE_BRIGHTNESS_UP</item>
+        <item>KEYCODE_BRIGHTNESS_AUTO</item>
+        <item>KEYCODE_CAPTURE</item>
+        <item>KEYCODE_EXPLORER</item>
+        <item>KEYCODE_SETTINGS</item>
+        <item>KEYCODE_MEDIA_PREVIOUS</item>
+        <item>KEYCODE_MEDIA_PLAY_PAUSE</item>
+        <item>KEYCODE_MEDIA_NEXT</item>
+        <item>KEYCODE_VOLUME_MUTE</item>
+        <item>KEYCODE_VOLUME_DOWN</item>
+        <item>KEYCODE_VOLUME_UP</item>
+        <item>KEYCODE_SLEEP</item>
+    </string-array>
+
+    <string-array name="kk_keyoverride_special_entries">
+     <item>Назад</item>
+<!--     <item>Home</item> -->
+     <item>Поиск</item>
+     <item>Меню</item>
+     <item>Tab</item>
+     <item>Space</item>
+     <item>Enter</item>
+     <item>BackSpace</item>
+
+     <item>Shift Left</item>
+     <item>Shift Right</item>
+     <item>Ctrl Left</item>
+     <item>Ctrl Right</item>
+     <item>Alt Left</item>
+     <item>Alt Right</item>
+
+     <item>Left</item>
+     <item>Right</item>
+     <item>Up</item>
+     <item>Down</item>
+
+     <item>Move Home</item>
+     <item>Move End</item>
+     <item>Page Up</item>
+     <item>Page Down</item>
+    </string-array>
+   
+    <string-array name="kk_keyoverride_special_values">
+     <item>4</item>
+<!--     <item>3</item> -->
+     <item>84</item>
+     <item>82</item>
+     <item>61</item>
+     <item>62</item>
+     <item>66</item>
+     <item>67</item>
+
+     <item>59</item>
+     <item>60</item>
+     <item>113</item>
+     <item>114</item>
+     <item>57</item>
+     <item>58</item>
+
+     <item>21</item>
+     <item>22</item>
+     <item>19</item>
+     <item>20</item>
+
+     <item>122</item>
+     <item>123</item>
+     <item>92</item>
+     <item>93</item>
+    </string-array>
+    
+
+
+<!-- DOCK Settings -->
+    <array name="touchpad_mode_selector_values">
+        <item>@string/touchpad_mode_value_android32</item>
+        <item>@string/touchpad_mode_value_classic</item>
+    </array>
+    <array name="touchpad_mode_selector_entries">
+        <item>@string/touchpad_mode_entry_android32</item>
+        <item>@string/touchpad_mode_entry_classic</item>
+    </array>
+
+</resources>
+

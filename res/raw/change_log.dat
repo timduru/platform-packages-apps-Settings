@@ -1,3 +1,26 @@
+=08/08/14 - V033 =
+
+- Multiuser: Fix relaunch as floating if not primary user
+- Multiuser: Fix launch application global action if not primary user
+- Bluetooth: Add setting to allow to receive any file type
+- Settings: Add more translations: Italian, Russian, Ukrainian
+- Native: Allow media.nvidia.audio_alsa to register as a service
+- Native: Add setOrientation interface back
+- MediaPlayer: Handle NPE due to threading race
+- TF101: update Bluetooth
+- TF101: add r_submix audio policy
+- TF300T: Add Wifi HotSpot
+- TF300T: Remove perfhud, prevent NVInterposer log spam
+- TF300T: Add libnetcmdiface to prevent log error
+
+- TF300T KatKernel 014:
+-- add gpu overclock user custom control (default to 580)
+-- cpufreq: Break out early if freq equals to target_freq
+-- input: decrease latency by packing up to 1 frame worth of data
+-- use user_cap_frequency
+-- mm: pass readahead info down to the i/o scheduler
+
+
 =07/22/14 - V032 =
 
 - Switch to android-4.4.4_r2 (only device specific changes not related to us, so just a version bump for us)

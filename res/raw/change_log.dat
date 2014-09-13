@@ -1,3 +1,42 @@
+
+=09/13/14 - V034 =
+
+- libwebp: Migrate to latest chromium_org 0.4.1 version
+-- Optimizations + Fixes webp related crashes with Linaro & recent compilers
+    with Office suite pro and such ... (meaning that you do not need to flash the separate libskia)
+- OpenGL: Optimize drawBitmapMesh using TRIANGLE_STRIP
+- Activity Manager: Tunning max allowed background services during bootup sequence
+- Activity Manager: Ensure to add Persistent Apps to LruProcess List on app restart
+- Activity Manager: Ensure alive process is not killedByAm
+- Activity Manager: Avoid keeping restarting home when only home activity exists.
+
+- TF300T: Auto detect if /data is f2fs
+ (Meaning that you do not need to flash a separate kernel anymore if you use F2FS)
+
+- TF300T KatKernel 015:
+-- gpu overclock back to 520
+-- interactive: set default maxspeed_load to 80 to save battery
+-- rcu: Backport 50 commits from kernel 3.9
+-- improve Asynchronous I/O latency
+-- regulator: avoid warm reboot fail, Avoid possible race condition, implement proper power off sequence
+-- ashmem: deadlocks fixes
+-- netfilter: xt_qtaguid, fix lo stats
+-- netfilter: misc patches and fixes backport
+-- smp: disable extra duplicate debug
+-- net: fix a potential rcu_read_lock() imbalance in rt6_fill_node()
+-- lib/int_sqrt.c: optimize square root algorithm
+-- Set minimum freq to 51MHz
+-- mm misc fixes
+-- vfp: Use hard-float and neon libraries instead of vfp ones
+-- scheduler: Autogroup patch group by current user android UID instead of task ID
+-- usb: fix false disconnect due to a signal sent to the reading process
+-- sysfs: Fix memory leak
+-- time: Fix overflow when HZ is smaller than 60
+-- tegradc: remove mode log spammage
+-- misc optimizations: lib/memcopy,  lib/string, arm optimized RWSEM algorithm
+-- misc fixes
+
+
 =08/08/14 - V033 =
 
 - Multiuser: Fix relaunch as floating if not primary user

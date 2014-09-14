@@ -2,42 +2,42 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Strings -->
-    <string name="kat_settings">Центр Управления</string>
+    <string name="kat_settings">Центр управления</string>
     <string name="su_start">SuperSU</string>
-    <string name="settings_app_ops_title">Разрешения Приложений</string>
+    <string name="settings_app_ops_title">Разрешения приложений</string>
     <string name="autoparts_dock_settings">Док-станция</string>
-    <string name="mediascanner_filters">Фильтры Сканера Медиа</string>
+    <string name="mediascanner_filters">Фильтры MediaScannerService</string>
 
     <!--  Categories -->
     <string name="kk_ui_general_title">Общее</string>
     <string name="kk_ui_misc_title">Прочее</string>
     <string name="kk_ui_clock_title">Часы</string>
     <string name="kk_ui_battery_title">Батарея</string>
-    <string name="kk_ui_recents_title">Недавние Приложения</string>
+    <string name="kk_ui_recents_title">Недавние приложения</string>
     
     <string name="kk_ui_settings">Интерфейс</string>
-    <string name="kk_ui_mode">Режим Интерфейса</string>
+    <string name="kk_ui_mode">Режим интерфейса</string>
     <string name="kk_ui_mode_summary">Выбрать режим интерфейса</string>
 
-    <string name="kk_ui_barsize_title">Высота Панели Навигации</string>
+    <string name="kk_ui_barsize_title">Высота панели навигации</string>
     <string name="kk_ui_barsize_summary">Изменить высоту панели навигации</string>
     
     
-    <string name="kk_ui_interface_navkeys">Кнопки Панели Навигации</string>
-    <string name="kk_ui_interface_navkeys_summary">Назначить действия кнопок</string>
+    <string name="kk_ui_interface_navkeys">Кнопки панели навигации</string>
+    <string name="kk_ui_interface_navkeys_summary">Назначить действия кнопок панели навигации</string>
 
-    <string name="kk_ui_back_longpress_title">Долгое Нажатие Кнопки "Назад"</string>
-    <string name="kk_ui_recent_longpress_title">Долгое Нажатие Кнопки Недавних Приложений</string>
-    <string name="kk_ui_menu_longpress_title">Долгое Нажатие Кнопки Меню</string>  
-    <string name="kk_ui_switch_toprevious_task_longpress_title">Долгое Нажатие Кнопки Перехода к Предыдущему Приложению</string>  
-    <string name="kk_ui_splitview_auto_longpress_title">Долгое Нажатие Кнопки Режима Разделенного Экрана</string>  
-    <string name="kk_ui_relaunch_floating_longpress_title">Долгое Нажатие Кнопки Режима Окна</string>  
+    <string name="kk_ui_back_longpress_title">Долгий тап кнопки "назад"</string>
+    <string name="kk_ui_recent_longpress_title">Долгий тап кнопки "недавние"</string>
+    <string name="kk_ui_menu_longpress_title">Долгий тап кнопки "меню"</string>  
+    <string name="kk_ui_switch_toprevious_task_longpress_title">Долгий тап кнопки перехода к предыдущему приложению</string>  
+    <string name="kk_ui_splitview_auto_longpress_title">Долгий тап кнопки режима разделенного экрана</string>  
+    <string name="kk_ui_relaunch_floating_longpress_title">Долгий тап кнопки режима окна</string>  
 
-    <string name="kk_ui_multiwindow_title">Настройки Мультиоконного Режима</string>  
-    <string name="kk_ui_switch_toprevious_task_visibility_title">Показать Кнопку Перехода к Предыдущему Приложению</string>  
-    <string name="kk_ui_splitview_auto_visibility_title">Показать Кнопку Режима Разделенного Экрана</string>  
-    <string name="kk_ui_relaunch_floating_visibility_title">Показать Кнопку Перехода в Режим Окна</string>  
-    <string name="kk_ui_recents_multiwindow_icons_visibility_title">Показать Иконки Мультиоконного Режима в Недавних Приложениях</string>  
+    <string name="kk_ui_multiwindow_title">Настройки мультиоконного режима</string>  
+    <string name="kk_ui_switch_toprevious_task_visibility_title">Показать кнопку перехода к предыдущему приложению</string>  
+    <string name="kk_ui_splitview_auto_visibility_title">Показать Кнопку режима разделенного экрана</string>  
+    <string name="kk_ui_relaunch_floating_visibility_title">Показать кнопку перехода в режим окна</string>  
+    <string name="kk_ui_recents_multiwindow_icons_visibility_title">Показать кнопки мультиоконного режима в недавних приложениях</string>  
 
     <string name="kk_ui_back_target_uri">kk_ui_back_target_uri</string>
     <string name="kk_ui_recent_target_uri">kk_ui_recent_target_uri</string>
@@ -46,21 +46,21 @@
     <string name="kk_ui_splitview_auto_target_uri">kk_ui_splitview_auto_target_uri</string>
     <string name="kk_ui_relaunch_floating_target_uri">kk_ui_relaunch_floating_target_uri</string>
     
-    <string name="kk_ui_screenshot_title">Снимок Экрана</string>
-    <string name="kk_ui_screenoff_title">Выключить Экран</string>
-    <string name="kk_ui_kill_process_title">Закрыть Текущее приложение</string>
+    <string name="kk_ui_screenshot_title">Снимок экрана</string>
+    <string name="kk_ui_screenoff_title">Выключить экран</string>
+    <string name="kk_ui_kill_process_title">Закрыть текущее приложение</string>
     <string name="kk_ui_assist_title">Google Now</string>
-    <string name="kk_ui_package_removed">Ранее выбраный пакет не найден</string>
-    <string name="kk_ui_activity_pref_default_title">Не Выбрано</string>
+    <string name="kk_ui_package_removed">Ранее выбранный пакет не найден</string>
+    <string name="kk_ui_activity_pref_default_title">Не выбрано</string>
     <string name="kk_ui_activity_pref_default_summary">Выберите настраиваемое действие долгого нажатия</string>
 
-    <string name="kk_ui_wallpaper_mode_title">Режим Обоев</string>
+    <string name="kk_ui_wallpaper_mode_title">Режим обоев</string>
 
 
-    <string name="kk_activity_dialog_title">Выбор Действия</string>
-    <string name="kk_action_dialog_title">Выбор Действия</string>
-    <string name="kk_keycode_title">Введите Ключ</string>
-    <string name="kk_keycode_msg">Ключ:</string>
+    <string name="kk_activity_dialog_title">Выбор действия</string>
+    <string name="kk_action_dialog_title">Выбор действия</string>
+    <string name="kk_keycode_title">Введите комбинацию клавиш</string>
+    <string name="kk_keycode_msg">Комбинация:</string>
 
     
     
@@ -93,26 +93,26 @@
     <string name="kk_ui_battery_text_title">Отображать заряд в процентах</string>
     <string name="kk_ui_battery_text_percent_title">Отображать % </string>
     
-    <string name="kk_ui_clock_time_title">Отображать Время</string>
-    <string name="kk_ui_clock_date_title">Отображать Дату</string>
+    <string name="kk_ui_clock_time_title">Отображать время</string>
+    <string name="kk_ui_clock_date_title">Отображать дату</string>
     
-    <string name="inputmethod_shownotification_title">Отображать Уведомление Выбора Метода Ввода</string>
+    <string name="inputmethod_shownotification_title">Отображать уведомление выбора метода ввода</string>
     <string name="inputmethod_shownotification_summary">Включить/выключить отображение уведомление выбора метода ввода</string>
 
-    <string name="kk_ui_recents_killall_button_title">Отображать Кнопку "Закрыть Всё"</string>
-    <string name="kk_ui_recents_mem_display_title">Отображать Информацию о Памяти</string>    
+    <string name="kk_ui_recents_killall_button_title">Отображать Кнопку "Kill All"</string>
+    <string name="kk_ui_recents_mem_display_title">Отображать информацию о памяти</string>    
 
-    <string name="kk_hdmi_modes_title">Режим Выхода HDMI</string>    
+    <string name="kk_hdmi_modes_title">Режим выхода HDMI</string>    
 
-    <string name="kk_keyoverride_category_title">Комбинации Клавиш / Быстрый Запуск</string>    
-    <string name="kk_keyoverride_title">Добавить Действие Комбинации Клавиш</string>    
-    <string name="kk_keyoverride_noentries">Комбинация Клавиш Не Определена</string>    
-    <string name="kk_keyoverride_functionkeys">Функциональные Клавиши</string>    
+    <string name="kk_keyoverride_category_title">Комбинации клавиш/быстрый запуск</string>    
+    <string name="kk_keyoverride_title">Добавить действие комбинации клавиш</string>    
+    <string name="kk_keyoverride_noentries">Комбинация клавиш не определена</string>    
+    <string name="kk_keyoverride_functionkeys">Функциональные клавиши</string>    
     <string name="kk_keyoverride_specialkeys">Спецклавиши</string>    
-    <string name="kk_keyoverride_otherkeys">Другие Клавиши</string>    
-    <string name="kk_keyoverride_category_current_actions">Текущие Действия Комбинаций</string>    
+    <string name="kk_keyoverride_otherkeys">Другие клавиши</string>    
+    <string name="kk_keyoverride_category_current_actions">Текущие действия комбинаций</string>    
 
-    <string name="kk_sendkey_title">Отправить Ключ</string>    
+    <string name="kk_sendkey_title">Нажатие клавиши</string>    
     
     <string name="add">Добавить</string>    
     
@@ -123,7 +123,7 @@
     <string name="altL">AltL</string>    
     <string name="altR">AltR</string>    
 
-    <string name="changelog">Список Изменений</string>
+    <string name="changelog">Список изменений</string>
 
     <!-- touchpad mode -->
     <string name="touchpad_mode_selector">Режим тачпада</string>
@@ -134,8 +134,8 @@
     <string name="touchpad_mode_value_classic">1</string>
 
     
-    <string name="auto_expanded_desktop_ondock_title">Автоматический Расширенный Экран При Подключении Док-станции</string>
-    <string name="enable_panels_dropshadow_title">Включить Затемнение Экрана При Раскрытых Панелях </string>
+    <string name="auto_expanded_desktop_ondock_title">Спрятать панель навигации при подключении док-станции</string>
+    <string name="enable_panels_dropshadow_title">Включить затемнение экрана при расширенном экране </string>
     
     <string name="bluetooth_accept_all_files">Принимать все файлы</string>
 
@@ -143,10 +143,10 @@
 
     <string-array name="kk_ui_mode_entries">
         <item>Phablet UI</item>
-        <item>Phablet UI - Панель Навигации По Левому Краю</item>
-        <item>Phablet UI - Панель Навигации Скрыта</item>
+        <item>Phablet UI - Панель навигации по левому краю</item>
+        <item>Phablet UI - Панель навигации скрыта</item>
 <!--        <item>Tablet UI</item> -->
-        <item>Режим Расширенного Экрана - Панели Скрыты</item>
+        <item>Расширенный экран - панели скрыты</item>
     </string-array>
     <string-array name="kk_ui_mode_values">
         <item>4</item>
@@ -171,7 +171,7 @@
     <string-array name="kk_wifi_regulatory_domain_entries">
         <item>США</item>
         <item>Япония</item>
-        <item>Другие Регионы</item>
+        <item>Другие регионы</item>
     </string-array>
     <string-array name="kk_wifi_regulatory_domain_values">
         <item>US</item>
@@ -181,40 +181,40 @@
 
     
     <string-array name="kk_action_dialog_entries">
-        <item>Запуск Приложения</item>
-        <item>Send Key</item>
-        <item>Send KeyCode</item>
-        <item>Закрыть Приложение</item>
-        <item>Переключиться На Предыдущее Приложение</item>
-        <item>Расширенный Экран</item>
-        <item>Расширенный Экран - Оставить Панель Уведомлений</item>
-        <item>Автоповорот Экрана</item>
-        <item>Недавние Приложения</item>
-        <item>Меню Питания</item>
-        <item>Развернуть/Свернуть Панель Уведомлений</item>
-        <item>Развернуть Панель Быстрых Настроек</item>
+        <item>Запуск приложения</item>
+        <item>Ввод клавиши</item>
+        <item>Ввод комбинации клавиш</item>
+        <item>Закрыть приложение</item>
+        <item>Предыдущее приложение</item>
+        <item>Расширенный экран</item>
+        <item>Расширенный экран - оставить панель уведомлений</item>
+        <item>Автоповорот экрана</item>
+        <item>Недавние приложения</item>
+        <item>Меню питания</item>
+        <item>Развернуть/свернуть панель уведомлений</item>
+        <item>Развернуть панель быстрых настроек</item>
         <item>Включить Wi-Fi</item>
         <item>Включить Ethernet</item>
         <item>Включить Bluetooth</item>
         <item>Тачпад</item>
-        <item>Запуск Настроек</item>
-        <item>Снимок Экрана</item>
-        <item>Уменьшить Яркость</item>
-        <item>Увеличить Яркость</item>
+        <item>Запуск настроек</item>
+        <item>Снимок экрана</item>
+        <item>Уменьшить яркость</item>
+        <item>Увеличить яркость</item>
         <item>Автояркость</item>
-        <item>Медиа: Назад</item>
-        <item>Медиа: Далее</item>
-        <item>Медиа: Играть/Пауза</item>
+        <item>Медиа: назад</item>
+        <item>Медиа: далее</item>
+        <item>Медиа: играть/пауза</item>
 <!--        <item>Audio Down</item>
         <item>Audio Up</item> -->
-        <item>Выключить Звук</item>
-        <item>Выключить Экран</item>
+        <item>Выключить звук</item>
+        <item>Выключить экран</item>
         <item>Google Now</item>
-        <item>Переключение Запущенного Приложения Между Режимом Разделенного Экрана и Полноэкранным Режимом</item>
-        <item>Переключение Запущенного Приложения Между Первой Половиной Разделенного Экрана и Полноэкранным Режимом</item>
-        <item>Переключение Запущенного Приложения Между Второй Половиной Разделенного Экрана и Полноэкранным Режимом</item>
-        <item>Запустить Приложение в Окне</item>
-        <item>Показать/Скрыть Все Открытые Окна</item>
+        <item>Переключение текущего приложения между режимом разделенного экрана и полноэкранным режимом</item>
+        <item>Отображение текущего приложения в левой/верхней части разделенного экрана</item>
+        <item>Отображение текущего приложения правой/нижней части разделенного экрана</item>
+        <item>Запустить текущее приложение в окне</item>
+        <item>Показать/скрыть все запущенные окна</item>
 <!--        <item>Power Menu</item> -->
         <item>None</item>
     </string-array>
@@ -265,8 +265,8 @@
 
     <string-array name="kk_wallpaper_modes">
         <item>Нормальный</item>
-        <item>Отключить Системный Рендеринг Обоев</item>
-        <item>Отключить Системный Сервис Обоев (Требуется Перезагрузка)</item>
+        <item>Отключить системный рендеринг обоев</item>
+        <item>Отключить системный сервис обоев (требуется перезагрузка)</item>
     </string-array>
 
 
@@ -274,19 +274,19 @@
         <item>Wi-Fi</item>
         <item>Bluetooth</item>
         <item>Тачпад</item>
-        <item>Уменьшить Яркость</item>
-        <item>Увеличить Яркость</item>
+        <item>Уменьшить яркость</item>
+        <item>Увеличить яркость</item>
         <item>Автояркость</item>
-        <item>Снимок Экрана</item>
+        <item>Снимок экрана</item>
         <item>Проводник</item>
         <item>Настройки</item>
-        <item>Медиа: Назад</item>
-        <item>Медиа: Пауза</item>
-        <item>Медиа: Даылее</item>
-        <item>Выключить Звук</item>
-        <item>Уменьшить Громкость</item>
-        <item>Увеличить Громкость</item>
-        <item>Режим Сна</item>
+        <item>Медиа: назад</item>
+        <item>Медиа: пауза</item>
+        <item>Медиа: далее</item>
+        <item>Выключить звук</item>
+        <item>Уменьшить громкость</item>
+        <item>Увеличить громкость</item>
+        <item>Режим сна</item>
 
     </string-array>
 

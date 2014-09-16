@@ -103,8 +103,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         }
 
         mCollapsePanel = (CheckBoxPreference) prefSet.findPreference(COLLAPSE_PANEL);
-        mCollapsePanel.setChecked(Settings.System.getInt(resolver, KKC.S.QS_COLLAPSE_PANEL, 0) == 1);
+	if(mCollapsePanel != null) 
+            mCollapsePanel.setChecked(Settings.System.getInt(resolver, KKC.S.QS_COLLAPSE_PANEL, 0) == 1);
 
+        mDynamicAlarm = (CheckBoxPreference) prefSet.findPreference(DYNAMIC_ALARM);
+	if(mDynamicAlarm != null) 
+            mDynamicAlarm.setChecked(Settings.System.getInt(resolver, KKC.S.QS_DYNAMIC_ALARM, 0) == 1);
+
+        mDynamicWifi = (CheckBoxPreference) prefSet.findPreference(DYNAMIC_WIFI);
+	if(mDynamicWifi != null) 
+            mDynamicWifi.setChecked(Settings.System.getInt(resolver, KKC.S.QS_DYNAMIC_WIFI, 0) == 1);
 
         // Add the network mode preference
         mNetworkMode = (ListPreference) prefSet.findPreference(EXP_NETWORK_MODE);
@@ -132,12 +140,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (mDynamicWifi != null && preference == mDynamicWifi) {
-            Settings.System.putInt(resolver, KKC.S.QS_DYNAMIC_WIFI,
-                    mDynamicWifi.isChecked() ? 1 : 0);
+            Settings.System.putInt(resolver, KKC.S.QS_DYNAMIC_WIFI, mDynamicWifi.isChecked() ? 1 : 0);
             return true;
-        } else if (preference == mCollapsePanel) {
-            Settings.System.putInt(resolver, KKC.S.QS_COLLAPSE_PANEL,
-                    mCollapsePanel.isChecked() ? 1 : 0);
+        } 
+        if (mDynamicAlarm != null && preference == mDynamicAlarm) {
+            Settings.System.putInt(resolver, KKC.S.QS_DYNAMIC_ALARM, mDynamicAlarm.isChecked() ? 1 : 0);
+            return true;
+        } 
+        else if (preference == mCollapsePanel) {
+            Settings.System.putInt(resolver, KKC.S.QS_COLLAPSE_PANEL, mCollapsePanel.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -48,7 +48,6 @@
 
         </PreferenceCategory>
 
-<!--
     <PreferenceCategory
         android:key="pref_dynamic_tiles"
         android:title="@string/title_dynamic_tiles" >
@@ -63,6 +62,7 @@
             android:key="dynamic_alarm"
             android:title="@string/title_dynamic_alarm" />
 
+<!--
         <CheckBoxPreference
             android:key="dynamic_bugreport"
             android:title="@string/title_dynamic_bugreport" />
@@ -83,7 +83,7 @@
             android:key="dynamic_wifi"
             android:title="@string/title_dynamic_wifi" />
 
-    </PreferenceCategory>
 -->
+    </PreferenceCategory>
 
 </PreferenceScreen>

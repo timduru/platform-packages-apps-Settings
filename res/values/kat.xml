@@ -61,6 +61,9 @@
     <string name="kk_action_dialog_title">Select Action</string>
     <string name="kk_keycode_title">Enter Keycode</string>
     <string name="kk_keycode_msg">Keycode:</string>
+    <string name="kk_detectkey_title">Press Key to Detect</string>
+    <string name="kk_keycode">Key Code:</string>
+    <string name="kk_keylabel">Key Label:</string>
 
     
     
@@ -109,7 +112,8 @@
     <string name="kk_keyoverride_noentries">No Key Override Defined</string>    
     <string name="kk_keyoverride_functionkeys">Function Keys</string>    
     <string name="kk_keyoverride_specialkeys">Special Keys</string>    
-    <string name="kk_keyoverride_otherkeys">Other Keys</string>    
+    <string name="kk_keyoverride_otherkeys">Numeric Keys</string>    
+    <string name="kk_keyoverride_detectkey">Detect Key</string>    
     <string name="kk_keyoverride_category_current_actions">Current Key Override Actions</string>    
 
     <string name="kk_sendkey_title">Send Key</string>    

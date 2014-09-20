@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Spinner;
@@ -39,6 +40,7 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
    	private ActionPicker _actionPicker;
    	private Context _context;
    	private OnClickListener _addKeyOverrideClickListener = null;
+   	private OnClickListener _detectKeyOverrideClickListener = null;
    	private KeyActionsArrayAdapter listArrayAdapter;
    	private ToggleButton shiftL, shiftR, ctrlL, ctrlR, altL, altR;
 	
@@ -54,6 +56,14 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 											  {   OnClickAddNewKeyOverride(v); }    
 										};
 		
+                _detectKeyOverrideClickListener = new OnClickListener()
+                                                                                {
+                                                                                          @Override
+                                                                                          public void onClick(View v)
+                                                                                          {  showDetectKeyPicker() ; }
+                                                                                };
+
+
 		for(int i=0; i<=9; i++)
 		{
 			_otherkeysCodes.add("" + (KeyEvent.KEYCODE_0 + i));	
@@ -139,6 +149,12 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 		addBtn = (ImageButton) v.findViewById(R.id.otherkeys_add);
 		addBtn.setOnClickListener(_addKeyOverrideClickListener);
 
+		addBtn = (ImageButton) v.findViewById(R.id.detectkey_add);
+		addBtn.setOnClickListener(_addKeyOverrideClickListener);
+
+		Button detectBtn = (Button) v.findViewById(R.id.detectkey_btn);
+		detectBtn.setOnClickListener(_detectKeyOverrideClickListener);
+
 		shiftL = (ToggleButton) v.findViewById(R.id.shiftL);
 		shiftR = (ToggleButton) v.findViewById(R.id.shiftR);
 		ctrlL = (ToggleButton) v.findViewById(R.id.ctrlL);
@@ -196,11 +212,15 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 			case R.id.otherkeys_add:
 				_currentKeyCode = getSelectedKeyCode(R.id.otherkeys_spinner, _otherkeysCodes, false);
 			break;
+			case R.id.detectkey_add:
+		                TextView txt  = (TextView) getView().findViewById(R.id.detected_keycode);
+				_currentKeyCode = txt.getText().toString();
+			break;
 		}
 
 		refreshCurrentFlags(_currentKeyCode);
 
-		if(_currentKeyCode != null)
+		if(_currentKeyCode != null && ! _currentKeyCode.equals(""))
 			_actionPicker.showActionPickerDialog(this);
  	}
 
@@ -261,5 +281,26 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 		refreshKeyActionsList();
 		listArrayAdapter.notifyDataSetChanged();
 	}
+
+
+    private void showDetectKeyPicker()
+    {
+        DetectKeyDialog picker = new DetectKeyDialog((Activity) _context,  R.string.kk_detectkey_title, R.string.kk_keycode_msg)
+           {
+             @Override
+              public boolean onChoiceValidate(String choice)
+              {
+                //if(val == null || val <=0 || val > 230)  { Toast.makeText(mContext, "Not a Valid Keycode (0 < KeyCode < 230) ", Toast.LENGTH_LONG).show();return false; }
+
+                //callback.pickedAction(KKC.A.SENDKEY_BASE + choice);
+                ((TextView) getView().findViewById(R.id.detected_keycode)) .setText(choice);
+                ((TextView) getView().findViewById(R.id.detected_keylabel)) .setText(KeyEvent.keyCodeToString(Integer.parseInt(choice)).substring("KEYCODE_".length()));
+//                _currentKeyCode = choice;
+                return true; // true = close dialog
+              }
+           };
+        picker.show();
+    }
+
 
 }

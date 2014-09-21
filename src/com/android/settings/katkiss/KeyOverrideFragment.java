@@ -44,9 +44,6 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
    	private KeyActionsArrayAdapter listArrayAdapter;
    	private ToggleButton shiftL, shiftR, ctrlL, ctrlR, altL, altR;
 	
-	List<String> _otherkeysLabels =  new ArrayList<String>();
-	List<String> _otherkeysCodes =  new ArrayList<String>();
-
 	public KeyOverrideFragment()
 	{
 		_addKeyOverrideClickListener = new OnClickListener() 
@@ -63,14 +60,6 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
                                                                                           {  showDetectKeyPicker() ; }
                                                                                 };
 
-
-		for(int i=0; i<=9; i++)
-		{
-			_otherkeysCodes.add("" + (KeyEvent.KEYCODE_0 + i));	
-			_otherkeysLabels.add("" +i);
-		}
-		_otherkeysCodes.add("68");
-		_otherkeysLabels.add("Grave ("+ new KeyEvent(KeyEvent.ACTION_DOWN, 68).getDisplayLabel()+")");	
 	}
 	
 	public class KeyActionsArrayAdapter extends ArrayAdapter<KeyActions> implements OnClickListener
@@ -143,11 +132,6 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 		
 		ImageButton addBtn = (ImageButton) v.findViewById(R.id.functionkeys_add);
 		addBtn.setOnClickListener(_addKeyOverrideClickListener);
-		addBtn = (ImageButton) v.findViewById(R.id.specialkeys_add);
-		addBtn.setOnClickListener(_addKeyOverrideClickListener);
-
-		addBtn = (ImageButton) v.findViewById(R.id.otherkeys_add);
-		addBtn.setOnClickListener(_addKeyOverrideClickListener);
 
 		addBtn = (ImageButton) v.findViewById(R.id.detectkey_add);
 		addBtn.setOnClickListener(_addKeyOverrideClickListener);
@@ -161,11 +145,6 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 		ctrlR = (ToggleButton) v.findViewById(R.id.ctrlR);
 		altL = (ToggleButton) v.findViewById(R.id.altL);
 		altR = (ToggleButton) v.findViewById(R.id.altR);
-
-		Spinner otherKeysSpinner = (Spinner) v.findViewById(R.id.otherkeys_spinner);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, _otherkeysLabels);
-    		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    		otherKeysSpinner.setAdapter(adapter);
 
 		return v;       
 	}
@@ -205,12 +184,6 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 		{
 			case R.id.functionkeys_add:
 				_currentKeyCode = getSelectedKeyCode(R.id.functionkeys_spinner, R.array.kk_keyoverride_function_values, true);
-			break;
-			case R.id.specialkeys_add:
-				_currentKeyCode = getSelectedKeyCode(R.id.specialkeys_spinner, R.array.kk_keyoverride_special_values, false);
-			break;
-			case R.id.otherkeys_add:
-				_currentKeyCode = getSelectedKeyCode(R.id.otherkeys_spinner, _otherkeysCodes, false);
 			break;
 			case R.id.detectkey_add:
 		                TextView txt  = (TextView) getView().findViewById(R.id.detected_keycode);

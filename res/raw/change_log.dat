@@ -1,4 +1,32 @@
 
+=09/28/14 - V035 =
+-- Global KeyOverride: Add Detect Key feature to be able to redifine other keys (A-Z...)
+-- Global KeyOverride: Cleanup / Remove SpecialKeys + OtherKeys drop lists (can use Detect Key for those now)
+-- Quick Settings: Add Alarm Dynamic Tile
+-- Settings: update Russian translations
+-- rs: Fix bug in blur when processing odd widths
+-- Remove obsolete egl.cfg
+-- Replace background_holo_dark with dithered version to prevent gradient banding
+
+- TF101: Add global REMOTE_SUBMIX
+- TF300T: /etc/kat/optimizestorage script: autodetect filesystem and skip fstrim if not ext4
+
+- TF300T KatKernel 016:
+-- Set default cpu freq to 1500
+-- Fix cpu freq going over max_freq
+-- Remove Asus Cpu System Mode code
+-- Change balanced speed target to 70% max
+-- Allows freq scaling to use min freqs < 204 MHz for better battery life (default min freq set to 204 MHz)
+-- tegra video: backport 29 commits from kernel 3.4 : fixes & enhancements
+-- nvmap: page pool init + defer cache maintenance
+-- Add IP Multicast support
+
+-- Kernel Standalone zip initial support for other roms:
+--- Prevent Phone apps from crashing
+--- Fallback to superuser if supersu not present
+--- Late execute K.A.T init to prevent rom from overwriting settings
+
+
 =09/13/14 - V034 =
 
 - libwebp: Migrate to latest chromium_org 0.4.1 version
@@ -9,6 +37,8 @@
 - Activity Manager: Ensure to add Persistent Apps to LruProcess List on app restart
 - Activity Manager: Ensure alive process is not killedByAm
 - Activity Manager: Avoid keeping restarting home when only home activity exists.
+
+- TF101: Reuse old NetworkLocation signature
 
 - TF300T: Auto detect if /data is f2fs
  (Meaning that you do not need to flash a separate kernel anymore if you use F2FS)
@@ -35,6 +65,10 @@
 -- tegradc: remove mode log spammage
 -- misc optimizations: lib/memcopy,  lib/string, arm optimized RWSEM algorithm
 -- misc fixes
+
+New KatKiss gapps:
+- TF101 KatKiss gapps_20140913: Readd old NetworkLocation provider
+- TF300T KatKiss gapps_20140913: Initial version based onto BaNks minimal + Browser sync + Calendar sync
 
 
 =08/08/14 - V033 =

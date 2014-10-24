@@ -60,7 +60,7 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
 
     private void refreshState() {
         int valInt;
-        int touchpadMode = getTouchpadModeSetting(0);
+        int touchpadMode = getTouchpadModeSetting(1);
         _touchpadModeList.setValue(String.valueOf(touchpadMode));
         _touchpadModeList.setSummary("Touchpad mode set to " + _touchpadModeList.getEntries()[touchpadMode]);
     }

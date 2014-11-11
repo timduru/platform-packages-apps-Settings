@@ -3303,7 +3303,7 @@
     <string name="testing_sim_toolkit">SIM toolkit</string>
 
     <!-- The title of the item to go into the Quick launch settings. -->
-    <string name="quick_launch_title">Quick launch</string>
+    <string name="quick_launch_title">Search Key Quick launch</string>
     <!-- The summary of the item to go into the Quick launch settings. This is a description of what Quick launch offers. -->
     <string name="quick_launch_summary">Set keyboard shortcuts to launch apps</string>
     <!-- On the Quick launch settings screen, title of the item for shortcut letters that are not assigned to an application yet. Quick launch is assigning a global shortcut to launch a specific app. -->

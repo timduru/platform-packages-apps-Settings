@@ -11,9 +11,7 @@ import com.android.settings.R;
 import org.meerkats.katkiss.KatUtils;
 import org.meerkats.katkiss.KKC;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.UserHandle;
-import android.util.Log;
 
 
 
@@ -31,7 +29,7 @@ public class WallpaperModes extends DialogFragment implements android.content.Di
     public void onClick(DialogInterface dialoginterface, int i)
     {
         if(i<0) return;
-        int prevMode = android.provider.Settings.System.getInt(mContentRes, KKC.S.SYSTEMUI_WALLPAPER_MODE, Resources.getSystem().getInteger(com.android.internal.R.integer.wallpaper_mode_default));
+        int prevMode = android.provider.Settings.System.getInt(mContentRes, KKC.S.SYSTEMUI_WALLPAPER_MODE, KKC.S.WALLPAPER_MODE_DISABLE_SYSTEM);
 
         android.provider.Settings.System.putInt(mContentRes, KKC.S.SYSTEMUI_WALLPAPER_MODE, i);
 
@@ -46,7 +44,7 @@ public class WallpaperModes extends DialogFragment implements android.content.Di
     public Dialog onCreateDialog(Bundle bundle)
     {
         mContentRes = getActivity().getContentResolver();
-        int currentMode = android.provider.Settings.System.getInt(mContentRes, KKC.S.SYSTEMUI_WALLPAPER_MODE, Resources.getSystem().getInteger(com.android.internal.R.integer.wallpaper_mode_default));
+        int currentMode = android.provider.Settings.System.getInt(mContentRes, KKC.S.SYSTEMUI_WALLPAPER_MODE, KKC.S.WALLPAPER_MODE_DISABLE_SYSTEM);
         Builder builder = new android.app.AlertDialog.Builder(getActivity());
         builder.setSingleChoiceItems(R.array.kk_wallpaper_modes, currentMode, this);
         builder.setTitle(R.string.kk_ui_wallpaper_mode_title);

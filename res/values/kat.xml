@@ -54,7 +54,7 @@
     <string name="kk_ui_activity_pref_default_title">No Action Selected</string>
     <string name="kk_ui_activity_pref_default_summary">Tap to select a custom long press activity</string>
 
-    <string name="kk_ui_wallpaper_mode_title">Wallpaper Mode/Disable</string>
+    <string name="kk_ui_wallpaper_mode_title">Wallpaper Mode/Disable (speed increase)</string>
 
 
     <string name="kk_activity_dialog_title">Select Activity</string>

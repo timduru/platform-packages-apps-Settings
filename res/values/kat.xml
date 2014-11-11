@@ -53,10 +53,6 @@
     <string name="kk_ui_package_removed">The previously selected package was not found</string>
     <string name="kk_ui_activity_pref_default_title">No Action Selected</string>
     <string name="kk_ui_activity_pref_default_summary">Tap to select a custom long press activity</string>
-
-    <string name="kk_ui_wallpaper_mode_title">Wallpaper Mode/Disable (speed increase)</string>
-
-
     <string name="kk_activity_dialog_title">Select Activity</string>
     <string name="kk_action_dialog_title">Select Action</string>
     <string name="kk_keycode_title">Enter Keycode</string>
@@ -271,13 +267,6 @@
         <item>Crop</item>
         <item>Scale</item>
     </string-array>
-
-    <string-array name="kk_wallpaper_modes">
-        <item>Normal</item>
-        <item>Disable System Wallpaper Rendering</item>
-        <item>Disable Wallpaper Service (Requires reboot)</item>
-    </string-array>
-
 
     <string-array name="kk_keyoverride_function_entries">
         <item>Wifi</item>

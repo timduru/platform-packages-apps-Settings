@@ -48,6 +48,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.preference.CheckBoxPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -59,7 +60,6 @@ import com.android.settings.katkiss.HDMIOutChooserDialogFragment;
 import java.util.ArrayList;
 import java.util.List;
 import org.meerkats.katkiss.KKC;
-import com.android.settings.katkiss.WallpaperModes;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
@@ -81,10 +81,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
     private CheckBoxPreference mAccelerometer;
-    private CheckBoxPreference mDisableWallpaper;
     private Preference mHDMIPref;
     private Preference mWallpaperPref;
     private WarnedListPreference mFontSizePref;
+    private CheckBoxPreference mNotificationPulse;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -124,10 +124,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mHDMIPref = (Preference) findPreference(KEY_HDMI);
         mHDMIPref.setOnPreferenceChangeListener(this);
         mHDMIPref.setOnPreferenceClickListener(this);
-
-        mWallpaperPref = (Preference) findPreference(KKC.S.SYSTEMUI_WALLPAPER_MODE);
-        mWallpaperPref.setOnPreferenceChangeListener(this);
-        mWallpaperPref.setOnPreferenceClickListener(this);
         
         if (isAutomaticBrightnessAvailable(getResources())) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
@@ -415,8 +411,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         else if (preference == mHDMIPref)
             new HDMIOutChooserDialogFragment().show(getFragmentManager(), "hdmiselector");
-        else if (preference == mWallpaperPref)
-            new WallpaperModes().show(getFragmentManager(), "wallpapermodeselector");
 
         return false;
     }

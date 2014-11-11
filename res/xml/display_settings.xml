@@ -38,11 +38,6 @@
                 android:summary="@string/auto_brightness_summary"
                 android:persistent="false" />
 
-        <Preference
-                android:key="kk_ui_wallpaper_mode"
-                android:title="@string/kk_ui_wallpaper_mode_title"
-                android:persistent="false"/>
-
         <PreferenceScreen
                 android:key="wallpaper"
                 android:title="@string/wallpaper_settings_title"

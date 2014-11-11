@@ -38,6 +38,7 @@ import android.provider.MediaStore;
 import android.text.format.Formatter;
 
 import com.android.settings.R;
+import com.android.settings.Settings;
 import com.android.settings.deviceinfo.StorageMeasurement.MeasurementDetails;
 import com.android.settings.deviceinfo.StorageMeasurement.MeasurementReceiver;
 import com.google.android.collect.Lists;
@@ -252,6 +253,9 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
             mMountTogglePreference.setEnabled(true);
             mMountTogglePreference.setTitle(mResources.getString(R.string.sd_eject));
             mMountTogglePreference.setSummary(mResources.getString(R.string.sd_eject_summary));
+            addPreference(mUsageBarPreference);
+            addPreference(mItemTotal);
+            addPreference(mItemAvailable);
         } else {
             if (Environment.MEDIA_UNMOUNTED.equals(state) || Environment.MEDIA_NOFS.equals(state)
                     || Environment.MEDIA_UNMOUNTABLE.equals(state)) {
@@ -283,7 +287,7 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                 mFormatPreference.setSummary(mResources.getString(R.string.mtp_ptp_mode_summary));
             }
         } else if (mFormatPreference != null) {
-            mFormatPreference.setEnabled(true);
+            mFormatPreference.setEnabled(mMountTogglePreference.isEnabled());
             mFormatPreference.setSummary(mResources.getString(R.string.sd_format_summary));
         }
     }
@@ -425,8 +429,7 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
             intent.putExtra(StorageVolume.EXTRA_STORAGE_VOLUME, mVolume);
         } else if (pref == mItemApps) {
             intent = new Intent(Intent.ACTION_MANAGE_PACKAGE_STORAGE);
-            intent.setClass(getContext(),
-                    com.android.settings.Settings.ManageApplicationsActivity.class);
+            intent.setClass(getContext(), Settings.ManageApplicationsActivity.class);
         } else if (pref == mItemDownloads) {
             intent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS).putExtra(
                     DownloadManager.INTENT_EXTRAS_SORT_BY_SIZE, true);

@@ -49,7 +49,6 @@
     <string name="kk_ui_screenshot_title">Screenshot</string>
     <string name="kk_ui_screenoff_title">Screen Off</string>
     <string name="kk_ui_kill_process_title">Kill Current Process</string>
-    <string name="kk_ui_assist_title">Google Now</string>
     <string name="kk_ui_package_removed">The previously selected package was not found</string>
     <string name="kk_ui_activity_pref_default_title">No Action Selected</string>
     <string name="kk_ui_activity_pref_default_summary">Tap to select a custom long press activity</string>
@@ -189,15 +188,15 @@
         <item>Send KeyCode</item>
         <item>Kill process</item>
         <item>Switch To Previous App</item>
+<!--
         <item>Immersive Mode</item>
-        <item>Immersive Mode - Keep Top Status Bar</item>
+        <item>Immersive Mode - Keep Top Status Bar</item> -->
         <item>Autorotation Toggle</item>
         <item>Display Recent Apps</item>
-        <item>Show Power Menu</item>
-        <item>Expand/Collapse Notifications Panel</item>
-        <item>Expand Quick Settings Panel</item>
+<!--        <item>Show Power Menu</item> -->
+        <item>Show Notifications Panel</item>
         <item>Wifi Toggle</item>
-        <item>Ethernet Toggle</item>
+<!--        <item>Ethernet Toggle</item> -->
         <item>Bluetooth Toggle</item>
         <item>Touchpad Toggle</item>
         <item>Launch Settings</item>
@@ -205,19 +204,18 @@
         <item>Brightness Down</item>
         <item>Brightness Up</item>
         <item>Brightness Auto</item>
-        <item>Media Previous</item>
+<!--        <item>Media Previous</item>
         <item>Media Next</item>
-        <item>Media Play/Pause</item>
+        <item>Media Play/Pause</item> -->
 <!--        <item>Audio Down</item>
         <item>Audio Up</item> -->
         <item>Audio Mute</item>
         <item>Screen off</item>
-        <item>Google Now</item>
-        <item>Switch Top Application between SplitView and FullScreen</item>
+<!--        <item>Switch Top Application between SplitView and FullScreen</item>
         <item>Switch Top Application between 1st SplitView Slot and FullScreen</item>
         <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>
         <item>Relaunch Top Application as Floating</item>
-        <item>Show/Hide All Floating Apps</item>
+        <item>Show/Hide All Floating Apps</item> -->
 <!--        <item>Power Menu</item> -->
         <item>None</item>
     </string-array>
@@ -227,15 +225,14 @@
         <item>sendkey</item>
         <item>killcurrent</item>
         <item>switch_toprevious_task</item>
-        <item>expanded_desktop</item>
-        <item>expanded_desktop_keepstatusbar</item>
+<!--        <item>expanded_desktop</item>
+        <item>expanded_desktop_keepstatusbar</item> -->
         <item>autorotation</item>
         <item>recent</item>
-        <item>show_powermenu</item>
+<!--        <item>show_powermenu</item> -->
         <item>show_notifications_panel</item>
-        <item>show_settings_panel</item>
         <item>wifi_toggle</item>
-        <item>ethernet_toggle</item>
+<!--        <item>ethernet_toggle</item>-->
         <item>bluetooth_toggle</item>
         <item>touchpad_toggle</item>
         <item>launch_settings</item>
@@ -243,19 +240,19 @@
         <item>brightness_down</item>
         <item>brightness_up</item>
         <item>brightness_auto</item>
-        <item>media_previous</item>
+<!--        <item>media_previous</item>
         <item>media_next</item>
-        <item>media_playpause</item>
+        <item>media_playpause</item> -->
 <!--        <item>audio_down</item>
         <item>audio_up</item> -->
         <item>audio_mute</item>
         <item>screenoff</item>
-        <item>assist</item>
+<!--
         <item>splitview_auto</item>
         <item>splitview_1</item>
         <item>splitview_2</item>
         <item>relaunch_floating</item>
-        <item>show_hide_all_floating</item>
+        <item>show_hide_all_floating</item> -->
 <!--        <item>powermenu</item> -->
         <item>none</item>
     </string-array>

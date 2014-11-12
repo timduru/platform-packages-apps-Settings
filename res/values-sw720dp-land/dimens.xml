@@ -15,7 +15,7 @@
 -->
 
 <resources>
-    <dimen name="settings_side_margin">2dp</dimen>
+    <dimen name="settings_side_margin">112dp</dimen>
 
     <!-- Dashboard padding in its container -->
     <dimen name="dashboard_padding_start">128dp</dimen>

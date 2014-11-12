@@ -1,442 +1,74 @@
 
-=09/28/14 - V035 =
--- Global KeyOverride: Add Detect Key feature to be able to redifine other keys (A-Z...)
--- Global KeyOverride: Cleanup / Remove SpecialKeys + OtherKeys drop lists (can use Detect Key for those now)
--- Quick Settings: Add Alarm Dynamic Tile
--- Settings: update Russian translations
--- rs: Fix bug in blur when processing odd widths
--- Remove obsolete egl.cfg
--- Replace background_holo_dark with dithered version to prevent gradient banding
-
-- TF101: Add global REMOTE_SUBMIX
-- TF300T: /etc/kat/optimizestorage script: autodetect filesystem and skip fstrim if not ext4
-
-- TF300T KatKernel 016:
--- Set default cpu freq to 1500
--- Fix cpu freq going over max_freq
--- Remove Asus Cpu System Mode code
--- Change balanced speed target to 70% max
--- Allows freq scaling to use min freqs < 204 MHz for better battery life (default min freq set to 204 MHz)
--- tegra video: backport 29 commits from kernel 3.4 : fixes & enhancements
--- nvmap: page pool init + defer cache maintenance
--- Add IP Multicast support
-
--- Kernel Standalone zip initial support for other roms:
---- Prevent Phone apps from crashing
---- Fallback to superuser if supersu not present
---- Late execute K.A.T init to prevent rom from overwriting settings
-
-
-=09/13/14 - V034 =
-
-- libwebp: Migrate to latest chromium_org 0.4.1 version
--- Optimizations + Fixes webp related crashes with Linaro & recent compilers
-    with Office suite pro and such ... (meaning that you do not need to flash the separate libskia)
-- OpenGL: Optimize drawBitmapMesh using TRIANGLE_STRIP
-- Activity Manager: Tunning max allowed background services during bootup sequence
-- Activity Manager: Ensure to add Persistent Apps to LruProcess List on app restart
-- Activity Manager: Ensure alive process is not killedByAm
-- Activity Manager: Avoid keeping restarting home when only home activity exists.
-
-- TF101: Reuse old NetworkLocation signature
-
-- TF300T: Auto detect if /data is f2fs
- (Meaning that you do not need to flash a separate kernel anymore if you use F2FS)
-
-- TF300T KatKernel 015:
--- gpu overclock back to 520
--- interactive: set default maxspeed_load to 80 to save battery
--- rcu: Backport 50 commits from kernel 3.9
--- improve Asynchronous I/O latency
--- regulator: avoid warm reboot fail, Avoid possible race condition, implement proper power off sequence
--- ashmem: deadlocks fixes
--- netfilter: xt_qtaguid, fix lo stats
--- netfilter: misc patches and fixes backport
--- smp: disable extra duplicate debug
--- net: fix a potential rcu_read_lock() imbalance in rt6_fill_node()
--- lib/int_sqrt.c: optimize square root algorithm
--- Set minimum freq to 51MHz
--- mm misc fixes
--- vfp: Use hard-float and neon libraries instead of vfp ones
--- scheduler: Autogroup patch group by current user android UID instead of task ID
--- usb: fix false disconnect due to a signal sent to the reading process
--- sysfs: Fix memory leak
--- time: Fix overflow when HZ is smaller than 60
--- tegradc: remove mode log spammage
--- misc optimizations: lib/memcopy,  lib/string, arm optimized RWSEM algorithm
--- misc fixes
-
-New KatKiss gapps:
-- TF101 KatKiss gapps_20140913: Readd old NetworkLocation provider
-- TF300T KatKiss gapps_20140913: Initial version based onto BaNks minimal + Browser sync + Calendar sync
+= 11/12/14 - V006 =
+- Add Global KeyOverride Action system (Settings => Dock)
+- Add Search Key Quick Launch Shortcuts (Settings => Dock)
+- Add Dock Touchpad Mode choice (Settings => Dock)
+- Add Performance panel (cpu overclock + i/o scheduler) (Settings => Performance)
+- Add Advanced Application Permissions (Settings => AppOps)
+- Add Wifi Regulatory Domain change (Settings => Wifi => Advanced)
+- Add MediaScanner filters (Settings => MediaScanner Filters)
+- Add ChangeLog (Settings => About Tablet => ChangeLog)
+- Enable developer options in settings by default
+- Allow to clear notifications for running foreground services
+- Remove model check in installer
+- Add Global Actions:
+-- Start Application
+-- Send Key
+-- Send KeyCode
+-- Kill process
+-- Switch To Previous App
+-- Autorotation Toggle
+-- Display Recent Apps
+-- Show Notifications Panel
+-- Wifi Toggle
+-- Bluetooth Toggle
+-- Touchpad Toggle
+-- Launch Settings
+-- Take screenshot
+-- Brightness Down
+-- Brightness Up
+-- Brightness Auto
+-- Audio Mute
+-- Screen off
 
 
-=08/08/14 - V033 =
-
-- Multiuser: Fix relaunch as floating if not primary user
-- Multiuser: Fix launch application global action if not primary user
-- Bluetooth: Add setting to allow to receive any file type
-- Settings: Add more translations: Italian, Russian, Ukrainian
-- Native: Allow media.nvidia.audio_alsa to register as a service
-- Native: Add setOrientation interface back
-- MediaPlayer: Handle NPE due to threading race
-- TF101: update Bluetooth
-- TF101: add r_submix audio policy
-- TF300T: Add Wifi HotSpot
-- TF300T: Remove perfhud, prevent NVInterposer log spam
-- TF300T: Add libnetcmdiface to prevent log error
-
-- TF300T KatKernel 014:
--- add gpu overclock user custom control (default to 580)
--- cpufreq: Break out early if freq equals to target_freq
--- input: decrease latency by packing up to 1 frame worth of data
--- use user_cap_frequency
--- mm: pass readahead info down to the i/o scheduler
+= 11/11/14 - V005 =
+<pre>
+- Add full dock function keys support
+- Add MultiUser support
+- Fix Accelerometer
+- Fix Autorotation
+- Wifi: allow 14 channels by default
+- Use arrow pointer mode for TouchPad by default
+- Disable swipe gesture in default aosp keyboard (use google keyboard from playstore if you need swipe)
+- Update su
+- Prevent Email app from crashing on setup (see post#2 for tip)
 
 
-=07/22/14 - V032 =
-
-- Switch to android-4.4.4_r2 (only device specific changes not related to us, so just a version bump for us)
-- Add Search Key Quick Launch in Settings => Dock + Language & Input
-- Use gms location provider
-- Set 128 read_ahead on blk0 & 512 on blk1
-- Use synchronization framework
-- Fix Brightness bouncing when adjusting manually with dock function keys
-- Global Actions, Brightness up/down/auto: also display brightness dialog
-- Development Settings cleanup: remove Simulate 2nd display, runtime.
-- TF101: add audio.r_submix.default
-- TF101: New gapps-KatKiss-4.4.4_20140720.zip
-
-- TF101 KatKernel 118 :
--- revert memory compaction + async fsync
--- re-add fsync on/off
--- switch bcmdhd
--- add synchronization framework
-
-- TF300T KatKernel 011-012 :
--- F2FS compatibility update
--- Add TCP advanced congestion controls: illinois cubic veno reno bic westwood highspeed htcp vegas scalable yeah
--- Default to Veno
--- add synchronization framework
+TF300T Modify defaults:
+-- Screen off: 2 minutes
+-- Automatic brightness: on
+-- Default animation/transition scales to 50%
+-- Allow installation of non market apps
 
 
-=07/16/14 - V031 =
+- TF300T KatKernel 017:
+-- Revert custom GPU user clock interface
+-- Revert to KatKernel 12b uV
+-- Allow binder renice
+</pre>
 
-- Fix Activity chooser Always button not always working
-- Improve scrolling cache
-- Misc updates: libstlports, vold, fsck_msdos
-- TF300T: Changes for initial version bring in
-
-- TF101 KatKernel 117 :
--- build with Linaro 4.10
--- Add Asynchronous fsync from HTC
--- Remove fsync on/off
--- lowmemorykiller: compact memory on killing process
--- lowmemorykiller: Use asynchronous compaction
--- sched: don't call task_group() many times in set_task_rq()
--- Add Multicast
-
-- TF300T KatKernel 010:
--- Asus 10_6_1_27_5 base
--- Fix compile issues with Linaro 4.10
--- O3 + Optimize
--- Overclock to 1700, GPU overclock to 520
--- add user voltage control from motley-git Nexus 7 kernel source
--- add pegasusq governor from motley-git Nexus 7 kernel source
--- iosched: add BFQV7r5, ROW, SIO, deadline
--- Asynchronous Fsync: initial extraction of Async Fsync from HTC
--- Switch do_fsync() to fget_light()
--- Add F2FS, NFSV3+4, CIFS
--- add more USB NET drivers
--- lowmemorykiller: misc optimisations & fixes
--- SLUB
--- add support for ec_wakeup (kernel)
--- cardhu: bluetooh: add bluesleep
--- expose SOS/LNX hack
--- Restrict slave mountspace so Dalvik apps can mount system-wide volumes
--- mach-tegra: add tegra ahb driver
--- video: tegra: backport Tegra SD Gen2 support from Tegra 4
--- Misc optimization & fixes: cpufreq, block, mmc, i2c, sched, arm specific routines, ...
--- Misc security fixes, futex, tty ...
-
-
-=06/20/14 - V030 =
-- Update to android 4.4.4
-- Default to RGB565
-- misc framework/native changes
-
-- KatKernel 116:
--- Backport part of mmc changes from kernels 3.4 & 3.10
--- Fix Security issue CVE-2014-3153
--- Writeback: fix occasional slow sync(1)
--- Softirq: reduce latencies
--- Set readahead to 128
--- Turn io_is_busy on by default
--- Config changes: 
---- IPV6: enable contrack, log, frag
---- Turn off debugging on some features
---- Turn off perf events recording
---- Turn off block dev throttling
---- Misc perf tweaks
-
-
-=06/09/14 - V029 =
-- Fix CandyCrush Crashing on start in default Linaro Rom
-- Fix PlayStore update image artifacts with optimized libskia
-- Trebuchet: update to latest
-- Settings: Add Location On/Off Switch in Menu
-- Settings: Draw Dock battery graph on Battery stats
-- Rom + chromium OpenSSL: Fix multiple vulnerabilities: CVE-2014-3470, CVE-2014-0221, CVE-2014-0224, CVE-2014-0195
-- Upgrade libpng from 1.2 to 1.6.10
-- Misc libhardware_legacy changes
-- Bring back fully optimized libskia (overall smoother)
---> will still make OfficePro suite crash => Those who need it: flash separate Non-Linaro optimized libskia
--- The overall smoothness is better, so if it's only one app that has issues, those who use it will just need to flash the additional libskia
-
-- Make separe Non-Linaro optimized libskia flashable zip
-
-=06/05/14 - V028 =
-- Fix OfficePro crashing with default rom
-- Fix PlayStore update image artifacts with default rom
-
-- Rom zip:
--- unmount /system first
-
-
-=06/03/14 - V027 =
-beta1: 
-- Upgrade to Android 4.4.3_r1.1
-beta2:
-- Fix Bluetooth crashing
-beta3:
-- Linaro + All Optimizations
-final:
-- Fix Settings crash in portrait
-
-
-=06/03/14 - V026=
-- OMX: Prevent NVDestroy from crashing - Fix Netflix crash on opening (ESPN and other apps should benefit from that too)
-- Rotation Lock: Keep last rotation position when locking
-- Floating Windows: Add option to disable/enable AutoSnap
-- Global Actions (Available for Long Press & Key Override) :
--- Add Ethernet Toggle Action
--- Add Send KeyCode Action
-- Quick Settings: Add Ethernet Toggle Tile
-- Settings: Reuse 2 Panes mode
-- Fix strict-aliasing in HWComposer
-- Fix descriptor leak after accepting connections
-- Fix socket descriptor leak from Zygote to child app
-- libstagefright: Copy the entire buffer from/to OMX component
-- Add mkfs.f2fs
-- Optimize:
--- Use -O3 in GLOBAL FLAGS too
--- bionic: target cortex-a9
--- bionic: use linaro optimized string handling routines
--- Reswitch to linaro optimize built libkia
--- Misc compile flags
-
-- Rom zip:
--- Force /system format first (prevents rom camera from disappearing with old gapps if not formatting system manually)
--- skip backup tools
-
-- KatKernel 115:
--- Rebuild with Linaro 4.9
--- Update ROW scheduler from codeaurora
--- block: Add support for reinsert a dispatched req
--- block: Add API for urgent request handling
-
-=05/24/14 - V025=
-- Build optimize
--- Reactivate global LTO optimization + Fix compile issues
--- Reactivate global strict-aliasing
--- Turn on C++11
--- Misc compile flags
-- Fix strict-aliasing & C++11 build in following projects:
--- external/stlport bionic external/dnsmasq/ frameworks/av/ frameworks/base external/iputils/ 
--- framework/native external/powertop external/v8 frameworks/wilhelm packages/apps/Camera2 
--- system/core frameworks/ex/ external/chromium-libpac/ external/chromium_org/ external/chromium/ hardware/ril framework/rs
-- Set framework/rs version
-
-=05/17/14 - V024=
-- Add floating & resizable windows base code
-- Global Actions: Add relaunch TopApp into Floating/Non Floating mode action
-- Global Actions: Add Show/Hide All Floating Apps action
-- NavBar: Add icon to relaunch TopApp into Floating/Non Floating mode
-- NavButton: Add show/hide all floating apps as default long click action on FloatingMode NavButton
-- Settings: Add Long Press action + Show/Hide for the Relaunch Floating NavBar Button
-- Recents: Display floating Apps too
-- Heartbleed openssl fix for platform & chromium webkit
-- Trebuchet: update to latest version
-- Settings - Storage: Fix Formatting/Erasing SDcard
-- Vold misc updates
-- LatinIME: Add fallback loader for JNI lib
-- Browser: Fix tab preview memory leak
-- Fix reboot on Blank SD card format notification
- (+Take to Settings=>Storage to make sure to format the correct device if there are multiple external devices)
-- Upgrade libpng
-- Add miracast overlay flag
-- av: misc changes:
--- ACodec: Add video codec fallback logic
--- stagefright: Smooth Streaming in OMXCodec
--- stagefright: Enable GraphicBuffer usage to decoder before querying formats
--- stagefright: provide a custom key to prefer adaptive playback
-- Misc graphic fixes merge
--- Release locked buffer when it fails to acquire graphics buffer
--- Fix for positioning of glyphs within a bitmap
--- Fix graphics corruption caused by HWUI caches
-- Rebuild with latest linaro toolchain
-
- 
-=03/20/14 - V023c=
-- Include Hebrew, Hungarian + de_ch Keyboard Fix
-
-=03/05/14 - V023=
-- Fix MultiWindow
-- Display MultiWindow icons by default
-- Settings => Accessibility: Fix Autoration locking up
-- QuickSettings: Fix Orientation Tile locking up
-- QuickSettings: Add Orientation tile, remove battery tile by default
-- QuickSettings: Fix Orientation Tile Long Press, open Accessibility
-- Turn off Autoration by default
-- Rebuild with Linaro 14.02
-- Hardware Keyboards: Make capslock key behave as shift for all keys including numerics
-- Merge Add custom groups
-- Avoid logcat spam with text relocation warnings
-- Make Switch to previous app and MW buttons also drop alpha when NavBar transparent
-- Add Global Actions (Available for LongPress + Key Override): 
- + Autoration toggle
- + Wifi, Bluetooth, Touchpad toggles
- + Show Power Menu
- + Launch Settings
- + Brightness Up, Down, Auto
- + Media Next, Previous, Play/Pause
- + Audio Mute
-
-=02/28/14 - V022=
-- Move to GCC target 4.8
-- Switch to Linaro-4.8.3 14.01
-- Trebuchet: Fix wallpaper not rendering internally when using only 1 desktop
-- LockScreen: Display wallpaper when System wallpaper rendering is disabled.  (after 1st lock)
-- Recents: Increase KillAll button size
-- Add libemoji.so
-- Fix command line reboot
-- Boot tasks parallelizing (should speed up boot by ~30-50% depending on the overclocking and number of packages)
-  Add multithreading support to Installer/installd
-  Parallelize package scanning
-  Parallelize boot dexopt
-
-KatKernel 114:
-- Rebuild with Linaro-4.8.3 14.01
-- Add isofs + udf modules
+= 11/09/14 - V004 =
+- Fix Camera photo and video (make sure you use KatKiss gapps)
+- Google Camera compatibility
+- Add full OMX video hardware acceleration (fix Netflix, youtube HD, video player..)
+- Fix Google Search FC
+- Fix voice search
+- Prevent Google TTS from crashing on setup
+- Reenable non PIE executable support
 
 
 
-=02/21/14 - V021=
-- New Trebuchet
-- Trebuchet: Reimplement Internal Wallpaper rendering
-- Browser: Reimplement Incognito mode support
-- Browser: Report UserAgent as Chrome3.0 compat
-- Camera: Fix panorama mode preview not showing
-- Switch HWC
-- Misc cleanups + updates
+= 11/07/14 - V003 =
+Initial TF300T lollipop public beta release
 
-New gapps 20140221: 
-- Gallery: Fix FC on Editing/applying filters...
-- Camera: Fix FC on selecting Panorama
-- Remove GoogleCamera from default gapps zip to use rom's Camera by default which should be stable (but no photosphere)
-- Fix Photosphere mode with GoogleCamera (might still crash when switching between photosphere and other modes)
-
-=02/16/14 - V020=
-- Update to 4.4.2_r2 KVT49L
-- HWComposer 1.0 for TF101
-- Cleanup deprecated HWC <1.0 
-- Use HAL VSync
-- SurfaceFlinger: Change to support framebuffer flip for 2D blitters
-- Surfaceflinger: Consolidate display orientation compensation hooks
-- Sensorservice: Set the rate for pre-1.1 HALs _after_ activation
-
-=01/26/14 - V019=
-- Fix VPN
-- Fix ext4 volumes not being mounted when inserted
-- Browser: Keep URL bar when using Pie Quick Controls from Labs (Fixes refresh issues with new chromium webview)
-- Browser: sync javascript console debug setting with default value (disabled)
-- Fix a bootloop problem on xml parsing errors (after improper shutdown ...)
-- Fix reference leak in ActivityManager
-- Keyguard: fix statusbar lags when default widget shown
-- Make ImageView drawable update more efficient if same size
-- Fix tablet battery icon alignment
-- Location: fix missing break statement
-- bcmdhd: add missing interface command fini
-- KatKernel 113b: add missing Netfilter/IP options
-
-
-=01/15/14 - V018=
-- Fix NTFS & exFAT volumes not being automounted
-- Revert use /dev/input for audio jack detection
-- chromium webkit: restrict use of absolute href only if link on image
-- chromium webkit: misc updates
-- Browser: Add History back
-- Browser: Add Debug back
-- Add Thai Font
-- Add libnetcmdiface
-- KatKernel 112: add ip6table filter mangle raw + usbaudio
-
-=01/11/14 - V017=
-- Fix GPS/Location Quick Settings Tile
-- Fix error when opening linked image in new tab if the link is already an absolute url
-- Disable audio level warning
-- Disable Dream by default
-- Remove old android launcher
-- Misc perf tweaks
-- Use /dev/input for microphone/headset jack detection (Those who had external microphone detection issue, test and report if that helps or not)
-- QuickSettings: Add Immersive Mode Tile
-- QuickSettings: Add Location + Immersive Mode Tiles by default
-- Add Czech qwerty keyboard layout
-- Add new wallpaper mode settings (Settings => Display)
-  ** Normal(regular android mode)
-  ** Disable System Wallpaper rendering (set as default)
-  ** Disable Wallpaper service
-  2nd setting will prevent the wallpaper being rendered by system and also freeing resources
-   That's the recommended setting you want to use if you are using a launcher that has internal wallpaper rendering
-   If you see a black wallpaper that means that your launcher was using system rendering which is not good on our tf101
-  3rd setting disables wallpaper completely, depending on your launcher it might be better
-
-- New gapps package 20140110
-  Remove Google Home Launcher from package
-- Add separate zip for Google Home Launcher
-
-
-
-=01/06/14 - V016=
-- Fix HDMIOut options not being applied
-- Fix Date not showing in Notifications
-- Fix /storage/sdcard0 showing up as empty
-- Fix Dock Battery still showing up when booting undocked
-- Fix SDCard not being remounted after forced eject or dock sleep
-- Browser: Fix img src being used instead of href when long pushing on a linked img and clicking open
-- Browser: remove incognito entries (not implemented in kitkat chromium yet)
-- Browser: remove debug mode from labs (not implemented in kitkat chromium yet)
-- Reactivate rotation by default
-- Deactivate MultiWindow icons until fixed
-- Report battery charging correctly
-- Misc conf change
-- Switch Window Animation Scale to 1.0 by default
-- Migrate Expanded Desktop to Immersive Mode 
-(Window Animation Scale must not be 0 for swipe down to work)
-
-
-=01/03/14 - V015=
-- Upgrade to Android 4.4.2
-- Fix Dock Battery
-- Fix reboot to recovery feature
-- Fix Bluetooth
-- Allow to clear foreground services notifications
-- Update busybox
-- Settings: Fix missing UI & dock icons
-- Default to PhabletUI NavBarLeft + SlimNavBar
-- Unify battery text & dock icon colors with kitkat grey
-- Move KillAll button up
-
-
-=01/01/14 - V014=
-- Initial public version

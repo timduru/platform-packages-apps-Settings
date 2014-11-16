@@ -1,3 +1,19 @@
+= 11/16/14 - V008 =
+- Greek, English us & uk layouts: remove caps lock = shift lock (Keep that in english international layout)
+- Initial TF101 support
+
+
+= 11/15/14 - V007 =
+- Update to latest Android 5.0.0 release 6 (LRX21T)
+- Fix AppOps FC on Media Tab
+- Fix HDMI Audio out
+- Bring back 48k out & 12k in audio sampling
+- Default window + animation scale to 0
+- Fix CIFS manager & other mount content not being visible by other apps
+- Bring all extra Hardware keyboard layouts from KatKiss 4.4
+-- Czech (qwertz), Czech (qwerty), Arabic, Dutch, English (Canada), English (UK), German (Switzerland), Greek, Hebrew, Italian (Switzerland), Korean, Portuguese (Brazilian), Spanish (Laos), Spanish (US), Thai, Polish
+- Add back KatKiss-4.4 Keyboard Layouts customizations
+
 
 = 11/12/14 - V006 =
 - Add Global KeyOverride Action system (Settings => Dock)
@@ -33,7 +49,6 @@
 
 
 = 11/11/14 - V005 =
-<pre>
 - Add full dock function keys support
 - Add MultiUser support
 - Fix Accelerometer

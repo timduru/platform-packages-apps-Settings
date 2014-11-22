@@ -1,3 +1,34 @@
+=11/22/14 - V010 =
+- Update to latest Android 5.0.0 release 7 (LRX21V)
+- Video: add logic to fallback to other codecs if it fails
+- Canadian layout: remove caps lock = shift lock
+- Power menu: add reboot(long press reboots to recovery), airplane, mute
+
+SL101:
+- Initial compatibility pack
+- Modify framework to allow settings override for SL101 without the need of a full framework-res rebuild
+(should allow the compatibility pack to stay compatible between KatKiss versions even if there are framework changes)
+
+TF101:
+- Fix Network Location
+- Fix busybox
+
+TF101 gapps: cleanups + remove most of the playstore available apps
+TF300T gapps: cleanups + remove most of the playstore available apps
+
+
+=11/18/14 - V009 =
+
+TF101:
+- Fix Touchpad enable/disable
+- Fix UI graphic acceleration / Bring back Hardware Composer
+- Fix HDMI out
+- Fix OMX Video full acceleration
+- Fix Camera
+- Fix Google Search crashing
+- Fix Ok Google
+
+
 = 11/16/14 - V008 =
 - Greek, English us & uk layouts: remove caps lock = shift lock (Keep that in english international layout)
 - Initial TF101 support

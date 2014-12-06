@@ -15,7 +15,7 @@
             android:persistent="false"
             android:entries="@array/kk_ui_mode_entries"
             android:entryValues="@array/kk_ui_mode_values" />
-
+<!--
         <ListPreference
             android:defaultValue="0"
             android:entries="@array/kk_ui_navbar_size_entries"
@@ -23,20 +23,21 @@
             android:key="kk_ui_barsize"
             android:summary="@string/kk_ui_barsize_summary"
             android:title="@string/kk_ui_barsize_title" />
-
-        <PreferenceScreen
+-->
+<!--        <PreferenceScreen
             android:fragment="com.android.settings.katkiss.SoftKeyActions"
             android:key="ui_interface_navkeys"
             android:title="@string/kk_ui_interface_navkeys"
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
-
-        <PreferenceScreen
+-->
+<!--        <PreferenceScreen
             android:key="quick_settings_panel"
             android:fragment="com.android.settings.katkiss.QuickSettings"
             android:title="@string/quick_settings_panel_title" />
-
+-->
     </PreferenceCategory>
 
+<!--
     <PreferenceCategory
         android:key="kk_ui_multiwindow"
         android:title="@string/kk_ui_multiwindow_title" >
@@ -75,9 +76,6 @@
         <CheckBoxPreference
             android:key="kk_ui_clock_time"
             android:title="@string/kk_ui_clock_time_title" />
-<!--        <CheckBoxPreference
-            android:key="kk_ui_clock_date"
-            android:title="@string/kk_ui_clock_date_title" /> -->
      </PreferenceCategory>
 
     <PreferenceCategory
@@ -112,5 +110,5 @@
         />
     
     </PreferenceCategory>
-
+-->
 </PreferenceScreen>

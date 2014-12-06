@@ -72,58 +72,67 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         refreshState();
 
-        _uiModeList.setOnPreferenceChangeListener(this);
-        _uiBarSizeList.setOnPreferenceChangeListener(this);
-        _inputNotification.setOnPreferenceChangeListener(this);
-        _batteryIcon.setOnPreferenceChangeListener(this);
-        _batteryText.setOnPreferenceChangeListener(this);
-        _batteryTextPercent.setOnPreferenceChangeListener(this);
+        if(_uiModeList != null) _uiModeList.setOnPreferenceChangeListener(this);
+        if(_uiBarSizeList != null) _uiBarSizeList.setOnPreferenceChangeListener(this);
+        if(_inputNotification != null) _inputNotification.setOnPreferenceChangeListener(this);
+        if(_batteryIcon != null) _batteryIcon.setOnPreferenceChangeListener(this);
+        if(_batteryText != null) _batteryText.setOnPreferenceChangeListener(this);
+        if(_batteryTextPercent != null) _batteryTextPercent.setOnPreferenceChangeListener(this);
 
-        _clockTime.setOnPreferenceChangeListener(this);
-        //_clockDate.setOnPreferenceChangeListener(this);
+        if(_clockTime != null) _clockTime.setOnPreferenceChangeListener(this);
         
-        _recentsKillall.setOnPreferenceChangeListener(this);
-        _recentsMem.setOnPreferenceChangeListener(this);
-        _recentsMultiWindowIcons.setOnPreferenceChangeListener(this);
+        if(_recentsKillall != null) _recentsKillall.setOnPreferenceChangeListener(this);
+        if(_recentsMem != null) _recentsMem.setOnPreferenceChangeListener(this);
+        if(_recentsMultiWindowIcons != null) _recentsMultiWindowIcons.setOnPreferenceChangeListener(this);
 
-        _btnSwitchToPrevious.setOnPreferenceChangeListener(this);
-        _btnSplitViewAuto.setOnPreferenceChangeListener(this);
-        _btnRelaunchFloating.setOnPreferenceChangeListener(this);
+        if(_btnSwitchToPrevious != null) _btnSwitchToPrevious.setOnPreferenceChangeListener(this);
+        if(_btnSplitViewAuto != null) _btnSplitViewAuto.setOnPreferenceChangeListener(this);
+        if(_btnRelaunchFloating !=null) _btnRelaunchFloating.setOnPreferenceChangeListener(this);
         
-        _autoExpanded.setOnPreferenceChangeListener(this);
-        _enablePanelsDropShadow.setOnPreferenceChangeListener(this);
+        if(_autoExpanded != null) _autoExpanded.setOnPreferenceChangeListener(this);
+        if(_enablePanelsDropShadow != null) _enablePanelsDropShadow.setOnPreferenceChangeListener(this);
     }
 
 
     private void refreshState() {
         int valInt;
+      if(_uiModeList != null) 
+      {
         valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_NAVBAR_LEFT );
         _uiModeList.setDefaultValue(String.valueOf(valInt));
         _uiModeList.setValue(String.valueOf(valInt));
+      }
 
+      if(_uiBarSizeList != null)
+      {
         valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_BARSIZE, KKC.S.SYSTEMUI_BARSIZE_MODE_SLIM );
         _uiBarSizeList.setDefaultValue(String.valueOf(valInt));
         _uiBarSizeList.setValue(String.valueOf(valInt));
-        
-        _inputNotification.setChecked(Settings.System.getInt(mResolver, KKC.S.INPUTMETHOD_SHOWNOTIFICATION, 0) == 1);
+       } 
 
-        _batteryIcon.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_ICON, 1) == 1);
+      if(_inputNotification != null) _inputNotification.setChecked(Settings.System.getInt(mResolver, KKC.S.INPUTMETHOD_SHOWNOTIFICATION, 0) == 1);
+
+      if(_batteryIcon != null) _batteryIcon.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_ICON, 1) == 1);
+
+      if(_batteryText != null)
+      {
         _batteryText.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT, 1) == 1);
         _batteryTextPercent.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1) == 1);
+      }
 
-        _clockTime.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1) == 1);
+      if(_clockTime != null) _clockTime.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1) == 1);
         //_clockDate.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0) == 1);
         
-        _recentsKillall.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON, 1) == 1);
-        _recentsMem.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);        
-        _recentsMultiWindowIcons.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS, 1) == 1);        
+      if(_recentsKillall != null) _recentsKillall.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_KILLALL_BUTTON, 1) == 1);
+      if(_recentsMem != null) _recentsMem.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);        
+      if(_recentsMultiWindowIcons != null) _recentsMultiWindowIcons.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_RECENTS_MULTIWINDOW_ICONS, 1) == 1);        
 
-        _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
-        _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
-        _btnRelaunchFloating.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING, 1) == 1);        
+      if(_btnSwitchToPrevious != null) _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
+      if(_btnSplitViewAuto != null)  _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
+      if(_btnRelaunchFloating != null)  _btnRelaunchFloating.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING, 1) == 1);        
 
-        _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);
-        _enablePanelsDropShadow.setChecked(Settings.System.getInt(mResolver, KKC.S.ENABLE_PANELS_DROPSHADOW, 0) == 1);
+      if(_autoExpanded != null)  _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);
+      if(_enablePanelsDropShadow != null)   _enablePanelsDropShadow.setChecked(Settings.System.getInt(mResolver, KKC.S.ENABLE_PANELS_DROPSHADOW, 0) == 1);
     }
     
     @Override

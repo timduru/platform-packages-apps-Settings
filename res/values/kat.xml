@@ -144,18 +144,16 @@
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">
-        <item>Phablet UI</item>
-        <item>Phablet UI - Nav Bar Left Aligned</item>
-        <item>Phablet UI - No Nav Bar</item>
-<!--        <item>Tablet UI</item> -->
-        <item>Immersive Mode - No Bars</item>
+        <item>Nav Bar Center Aligned Buttons</item>
+        <item>Nav Bar Left Aligned Buttons</item>
+<!--        <item>Phablet UI - No Nav Bar</item>
+        <item>Immersive Mode - No Bars</item> -->
     </string-array>
     <string-array name="kk_ui_mode_values">
         <item>4</item>
         <item>0</item>
-        <item>1</item>
-<!--        <item>3</item> -->
-        <item>2</item>
+<!--        <item>1</item>
+        <item>2</item> -->
     </string-array>
 
     <string-array name="kk_ui_navbar_size_entries">

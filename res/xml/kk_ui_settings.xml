@@ -24,12 +24,12 @@
             android:summary="@string/kk_ui_barsize_summary"
             android:title="@string/kk_ui_barsize_title" />
 -->
-<!--        <PreferenceScreen
+        <PreferenceScreen
             android:fragment="com.android.settings.katkiss.SoftKeyActions"
             android:key="ui_interface_navkeys"
             android:title="@string/kk_ui_interface_navkeys"
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
--->
+
 <!--        <PreferenceScreen
             android:key="quick_settings_panel"
             android:fragment="com.android.settings.katkiss.QuickSettings"

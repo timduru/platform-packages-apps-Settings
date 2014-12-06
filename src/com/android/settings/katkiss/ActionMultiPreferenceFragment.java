@@ -55,6 +55,7 @@ public abstract class ActionMultiPreferenceFragment extends PreferenceFragment
 
     protected void addActionPreference(ActionPreference pref) 
     {
+	if(pref == null) return;
         pref.setListener(new PrefClickListener());
 
         if(mActionPreferenceList == null) mActionPreferenceList = new ArrayList<ActionPreference>();

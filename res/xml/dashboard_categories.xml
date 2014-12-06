@@ -92,12 +92,12 @@
                 android:icon="@drawable/ic_settings_display"
                 />
 
-<!--    <dashboard-tile
+    <dashboard-tile
         android:id="@+id/ui_settings"
         android:icon="@drawable/ic_desktop"
         android:fragment="com.android.settings.katkiss.UISettings"
         android:title="@string/kk_ui_settings" />
--->
+
     <dashboard-tile
         android:fragment="com.android.settings.katkiss.DockSettingsFragment"
         android:key="autoparts_dock_settings"

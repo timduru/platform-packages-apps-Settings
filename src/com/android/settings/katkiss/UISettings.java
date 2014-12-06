@@ -34,10 +34,11 @@ import android.app.Dialog;
 public class UISettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String KEY_UI_MODE = "kk_ui_mode";
     private static final String KEY_UI_BARSIZE = "kk_ui_barsize";
+    private static final String NATIVE_BATTERY_TEXT = "status_bar_show_battery_percent";
     private ContentResolver mResolver; 
 
     private ListPreference _uiModeList, _uiBarSizeList;
-    private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextPercent ;
+    private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextOnIcon, _batteryTextPercent ;
     private CheckBoxPreference _clockTime, _clockDate;
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
     private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto, _btnRelaunchFloating;
@@ -56,6 +57,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _inputNotification = (CheckBoxPreference) findPreference(KKC.S.INPUTMETHOD_SHOWNOTIFICATION);
         _batteryIcon = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_ICON);
         _batteryText = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT);
+        _batteryTextOnIcon = (CheckBoxPreference) findPreference(NATIVE_BATTERY_TEXT);
         _batteryTextPercent = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT);
         _clockTime = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_TIME);
         _clockDate = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_DATE);
@@ -77,6 +79,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         if(_inputNotification != null) _inputNotification.setOnPreferenceChangeListener(this);
         if(_batteryIcon != null) _batteryIcon.setOnPreferenceChangeListener(this);
         if(_batteryText != null) _batteryText.setOnPreferenceChangeListener(this);
+        if(_batteryTextOnIcon != null) _batteryTextOnIcon.setOnPreferenceChangeListener(this);
         if(_batteryTextPercent != null) _batteryTextPercent.setOnPreferenceChangeListener(this);
 
         if(_clockTime != null) _clockTime.setOnPreferenceChangeListener(this);
@@ -115,10 +118,11 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
       if(_batteryIcon != null) _batteryIcon.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_ICON, 1) == 1);
 
       if(_batteryText != null)
-      {
         _batteryText.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT, 1) == 1);
+      if(_batteryTextOnIcon != null)
+        _batteryTextOnIcon.setChecked(Settings.System.getInt(mResolver, NATIVE_BATTERY_TEXT, 1) == 1);
+      if(_batteryTextPercent != null)
         _batteryTextPercent.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1) == 1);
-      }
 
       if(_clockTime != null) _clockTime.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_TIME, 1) == 1);
         //_clockDate.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_CLOCK_DATE, 0) == 1);

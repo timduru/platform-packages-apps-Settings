@@ -88,7 +88,8 @@
     <string name="kk_performance_notification_text">Not been applied due to recent reboot (less than 2 minutes).</string>
 
     <string name="kk_ui_battery_icon_title">Show battery icon</string>
-    <string name="kk_ui_battery_text_title">Show battery text</string>
+    <string name="kk_ui_battery_text_title">Show battery value</string>
+    <string name="kk_ui_battery_text_on_icon_title">Show battery value on icon</string>
     <string name="kk_ui_battery_text_percent_title">Show percent</string>
     
     <string name="kk_ui_clock_time_title">Show Time</string>

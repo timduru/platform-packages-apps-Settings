@@ -371,10 +371,6 @@
     <declare-styleable name="ActionPreference">
         <attr name="providerUri" format="reference" />
     </declare-styleable>
- 
-    <style name="Theme.EthernetDialog" parent="@*android:style/Theme.Holo.Dialog.Alert">
-        <item name="android:windowSoftInputMode">adjustResize</item>
-    </style>
-
+     
 </resources>
 

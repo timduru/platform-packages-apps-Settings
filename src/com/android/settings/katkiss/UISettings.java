@@ -34,7 +34,6 @@ import android.app.Dialog;
 public class UISettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String KEY_UI_MODE = "kk_ui_mode";
     private static final String KEY_UI_BARSIZE = "kk_ui_barsize";
-    private static final String NATIVE_BATTERY_TEXT = "status_bar_show_battery_percent";
     private ContentResolver mResolver; 
 
     private ListPreference _uiModeList, _uiBarSizeList;
@@ -57,7 +56,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _inputNotification = (CheckBoxPreference) findPreference(KKC.S.INPUTMETHOD_SHOWNOTIFICATION);
         _batteryIcon = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_ICON);
         _batteryText = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT);
-        _batteryTextOnIcon = (CheckBoxPreference) findPreference(NATIVE_BATTERY_TEXT);
+        _batteryTextOnIcon = (CheckBoxPreference) findPreference(KKC.S.NATIVE_BATTERY_TEXT_ON_ICON);
         _batteryTextPercent = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT);
         _clockTime = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_TIME);
         _clockDate = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_CLOCK_DATE);
@@ -120,7 +119,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
       if(_batteryText != null)
         _batteryText.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT, 1) == 1);
       if(_batteryTextOnIcon != null)
-        _batteryTextOnIcon.setChecked(Settings.System.getInt(mResolver, NATIVE_BATTERY_TEXT, 1) == 1);
+        _batteryTextOnIcon.setChecked(Settings.System.getInt(mResolver, KKC.S.NATIVE_BATTERY_TEXT_ON_ICON, 0) == 1);
       if(_batteryTextPercent != null)
         _batteryTextPercent.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BATTERY_TEXT_PERCENT, 1) == 1);
 

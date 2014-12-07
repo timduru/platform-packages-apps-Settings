@@ -23,7 +23,7 @@
     <string name="kk_ui_barsize_summary">Choose between standard bar size and smaller sizes</string>
     
     
-    <string name="kk_ui_interface_navkeys">Navigation Buttons Settings</string>
+    <string name="kk_ui_interface_navkeys">Navigation Bar Buttons Settings</string>
     <string name="kk_ui_interface_navkeys_summary">Change Nav Buttons Features</string>
 
     <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
@@ -89,8 +89,8 @@
 
     <string name="kk_ui_battery_icon_title">Show battery icon</string>
     <string name="kk_ui_battery_text_title">Show battery value</string>
-    <string name="kk_ui_battery_text_on_icon_title">Show battery value on icon</string>
-    <string name="kk_ui_battery_text_percent_title">Show percent</string>
+    <string name="kk_ui_battery_text_on_icon_title">Show battery value on icon (when not charging and not fully charged)</string>
+    <string name="kk_ui_battery_text_percent_title">Show percent symbol</string>
     
     <string name="kk_ui_clock_time_title">Show Time</string>
     <string name="kk_ui_clock_date_title">Show Date</string>

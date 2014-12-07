@@ -1,3 +1,49 @@
+=12/08/14 - V012 =
+- Update to Android 5.0.1 Release 1 (LRX22C)
+- Add Dock Battery icon support
+- Add Navbar buttons left or center choice (Settings => User Interface => Interface Mode)
+- Set Default to Navbar with left aligned buttons
+- Add Navbar Buttons LongPress Actions (Settings => User Interface => NavBar Buttons Settings)
+- Add Battery level/percent/icon (Settings => User Interface)
+- Add Battery level on icon (Settings => User Interface)
+- Set Default to battery icon + level + percent
+- Statusbar: make Battery level follow color based on current level
+- KeyguardStatusbar: cleanup to use the same generic battery logic
+- Add Global Actions: 
+-- Show Power Menu
+-- Media Previous/Next/PlayPause
+- Fix SDCard not being remounted after forced eject or dock sleep
+- Italian Keyboard layout: remove shift lock
+- Slovak Keyboard layout: fix duplicated key
+- Install script: Test if system is mounted before unmounting
+- Add back main battery logic
+- Prevent system restart when orientation sensor is not fully initialised
+- Improve scrolling cache use
+- Misc Bluetooth fixes
+
+
+TF101:
+- update exfat for big partitions
+
+
+=11/27/14 - V011 =
+- Rebuild with -O3 & high optimization flags
+- Add sdcard + usbdisk NTFS, exfat, ext4 automount support
+- update fuse & exfat
+- Recents: Add clear all
+- Fix Adaptive brightness turning screen off completely when in low light + adaptive value at minimum
+- Replace background_holo_dark with dithered version to avoid banding
+- Misc Audio/Video changes
+
+TF300T: 
+- Fix Bluetooth
+
+TF101: 
+- Fix emoji not showing up in hangouts..
+- Fix busybox utils links missing
+- Mark adaptive playback as not supported by nvidia's codecs
+
+
 =11/22/14 - V010 =
 - Update to latest Android 5.0.0 release 7 (LRX21V)
 - Video: add logic to fallback to other codecs if it fails

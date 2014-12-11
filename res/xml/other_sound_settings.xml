@@ -71,4 +71,11 @@
             android:title="@string/emergency_tone_title"
             android:persistent="false" />
 
+    <SwitchPreference
+            android:key="systemui_audioadjust_sound"
+            android:title="@string/systemui_audioadjust_sound_title"
+            android:switchTextOff=""
+            android:switchTextOn=""
+            android:persistent="false" />
+
 </PreferenceScreen>

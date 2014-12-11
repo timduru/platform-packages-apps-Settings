@@ -43,6 +43,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.meerkats.katkiss.KKC;
+
 public class OtherSoundSettings extends SettingsPreferenceFragment implements Indexable {
     private static final String TAG = "OtherSoundSettings";
 
@@ -71,6 +73,10 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         public boolean isApplicable(Context context) {
             return Utils.isVoiceCapable(context);
         }
+    };
+
+    private static final SettingPref PREF_NO_ADJUST_SOUND = new SettingPref(
+            TYPE_SYSTEM, KKC.S.SYSTEMUI_AUDIOADJUST_SOUND, KKC.S.SYSTEMUI_AUDIOADJUST_SOUND, 0) {
     };
 
     private static final SettingPref PREF_SCREEN_LOCKING_SOUNDS = new SettingPref(
@@ -159,6 +165,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         PREF_VIBRATE_ON_TOUCH,
         PREF_DOCK_AUDIO_MEDIA,
         PREF_EMERGENCY_TONE,
+        PREF_NO_ADJUST_SOUND
     };
 
     private final SettingsObserver mSettingsObserver = new SettingsObserver();

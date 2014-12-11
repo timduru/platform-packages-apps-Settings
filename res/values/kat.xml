@@ -110,6 +110,9 @@
     <string name="kk_keyoverride_detectkey">Detect Key</string>    
     <string name="kk_keyoverride_category_current_actions">Current Key Override Actions</string>    
 
+    <string name="systemui_audioadjust_sound_title">Play sounds when adjusting volume</string>    
+    
+    
     <string name="kk_sendkey_title">Send Key</string>    
     
     <string name="add">Add</string>    

@@ -17,6 +17,8 @@
 package com.android.settings.katkiss;
 import org.meerkats.katkiss.KKC;
 import org.meerkats.katkiss.KatUtils;
+import org.meerkats.katkiss.WMController;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -27,6 +29,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.Settings;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.app.Dialog;
@@ -41,7 +44,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _clockTime, _clockDate;
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
     private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto, _btnRelaunchFloating;
-    private CheckBoxPreference _autoExpanded;
+    private CheckBoxPreference _immersiveMode, _autoExpanded;
     private CheckBoxPreference _enablePanelsDropShadow;
     
     @Override
@@ -69,6 +72,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _btnRelaunchFloating = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING);
 
         _autoExpanded = (CheckBoxPreference) findPreference(KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK);
+        _immersiveMode = (CheckBoxPreference) findPreference(KKC.S.USER_IMMERSIVE_MODE);
         _enablePanelsDropShadow = (CheckBoxPreference) findPreference(KKC.S.ENABLE_PANELS_DROPSHADOW);
 
         refreshState();
@@ -91,6 +95,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         if(_btnSplitViewAuto != null) _btnSplitViewAuto.setOnPreferenceChangeListener(this);
         if(_btnRelaunchFloating !=null) _btnRelaunchFloating.setOnPreferenceChangeListener(this);
         
+        if(_immersiveMode != null) _immersiveMode.setOnPreferenceChangeListener(this);
         if(_autoExpanded != null) _autoExpanded.setOnPreferenceChangeListener(this);
         if(_enablePanelsDropShadow != null) _enablePanelsDropShadow.setOnPreferenceChangeListener(this);
     }
@@ -134,6 +139,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
       if(_btnSplitViewAuto != null)  _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
       if(_btnRelaunchFloating != null)  _btnRelaunchFloating.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING, 1) == 1);        
 
+      if(_immersiveMode != null)  _immersiveMode.setChecked(Settings.System.getInt(mResolver, KKC.S.USER_IMMERSIVE_MODE, 0) == 1);
       if(_autoExpanded != null)  _autoExpanded.setChecked(Settings.System.getInt(mResolver, KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK, 0) == 1);
       if(_enablePanelsDropShadow != null)   _enablePanelsDropShadow.setChecked(Settings.System.getInt(mResolver, KKC.S.ENABLE_PANELS_DROPSHADOW, 0) == 1);
     }
@@ -164,9 +170,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         {
           int mode = Integer.parseInt((String) objValue);
 
-          boolean tabletUIMode = (mode == KKC.S.SYSTEMUI_UI_MODE_SYSTEMBAR);
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_MODE, mode);
-          KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARTYPE_CHANGED, true);
+	  KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARTYPE_CHANGED, true);
         }
         else if(key.equals(KEY_UI_BARSIZE))
         {
@@ -174,17 +179,22 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
           Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_BARSIZE, size);
           KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARSIZE_CHANGED, true);
         }
-        // CheckBox
+        else if(key.equals(KKC.S.USER_IMMERSIVE_MODE))
+        {
+            Boolean val = (Boolean) objValue;
+       	  	KatUtils.expandedDesktop(getActivity(), val);
+        }
+        // other CheckBox
         else if (preference instanceof CheckBoxPreference)
         {
           Boolean val = (Boolean) objValue;
           Settings.System.putInt(getContentResolver(), key, val?1:0);
-          
         }
 
         return true;
     }
 
+    
 
     @Override
     public boolean onPreferenceClick(Preference preference) {

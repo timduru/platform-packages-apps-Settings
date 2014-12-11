@@ -133,7 +133,8 @@
     <string name="touchpad_mode_entry_classic">Trackpad</string>
     <string name="touchpad_mode_value_android32">0</string>
     <string name="touchpad_mode_value_classic">1</string>
-
+    
+    <string name="kk_ui_user_immersive_mode">Force Immersive Mode for apps</string>
     
     <string name="auto_expanded_desktop_ondock_title">Auto Immersive Mode When Docked</string>
     <string name="enable_panels_dropshadow_title">Enable Screen Shadow When Panels Expanded (PhabletUI)</string>
@@ -150,14 +151,10 @@
     <string-array name="kk_ui_mode_entries">
         <item>Nav Bar Center Aligned Buttons</item>
         <item>Nav Bar Left Aligned Buttons</item>
-<!--        <item>Phablet UI - No Nav Bar</item>
-        <item>Immersive Mode - No Bars</item> -->
     </string-array>
     <string-array name="kk_ui_mode_values">
         <item>4</item>
         <item>0</item>
-<!--        <item>1</item>
-        <item>2</item> -->
     </string-array>
 
     <string-array name="kk_ui_navbar_size_entries">

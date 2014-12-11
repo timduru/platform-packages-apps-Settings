@@ -15,6 +15,17 @@
             android:persistent="false"
             android:entries="@array/kk_ui_mode_entries"
             android:entryValues="@array/kk_ui_mode_values" />
+        <CheckBoxPreference
+            android:key="user_immersive_mode"
+            android:title="@string/kk_ui_user_immersive_mode" />
+        <CheckBoxPreference
+           android:key="auto_expanded_desktop_ondock"
+           android:defaultValue="false"
+           android:title="@string/auto_expanded_desktop_ondock_title"
+	       />
+        
+        
+        
 <!--
         <ListPreference
             android:defaultValue="0"
@@ -100,11 +111,6 @@
             android:defaultValue="false"
             android:title="@string/inputmethod_shownotification_title"
             android:summary="@string/inputmethod_shownotification_summary"
-        />
-    <CheckBoxPreference
-            android:key="auto_expanded_desktop_ondock"
-            android:defaultValue="false"
-            android:title="@string/auto_expanded_desktop_ondock_title"
         />
     <CheckBoxPreference
             android:key="enable_panels_dropshadow"

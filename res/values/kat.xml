@@ -187,9 +187,7 @@
         <item>Send KeyCode</item>
         <item>Kill process</item>
         <item>Switch To Previous App</item>
-<!--
         <item>Immersive Mode</item>
-        <item>Immersive Mode - Keep Top Status Bar</item> -->
         <item>Autorotation Toggle</item>
         <item>Display Recent Apps</item>
         <item>Show Power Menu</item>
@@ -223,8 +221,7 @@
         <item>sendkey</item>
         <item>killcurrent</item>
         <item>switch_toprevious_task</item>
-<!--        <item>expanded_desktop</item>
-        <item>expanded_desktop_keepstatusbar</item> -->
+        <item>expanded_desktop</item>
         <item>autorotation</item>
         <item>recent</item>
         <item>show_powermenu</item>

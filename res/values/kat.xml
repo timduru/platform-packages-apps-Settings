@@ -133,6 +133,9 @@
     <string name="touchpad_mode_entry_classic">Trackpad</string>
     <string name="touchpad_mode_value_android32">0</string>
     <string name="touchpad_mode_value_classic">1</string>
+
+    <string name="device_settings_rightclick_mode_title">Right click sends BACK</string>
+    
     
     <string name="kk_ui_user_immersive_mode">Force Immersive Mode for apps</string>
     

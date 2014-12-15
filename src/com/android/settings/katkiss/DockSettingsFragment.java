@@ -44,6 +44,7 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
 
 
     private ListPreference _touchpadModeList;
+    private CheckBoxPreference _rightClickMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,18 +52,19 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
         addPreferencesFromResource(R.xml.kk_dock_settings);
 
         _touchpadModeList = (ListPreference) findPreference(KEY_TOUCHPAD);
-
+        _rightClickMode = (CheckBoxPreference) findPreference(KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE);
         refreshState();
 
         _touchpadModeList.setOnPreferenceChangeListener(this);
+        _rightClickMode.setOnPreferenceChangeListener(this);
     }
 
 
     private void refreshState() {
-        int valInt;
         int touchpadMode = getTouchpadModeSetting(1);
         _touchpadModeList.setValue(String.valueOf(touchpadMode));
         _touchpadModeList.setSummary("Touchpad mode set to " + _touchpadModeList.getEntries()[touchpadMode]);
+        _rightClickMode.setChecked(Settings.System.getInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, 0) == 1);
     }
     
     @Override
@@ -88,9 +90,9 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
 	if(key == null) return true;
 
         if (key.equals(KEY_TOUCHPAD)) 
-        {
             putTouchpadModeSetting(Integer.parseInt((String)objValue));
-        }
+        else if(key.equals(KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE))
+        	Settings.System.putInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, (Boolean)objValue?1:0);
         return true;
     }
 

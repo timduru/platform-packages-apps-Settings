@@ -35,6 +35,12 @@
         android:defaultValue="@string/touchpad_mode_value_android32"
         android:entryValues="@array/touchpad_mode_selector_values" />
 
+       <CheckBoxPreference
+          android:key="device_settings_rightclick_mode"
+          android:defaultValue="false"
+          android:title="@string/device_settings_rightclick_mode_title"
+       />
+      
       <com.android.settings.PointerSpeedPreference
         android:key="pointer_speed"
         android:title="@string/pointer_speed"

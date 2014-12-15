@@ -23,7 +23,13 @@
            android:defaultValue="false"
            android:title="@string/auto_expanded_desktop_ondock_title"
 	       />
-        
+
+<!--            <CheckBoxPreference
+           android:key="test"
+           android:defaultValue="false"
+           android:title="test"
+	       />
+      -->   
         
         
 <!--

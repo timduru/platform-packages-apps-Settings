@@ -46,6 +46,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto, _btnRelaunchFloating;
     private CheckBoxPreference _immersiveMode, _autoExpanded;
     private CheckBoxPreference _enablePanelsDropShadow;
+    private CheckBoxPreference _test;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         _autoExpanded = (CheckBoxPreference) findPreference(KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK);
         _immersiveMode = (CheckBoxPreference) findPreference(KKC.S.USER_IMMERSIVE_MODE);
         _enablePanelsDropShadow = (CheckBoxPreference) findPreference(KKC.S.ENABLE_PANELS_DROPSHADOW);
+        _test = (CheckBoxPreference) findPreference("test");
 
         refreshState();
 
@@ -98,6 +100,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         if(_immersiveMode != null) _immersiveMode.setOnPreferenceChangeListener(this);
         if(_autoExpanded != null) _autoExpanded.setOnPreferenceChangeListener(this);
         if(_enablePanelsDropShadow != null) _enablePanelsDropShadow.setOnPreferenceChangeListener(this);
+        if(_test != null) _test.setOnPreferenceChangeListener(this);
     }
 
 
@@ -183,6 +186,11 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         {
             Boolean val = (Boolean) objValue;
        	  	KatUtils.expandedDesktop(getActivity(), val);
+        }
+        else if (key.equals("test"))
+        {
+          Boolean val = (Boolean) objValue;
+          Settings.System.putInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, val?1:0);
         }
         // other CheckBox
         else if (preference instanceof CheckBoxPreference)

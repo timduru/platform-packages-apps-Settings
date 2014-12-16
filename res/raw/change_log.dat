@@ -1,4 +1,57 @@
-=12/08/14 - V012 =
+
+= 12/16/14 - V014 =
+- Remove SuperSU (=> install with the official zip)
+- Allow user to force immersive mode (Settings => User interface)
+- Add AutoImmersive mode on docked (Settings => User interface)
+- Global Action: Add Immersive mode (available for long press/Keyboard override)
+- RightClick: allow to change behavior in settings (normal or send BACK) (Settings => Dock) 
+- Add Thai font
+- Add tip in power menu to reboot to recovery
+- Allow to disable sound played when adjusting volumes (Settings => Sound & Notification => Other sounds)
+- Disable adjust volume sound by default
+- MainBatteryIcon: show as charging when dock is charging it and not only when plugged
+- Fix LongPress to UnPin app
+- Rebuild with more optimized flags
+
+TF300T:
+- Fix network interface Route errors 
+- Fix VPN apps issues when the app is not using low level kernel interfaces
+- Add missing wakeup reasons interface
+
+TF101: 
+- increase EGL cache
+- add Framebuffer native window
+
+
+TF300T KatKernel 018:
+- sync with Grouper Lollipop version:
+Handle 'sk' being NULL in UID-based routing.
+net: core: Support UID-based routing.
+um: add missing declaration of 'getrlimit()' and friends
+Enable setting security contexts on rootfs inodes.
+cgroup: Fix use after free of cgrp (cgrp->css_sets)
+cgroup: Take css_set_lock from cgroup_css_sets_empty()
+net: support marking accepting TCP sockets
+net: add a sysctl to reflect the fwmark on replies
+net: ipv6: autoconf routes into per-device tables
+ipv6: tcp: fix tcp_v6_conn_request()
+tcp: resets are misrouted
+tcp_v4_send_reset: binding oif to iif in no sock case
+net: wireless: bcmdhd: Add WIPHY_WOWLAN_ANY support
+prctl: adds the capable(CAP_SYS_NICE) check to PR_SET_TIMERSLACK_PID.
+ARM: nakasi: turn off android logger
+net: Fix "ip rule delete table 256"
+net: ipv4: current group_info should be put after using.
+nf: Remove compilation error caused by e254d2c28c880da28626af6d53b7add5f7d6afee
+nf: IDLETIMER: time-stamp and suspend/resume handling.
+prctl: adds PR_SET_TIMERSLACK_PID for setting timer slack of an arbitrary thread.
+Power: Changes the permission to read only for sysfs file /sys/kernel/wakeup_reasons/last_resume_reason
+Power: Add an API call to log wakeup reasons
+POWER: fix compile warnings in log_wakeup_reason
+Power: add an API to log wakeup reasons
+
+
+= 12/08/14 - V012 =
 - Update to Android 5.0.1 Release 1 (LRX22C)
 - Add Dock Battery icon support
 - Add Navbar buttons left or center choice (Settings => User Interface => Interface Mode)
@@ -26,7 +79,7 @@ TF101:
 - update exfat for big partitions
 
 
-=11/27/14 - V011 =
+= 11/27/14 - V011 =
 - Rebuild with -O3 & high optimization flags
 - Add sdcard + usbdisk NTFS, exfat, ext4 automount support
 - update fuse & exfat
@@ -44,7 +97,7 @@ TF101:
 - Mark adaptive playback as not supported by nvidia's codecs
 
 
-=11/22/14 - V010 =
+= 11/22/14 - V010 =
 - Update to latest Android 5.0.0 release 7 (LRX21V)
 - Video: add logic to fallback to other codecs if it fails
 - Canadian layout: remove caps lock = shift lock

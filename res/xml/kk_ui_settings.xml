@@ -46,13 +46,17 @@
             android:key="ui_interface_navkeys"
             android:title="@string/kk_ui_interface_navkeys"
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
-
-<!--        <PreferenceScreen
-            android:key="quick_settings_panel"
-            android:fragment="com.android.settings.katkiss.QuickSettings"
-            android:title="@string/quick_settings_panel_title" />
--->
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_category_title">
+
+        <PreferenceScreen
+            android:key="qs_order"
+            android:title="@string/qs_order_title"
+            android:fragment="com.android.settings.katkiss.qs.QSTiles" />
+    </PreferenceCategory>
+
 
 <!--
     <PreferenceCategory

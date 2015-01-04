@@ -1,3 +1,21 @@
+= 01/04/15 - V015 =
+- Update to latest 5.0.2 Release 1 (LRX22G)
+- Add Ethernet support (autoconnect)
+- Quick Settings: Add long click support
+- Email: Fix password incorrect issue after adding new account
+- Email: Fix Crash when using combined view and clicking on a msg
+- Email: Display urls in messages as clickable links
+- Camera: increase close/open timer
+- Dock Battery icons: refresh status directly on dock status events
+- Dock Touchpad enable/disable: refresh status on dock status events
+- Allow to dismiss SDCard removed notification
+- Allow to click directly on preselected intent in chooser dialog
+- Fix broken configs & missing utilities since 5.0.1
+- Misc framework fixes: memory leak,NPE,ANR, ...
+
+TF300T:
+- Use 4 threads for storages
+
 
 = 12/16/14 - V014 =
 - Remove SuperSU (=> install with the official zip)

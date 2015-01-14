@@ -190,14 +190,12 @@
         <item>Chiudi processo</item>
         <item>Passa all\'applicazione precedente</item>
         <item>Modo Immersivo</item>
-        <item>Modo Immersivo - Mantieni la Barra di stato</item>
         <item>Rotazione automatica Toggle</item>
         <item>Mostra Applicazioni recenti</item>
         <item>Mostra power menù</item>
         <item>Espandi/Chiudi il pannello delle notifiche</item>
-        <item>Espandi il pannello settaggi veloci</item>
         <item>Wifi Toggle</item>
-        <item>Ethernet Toggle</item>
+<!--        <item>Ethernet Toggle</item> -->
         <item>Bluetooth Toggle</item>
         <item>Touchpad Toggle</item>
         <item>Impostazioni</item>
@@ -212,13 +210,11 @@
 <item>Audio Up</item> -->
         <item>Silenzioso</item>
         <item>Schermo spento</item>
-        <item>Google Now</item>
-        <item>Passa all\'applicazione pricipale durante Vista Divisa e Schermo Intero</item>
+<!--        <item>Passa all\'applicazione pricipale durante Vista Divisa e Schermo Intero</item>
         <item>Passa alla 1° applicazione recente tra quella avviata e quella nel multitasking</item>
         <item>Passa alla 2° applicazione recente tra quella avviata e quella nel multitasking</item>
         <item>Rilancia applicazione principale come flottante</item>
-        <item>Mostra/Nascondi tutte le applicazioni flottanti</item>
-<!-- <item>Power Menu</item> -->
+        <item>Mostra/Nascondi tutte le applicazioni flottanti</item> -->
         <item>Nessuno</item>
     </string-array>
     

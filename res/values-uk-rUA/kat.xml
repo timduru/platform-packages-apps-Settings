@@ -187,14 +187,12 @@
         <item>Закрити додаток</item>
         <item>Перехід до останнього додатка</item>
         <item>Розширений екран</item>
-        <item>Розширений екран - залишити панель сповіщень</item>
         <item>Автоповорот екрану</item>
         <item>Запущені додатки</item>
         <item>Меню живлення</item>
         <item>Розгорнути/Згорнути панель сповіщень</item>
-        <item>Розгорнути панель швидких налаштувань</item>
         <item>Ввімкнути Wi-Fi</item>
-        <item>Ввімкнути Ethernet</item>
+<!--        <item>Ввімкнути Ethernet</item> -->
         <item>Ввімкнути Bluetooth</item>
         <item>Тачпад</item>
         <item>Запуск Налаштувань</item>
@@ -209,52 +207,12 @@
         <item>Audio Up</item> -->
         <item>Вимкнути звук</item>
         <item>Вимкнути екран</item>
-        <item>Google Now</item>
-        <item>Перемикання запущеного додатка між режимом розділеного екрану та повноекранним режимом</item>
+<!--        <item>Перемикання запущеного додатка між режимом розділеного екрану та повноекранним режимом</item>
         <item>Перемикання запущеного додатка між першою половиною розділеного екрану та повноекранним режимом</item>
         <item>Перемикання запущеного додатка між другою половиною розділеного екрану та повноекранним режимом</item>
         <item>Запуск додатка у вікні</item>
-        <item>Розгорнути/Згорнути всі вікна</item>
-<!--        <item>Power Menu</item> -->
+        <item>Розгорнути/Згорнути всі вікна</item> -->
         <item>None</item>
-    </string-array>
-    <string-array name="kk_action_dialog_values">
-        <item>app</item>
-        <item>sendkey</item>
-        <item>sendkey</item>
-        <item>killcurrent</item>
-        <item>switch_toprevious_task</item>
-        <item>expanded_desktop</item>
-        <item>expanded_desktop_keepstatusbar</item>
-        <item>autorotation</item>
-        <item>recent</item>
-        <item>show_powermenu</item>
-        <item>show_notifications_panel</item>
-        <item>show_settings_panel</item>
-        <item>wifi_toggle</item>
-        <item>ethernet_toggle</item>
-        <item>bluetooth_toggle</item>
-        <item>touchpad_toggle</item>
-        <item>launch_settings</item>
-        <item>screenshot</item>
-        <item>brightness_down</item>
-        <item>brightness_up</item>
-        <item>brightness_auto</item>
-        <item>media_previous</item>
-        <item>media_next</item>
-        <item>media_playpause</item>
-<!--        <item>audio_down</item>
-        <item>audio_up</item> -->
-        <item>audio_mute</item>
-        <item>screenoff</item>
-        <item>assist</item>
-        <item>splitview_auto</item>
-        <item>splitview_1</item>
-        <item>splitview_2</item>
-        <item>relaunch_floating</item>
-        <item>show_hide_all_floating</item>
-<!--        <item>powermenu</item> -->
-        <item>none</item>
     </string-array>
     
     <string-array name="kk_hdmi_modes">

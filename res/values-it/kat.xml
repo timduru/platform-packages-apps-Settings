@@ -13,7 +13,7 @@
     <string name="kk_ui_misc_title">Miscellanea</string>
     <string name="kk_ui_clock_title">Orologio</string>
     <string name="kk_ui_battery_title">Batteria</string>
-    <string name="kk_ui_recents_title">Recent Apps Screen</string>
+    <string name="kk_ui_recents_title">App recenti su schermo</string>
     
     <string name="kk_ui_settings">Interfaccia Utente</string>
     <string name="kk_ui_mode">Modalità</string>
@@ -47,36 +47,44 @@
     <string name="kk_ui_relaunch_floating_target_uri">kk_ui_relaunch_floating_target_uri</string>
     
     <string name="kk_ui_screenshot_title">Screenshot</string>
-    <string name="kk_ui_screenoff_title">Screen Off</string>
-    <string name="kk_ui_kill_process_title">Chiudi il Processo Corrente</string>
+    <string name="kk_ui_screenoff_title">Spegni schermo</string>
+    <string name="kk_ui_kill_process_title">Chiudi il processo corrente</string>
     <string name="kk_ui_assist_title">Google Now</string>
     <string name="kk_ui_package_removed">Il pacchetto precedentemente selezionato non è stato trovato</string>
-    <string name="kk_ui_activity_pref_default_title">Nessuna Azione Selezionata</string>
+    <string name="kk_ui_activity_pref_default_title">Nessuna azione selezionata</string>
     <string name="kk_ui_activity_pref_default_summary">Tocca per selezionare un\'azione personalizzata alla pressione prolungata</string>
+    <string name="kk_activity_dialog_title">Seleziona attività</string>
+    <string name="kk_action_dialog_title">Seleziona azione</string>
+    <string name="kk_keycode_title">Inserisci codice</string>
+    <string name="kk_keycode_msg">Codice:</string>
+    <string name="kk_detectkey_title">Premi un pulsante per rilevare</string>
+    <string name="kk_keycode">Codice:</string>
+    <string name="kk_keylabel">Etichetta:</string>
+
 
     <string name="kk_ui_wallpaper_mode_title">Modalità Sfondo/Disattivazioni</string>
 
 
-    <string name="kk_activity_dialog_title">Seleziona Attività</string>
-    <string name="kk_action_dialog_title">Seleziona Azione</string>
-    <string name="kk_keycode_title">Immetti Codice Tasto</string>
-    <string name="kk_keycode_msg">Codice Tasto:</string>
+    <string name="kk_activity_dialog_title">Seleziona attività</string>
+    <string name="kk_action_dialog_title">Seleziona azione</string>
+    <string name="kk_keycode_title">Inserisci codice:</string>
+    <string name="kk_keycode_msg">Codice:</string>
 
     
     
     <string name="kk_wifi_regulatory_domain_selector">Cambia il dominio normativo del Wifi</string>
-    <string name="kk_wifi_regulatory_domain_changed">dominio normativo del Wifi cambiato (potrebbe essere necessario il riavvio)</string>
+    <string name="kk_wifi_regulatory_domain_changed">Dominio normativo del Wifi cambiato (potrebbe essere necessario il riavvio)</string>
     <string name="kk_wifi_restarting">Riavvio Wifi...</string>
 
 
     <string name="kk_performance">Performance</string>
     <string name="kk_performance_cpu">Overclock della CPU</string>
-    <string name="kk_performance_cpu_on_boot">Imposta i valori di clock all\'avvio Set clock values on boot</string>
+    <string name="kk_performance_cpu_on_boot">Imposta i valori di clock all\'avvio</string>
     <string name="kk_performance_cpu_governor">Governor</string>
     <string name="kk_performance_cpu_min">Frequenza Minima</string>
     <string name="kk_performance_cpu_max">Frequenza Massima</string>
     <string name="kk_performance_current_value">Valore corrente: </string>
-    <string name="kk_performance_boot_value">Vallore al Boot: </string>
+    <string name="kk_performance_boot_value">Valore al Boot: </string>
     <string name="kk_performance_iosched">Schedulatore I/O</string>
     <string name="kk_performance_iosched_on_boot">Imposta il valore all\'avvio</string>
     <string name="kk_performance_fast_charge">USB Carica Rapida</string>
@@ -90,8 +98,8 @@
     <string name="kk_performance_notification_text">Non è stato applicato a causa del recente riavvio (meno di 2 minuti).</string>
 
     <string name="kk_ui_battery_icon_title">Mostra l\'Icona Batteria</string>
-	
     <string name="kk_ui_battery_text_title">Mostra percentuale batteria</string>
+    <string name="kk_ui_battery_text_on_icon_title">Mostra percentuale dentro l\'icona della batteria (quando non in carica o non completamente carica)</string>
     <string name="kk_ui_battery_text_percent_title">Mostra simbolo %</string>
     
     <string name="kk_ui_clock_time_title">Mostra Ora</string>
@@ -113,7 +121,7 @@
     <string name="kk_keyoverride_otherkeys">Altri tasti</string>
     <string name="kk_keyoverride_category_current_actions">Impostazione tasti override corrente</string>
 
-    <string name="kk_sendkey_title">Send Key</string>
+    <string name="kk_sendkey_title">Invia chiave</string>
     
     <string name="add">Aggiungi</string>
     
@@ -122,12 +130,14 @@
     <string name="touchpad_mode_selector">Modalità Touchpad</string>
     <string name="touchpad_setting_title">Touchpad</string>
     <string name="touchpad_mode_entry_android32">Gesti</string>
-    <string name="touchpad_mode_entry_classic">Trackpad</string>
+    <string name="touchpad_mode_entry_classic">Touchpad</string>
     <string name="touchpad_mode_value_android32">0</string>
     <string name="touchpad_mode_value_classic">1</string>
+    <string name="device_settings_rightclick_mode_title">Vai indietro con il tasto destro</string>
 
+    <string name="kk_ui_user_immersive_mode">Forza modalità immersiva per le app</string>
     
-    <string name="auto_expanded_desktop_ondock_title">Modo Immersivo automatico quando collegata alla Dock</string>
+    <string name="auto_expanded_desktop_ondock_title">Modo immersivo automatico quando collegata alla Dock</string>
     <string name="enable_panels_dropshadow_title">Abilita ombra schermo quando espansi i pannelli (PhabletUI)</string>
     
     <string name="bluetooth_accept_all_files">Accetta tutti i tipi di file</string>
@@ -181,31 +191,31 @@
         <item>Passa all\'applicazione precedente</item>
         <item>Modo Immersivo</item>
         <item>Modo Immersivo - Mantieni la Barra di stato</item>
-        <item>Autorotation Toggle</item>
+        <item>Rotazione automatica Toggle</item>
         <item>Mostra Applicazioni recenti</item>
-        <item>Show Power Menu</item>
+        <item>Mostra power menù</item>
         <item>Espandi/Chiudi il pannello delle notifiche</item>
         <item>Espandi il pannello settaggi veloci</item>
         <item>Wifi Toggle</item>
         <item>Ethernet Toggle</item>
         <item>Bluetooth Toggle</item>
         <item>Touchpad Toggle</item>
-        <item>Launch Settings</item>
-        <item>Take screenshot</item>
+        <item>Impostazioni</item>
+        <item>Screenshot</item>
         <item>Diminuisci luminosità</item>
         <item>Aumenta luminosità</item>
         <item>Luminosità Automatica</item>
-        <item>Media Previous</item>
-        <item>Media Next</item>
-        <item>Media Play/Pause</item>
+        <item>Media precedenti</item>
+        <item>Prossimo media</item>
+        <item>Media Play/Pausa</item>
 <!-- <item>Audio Down</item>
 <item>Audio Up</item> -->
-        <item>Audio Mute</item>
+        <item>Silenzioso</item>
         <item>Schermo spento</item>
         <item>Google Now</item>
-        <item>Passa Applicazione pricipale durante Vista Divisa e Schermo Intero</item>
-        <item>Switch Top Application between 1st SplitView Slot and FullScreen</item>
-        <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>
+        <item>Passa all\'applicazione pricipale durante Vista Divisa e Schermo Intero</item>
+        <item>Passa alla 1° applicazione recente tra quella avviata e quella nel multitasking</item>
+        <item>Passa alla 2° applicazione recente tra quella avviata e quella nel multitasking</item>
         <item>Rilancia applicazione principale come flottante</item>
         <item>Mostra/Nascondi tutte le applicazioni flottanti</item>
 <!-- <item>Power Menu</item> -->
@@ -213,9 +223,9 @@
     </string-array>
     
     <string-array name="kk_hdmi_modes">
-        <item>Center</item>
-        <item>Crop</item>
-        <item>Scale</item>
+        <item>Centrato</item>
+        <item>Ritaglia</item>
+        <item>Scala</item>
     </string-array>
 
     <string-array name="kk_wallpaper_modes">
@@ -233,17 +243,19 @@
         <item>Aumenta luminosità</item>
         <item>Luminosità Automatica</item>
         <item>ScreenShot</item>
-        <item>Explorer</item>
+        <item>Esplora</item>
         <item>Impostazioni</item>
         <item>Media Precedente</item>
         <item>Media Pausa</item>
         <item>Media Successivo</item>
-        <item>Volume Mute</item>
-        <item>Volume Diminuzione</item>
-        <item>Volume Aumento</item>
-        <item>Sleep</item>
+        <item>Volume Silenzioso</item>
+        <item>Diminuzione Volume</item>
+        <item>Aumento Volume</item>
+        <item>Sospendi</item>
 
     </string-array>
+ 
+
 
     <string-array name="kk_keyoverride_special_entries">
      <item>Indietro</item>

@@ -26,5 +26,8 @@
         <item quantity="one">1 tile configured</item>
         <item quantity="other">%d tiles configured</item>
     </plurals>
+
+    <color name="qs_tile_tint_color">#FF009587</color>
+
 </resources>
 

@@ -172,7 +172,7 @@ public class Performance extends PreferenceFragment implements
         String defSched = Utils.getCurrentScheduler();
         mIoSchedPreference.setEntries(schedulers);
         mIoSchedPreference.setEntryValues(schedulers);
-        mIoSchedPreference.setSummary("Current value: " + defSched);
+        mIoSchedPreference.setSummary(getResources().getString(R.string.kk_performance_current_value) + defSched);
         mIoSchedPreference.setValue(defSched);
     }
 

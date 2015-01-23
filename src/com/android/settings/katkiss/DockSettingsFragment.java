@@ -63,7 +63,7 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
     private void refreshState() {
         int touchpadMode = getTouchpadModeSetting(1);
         _touchpadModeList.setValue(String.valueOf(touchpadMode));
-        _touchpadModeList.setSummary("Touchpad mode set to " + _touchpadModeList.getEntries()[touchpadMode]);
+        _touchpadModeList.setSummary(getResources().getString(R.string.touchpad_mode_set) +  _touchpadModeList.getEntries()[touchpadMode]);
         _rightClickMode.setChecked(Settings.System.getInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, 0) == 1);
     }
     
@@ -122,6 +122,6 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
     {
         android.provider.Settings.System.putInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_TOUCHPAD_MODE, newMode);
         _touchpadModeList.setValue(String.valueOf(newMode));
-        _touchpadModeList.setSummary("Touchpad mode set to " + _touchpadModeList.getEntries()[newMode]);
+        _touchpadModeList.setSummary(getResources().getString(R.string.touchpad_mode_set) + _touchpadModeList.getEntries()[newMode]);
     }
 }

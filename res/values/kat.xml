@@ -133,6 +133,7 @@
     <string name="touchpad_mode_entry_classic">Trackpad</string>
     <string name="touchpad_mode_value_android32">0</string>
     <string name="touchpad_mode_value_classic">1</string>
+    <string name="touchpad_mode_set">Touchpad mode set to</string>
 
     <string name="device_settings_rightclick_mode_title">Right click sends BACK</string>
     

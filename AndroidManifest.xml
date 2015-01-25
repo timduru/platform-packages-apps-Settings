@@ -1976,7 +1976,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".katkiss.OverclockReceiver" >
+        <receiver android:name=".katkiss.KatReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

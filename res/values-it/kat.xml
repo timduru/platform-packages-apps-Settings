@@ -133,6 +133,8 @@
     <string name="touchpad_mode_entry_classic">Touchpad</string>
     <string name="touchpad_mode_value_android32">0</string>
     <string name="touchpad_mode_value_classic">1</string>
+    <string name="touchpad_mode_set">Modalità Touchpad settata su</string>
+    
     <string name="device_settings_rightclick_mode_title">Vai indietro con il tasto destro</string>
 
     <string name="kk_ui_user_immersive_mode">Forza modalità immersiva per le app</string>

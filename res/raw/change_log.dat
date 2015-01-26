@@ -1,3 +1,32 @@
+= 01/26/15 - V016 =
+
+- QuickSettings: Add tiles customization (Settings => UI => QuickSettings)
+- Settings: Translate and fix some Italian part + misc localizations
+- Reboot menu: add italian translation
+- Global Actions: fix Italian & Russian values
+- Frameworks: speed up package scan on boot
+- Show Optimizing app dialog on first boot instead of staying on bootanimation
+- Speedup app start by delaying GC
+- Settings: Multithread boot receiver
+- AutoBrightness: save cpu by limiting updates to HAL rate
+- WifiState: decrease processMessage cpu usage by ~90% by calling logState only if activated
+- Rebuild with more optimized flags
+
+TF300T:
+- compile with mtune for target arch
+
+TF300T KatKernel 018c:
+- Tweak VM cache
+- Tweak tcp mem/cache usage
+- Readd user gpu filesystem interface
+- Readd Voltage optimisation
+- Use 4 threads for storages, for real this time ;)
+
+TF101 KatKernel 118d:
+- Tweak VM cache
+- Tweak tcp mem/cache usage
+
+
 = 01/04/15 - V015 =
 - Update to latest 5.0.2 Release 1 (LRX22G)
 - Add Ethernet support (autoconnect)

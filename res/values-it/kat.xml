@@ -97,12 +97,12 @@
     <string name="kk_performance_notification_title">Overclock</string>
     <string name="kk_performance_notification_text">Non è stato applicato a causa del recente riavvio (meno di 2 minuti).</string>
 
-    <string name="kk_ui_battery_icon_title">Mostra l\'Icona Batteria</string>
+    <string name="kk_ui_battery_icon_title">Mostra l\'icona batteria</string>
     <string name="kk_ui_battery_text_title">Mostra percentuale batteria</string>
     <string name="kk_ui_battery_text_on_icon_title">Mostra percentuale dentro l\'icona della batteria (quando non in carica o non completamente carica)</string>
     <string name="kk_ui_battery_text_percent_title">Mostra simbolo %</string>
     
-    <string name="kk_ui_clock_time_title">Mostra Ora</string>
+    <string name="kk_ui_clock_time_title">Mostra ora</string>
     <string name="kk_ui_clock_date_title">Mostra orologio</string>
     
     <string name="inputmethod_shownotification_title">Mostra icona scelta metodo di immissione</string>
@@ -120,6 +120,8 @@
     <string name="kk_keyoverride_specialkeys">Tasti speciali</string>
     <string name="kk_keyoverride_otherkeys">Altri tasti</string>
     <string name="kk_keyoverride_category_current_actions">Impostazione tasti override corrente</string>
+    
+    <string name="systemui_audioadjust_sound_title">Riproduci suoni durante la regolazione del volume</string>
 
     <string name="kk_sendkey_title">Invia chiave</string>
     
@@ -133,7 +135,7 @@
     <string name="touchpad_mode_entry_classic">Touchpad</string>
     <string name="touchpad_mode_value_android32">0</string>
     <string name="touchpad_mode_value_classic">1</string>
-    <string name="touchpad_mode_set">Modalità Touchpad settata su</string>
+    <string name="touchpad_mode_set">Modalità Touchpad settata su </string>
     
     <string name="device_settings_rightclick_mode_title">Vai indietro con il tasto destro</string>
 

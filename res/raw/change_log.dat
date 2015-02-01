@@ -1,3 +1,25 @@
+= 02/01/15 - V017 =
+- Add RRO Resource/Theme Engine Support
+- Launcher: Add setting to enable/disable search bar
+- Launcher: Allow to choose default homescreen position
+- Launcher: Add grid with and height customization
+- libskia : Add Codeaurora optimizations
+
+- Framework enhancements and fixes:
+** Avoid ANR when 2 home activities in stack
+** Use Fast loadInverse() implementation
+** Prevent AudioService dead lock issue.
+** Fix process record leakage.
+** Fix racing condition of mTouchExcludeRegion
+** Turn debug flag off
+** Enable native tracking for RS contexts to improve GC behavior.
+** Avoid deadlock between ActivityManagerService and ProcessStatsService.
+** Don't enable screen until keyguard is ready
+
+TF300T KatKernel:
+- Remove user gpu
+
+
 = 01/26/15 - V016 =
 
 - QuickSettings: Add tiles customization (Settings => UI => QuickSettings)

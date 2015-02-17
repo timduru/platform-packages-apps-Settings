@@ -90,6 +90,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_hotspot_on";
                 stringId = R.string.hotspot;
                 break;
+            case QSConstants.TILE_IMMERSIVE:
+                resourceName = "ic_qs_immersive_on";
+                stringId = R.string.immersive;
+                break;
             default:
                 return null;
         }

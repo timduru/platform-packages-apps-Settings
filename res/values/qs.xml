@@ -16,7 +16,8 @@
     <string name="qs_main_tiles_summary_off">Three tiles on each row</string>
     <string name="display_rotation_title">Rotation</string>
     <string name="display_rotation_disabled">Disabled</string>
-
+    <string name="immersive">Immersive mode</string>
+    
 
     <dimen name="qs_tile_max_size">120dp</dimen>
     <dimen name="qs_tile_max_padding">10dp</dimen>

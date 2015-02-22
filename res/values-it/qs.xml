@@ -16,6 +16,7 @@
     <string name="qs_main_tiles_summary_off">Tre tiles su ogni fila</string>
     <string name="display_rotation_title">Rotazione</string>
     <string name="display_rotation_disabled">Disabilita</string>
+     <string name="immersive">Modalità immersiva</string>
 
 
     <dimen name="qs_tile_max_size">120dp</dimen>
@@ -26,4 +27,7 @@
         <item quantity="one">1 tile configurato</item>
         <item quantity="other">%d tiles configurati</item>
     </plurals>
+    
+    <color name="qs_tile_tint_color">#FF009587</color>
+    
 </resources>

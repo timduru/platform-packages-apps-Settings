@@ -247,6 +247,7 @@
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
         <item name="android:textColorPrimary">@color/exposed_primary_text_light</item>
 	<item name="android:textColorSecondary">@color/exposed_secondary_text_light</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
     <style name="wifi_item_content">
@@ -254,6 +255,7 @@
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
         <item name="android:textColorPrimary">@color/exposed_primary_text_light</item>
 	<item name="android:textColorSecondary">@color/exposed_secondary_text_light</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="wifi_item_edit_content">
@@ -336,15 +338,15 @@
     <style name="WifiAssistantButton.Negative">
     </style>
 
-    <style name="WifiAssistantButton.Positive">
-        <item name="android:textColor">@color/wifi_assistant_color_accent</item>
-    </style>
-
     <!-- Scrollbar style OUTSIDE_OVERLAY -->
     <integer name="preference_scrollbar_style">33554432</integer>
 
     <style name="ApnPreference">
         <item name="android:layout">@layout/apn_preference_layout</item>
+    </style>
+
+    <style name="AppListSwitchPreference" parent="@*android:style/Preference.Material.DialogPreference">
+        <item name="android:widgetLayout">@*android:layout/preference_widget_switch</item>
     </style>
 
     <style name="TextAppearance.Medium" parent="@android:style/TextAppearance.Material.Medium">
@@ -382,5 +384,4 @@
     <style name="Widget.TimePicker" parent="@*android:style/Widget.Material.Light.TimePicker">
         <item name="@android:numbersBackgroundColor">@color/exposed_bg_dark</item>
     </style>
-
 </resources>

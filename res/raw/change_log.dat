@@ -1,3 +1,40 @@
+=03/04/15 - V019 = (TF300T only)
+- Revert Navbar: default longpress on back to kill current app
+- Revert Launcher3: disable search bar by default
+- Italian translations
+
+TF300T KatKernel 020:
+- switch to wifi driver as grouper
+(should fix SOD/Reboots if "keep wifi on during sleep" setting is not set on the default "Always")
+- disable scheduled scan
+
+
+= 02/19/15 - V018 =
+- Add RRO Level2 support
+- Navbar: default longpress on back to kill current app
+- Keyguard: don't refresh ui when screen off
+- QuickSettings: Add Immersive Mode Tile
+- QuickSettings: remove cast tile from defaults
+- netd: Avoid leaking file descriptors
+- netd: Don't fail when trying to add routes that already exist
+- Launcher3: add Italian translations
+- Finnish layout: remove caps lock = shift lock
+- Optimize drawBitmapMesh
+- Remove unneeded mobile apps
+- Misc Framework fixes
+
+TF101 :
+- Fix Netflix
+
+TF300T :
+- Fix Google Play Movies
+
+TF300T KatKernel 019:
+- input: add sysfs to reverse axis of atmel_maxtouch digitizer
+- sync config with grouper
+
+
+
 = 02/01/15 - V017 =
 - Add RRO Resource/Theme Engine Support
 - Launcher: Add setting to enable/disable search bar

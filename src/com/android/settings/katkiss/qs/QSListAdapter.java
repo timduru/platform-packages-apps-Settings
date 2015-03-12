@@ -64,8 +64,7 @@ public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
         holder.entry.setText(item.name);
         if (item.resourceName != null) {
             Drawable d = Utils.getNamedDrawableFromSystemUI(mSystemUIResources, item.resourceName);
-            d.setColorFilter(getContext().getResources().getColor(R.color.qs_tile_tint_color),
-                    PorterDuff.Mode.SRC_ATOP);
+            if(d != null) d.setColorFilter(getContext().getResources().getColor(R.color.qs_tile_tint_color), PorterDuff.Mode.SRC_ATOP);
             holder.icon.setImageDrawable(d);
             holder.icon.setVisibility(View.VISIBLE);
         } else {

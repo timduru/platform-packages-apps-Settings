@@ -1,3 +1,19 @@
+=03/12/15 - V021=
+- Framework: Add RRO Level 2 support back
+- QuickSettings: Fix Wifi & Bluetooth Tiles dual behavior
+- Settings: Fix crash when adding new QuickSetting when no Tile icon
+- Settings: Fix missing QuickSettings icons for some of the Tiles
+- NavBar: increase space between NavButtons when left aligned
+- bionic: reenable non PIE support
+
+
+=03/10/15 - V020=
+- Upgrade to android 5.1.0_r1 (LMY47D)
+- Increase apps max heap mem
+- Framework: Revert RRO Level2 support
+- Launcher3: switch to aosp version
+
+
 =03/04/15 - V019 = (TF300T only)
 - Revert Navbar: default longpress on back to kill current app
 - Revert Launcher3: disable search bar by default

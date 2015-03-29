@@ -137,7 +137,7 @@
 
     <string name="device_settings_rightclick_mode_title">Right click sends BACK</string>
     
-    
+    <string name="kk_ui_user_immersive_title">User Immersive Mode</string>
     <string name="kk_ui_user_immersive_mode">Force Immersive Mode for apps</string>
     <string name="kk_ui_user_immersive_mode_type">Immersive Mode Type</string>
     <string name="kk_ui_user_immersive_mode_type_summary">Choose which bar(s) to hide</string>

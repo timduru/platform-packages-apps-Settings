@@ -15,22 +15,6 @@
             android:persistent="false"
             android:entries="@array/kk_ui_mode_entries"
             android:entryValues="@array/kk_ui_mode_values" />
-        <CheckBoxPreference
-            android:key="user_immersive_mode"
-            android:title="@string/kk_ui_user_immersive_mode" />
-        <ListPreference
-            android:key="user_immersive_mode_type"
-            android:title="@string/kk_ui_user_immersive_mode_type"
-            android:summary="@string/kk_ui_user_immersive_mode_type_summary"
-            android:persistent="false"
-            android:entries="@array/kk_ui_user_immersive_mode_type_entries"
-            android:entryValues="@array/kk_ui_user_immersive_mode_type_values" />
-        <CheckBoxPreference
-           android:key="auto_expanded_desktop_ondock"
-           android:defaultValue="false"
-           android:title="@string/auto_expanded_desktop_ondock_title"
-	       />
-
 <!--            <CheckBoxPreference
            android:key="test"
            android:defaultValue="false"
@@ -55,6 +39,28 @@
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="kk_ui_user_immersive"
+        android:title="@string/kk_ui_user_immersive_title" >        
+        <ListPreference
+            android:key="user_immersive_mode_type"
+            android:title="@string/kk_ui_user_immersive_mode_type"
+            android:summary="@string/kk_ui_user_immersive_mode_type_summary"
+            android:persistent="false"
+            android:entries="@array/kk_ui_user_immersive_mode_type_entries"
+            android:entryValues="@array/kk_ui_user_immersive_mode_type_values" />
+        <CheckBoxPreference
+            android:key="user_immersive_mode"
+            android:title="@string/kk_ui_user_immersive_mode" />
+        <CheckBoxPreference
+           android:key="auto_expanded_desktop_ondock"
+           android:defaultValue="false"
+           android:title="@string/auto_expanded_desktop_ondock_title"
+	       />
+        
+    </PreferenceCategory>
+        
+    
     <PreferenceCategory
         android:title="@string/qs_category_title">
 

@@ -139,6 +139,8 @@
     
     
     <string name="kk_ui_user_immersive_mode">Force Immersive Mode for apps</string>
+    <string name="kk_ui_user_immersive_mode_type">Immersive Mode Type</string>
+    <string name="kk_ui_user_immersive_mode_type_summary">Choose which bar(s) to hide</string>
     
     <string name="auto_expanded_desktop_ondock_title">Auto Immersive Mode When Docked</string>
     <string name="enable_panels_dropshadow_title">Enable Screen Shadow When Panels Expanded (PhabletUI)</string>
@@ -161,6 +163,17 @@
         <item>0</item>
     </string-array>
 
+     <string-array name="kk_ui_user_immersive_mode_type_entries">
+        <item>Full - Hide Status Bar and Navigation Bar</item>
+        <item>Hide Status Bar Only</item>
+        <item>Hide NavBar Bar Only</item>
+        </string-array>
+    <string-array name="kk_ui_user_immersive_mode_type_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        </string-array>
+    
     <string-array name="kk_ui_navbar_size_entries">
         <item>Normal (48dp)</item>
         <item>Slim (36dp)</item>

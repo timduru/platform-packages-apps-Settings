@@ -39,7 +39,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private static final String KEY_UI_BARSIZE = "kk_ui_barsize";
     private ContentResolver mResolver; 
 
-    private ListPreference _uiModeList, _uiBarSizeList;
+    private ListPreference _uiModeList, _uiBarSizeList, _uiImmersiveModeType;
     private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextOnIcon, _batteryTextPercent ;
     private CheckBoxPreference _clockTime, _clockDate;
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
@@ -55,6 +55,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         addPreferencesFromResource(R.xml.kk_ui_settings);
         _uiModeList = (ListPreference) findPreference(KEY_UI_MODE);
+        _uiImmersiveModeType = (ListPreference) findPreference(KKC.S.USER_IMMERSIVE_MODE_TYPE);
         _uiBarSizeList = (ListPreference) findPreference(KEY_UI_BARSIZE);
         
         _inputNotification = (CheckBoxPreference) findPreference(KKC.S.INPUTMETHOD_SHOWNOTIFICATION);
@@ -80,6 +81,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         refreshState();
 
         if(_uiModeList != null) _uiModeList.setOnPreferenceChangeListener(this);
+        if(_uiImmersiveModeType != null) _uiImmersiveModeType.setOnPreferenceChangeListener(this);
         if(_uiBarSizeList != null) _uiBarSizeList.setOnPreferenceChangeListener(this);
         if(_inputNotification != null) _inputNotification.setOnPreferenceChangeListener(this);
         if(_batteryIcon != null) _batteryIcon.setOnPreferenceChangeListener(this);
@@ -111,6 +113,13 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_NAVBAR_LEFT );
         _uiModeList.setDefaultValue(String.valueOf(valInt));
         _uiModeList.setValue(String.valueOf(valInt));
+      }
+
+      if(_uiImmersiveModeType != null) 
+      {
+        valInt =  Settings.System.getInt(mResolver, KKC.S.USER_IMMERSIVE_MODE_TYPE, 0 );
+        _uiImmersiveModeType.setDefaultValue(String.valueOf(valInt));
+        _uiImmersiveModeType.setValue(String.valueOf(valInt));
       }
 
       if(_uiBarSizeList != null)
@@ -169,13 +178,18 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         final String key = preference.getKey();
 	if(key == null) return true;
 
-        if (key.equals(KEY_UI_MODE)) 
-        {
-          int mode = Integer.parseInt((String) objValue);
-
-          Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_MODE, mode);
-	  KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARTYPE_CHANGED, true);
-        }
+	    if (key.equals(KEY_UI_MODE)) 
+	    {
+	      int mode = Integer.parseInt((String) objValue);
+	
+	      Settings.System.putInt(getContentResolver(), KKC.S.SYSTEMUI_UI_MODE, mode);
+	      KatUtils.sendIntentToWindowManager(getActivity(), KKC.I.UI_CHANGED, KKC.I.CMD_BARTYPE_CHANGED, true);
+	    }
+	    if (key.equals(KKC.S.USER_IMMERSIVE_MODE_TYPE)) 
+	    {
+	      int mode = Integer.parseInt((String) objValue);
+	      Settings.System.putInt(getContentResolver(), KKC.S.USER_IMMERSIVE_MODE_TYPE, mode);
+	    }
         else if(key.equals(KEY_UI_BARSIZE))
         {
           int size = Integer.parseInt((String) objValue);

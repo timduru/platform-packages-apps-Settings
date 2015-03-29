@@ -1,3 +1,31 @@
+=03/29/15 - V022=
+- Upgrade to android 5.1.0 Release 3 (LMY47I)
+- Browser: Add back incognito Mode in main menu
+- Launcher3: default to 5x8 larger Grid
+- Launcher3: default to 11 hotseats
+- Launcher3: Readd custom Grid Size + home screen choice
+- Launcher3: use largeHeap
+- User Immersive Mode: allow to hide only the status bar or navbar (Settings => User Interface => Immersive Mode Type)
+- Email app: Display raw text to prevent ANR if body is too big
+
+- Misc Framework fixes and enhancements:
+-- Perform once GCs on all app process when system ready
+-- Remove the window whose client process has died or become zombie
+-- hwui : fix memory leak due to duplicate in shadow cache
+-- [ActivityManager] Avoid killing unrelated processes
+-- Layout the window to be displayed if it would be resized
+-- Mesh: Fix potential npe
+-- DimLayer : remove unnecessary surface transaction calls
+-- Avoid duplicate surface creation
+-- VectorDrawable: Fix null-pointer check
+-- WM: Fix always-false equals on surfaceInsets
+-- Handle case when network has been lost
+-- Implement finalizer for RS contexts to prevent memory leak when apps forget to call .destroy()
+
+TF101:
+- Fix Netflix
+
+
 =03/12/15 - V021=
 - Framework: Add RRO Level 2 support back
 - QuickSettings: Fix Wifi & Bluetooth Tiles dual behavior

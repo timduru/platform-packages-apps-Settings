@@ -1,3 +1,23 @@
+=04/23/15 - V023=
+- Upgrade to android 5.1.1 Release 1 (LMY47V)
+- Upgrade to android 5.1.0 Release 5 (LMY47O)
+- Dock: fix capslock led
+- Add gamepads/joypad generic key mapping
+- Disable un-needed google OTA components
+- Prevent runtime reenabling of un-needed components
+- Prevent google services from keeping wakelocks to check for OTA updates
+- SoundPool: Avoid duplicated calling to isRestricted to improve performance
+- Fixing memory leak in RenderBufferCache
+- Prevent leaking surfaces from exiting windows
+- Trigger GC Delay for subsequent launches
+- [ActivityManager] Fix ServiceRecord leakage
+- Prevent infinite layout and wallpaper flashing
+- Remove unnecessary sleep in ActivityThread
+- [ActivityManager] Improve multi-thread access the same provider
+- Improve concurrency by propagating B services to higher adj
+- Misc cleanups
+
+
 =03/29/15 - V022=
 - Upgrade to android 5.1.0 Release 3 (LMY47I)
 - Browser: Add back incognito Mode in main menu

@@ -139,7 +139,10 @@
     
     <string name="device_settings_rightclick_mode_title">Vai indietro con il tasto destro</string>
 
+    <string name="kk_ui_user_immersive_title">Modalità immersiva</string>
     <string name="kk_ui_user_immersive_mode">Forza modalità immersiva per le app</string>
+    <string name="kk_ui_user_immersive_mode_type">Tipo modalità immersiva</string>
+    <string name="kk_ui_user_immersive_mode_type_summary">Scegli quali barre nascondere</string>
     
     <string name="auto_expanded_desktop_ondock_title">Modo immersivo automatico quando collegata alla Dock</string>
     <string name="enable_panels_dropshadow_title">Abilita ombra schermo quando espansi i pannelli (PhabletUI)</string>
@@ -147,6 +150,12 @@
     <string name="bluetooth_accept_all_files">Accetta tutti i tipi di file</string>
 
 <!-- Arrays -->
+
+    <string-array name="kk_ui_user_immersive_mode_type_entries">
+        <item>Nascondi la barra di stato e la barra di navigazione</item>
+        <item>Nascondi solo la barra di stato</item>
+        <item>Nascondi solo la barra di navigazione</item>
+        </string-array>
 
     <string-array name="kk_ui_mode_entries">
         <item>Phablet UI</item>

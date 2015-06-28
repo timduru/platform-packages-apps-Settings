@@ -1,3 +1,28 @@
+=06/28/15 - V024=
+- switch to GCC target 4.9
+- rebuild with Sabermod-4.9 toolchain
+- use graphite optimizations
+
+- Upgrade to android 5.1.1 Release 5 (LYZ28E)
+- Upgrade to android 5.1.1 Release 4 (LMY48B)
+- Upgrade to android 5.1.1 Release 2 (LMY47X)
+
+- Update Italian strings
+- Modify GC Delay to include subsequent launches
+- core: Remove forced alignment code
+- Bluetooth: Fix for A2DP glitches due to decrement of nb_frames
+- Bluetooth: Avoid leaking a fd and an infinite loop
+- Bluetooth: a2dp: Buffer sufficient data to keep devices happy
+- Bluetooth: a2dp: Allow 2 full tick's worth of data to be sent
+- use prebuilt libwebviewchromium
+
+- tf300t: bluetooh audio conf: allow 48k
+- tf300t: wifi supplicant conf tweak
+- tf300t: update to KatKernel 020c
+
+
+
+
 =04/23/15 - V023=
 - Upgrade to android 5.1.1 Release 1 (LMY47V)
 - Upgrade to android 5.1.0 Release 5 (LMY47O)

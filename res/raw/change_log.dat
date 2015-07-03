@@ -1,4 +1,24 @@
-=06/28/15 - V024=
+=07/03/15 - V025=
+- Switch to 5.1.1 Release 6 (LMY48G)
+- bionic: Correctly use optimized neon and non-neon string lib
+- bionic: Replace Cortex A15 strlen implementation with optimized cortex-strings
+- bionic: cortex-a9: Use cortex-a15 optimized strlen for neon and non-neon
+- bionic: cortex-a9: Import memchr implementation from cortex-strings
+
+TF300T KatKernel 021: 
+- Switch to GCC target 5.1
+- Use graphite optimizations
+- Rebuild with Sabermod-5.1
+- GCC 5.1 build fixes
+
+TF101 KatKernel 120: 
+- Rebuild with Sabermod-4.9
+- Use O3 & graphite optimizations
+- memset: fix kernel not booting with recent compilers
+- GCC 5.1 build fixes
+
+
+=06/28/15 - V024b=
 - switch to GCC target 4.9
 - rebuild with Sabermod-4.9 toolchain
 - use graphite optimizations
@@ -20,8 +40,8 @@
 - tf300t: wifi supplicant conf tweak
 - tf300t: update to KatKernel 020c
 
-
-
+24b:
+- tf300t: add back wpa_supplicant socket use
 
 =04/23/15 - V023=
 - Upgrade to android 5.1.1 Release 1 (LMY47V)

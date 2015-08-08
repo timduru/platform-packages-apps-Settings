@@ -1,3 +1,9 @@
+=08/08/15 - V026=
+- Stagefright fixes
+- Upgrade to android 5.1.1 Release 9 (LMY48I)
+- Update Sabermod toolchain to 4.9-08012015
+
+
 =07/03/15 - V025=
 - Switch to 5.1.1 Release 6 (LMY48G)
 - bionic: Correctly use optimized neon and non-neon string lib

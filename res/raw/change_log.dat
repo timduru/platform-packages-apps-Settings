@@ -1,3 +1,8 @@
+=08/18/15 - V027=
+- Upgrade to android 5.1.1 Release 10 (LMY48J)
+- Fix latest stagefright issue
+
+
 =08/08/15 - V026=
 - Stagefright fixes
 - Upgrade to android 5.1.1 Release 9 (LMY48I)

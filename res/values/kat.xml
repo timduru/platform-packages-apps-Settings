@@ -225,11 +225,12 @@
         <item>Audio Up</item> -->
         <item>Audio Mute</item>
         <item>Screen off</item>
-<!--        <item>Switch Top Application between SplitView and FullScreen</item>
+        <item>Switch Top Application between SplitView and FullScreen</item>
         <item>Switch Top Application between 1st SplitView Slot and FullScreen</item>
         <item>Switch Top Application between 2nd SplitView Slot and FullScreen</item>
-        <item>Relaunch Top Application as Floating</item>
-        <item>Show/Hide All Floating Apps</item> -->
+<!--        <item>Relaunch Top Application as Floating</item>
+        <item>Show/Hide All Floating Apps</item>
+-->
         <item>None</item>
     </string-array>
     <string-array name="kk_action_dialog_values">
@@ -259,12 +260,13 @@
         <item>audio_up</item> -->
         <item>audio_mute</item>
         <item>screenoff</item>
-<!--
+
         <item>splitview_auto</item>
         <item>splitview_1</item>
         <item>splitview_2</item>
-        <item>relaunch_floating</item>
-        <item>show_hide_all_floating</item> -->
+<!--        <item>relaunch_floating</item>
+        <item>show_hide_all_floating</item>
+-->
         <item>none</item>
     </string-array>
     

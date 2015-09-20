@@ -52,7 +52,7 @@
             settings:providerUri="@string/kk_ui_menu_target_uri" />
     </PreferenceCategory>
 
-<!--    <PreferenceCategory
+    <PreferenceCategory
         android:key="kk_ui_switch_toprevious_task"
         android:title="@string/kk_ui_switch_toprevious_task_longpress_title" >
         <com.android.settings.katkiss.ActionPreference
@@ -74,6 +74,7 @@
             settings:providerUri="@string/kk_ui_splitview_auto_target_uri" />
     </PreferenceCategory>
 
+    <!--
     <PreferenceCategory
         android:key="kk_ui_relaunch_floating"
         android:title="@string/kk_ui_relaunch_floating_longpress_title" >

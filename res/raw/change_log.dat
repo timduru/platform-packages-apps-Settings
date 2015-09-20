@@ -1,3 +1,13 @@
+=09/21/15 - V028=
+- Upgrade to android 5.1.1 Release 16 (LMY48P)
+- Add back Multi Windows
+- GlobalActions: Add Multi Windows related actions
+(can be used on navbar buttons, or Global Dock KeyOverride)
+- NavBar: Add Buttons to switch to Previous App and between splitview/Fullscreen
+- Settings: Allow to hide NavBar MultiWindow Buttons
+- Settings: Add long press actions on NavBar MultiWindow Buttons
+
+
 =08/18/15 - V027=
 - Upgrade to android 5.1.1 Release 10 (LMY48J)
 - Fix latest stagefright issue

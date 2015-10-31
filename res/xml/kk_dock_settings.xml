@@ -20,11 +20,11 @@
         android:key="keyoverride"
         android:title="@string/kk_keyoverride_title"
         android:fragment="com.android.settings.katkiss.KeyOverrideFragment" />
-      <Preference
+<!--      <Preference
         android:key="quicklaunch"
         android:title="@string/quick_launch_title" >
           <intent android:action="android.settings.QUICK_LAUNCH_SETTINGS" />
-      </Preference>
+      </Preference> -->
     </PreferenceCategory>
 
     <PreferenceCategory

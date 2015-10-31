@@ -22,8 +22,14 @@ LOCAL_AAPT_FLAGS := --extra-packages android.support.v7.cardview
 
 LOCAL_AAPT_INCLUDE_ALL_RESOURCES := true
 
+ifneq ($(INCREMENTAL_BUILDS),)
+    LOCAL_PROGUARD_ENABLED := disabled
+    LOCAL_JACK_ENABLED := incremental
+endif
 
 include frameworks/opt/setupwizard/navigationbar/common.mk
+include frameworks/opt/setupwizard/library/common.mk
+include frameworks/base/packages/SettingsLib/common.mk
 
 include $(BUILD_PACKAGE)
 

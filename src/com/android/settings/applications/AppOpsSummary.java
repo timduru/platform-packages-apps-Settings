@@ -114,12 +114,12 @@ public class AppOpsSummary extends InstrumentedFragment {
 
         // This should be set in the XML layout, but PagerTabStrip lives in
         // support-v4 and doesn't have styleable attributes.
-        final TypedArray ta = tabs.getContext().obtainStyledAttributes(
+        /*final TypedArray ta = tabs.getContext().obtainStyledAttributes(
                 new int[] { android.R.attr.colorAccent });
         final int colorAccent = ta.getColor(0, 0);
         ta.recycle();
 
-        tabs.setTabIndicatorColorResource(colorAccent);
+        tabs.setTabIndicatorColorResource(colorAccent);*/
 
         // We have to do this now because PreferenceFrameLayout looks at it
         // only when the view is added.

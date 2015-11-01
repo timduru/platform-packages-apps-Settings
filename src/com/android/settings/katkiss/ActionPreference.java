@@ -36,19 +36,16 @@ public class ActionPreference extends Preference implements ActionPicker.ICallBa
     private static String SCREENSHOT_VAL = KKC.A.SYSTEMUI_TASK_SCREENSHOT;
     private static String KILLCURRENT_VAL = KKC.A.SYSTEMUI_TASK_KILL_PROCESS;
     private static String SCREENOFF_VAL = KKC.A.SYSTEMUI_TASK_SCREENOFF;
-    private static String ASSIST_VAL = KKC.A.SYSTEMUI_TASK_ASSIST;
 
 //    private static int REBOOT_TITLE = R.string.eos_interface_softkeys_reboot_title;
     private static int SCREENSHOT_TITLE = R.string.kk_ui_screenshot_title;
     private static int KILLCURRENT_TITLE = R.string.kk_ui_kill_process_title;
     private static int SCREENOFF_TITLE = R.string.kk_ui_screenoff_title;
-    private static int ASSIST_TITLE = R.string.kk_ui_assist_title;
 
 //    private static int REBOOT_ICON = com.android.internal.R.drawable.ic_lock_reboot;
     private static int KILLCURRENT_ICON = com.android.internal.R.drawable.ic_dialog_alert;
     private static int SCREENSHOT_ICON = com.android.internal.R.drawable.ic_menu_gallery;
     private static int SCREENOFF_ICON = com.android.internal.R.drawable.ic_lock_power_off;
-    private static int ASSIST_ICON = R.drawable.ic_action_assist_activated;
 
     private static int PACKAGE_NOT_FOUND_SUMMARY = R.string.kk_ui_package_removed;
     private static int DEFAULT_TITLE = R.string.kk_ui_activity_pref_default_title;
@@ -147,14 +144,6 @@ public class ActionPreference extends Preference implements ActionPicker.ICallBa
             builder.append(CUSTOM_SUMMARY)
                     .append(" ")
                     .append(mRes.getString(SCREENOFF_TITLE));
-            setSummary(builder.toString());
-        } else if (uriValue.equals(ASSIST_VAL)) {
-            setTitle(mRes.getString(ASSIST_TITLE));
-            setIcon(mRes.getDrawable(ASSIST_ICON));
-            StringBuilder builder = new StringBuilder();
-            builder.append(CUSTOM_SUMMARY)
-                    .append(" ")
-                    .append(mRes.getString(ASSIST_TITLE));
             setSummary(builder.toString());
         } else if (uriValue.equals("none") || uriValue.equals("")) {
             setDefaultSettings(false);

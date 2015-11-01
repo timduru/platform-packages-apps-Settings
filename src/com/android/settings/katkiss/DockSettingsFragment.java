@@ -35,6 +35,8 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.app.Dialog;
 import android.app.Activity;
+import com.android.internal.logging.MetricsLogger;
+
 
 import java.util.ArrayList;
 
@@ -45,6 +47,11 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
 
     private ListPreference _touchpadModeList;
     private CheckBoxPreference _rightClickMode;
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.MISC;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -33,6 +33,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.app.Dialog;
+import com.android.internal.logging.MetricsLogger;
+
 
 public class UISettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String KEY_UI_MODE = "kk_ui_mode";
@@ -47,6 +49,11 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _immersiveMode, _autoExpanded;
     private CheckBoxPreference _enablePanelsDropShadow;
     private CheckBoxPreference _test;
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.MISC;
+    }
     
     @Override
     public void onCreate(Bundle savedInstanceState) {

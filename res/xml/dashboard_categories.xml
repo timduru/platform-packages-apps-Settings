@@ -244,13 +244,6 @@
                 android:icon="@drawable/ic_settings_accessibility"
                 />
 
-    </dashboard-category>
-
-    <!-- SYSTEM -->
-    <dashboard-category
-        android:id="@+id/system_section"
-        android:title="@string/header_category_system" >
-
     <dashboard-tile
         android:fragment="com.android.settings.katkiss.Performance"
         android:icon="@drawable/ic_rocket"

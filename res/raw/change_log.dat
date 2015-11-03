@@ -1,7 +1,22 @@
-= 11/11/15 - V005 =
+=11/XX/15 - V006 =
+- Fix Bluetooth
+- Fix Camera
+- Fix OMX libs
+- Prevent media server from dying if SensorManager not initialised yet on first boot when camera is accessed
+- Fix AOSP Camera app not showing in launcher (requires full wipe from <=V005)
+- Fix Custom QuickSettings tiles
+- Add Immersive Mode Tile
+
+
+=11/01/15 - V005b =
+- Fix MicroSD & UsbDisk not mounting when /data is f2fs
+
+
+=11/01/15 - V005 =
+- Add F2FS support on /data
 - Add Global Dock KeyOverride shortcuts
 - Add Missing Dock function Keys implementation
-- Add NavBar UI settings change for left or centered buttons
+- Add NavBar UI settings change for left or centered buttons 
 - Add User Immersive mode
 - Add Auto immersive mode on docked
 - Add Global actions
@@ -13,7 +28,5 @@
 - Fix SD & UsbDisk not mounting
 
 
-= 10/31/15 - V004 =
+=10/31/15 - V004 =
 Initial TF300T KatKiss MarshMallow public beta release
-
-

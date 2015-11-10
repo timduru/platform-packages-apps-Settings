@@ -1,4 +1,30 @@
-=11/XX/15 - V006 =
+=11/10/15 - V008 =
+- Increase per-app optimizing timeout for slower tablets with ext4 /data
+- Reenable support for non-PIE executables
+- Remove www.googleadservices.com from ad blocker
+- Disable System updates entry in Settings
+- Fallback to google h264 decoder
+- Misc framework, av, native fixes ..
+
+
+=11/07/15 - V007 =
+- Upgrade to latest Android M 11/01 Release (MRA58V)
+- Fix access to external SDs and usb disks for non rooted apps (cards are now available under /storage/XXXXXX directly)
+- Allow to set external SDs as adoptable storage (makes it available as internal storage: warning if you choose this option it will FORMAT your card)
+  (Not recommended for Dock SD card or usbsticks, as they'll get unmounted when the dock goes to sleep)
+- Fix Default browser crashing when downloading file ( requires full wipe. Until you do you can just grant storage permission to Browser in settings to fix)
+- Fix install errors if /system is mounted when flashing rom
+- Remove model and date checks in installer
+- Cleanup old mount points
+- misc fixes
+
+KatKernel 023:
+- Add kernel 3.10 per uid cputime stats for Marshmallow
+- misc
+
+
+
+=11/03/15 - V006 =
 - Fix Bluetooth
 - Fix Camera
 - Fix OMX libs

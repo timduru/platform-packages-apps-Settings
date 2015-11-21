@@ -71,7 +71,7 @@
     </PreferenceCategory>
 
 
-
+<!--
     <PreferenceCategory
         android:key="kk_ui_multiwindow"
         android:title="@string/kk_ui_multiwindow_title" >
@@ -81,16 +81,15 @@
         <CheckBoxPreference
             android:key="kk_ui_btn_splitview_auto"
             android:title="@string/kk_ui_splitview_auto_visibility_title" />
-<!--        <CheckBoxPreference
+        <CheckBoxPreference
             android:key="kk_ui_btn_relaunch_floating"
             android:title="@string/kk_ui_relaunch_floating_visibility_title" />
         <CheckBoxPreference
             android:key="kk_ui_recents_multiwindow_icons"
             android:title="@string/kk_ui_recents_multiwindow_icons_visibility_title" />
-        -->
     </PreferenceCategory>
 
-
+-->        
     <PreferenceCategory
         android:key="kk_ui_battery"
         android:title="@string/kk_ui_battery_title" >

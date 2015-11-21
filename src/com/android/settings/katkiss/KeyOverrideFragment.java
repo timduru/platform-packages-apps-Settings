@@ -99,7 +99,7 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 		    
 		    ViewHolder holder = (ViewHolder) view.getTag();
 		    KeyActions keyActions = _keyList.get(position);
-		    holder.keyLabel.setText("" + KeyEvent.keyCodeToString(keyActions.getID()).substring("KEYCODE_".length()));
+		    holder.keyLabel.setText("" + getKeyString(keyActions.getID()));
 		    holder.keyActions.setText(keyActions.toString());
 		    holder.delete.setTag(keyActions);
 		    holder.delete.setOnClickListener(this);		    
@@ -239,6 +239,12 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 
         }
 
+        private  String getKeyString(int code)
+	{
+		String keycodeString = KeyEvent.keyCodeToString(code);
+		if(keycodeString.length() > "KEYCODE_".length()) keycodeString = keycodeString.substring("KEYCODE_".length());
+		return keycodeString;
+	}
 
 
 	@Override
@@ -267,7 +273,7 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 
                 //callback.pickedAction(KKC.A.SENDKEY_BASE + choice);
                 ((TextView) getView().findViewById(R.id.detected_keycode)) .setText(choice);
-                ((TextView) getView().findViewById(R.id.detected_keylabel)) .setText(KeyEvent.keyCodeToString(Integer.parseInt(choice)).substring("KEYCODE_".length()));
+                ((TextView) getView().findViewById(R.id.detected_keylabel)) .setText(getKeyString(Integer.parseInt(choice)));
 //                _currentKeyCode = choice;
                 return true; // true = close dialog
               }

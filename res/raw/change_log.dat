@@ -1,3 +1,16 @@
+=11/21/15 - V010 =
+- NavBar: Add Switch to previous app icon
+- NavBar: Add LongPress action on Switch to previous app icon
+- Settings: Fix crash when setting certain function keys override
+- Settings: Disable unimplemented MultiWindow settings
+- Settings: Remove duplicated Backup & Reset option
+- Settings: Reorg UI settings
+
+KatKernel 023g:
+- revert tweaks to V008
+- vm changes
+
+
 =11/11/15 - V009 =
 - Fix AutoRotation
 - Update Launcher
@@ -6,7 +19,6 @@
 
 KatKernel 023c:
 - io + battery tweaks
-
 
 
 =11/10/15 - V008 =

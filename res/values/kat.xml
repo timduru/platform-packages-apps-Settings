@@ -10,6 +10,7 @@
 
     <!--  Categories -->
     <string name="kk_ui_general_title">General</string>
+    <string name="kk_ui_navbar_title">Navigation Bar</string>
     <string name="kk_ui_misc_title">Misc</string>
     <string name="kk_ui_clock_title">Clock</string>
     <string name="kk_ui_battery_title">Battery</string>

@@ -5,8 +5,8 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="kk_ui_general"
-        android:title="@string/kk_ui_general_title" >
+        android:key="kk_ui_navbar"
+        android:title="@string/kk_ui_navbar_title" >
 
         <ListPreference
             android:key="kk_ui_mode"
@@ -15,14 +15,6 @@
             android:persistent="false"
             android:entries="@array/kk_ui_mode_entries"
             android:entryValues="@array/kk_ui_mode_values" />
-<!--            <CheckBoxPreference
-           android:key="test"
-           android:defaultValue="false"
-           android:title="test"
-	       />
-      -->   
-        
-        
 <!--
         <ListPreference
             android:defaultValue="0"
@@ -32,11 +24,15 @@
             android:summary="@string/kk_ui_barsize_summary"
             android:title="@string/kk_ui_barsize_title" />
 -->
-        <PreferenceScreen
+    <PreferenceScreen
             android:fragment="com.android.settings.katkiss.SoftKeyActions"
             android:key="ui_interface_navkeys"
             android:title="@string/kk_ui_interface_navkeys"
             android:summary="@string/kk_ui_interface_navkeys_summary"/>
+
+    <CheckBoxPreference
+            android:key="kk_ui_btn_switch_toprevious"
+            android:title="@string/kk_ui_switch_toprevious_task_visibility_title" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -122,14 +118,10 @@
             android:key="kk_ui_recents_mem_display"
             android:title="@string/kk_ui_recents_mem_display_title" />
         </PreferenceCategory>
-   --> 
     <PreferenceCategory
         android:key="kk_ui_misc"
         android:title="@string/kk_ui_misc_title" >
     <CheckBoxPreference
-            android:key="kk_ui_btn_switch_toprevious"
-            android:title="@string/kk_ui_switch_toprevious_task_visibility_title" />
-<!--    <CheckBoxPreference
             android:key="inputmethod_shownotification" 
             android:defaultValue="false"
             android:title="@string/inputmethod_shownotification_title"
@@ -140,6 +132,6 @@
             android:defaultValue="false"
             android:title="@string/enable_panels_dropshadow_title"
         />
-   --> 
     </PreferenceCategory>
+   --> 
 </PreferenceScreen>

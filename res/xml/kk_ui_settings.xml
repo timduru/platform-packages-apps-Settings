@@ -40,6 +40,16 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/qs_category_title">
+
+        <PreferenceScreen
+            android:key="qs_order"
+            android:title="@string/qs_order_title"
+            android:fragment="com.android.settings.katkiss.qs.QSTiles" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
         android:key="kk_ui_user_immersive"
         android:title="@string/kk_ui_user_immersive_title" >        
         <ListPreference
@@ -61,23 +71,10 @@
     </PreferenceCategory>
         
     
-    <PreferenceCategory
-        android:title="@string/qs_category_title">
-
-        <PreferenceScreen
-            android:key="qs_order"
-            android:title="@string/qs_order_title"
-            android:fragment="com.android.settings.katkiss.qs.QSTiles" />
-    </PreferenceCategory>
-
-
 <!--
     <PreferenceCategory
         android:key="kk_ui_multiwindow"
         android:title="@string/kk_ui_multiwindow_title" >
-        <CheckBoxPreference
-            android:key="kk_ui_btn_switch_toprevious"
-            android:title="@string/kk_ui_switch_toprevious_task_visibility_title" />
         <CheckBoxPreference
             android:key="kk_ui_btn_splitview_auto"
             android:title="@string/kk_ui_splitview_auto_visibility_title" />
@@ -125,11 +122,14 @@
             android:key="kk_ui_recents_mem_display"
             android:title="@string/kk_ui_recents_mem_display_title" />
         </PreferenceCategory>
-    
+   --> 
     <PreferenceCategory
         android:key="kk_ui_misc"
         android:title="@string/kk_ui_misc_title" >
     <CheckBoxPreference
+            android:key="kk_ui_btn_switch_toprevious"
+            android:title="@string/kk_ui_switch_toprevious_task_visibility_title" />
+<!--    <CheckBoxPreference
             android:key="inputmethod_shownotification" 
             android:defaultValue="false"
             android:title="@string/inputmethod_shownotification_title"
@@ -140,7 +140,6 @@
             android:defaultValue="false"
             android:title="@string/enable_panels_dropshadow_title"
         />
-    
+   --> 
     </PreferenceCategory>
--->
 </PreferenceScreen>

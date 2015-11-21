@@ -1,3 +1,14 @@
+=11/11/15 - V009 =
+- Fix AutoRotation
+- Update Launcher
+- Launcher: increase Desktop grid to 5x10
+- Launcher: increase Dock seats to 11
+
+KatKernel 023c:
+- io + battery tweaks
+
+
+
 =11/10/15 - V008 =
 - Increase per-app optimizing timeout for slower tablets with ext4 /data
 - Reenable support for non-PIE executables

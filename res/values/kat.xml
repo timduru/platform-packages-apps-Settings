@@ -156,7 +156,8 @@
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">
-        <item>Nav Bar Center Aligned Buttons</item>
+<!--        <item>Nav Bar Center Aligned Buttons</item> -->
+        <item>Default Android Nav Bar Buttons</item>
         <item>Nav Bar Left Aligned Buttons</item>
     </string-array>
     <string-array name="kk_ui_mode_values">

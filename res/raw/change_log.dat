@@ -1,3 +1,15 @@
+=12/13/15 - V011 =
+- Upgrade to Android 6.0.1
+
+- Increase optimize timeout for big packages
+- dex2oat: disable watchdog
+- dex2oat: force not to use swap
+- Add Default grant permissions for gapps
+- Speed up f2fs checks
+- ReAdd PATH for older init compat
+- Update Terminal Emulator
+
+
 =11/21/15 - V010 =
 - NavBar: Add Switch to previous app icon
 - NavBar: Add LongPress action on Switch to previous app icon

@@ -20,7 +20,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.katkiss.Utils;
 
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -39,14 +39,17 @@ import com.android.internal.logging.MetricsLogger;
 
 
 import java.util.ArrayList;
+import android.os.SystemProperties;
 
 public class DockSettingsFragment extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String TAG = "DockSettingsFragment";
     private static final String KEY_TOUCHPAD = "touchpad";
+    public static final String KEY_DOCK_POWERMODE = "persist.dock.ec_wakeup";
 
 
     private ListPreference _touchpadModeList;
-    private CheckBoxPreference _rightClickMode;
+    private SwitchPreference _rightClickMode;
+    private SwitchPreference _dockPowerMode;
 
     @Override
     protected int getMetricsCategory() {
@@ -59,11 +62,13 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
         addPreferencesFromResource(R.xml.kk_dock_settings);
 
         _touchpadModeList = (ListPreference) findPreference(KEY_TOUCHPAD);
-        _rightClickMode = (CheckBoxPreference) findPreference(KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE);
+        _rightClickMode = (SwitchPreference) findPreference(KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE);
+        _dockPowerMode = (SwitchPreference) findPreference(KEY_DOCK_POWERMODE);
         refreshState();
 
         _touchpadModeList.setOnPreferenceChangeListener(this);
         _rightClickMode.setOnPreferenceChangeListener(this);
+        _dockPowerMode.setOnPreferenceChangeListener(this);
     }
 
 
@@ -72,6 +77,7 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
         _touchpadModeList.setValue(String.valueOf(touchpadMode));
         _touchpadModeList.setSummary(getResources().getString(R.string.touchpad_mode_set) +  _touchpadModeList.getEntries()[touchpadMode]);
         _rightClickMode.setChecked(Settings.System.getInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, 0) == 1);
+        _dockPowerMode.setChecked(SystemProperties.getInt(KEY_DOCK_POWERMODE, 0) == 1);
     }
     
     @Override
@@ -100,6 +106,8 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
             putTouchpadModeSetting(Integer.parseInt((String)objValue));
         else if(key.equals(KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE))
         	Settings.System.putInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, (Boolean)objValue?1:0);
+        else if (key.equals(KEY_DOCK_POWERMODE)) 
+		SystemProperties.set(KEY_DOCK_POWERMODE, (Boolean)objValue?"1":"0");
         return true;
     }
 

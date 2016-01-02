@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.android.settings.R;
+import com.android.settings.katkiss.DockSettingsFragment;
+import android.os.SystemProperties;
 
 public class KatReceiver extends BroadcastReceiver 
 {
@@ -24,10 +26,28 @@ public class KatReceiver extends BroadcastReceiver
     public void onReceive(Context context, Intent intent) 
     {
     	mContext = context;
-    	new OverClockTask().execute();
+ 	if (Intent.ACTION_DOCK_EVENT.equals(intent.getAction())) refreshDock(intent);
+	else new OverClockTask().execute();
     }
     
     
+    private void refreshDockSystemProperty(String key, String def) 
+    { 
+        String current = SystemProperties.get(key, def);
+	if("0".equals(current)) return;
+
+        SystemProperties.set(key, "");
+        SystemProperties.set(key, current); 
+    }
+
+    private void refreshDock(Intent intent)
+    {
+        Integer mode = intent.getIntExtra(Intent.EXTRA_DOCK_STATE, Intent.EXTRA_DOCK_STATE_UNDOCKED);
+        boolean docked = mode != Intent.EXTRA_DOCK_STATE_UNDOCKED;
+
+        if(docked) refreshDockSystemProperty(DockSettingsFragment.KEY_DOCK_POWERMODE, "0"); 
+    }
+
     private class OverClockTask extends AsyncTask<Void, Void, Void>
     {
         boolean thtt = false;

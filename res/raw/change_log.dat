@@ -1,3 +1,44 @@
+=01/XX/16 - V012 =
+- Settings => Dock: add option to WakeUp tablet with keypress or when Lid opens
+- Fix Youtube History not registering
+- Settings: fix crash when clicking on More section
+- Fix wifi hotspot
+- Launcher 3: tweaks for Tablet
+- Add KatKiss build version in Settings => About
+- dalvik: tweak vm for tablets
+
+
+TF700T KatKernel 026:
+- Enable KSM + misc
+- add extra free kbytes tunable
+- Add RFKILL for bcm4330
+
+
+TF300T KatKernel 024:
+- Wifi: update to latest grouper bcmdhd driver
+- Sync conf options with grouper
+- Add /cache f2fs support
+=12/21/15 - V011c - TF700T=
+- Update TF700T specific binaries
+- fix init.d
+- vm tweaks
+
+
+TF700T KatKernel 025:
+- Rebuild with SaberMod GCC 5.1
+- ReAdd user GPU control sysfs
+- Default GPU to 600
+- Tweak GPU mV
+- Add /cache f2fs support
+=12/30/15 - V011 - TF700T =
+- Initial TF700T compat
+
+TF700T KatKernel 024:
+- Wifi: update to latest grouper bcmdhd driver
+- Sync conf options with grouper
+- TF700T conf
+
+
 =12/13/15 - V011 =
 - Upgrade to Android 6.0.1
 

@@ -1,11 +1,35 @@
-=01/XX/16 - V012 =
+=01/XX/16 - V013 =
+- Add missing fsdetect binary for optimize script
+- Use common bcm path
+
+TF300T KatKernel 027:
+- Enable KSM + misc
+- Add extra free kbytes tunable
+- Use common bcm path
+- Use 1800 freq table (default to 1500 max)
+- ReAdd user GPU control sysfs
+- Tweak GPU mV
+- use LZMA
+
+
+TF700T KatKernel 027:
+- Revert TF300T_OC
+- Use 1800 freq table (default to 1700 max)
+- Use common bcm path
+- Reactivate user voltage control
+
+
+
+
+=01/02/16 - V012 =
 - Settings => Dock: add option to WakeUp tablet with keypress or when Lid opens
 - Fix Youtube History not registering
 - Settings: fix crash when clicking on More section
 - Fix wifi hotspot
 - Launcher 3: tweaks for Tablet
 - Add KatKiss build version in Settings => About
-- dalvik: tweak vm for tablets
+- art: tweak mem for tablets
+TF300T: - Fix Keep Wi-Fi on during sleep option
 
 
 TF700T KatKernel 026:
@@ -18,6 +42,8 @@ TF300T KatKernel 024:
 - Wifi: update to latest grouper bcmdhd driver
 - Sync conf options with grouper
 - Add /cache f2fs support
+
+
 =12/21/15 - V011c - TF700T=
 - Update TF700T specific binaries
 - fix init.d

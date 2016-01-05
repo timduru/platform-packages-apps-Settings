@@ -1,4 +1,18 @@
-=01/XX/16 - V013 =
+=01/05/16 - V014 =
+- Upgrade to latest January MarshMallow MMB29T release
+- Merge 63 missing Bluetooth updates
+- Art optimizations
+- TF700T: update to latest broadcom bcm4330 firmwares 
+
+KatKernel 028:
+- ksm: Provide support to use deferred timers for scanner thread
+- ksm: enable deferred_timer by default to prevent the CPU to be wakened for ksm activities.
+- nf: IDLETIMER: Adds the uid field in the msg
+- vm changes
+- TF700t: Default min freq to stock 204
+
+
+=01/03/16 - V013 =
 - Add missing fsdetect binary for optimize script
 - Use common bcm path
 

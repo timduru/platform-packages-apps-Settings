@@ -1,3 +1,25 @@
+=01/17/16 - V015 =
+- Improve Notification drop down smoothness with wallpaper on
+- Add option to disable WallPaper for extra speed / battery saving (Display => Wallpaper Mode)
+- DocumentsUI: Display advanced storage in the list by default (show internal storage, external SD...)
+- Show each app name being optimized during boot
+- QuickSettings: add Immersive mode Tile by default
+- QuickSettings: remove Cast and Inversion tile by default
+- QuickSettings: sync default tiles with settings
+- Settings: add missing do not disturb Tile
+- Battery stats: use release build policy for hiding unaccounted/overcounted consumption by default
+- Battery stats: add option to display extra stats
+- Battery stats: add missing 1.6-1.8GHz power estimates
+
+
+TF300T KatKernel 030: 
+- Fix flickering with some tablet models
+- add target_info sysfs
+
+TF700T KatKernel 029: 
+- disable ksm
+
+
 =01/05/16 - V014 =
 - Upgrade to latest January MarshMallow MMB29T release
 - Merge 63 missing Bluetooth updates

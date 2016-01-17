@@ -17,6 +17,7 @@
     <string name="display_rotation_title">Rotation</string>
     <string name="display_rotation_disabled">Disabled</string>
     <string name="immersive">Immersive mode</string>
+    <string name="dnd">Do not disturb</string>
     
 
     <dimen name="qs_tile_max_size">120dp</dimen>

@@ -62,6 +62,10 @@ public class QSTileHolder {
                 resourceName = "ic_invert_colors_disable";
                 stringId = R.string.accessibility_display_inversion_preference_title;
                 break;
+            case QSConstants.TILE_DND:
+                resourceName = "ic_qs_dnd_on";
+                stringId = R.string.dnd;
+                break;
             case QSConstants.TILE_CELLULAR:
                 resourceName = "ic_qs_signal_full_4";
                 stringId = R.string.cellular_data_title;

@@ -59,7 +59,6 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final boolean DEBUG = false;
 
     private static final boolean USE_FAKE_DATA = false;
-
     static final String TAG = "PowerUsageSummary";
 
     private static final String KEY_APP_LIST = "app_list";
@@ -68,12 +67,13 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final int MENU_STATS_TYPE = Menu.FIRST;
     private static final int MENU_BATTERY_SAVER = Menu.FIRST + 2;
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
-    private static final int MENU_HELP = Menu.FIRST + 4;
+    private static final int MENU_BATTERY_EXTRA = Menu.FIRST + 4;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
 
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
+    private boolean mSkipExtra = true;
 
     private static final int MIN_POWER_THRESHOLD_MILLI_AMP = 5;
     private static final int MAX_ITEMS_TO_LIST = USE_FAKE_DATA ? 30 : 10;
@@ -139,6 +139,11 @@ public class PowerUsageSummary extends PowerUsageBase {
         batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
 
         menu.add(0, MENU_HIGH_POWER_APPS, 0, R.string.high_power_apps);
+        
+        MenuItem extra = menu.add(0, MENU_BATTERY_EXTRA, 0, R.string.battery_extra);
+        extra.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        extra.setCheckable(true);
+        
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -169,6 +174,11 @@ public class PowerUsageSummary extends PowerUsageBase {
                         HighPowerApplicationsActivity.class.getName());
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
+                return true;
+            case MENU_BATTERY_EXTRA:
+				mSkipExtra = !mSkipExtra;
+				item.setChecked(!mSkipExtra);
+				refreshStats();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -318,12 +328,8 @@ public class PowerUsageSummary extends PowerUsageBase {
                     if (sipper.totalPowerMah < ((mStatsHelper.getMaxRealPower()*2)/3)) {
                         continue;
                     }
-                    if (percentOfTotal < 10) {
-                        continue;
-                    }
-                    if ("user".equals(Build.TYPE)) {
-                        continue;
-                    }
+                    
+                    if (mSkipExtra || percentOfTotal < 10) continue;                    
                 }
                 if (sipper.drainType == BatterySipper.DrainType.UNACCOUNTED) {
                     // Don't show over-counted unless it is at least 1/2 the size of
@@ -331,12 +337,8 @@ public class PowerUsageSummary extends PowerUsageBase {
                     if (sipper.totalPowerMah < (mStatsHelper.getMaxRealPower()/2)) {
                         continue;
                     }
-                    if (percentOfTotal < 5) {
-                        continue;
-                    }
-                    if ("user".equals(Build.TYPE)) {
-                        continue;
-                    }
+                    
+                    if (mSkipExtra || percentOfTotal < 5 )  continue;                    
                 }
                 final UserHandle userHandle = new UserHandle(UserHandle.getUserId(sipper.getUid()));
                 final BatteryEntry entry = new BatteryEntry(getActivity(), mHandler, mUm, sipper);

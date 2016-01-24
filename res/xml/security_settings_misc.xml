@@ -33,7 +33,15 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/security_passwords_title"
+   <PreferenceCategory android:title="@string/external_storage_permissions"
+            android:persistent="false">
+
+        <SwitchPreference android:key="persist.external_drive_world_rw"
+                android:title="@string/storage_worldwritable_title"
+                android:summary="@string/storage_worldwritable_summary"                
+                android:persistent="false"/>
+
+    </PreferenceCategory>    <PreferenceCategory android:title="@string/security_passwords_title"
             android:persistent="false">
 
         <SwitchPreference android:key="show_password"

@@ -64,6 +64,8 @@ import com.android.settings.search.SearchIndexableRaw;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.os.SystemProperties;
+
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 
 /**
@@ -103,11 +105,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
+    private static final String KEY_EXTERNAL_DRIVE_WRW = "persist.external_drive_world_rw";
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
             KEY_VISIBLE_PATTERN, KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD,
-            KEY_TOGGLE_INSTALL_APPLICATIONS };
+            KEY_TOGGLE_INSTALL_APPLICATIONS, KEY_EXTERNAL_DRIVE_WRW };
 
     // Only allow one trust agent on the platform.
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
@@ -124,6 +127,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private SwitchPreference mVisiblePattern;
 
     private SwitchPreference mShowPassword;
+    private SwitchPreference mStorageWorldWritable;
 
     private KeyStore mKeyStore;
     private Preference mResetCredentials;
@@ -284,6 +288,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // Show password
         mShowPassword = (SwitchPreference) root.findPreference(KEY_SHOW_PASSWORD);
         mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
+        mStorageWorldWritable = (SwitchPreference) root.findPreference(KEY_EXTERNAL_DRIVE_WRW);
 
         // Credential storage
         final UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
@@ -617,6 +622,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
             mShowPassword.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.TEXT_SHOW_PASSWORD, 1) != 0);
         }
+        
+       if (mStorageWorldWritable != null) 
+            mStorageWorldWritable.setChecked(SystemProperties.getInt(KEY_EXTERNAL_DRIVE_WRW, 0) == 1);
 
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
@@ -701,10 +709,14 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 warnAppInstallation();
                 // Don't change Switch status until user makes choice in dialog, so return false.
                 result = false;
-            } else {
+			} else {
                 setNonMarketAppsAllowed(false);
             }
+		} else if (KEY_EXTERNAL_DRIVE_WRW.equals(key)) {		
+			SystemProperties.set(KEY_EXTERNAL_DRIVE_WRW, (Boolean)value?"1":"0");
+			result = true;
         }
+
         return result;
     }
 

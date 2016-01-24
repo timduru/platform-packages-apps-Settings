@@ -400,6 +400,11 @@
         <item>@string/touchpad_mode_entry_classic</item>
     </array>
 
+<!-- Security Settings -->
+    <string name="external_storage_permissions">External storage permissions</string>    
+    <string name="storage_worldwritable_title">Make writable to all apps</string>    
+    <string name="storage_worldwritable_summary">(will be taken into account after ejecting/inserting the media)</string>    
+
 <!-- styles  -->
     <declare-styleable name="ActionPreference">
         <attr name="providerUri" format="reference" />

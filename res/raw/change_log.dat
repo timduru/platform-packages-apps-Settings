@@ -1,3 +1,19 @@
+=01/26/16 - V016 =
+- Video: fix gpu hardware accelerated nvidia tegra3 OMX codecs support
+- External storage: Add ExFat and NTFS support
+- External storage: make writable to all apps by default
+- Settings: Add option to disable external storage writable to all apps (Security => External storage permissions)
+- Settings - Data usage: fix crash with ethernet dongle
+- Launcher3: Reimplement Wallpaper internal rendering
+- Keyguard: render wallpaper internally if System wallpaper rendering is off
+- Disable System Wallpaper by default
+
+
+TF300T KatKernel 031 & TF700T KatKernel 030:
+- lowmemorykiller: Don't count reserved free memory
+- binder: Change binder mutex to realtime mutex
+
+
 =01/17/16 - V015 =
 - Improve Notification drop down smoothness with wallpaper on
 - Add option to disable WallPaper for extra speed / battery saving (Display => Wallpaper Mode)

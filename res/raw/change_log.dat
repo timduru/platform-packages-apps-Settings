@@ -1,3 +1,17 @@
+=01/30/16 - V017 =
+- Fix NTFS binaries
+- Switch to native exfat kernel support
+- Force sync before unmounting to avoid corruption with exfat
+- MtpService: activate MTP transfert by default when plugged into a computer 
+  (can be deactivated in Settings => Dev => USB Configuration)
+- MtpService: only activate if screen is unlocked for security
+- Settings: Init and Make USB Configuration option persistent
+- Launcher3: do not render wallpaper internally if wallpaper service is disabled
+
+KatKernel 032:
+- add native nofuse exFat support
+
+
 =01/26/16 - V016 =
 - Video: fix gpu hardware accelerated nvidia tegra3 OMX codecs support
 - External storage: Add ExFat and NTFS support

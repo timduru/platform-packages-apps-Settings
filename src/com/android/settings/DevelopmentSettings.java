@@ -1316,8 +1316,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             String[] values = getResources().getStringArray(R.array.usb_configuration_values);
             String[] titles = getResources().getStringArray(R.array.usb_configuration_titles);
             int index = 0;
-            for (int i = 0; i < titles.length; i++) {
-                if (manager.isFunctionEnabled(values[i])) {
+            String currentSetValue = SystemProperties.get("persist.usbconfiguration", "mtp");
+
+            for (int i = 0; i < values.length; i++) {
+                if (currentSetValue.equals(values[i])){
                     index = i;
                     break;
                 }
@@ -1331,6 +1333,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private void writeUsbConfigurationOption(Object newValue) {
         UsbManager manager = (UsbManager)getActivity().getSystemService(Context.USB_SERVICE);
         String function = newValue.toString();
+        SystemProperties.set("persist.usbconfiguration", function);
+
         manager.setCurrentFunction(function);
         if (function.equals("none")) {
             manager.setUsbDataUnlocked(false);

@@ -1,3 +1,26 @@
+=02/20/16 - V019b =
+TF101:
+- Fix reboots caused by some apps(ES file explorer, play music, youtube...)
+- Fix ExFat support
+
+TF101 KatKernel 122:
+- net: Handle 'sk' being NULL in UID-based routing
+- add native ExFat FS support
+
+
+=02/19/16 - V019 =
+- First TF101 version
+- wifi: allow to use legacy dhcp client by default
+- allow to reuse libs with text relocation
+
+TF101 KatKernel 121:
+- Initial Marshmallow support
+
+TF700 KatKernel 034:
+- Fix bit width test failing on old eMMC cards
+- mmc: Enable BKOPS
+
+
 =02/05/16 - V018 =
 - Update to latest February Marshmallow version
 - Fix background flicker when opening all apps

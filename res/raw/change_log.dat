@@ -1,3 +1,16 @@
+=02/20/16 - V020 =
+- Fix Non PIE support
+- Add BookmarksSyncAdapter for default Browser
+
+TF101:
+- Fix OMX codecs
+- Use libkatomx
+- Avoid OMX plugin crash on cleanup
+- Fix Camera
+- Readd non PIE support
+- Fix GPS
+
+
 =02/20/16 - V019b =
 TF101:
 - Fix reboots caused by some apps(ES file explorer, play music, youtube...)

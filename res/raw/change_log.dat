@@ -1,3 +1,10 @@
+=02/21/16 - V021 =
+TF101:
+- Fix crackling sound when sound starts
+- audio_hw: return early if no data to write
+- audio_hw: decrease Analog and Bluetooth out latency
+
+
 =02/20/16 - V020 =
 - Fix Non PIE support
 - Add BookmarksSyncAdapter for default Browser

@@ -1,3 +1,30 @@
+=02/28/16 - V022 =
+- Brightness: Allow to set offset below 20 in low light & adaptive Brightness mode
+- Brightness: Add more steps for low light conditions in adaptive Brightness mode
+- Brightness: Allow user to decrease further in manual mode
+- Brightness: Increase number of steps in manual mode
+- Brightness: Add more precise steps when reaching level lower than 20 in manual mode
+- Brightness: React faster on level changes
+- Add NVidia SmartDimmer option in Display Settings
+- Add System property to disable the Dock Battery icon
+
+
+TF300T KatKernel 032c:
+TF700T KatKernel 034c:
+- handle smartdimmer option
+
+TF101 KatKernel 123:
+- reuse data nvram path
+- handle smartdimmer option
+- handle dock keypress wakeup option
+
+KatKiss-6.0-sl101-compat-V4:
+- Disable Dock Battery logic and icon (requires KatKiss >=V022)
+- Fix upside-down camera
+- update with KatKernel 123
+
+
+
 =02/21/16 - V021 =
 TF101:
 - Fix crackling sound when sound starts

@@ -82,6 +82,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE = "doze";
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
+    private static final String KEY_SMART_DIMMER = "smart_dimmer";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_NIGHT_MODE = "night_mode";
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
@@ -106,6 +107,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
+    private SwitchPreference mSmartDimmer;
     private SwitchPreference mCameraGesturePreference;
     private SwitchPreference mCameraDoubleTapPowerGesturePreference;
 
@@ -149,6 +151,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mWallpaperPref.setOnPreferenceChangeListener(this);
         mWallpaperPref.setOnPreferenceClickListener(this);
         
+        mSmartDimmer = (SwitchPreference) findPreference(KEY_SMART_DIMMER);
+        mSmartDimmer.setOnPreferenceChangeListener(this);
+
         if (isAutomaticBrightnessAvailable(getResources())) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
             mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
@@ -401,6 +406,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         readFontSizePreference(mFontSizePref);
         updateScreenSaverSummary();
 
+        if (mSmartDimmer != null)
+            mSmartDimmer.setChecked("1".equals(SystemProperties.get("persist.smartdimmer", "0")));
+
         // Update auto brightness if it is available.
         if (mAutoBrightnessPreference != null) {
             int brightnessMode = Settings.System.getInt(getContentResolver(),
@@ -476,6 +484,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
         }
+
+        if (preference == mSmartDimmer)
+            SystemProperties.set("persist.smartdimmer", ((Boolean) objValue)?"1":"0");
+
         if (preference == mAutoBrightnessPreference) {
             boolean auto = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), SCREEN_BRIGHTNESS_MODE,

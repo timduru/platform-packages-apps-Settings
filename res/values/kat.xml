@@ -161,6 +161,9 @@
    <!-- Menu label for reset the battery stats -->
     <string name="menu_stats_reset">Reset</string>
 
+    <string name="smart_dimmer_title">Nvidia Smart Dimmer Video Mode</string>
+    <string name="smart_dimmer_summary">Adapts the display levels based on video content (will trigger only after playing video) </string>
+
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">

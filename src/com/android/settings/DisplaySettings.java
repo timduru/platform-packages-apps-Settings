@@ -151,8 +151,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mWallpaperPref.setOnPreferenceChangeListener(this);
         mWallpaperPref.setOnPreferenceClickListener(this);
         
-        mSmartDimmer = (SwitchPreference) findPreference(KEY_SMART_DIMMER);
-        mSmartDimmer.setOnPreferenceChangeListener(this);
+
+	if(SystemProperties.getBoolean("display.smart_dimmer", false)) {
+            mSmartDimmer = (SwitchPreference) findPreference(KEY_SMART_DIMMER);
+            mSmartDimmer.setOnPreferenceChangeListener(this);
+        }
+        else removePreference(KEY_SMART_DIMMER);
+
 
         if (isAutomaticBrightnessAvailable(getResources())) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);

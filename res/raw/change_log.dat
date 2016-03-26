@@ -1,3 +1,21 @@
+=03/24/16 - V023 =
+- Update to latest March Marshmallow release
+- DeskClock: Fix crash when trying to view world cities
+- Settings: Disable smart dimmer if not available
+- TF101: Supplicant, cleanup ctrl interface use
+
+KatKernel TF700T 036: 
+- Fix CVE-2015-1805
+KatKernel TF700T 035: 
+- rt5631: bring back volume control + limit HP volume to avoid looping
+
+KatKernel TF300T 033: 
+- Fix CVE-2015-1805
+
+KatKernel TF101 124: 
+- Fix CVE-2015-1805
+
+
 =02/28/16 - V022 =
 - Brightness: Allow to set offset below 20 in low light & adaptive Brightness mode
 - Brightness: Add more steps for low light conditions in adaptive Brightness mode

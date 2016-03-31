@@ -121,7 +121,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
         int valInt;
       if(_uiModeList != null) 
       {
-        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_NAVBAR_LEFT );
+        valInt =  Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_UI_MODE, KKC.S.SYSTEMUI_UI_MODE_NAVBAR_BALANCED );
         _uiModeList.setDefaultValue(String.valueOf(valInt));
         _uiModeList.setValue(String.valueOf(valInt));
       }

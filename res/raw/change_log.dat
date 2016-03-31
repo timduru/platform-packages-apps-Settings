@@ -1,3 +1,15 @@
+=04/01/16 - V024 =
+- MultiWindow: add navbar splitview icons
+- MultiWindow: rewrite split screen logic
+- MultiWindow: add 3 panes and 4 panes logic
+- MultiWindow: handle multipanes placement and icons based on screen rotation
+- NavBar: add Balanced Buttons alignment mode (PixelC like + MW buttons centered)  (Settings => User Interface =>  Interface Mode)
+- NavBar: default to Balanced buttons mode
+- Settings: add option to hide navbar MultiWindow icons (Settings => User Interface => Multiwindow)
+- Settings: add splitview actions in global actions list (available for Longpress and Dock Key override)
+- Settings: prevent crashing when being resized
+
+
 =03/24/16 - V023 =
 - Update to latest March Marshmallow release
 - DeskClock: Fix crash when trying to view world cities

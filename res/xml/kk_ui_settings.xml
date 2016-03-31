@@ -41,6 +41,12 @@
         <CheckBoxPreference
             android:key="kk_ui_btn_splitview_auto"
             android:title="@string/kk_ui_splitview_auto_visibility_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_btn_splitview_auto3"
+            android:title="@string/kk_ui_splitview_auto3_visibility_title" />
+        <CheckBoxPreference
+            android:key="kk_ui_btn_splitview_auto4"
+            android:title="@string/kk_ui_splitview_auto4_visibility_title" />
 <!--
         <CheckBoxPreference
             android:key="kk_ui_btn_relaunch_floating"

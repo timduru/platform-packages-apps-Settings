@@ -45,7 +45,7 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
     private CheckBoxPreference _inputNotification, _batteryIcon, _batteryText, _batteryTextOnIcon, _batteryTextPercent ;
     private CheckBoxPreference _clockTime, _clockDate;
     private CheckBoxPreference _recentsKillall, _recentsMem, _recentsMultiWindowIcons;
-    private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto, _btnRelaunchFloating;
+    private CheckBoxPreference _btnSwitchToPrevious, _btnSplitViewAuto, _btnSplitViewAuto3, _btnSplitViewAuto4, _btnRelaunchFloating;
     private CheckBoxPreference _immersiveMode, _autoExpanded;
     private CheckBoxPreference _enablePanelsDropShadow;
     private CheckBoxPreference _test;
@@ -78,6 +78,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         _btnSwitchToPrevious = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS);
         _btnSplitViewAuto = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO);
+        _btnSplitViewAuto3 = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO + "3");
+        _btnSplitViewAuto4 = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO + "4");
         _btnRelaunchFloating = (CheckBoxPreference) findPreference(KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING);
 
         _autoExpanded = (CheckBoxPreference) findPreference(KKC.S.AUTO_EXPANDED_DESKTOP_ONDOCK);
@@ -104,6 +106,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
         if(_btnSwitchToPrevious != null) _btnSwitchToPrevious.setOnPreferenceChangeListener(this);
         if(_btnSplitViewAuto != null) _btnSplitViewAuto.setOnPreferenceChangeListener(this);
+        if(_btnSplitViewAuto3 != null) _btnSplitViewAuto3.setOnPreferenceChangeListener(this);
+        if(_btnSplitViewAuto4 != null) _btnSplitViewAuto4.setOnPreferenceChangeListener(this);
         if(_btnRelaunchFloating !=null) _btnRelaunchFloating.setOnPreferenceChangeListener(this);
         
         if(_immersiveMode != null) _immersiveMode.setOnPreferenceChangeListener(this);
@@ -156,6 +160,8 @@ public class UISettings extends SettingsPreferenceFragment implements Preference
 
       if(_btnSwitchToPrevious != null) _btnSwitchToPrevious.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SWITCH_TOPREVIOUS, 1) == 1);        
       if(_btnSplitViewAuto != null)  _btnSplitViewAuto.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO, 1) == 1);        
+      if(_btnSplitViewAuto3 != null)  _btnSplitViewAuto3.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO + "3", 1) == 1);        
+      if(_btnSplitViewAuto4 != null)  _btnSplitViewAuto4.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_SPLITVIEW_AUTO + "4", 1) == 1);        
       if(_btnRelaunchFloating != null)  _btnRelaunchFloating.setChecked(Settings.System.getInt(mResolver, KKC.S.SYSTEMUI_BTN_RELAUNCH_FLOATING, 1) == 1);        
 
       if(_immersiveMode != null)  _immersiveMode.setChecked(Settings.System.getInt(mResolver, KKC.S.USER_IMMERSIVE_MODE, 0) == 1);

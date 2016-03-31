@@ -18,14 +18,14 @@
     
     <string name="kk_ui_settings">User Interface</string>
     <string name="kk_ui_mode">Interface Mode</string>
-    <string name="kk_ui_mode_summary">Select Interface mode</string>
+    <string name="kk_ui_mode_summary">Choose the Buttons alignment</string>
 
     <string name="kk_ui_barsize_title">Navigation Bar Size</string>
     <string name="kk_ui_barsize_summary">Choose between standard bar size and smaller sizes</string>
     
     
-    <string name="kk_ui_interface_navkeys">Navigation Bar Buttons Settings</string>
-    <string name="kk_ui_interface_navkeys_summary">Change Nav Buttons Features</string>
+    <string name="kk_ui_interface_navkeys">Buttons Long Press Settings</string>
+    <string name="kk_ui_interface_navkeys_summary">Change Nav Buttons Long Press Actions</string>
 
     <string name="kk_ui_back_longpress_title">Back Button Long Press Action</string>
     <string name="kk_ui_recent_longpress_title">Recent Button Long Press Action</string>
@@ -169,14 +169,15 @@
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">
-<!--        <item>Nav Bar Center Aligned Buttons</item> -->
-        <item>Default Android Nav Bar Buttons</item>
-        <item>Nav Bar Left Aligned Buttons</item>
+        <item>Default Android Centered Buttons</item>
+        <item>Balanced Buttons (Back+Home:left  Recents:right  MultiWindow:center)</item>
+        <item>Left Aligned Buttons</item>
     </string-array>
     <string-array name="kk_ui_mode_values">
-        <item>4</item>
+        <item>1</item>
         <item>0</item>
-    </string-array>
+        <item>2</item>
+        </string-array>
 
      <string-array name="kk_ui_user_immersive_mode_type_entries">
         <item>Full - Hide Status Bar and Navigation Bar</item>

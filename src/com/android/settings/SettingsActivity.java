@@ -827,7 +827,8 @@ public class SettingsActivity extends Activity
 
         registerReceiver(mBatteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
-        mDynamicIndexableContentMonitor.register(this);
+        try{ mDynamicIndexableContentMonitor.register(this); }
+        catch(IllegalStateException e) {}
 
         if(mDisplaySearch && !TextUtils.isEmpty(mSearchQuery)) {
             onQueryTextSubmit(mSearchQuery);

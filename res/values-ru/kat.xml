@@ -141,21 +141,6 @@
 
 <!-- Arrays -->
 
-    <string-array name="kk_ui_mode_entries">
-        <item>Phablet UI</item>
-        <item>Phablet UI - Панель навигации по левому краю</item>
-        <item>Phablet UI - Панель навигации скрыта</item>
-<!--        <item>Tablet UI</item> -->
-        <item>Расширенный экран - панели скрыты</item>
-    </string-array>
-    <string-array name="kk_ui_mode_values">
-        <item>4</item>
-        <item>0</item>
-        <item>1</item>
-<!--        <item>3</item> -->
-        <item>2</item>
-    </string-array>
-
     <string-array name="kk_ui_navbar_size_entries">
         <item>Нормальный (48dp)</item>
         <item>Мелкий (36dp)</item>

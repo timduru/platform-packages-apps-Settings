@@ -241,6 +241,7 @@
         <item>Audio Up</item> -->
         <item>Audio Mute</item>
         <item>Screen off</item>
+        <item>Swap 2 last apps Position/size </item>
         <item>Switch Top Application between SplitView (2 Panes) and FullScreen</item>
         <item>Switch Top Application between SplitView (3 Panes) and FullScreen</item>
         <item>Switch Top Application between SplitView (4 Panes) and FullScreen</item>
@@ -279,6 +280,7 @@
         <item>audio_mute</item>
         <item>screenoff</item>
 
+        <item>splitview_swap</item>
         <item>splitview_auto</item>
         <item>splitview_auto3</item>
         <item>splitview_auto4</item>

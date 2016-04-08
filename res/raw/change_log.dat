@@ -1,3 +1,14 @@
+=04/08/16 - V025 =
+- Update to April Marshmallow release
+- MultiWindow: add logic to swap 2 latest apps position/size
+- MultiWindow: allow to swap a previous fullscreen app to the new location too
+- MultiWindow: give previous app the new focus after swapping
+- NavBar: fix Button LongPress action being sent twice
+- NavBar "switch to previous app" Button: default LongPress action to swap apps positions
+  (if you have already set a custom longpress action on that button, you need to clear it first or set the swap action)
+- Settings: add Global Action to swap 2 latest apps position/size (available for Longpress and Dock Key override)
+
+
 =04/01/16 - V024 =
 - MultiWindow: add navbar splitview icons
 - MultiWindow: rewrite split screen logic

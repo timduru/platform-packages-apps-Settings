@@ -1,3 +1,10 @@
+=06/07/16 - V026 =
+- Upgrade to Marshmallow-MR2-release
+- Update to May Marshmallow release
+- Update to June Marshmallow release
+- Soft Keyboard: disable physical ALT Key mapping by default
+
+
 =04/08/16 - V025 =
 - Update to April Marshmallow release
 - MultiWindow: add logic to swap 2 latest apps position/size

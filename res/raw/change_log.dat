@@ -1,3 +1,21 @@
+=07/09/16 - V027 =
+- Update to July Marshmallow release
+- Performance: add  Aggressive trim settings
+- enable agressive trim for <=1GB devices
+- Performance: Propagate B-services to higher adj
+- add prop to configure max cached apps limit
+- decrease max bg apps limit on 1GB devices
+- Use the original activity to launch from Recents
+- Fix resumeHomeStackTask can't resume home if activity is finishing
+- Ensure state transition of paused activity
+- [ActivityManager] Fix IndexOutOfBoundsException
+- Misc av fixes
+- Cleanups by tetsuo55
+
+TF700T Katkernel 037: default freq to 1600 + vm tweak
+
+
+
 =06/07/16 - V026 =
 - Upgrade to Marshmallow-MR2-release
 - Update to May Marshmallow release

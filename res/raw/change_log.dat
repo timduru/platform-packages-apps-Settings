@@ -1,3 +1,13 @@
+=07/15/16 - V028 =
+- Bring back high optimization build flags
+- switch to GCC target 5.4
+- Rebuild with UberTC 
+- Update sqlite from 3.08 to sqlite.org 3.13.0 (Thanks to tetsuo55 for the suggestion)
+- Switch to 14.04 LTS build machine
+- aapt res cleanup
+
+TF300T Katkernel 034: rebuild with UberTC 5.4
+
 =07/09/16 - V027 =
 - Update to July Marshmallow release
 - Performance: add  Aggressive trim settings
@@ -10,7 +20,7 @@
 - Ensure state transition of paused activity
 - [ActivityManager] Fix IndexOutOfBoundsException
 - Misc av fixes
-- Cleanups by tetsuo55
+- Cleanups & misc build backports by tetsuo55
 
 TF700T Katkernel 037: default freq to 1600 + vm tweak
 

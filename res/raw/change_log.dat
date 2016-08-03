@@ -1,3 +1,21 @@
+=08/05/16 - V028 =
+- Update to August Marshmallow release
+- add more optimization flags
+- Launcher3: use better icon ratio based on native icon size to avoid fuzzyness. 
+- Launcher3: use higher res for app drawer icon on mdpi
+- Launcher3: materialize icon
+- av/audiopolicy: squashed support for pre-kitkat audio blobs
+- native/egl: bring back EGL_WORKAROUND_BUG_10194508
+- local_manifest: misc cleanups & reorg
+- EmojiAltPhysicalKeyDetector: kill logspam
+- art/dalvik: misc fixes & optimizations
+- webview: add google webview support
+- add back org.apache.http.legacy.jar for compat with apps not updated to API23
+- TF700T: dedicated build with new aapt res
+- TF201/TF700T: fix default bluetooth device name
+- TF201/TF300T/TF700T: misc obsolete flags cleanups & fixes
+
+
 =07/15/16 - V028 =
 - Bring back high optimization build flags
 - switch to GCC target 5.4

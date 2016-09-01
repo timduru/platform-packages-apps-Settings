@@ -20,8 +20,17 @@ import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
+import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +39,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settingslib.RestrictedLockUtils;
+
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 /**
  * UI for the USB chooser dialog.
@@ -48,6 +60,22 @@ public class UsbModeChooserActivity extends Activity {
     private UsbBackend mBackend;
     private AlertDialog mDialog;
     private LayoutInflater mLayoutInflater;
+    private EnforcedAdmin mEnforcedAdmin;
+
+    private BroadcastReceiver mDisconnectedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (UsbManager.ACTION_USB_STATE.equals(action)) {
+                boolean connected = intent.getBooleanExtra(UsbManager.USB_CONNECTED, false);
+                boolean hostConnected =
+                        intent.getBooleanExtra(UsbManager.USB_HOST_CONNECTED, false);
+                if (!connected && !hostConnected) {
+                    mDialog.dismiss();
+                }
+            }
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,24 +103,58 @@ public class UsbModeChooserActivity extends Activity {
 
         LinearLayout container = (LinearLayout) mDialog.findViewById(R.id.container);
 
+        mEnforcedAdmin = RestrictedLockUtils.checkIfRestrictionEnforced(this,
+                UserManager.DISALLOW_USB_FILE_TRANSFER, UserHandle.myUserId());
         mBackend = new UsbBackend(this);
         int current = mBackend.getCurrentMode();
         for (int i = 0; i < DEFAULT_MODES.length; i++) {
-            if (mBackend.isModeSupported(DEFAULT_MODES[i])) {
-                inflateOption(DEFAULT_MODES[i], current == DEFAULT_MODES[i], container);
+            if (mBackend.isModeSupported(DEFAULT_MODES[i])
+                    && !mBackend.isModeDisallowedBySystem(DEFAULT_MODES[i])) {
+                inflateOption(DEFAULT_MODES[i], current == DEFAULT_MODES[i], container,
+                        mBackend.isModeDisallowed(DEFAULT_MODES[i]));
             }
         }
     }
 
-    private void inflateOption(final int mode, boolean selected, LinearLayout container) {
-        View v = mLayoutInflater.inflate(R.layout.radio_with_summary, container, false);
+    @Override
+    public void onStart() {
+        super.onStart();
 
-        ((TextView) v.findViewById(android.R.id.title)).setText(getTitle(mode));
-        ((TextView) v.findViewById(android.R.id.summary)).setText(getSummary(mode));
+        IntentFilter filter = new IntentFilter(UsbManager.ACTION_USB_STATE);
+        registerReceiver(mDisconnectedReceiver, filter);
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(mDisconnectedReceiver);
+        super.onStop();
+    }
+
+    private void inflateOption(final int mode, boolean selected, LinearLayout container,
+            final boolean disallowedByAdmin) {
+        View v = mLayoutInflater.inflate(R.layout.restricted_radio_with_summary, container, false);
+
+        TextView titleView = (TextView) v.findViewById(android.R.id.title);
+        titleView.setText(getTitle(mode));
+        TextView summaryView = (TextView) v.findViewById(android.R.id.summary);
+        summaryView.setText(getSummary(mode));
+
+        if (disallowedByAdmin) {
+            if (mEnforcedAdmin != null) {
+                setDisabledByAdmin(v, titleView, summaryView);
+            } else {
+                return;
+            }
+        }
 
         v.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (disallowedByAdmin && mEnforcedAdmin != null) {
+                    RestrictedLockUtils.sendShowAdminSupportDetailsIntent(
+                            UsbModeChooserActivity.this, mEnforcedAdmin);
+                    return;
+                }
                 if (!ActivityManager.isUserAMonkey()) {
                     mBackend.setMode(mode);
                 }
@@ -102,6 +164,17 @@ public class UsbModeChooserActivity extends Activity {
         });
         ((Checkable) v).setChecked(selected);
         container.addView(v);
+    }
+
+    private void setDisabledByAdmin(View rootView, TextView titleView, TextView summaryView) {
+        if (mEnforcedAdmin != null) {
+            titleView.setEnabled(false);
+            summaryView.setEnabled(false);
+            rootView.findViewById(R.id.restricted_icon).setVisibility(View.VISIBLE);
+            Drawable[] compoundDrawables = titleView.getCompoundDrawablesRelative();
+            compoundDrawables[0 /* start */].mutate().setColorFilter(
+                    getColor(R.color.disabled_text_color), PorterDuff.Mode.MULTIPLY);
+        }
     }
 
     private static int getSummary(int mode) {

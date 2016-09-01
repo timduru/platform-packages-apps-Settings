@@ -16,11 +16,53 @@
 
 package com.android.settings;
 
-import com.android.internal.logging.MetricsLogger;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.UiModeManager;
+import android.app.WallpaperManager;
+import android.app.admin.DevicePolicyManager;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.SystemProperties;
+import android.os.UserHandle;
+import android.os.UserManager;
+import android.provider.SearchIndexableResource;
+import android.provider.Settings;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.CheckBoxPreference;
+import android.support.v7.preference.DropDownPreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.Preference.OnPreferenceClickListener;
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.android.internal.view.RotationPolicy;
-import com.android.settings.DropDownPreference.Callback;
+import com.android.settings.DreamSettings;
+import com.android.settings.katkiss.HDMIOutChooserDialogFragment;
+import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.view.RotationPolicy;
+import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
+import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settingslib.RestrictedLockUtils;
+import com.android.settingslib.RestrictedPreference;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.meerkats.katkiss.KKC;
+import com.android.settings.katkiss.WallpaperModes;
 
 import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
@@ -32,42 +74,10 @@ import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 
-import android.app.Activity;
-import android.app.ActivityManagerNative;
-import android.app.Dialog;
-import android.app.UiModeManager;
-import android.app.admin.DevicePolicyManager;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.os.SystemProperties;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.preference.CheckBoxPreference;
-import android.provider.SearchIndexableResource;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.Log;
-
-import com.android.internal.view.RotationPolicy;
-import com.android.settings.DreamSettings;
-import com.android.settings.katkiss.HDMIOutChooserDialogFragment;
-import java.util.ArrayList;
-import java.util.List;
-import org.meerkats.katkiss.KKC;
-import com.android.settings.katkiss.WallpaperModes;
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
+        Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener, Indexable {
     private static final String TAG = "DisplaySettings";
 
     /** If there is no setting in the provider, use this. */
@@ -88,19 +98,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
+    private static final String KEY_WALLPAPER = "wallpaper";
+    private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
 
-    private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
-
-    private CheckBoxPreference mAccelerometer;
     private Preference mHDMIPref;
     private Preference mWallpaperPref;
-    private WarnedListPreference mFontSizePref;
     private CheckBoxPreference mDisableWallpaper;
-    private CheckBoxPreference mNotificationPulse;
+    private Preference mFontSizePref;
 
-    private final Configuration mCurConfig = new Configuration();
-
-    private ListPreference mScreenTimeoutPreference;
+    private TimeoutListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
     private SwitchPreference mLiftToWakePreference;
@@ -113,7 +119,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DISPLAY;
+        return MetricsEvent.DISPLAY;
     }
 
     @Override
@@ -131,17 +137,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
 
-        mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
-        final long currentTimeout = Settings.System.getLong(resolver, SCREEN_OFF_TIMEOUT,
-                FALLBACK_SCREEN_TIMEOUT_VALUE);
-        mScreenTimeoutPreference.setValue(String.valueOf(currentTimeout));
-        mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
-        disableUnusableTimeouts(mScreenTimeoutPreference);
-        updateTimeoutPreferenceDescription(currentTimeout);
+        mScreenTimeoutPreference = (TimeoutListPreference) findPreference(KEY_SCREEN_TIMEOUT);
 
-        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
-        mFontSizePref.setOnPreferenceChangeListener(this);
-        mFontSizePref.setOnPreferenceClickListener(this);
+        mFontSizePref = findPreference(KEY_FONT_SIZE);
 
         mHDMIPref = (Preference) findPreference(KEY_HDMI);
         mHDMIPref.setOnPreferenceChangeListener(this);
@@ -205,8 +203,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (RotationPolicy.isRotationLockToggleVisible(activity)) {
             DropDownPreference rotatePreference =
                     (DropDownPreference) findPreference(KEY_AUTO_ROTATE);
-            rotatePreference.addItem(activity.getString(R.string.display_auto_rotate_rotate),
-                    false);
             int rotateLockedResourceId;
             // The following block sets the string used when rotation is locked.
             // If the device locks specifically to portrait or landscape (rather than current
@@ -223,14 +219,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                             R.string.display_auto_rotate_stay_in_landscape;
                 }
             }
-            rotatePreference.addItem(activity.getString(rotateLockedResourceId), true);
-            rotatePreference.setSelectedItem(RotationPolicy.isRotationLocked(activity) ?
+            rotatePreference.setEntries(new CharSequence[] {
+                    activity.getString(R.string.display_auto_rotate_rotate),
+                    activity.getString(rotateLockedResourceId),
+            });
+            rotatePreference.setEntryValues(new CharSequence[] { "0", "1" });
+            rotatePreference.setValueIndex(RotationPolicy.isRotationLocked(activity) ?
                     1 : 0);
-            rotatePreference.setCallback(new Callback() {
+            rotatePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
                 @Override
-                public boolean onItemSelected(int pos, Object value) {
-                    final boolean locked = (Boolean) value;
-                    MetricsLogger.action(getActivity(), MetricsLogger.ACTION_ROTATION_LOCK,
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    final boolean locked = Integer.parseInt((String) newValue) != 0;
+                    MetricsLogger.action(getActivity(), MetricsEvent.ACTION_ROTATION_LOCK,
                             locked);
                     RotationPolicy.setRotationLock(activity, locked);
                     return true;
@@ -238,6 +238,40 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             });
         } else {
             removePreference(KEY_AUTO_ROTATE);
+        }
+
+        if (isVrDisplayModeAvailable(activity)) {
+            DropDownPreference vrDisplayPref =
+                    (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);
+            vrDisplayPref.setEntries(new CharSequence[] {
+                    activity.getString(R.string.display_vr_pref_low_persistence),
+                    activity.getString(R.string.display_vr_pref_off),
+            });
+            vrDisplayPref.setEntryValues(new CharSequence[] { "0", "1" });
+
+            final Context c = activity;
+            int currentUser = ActivityManager.getCurrentUser();
+            int current = Settings.Secure.getIntForUser(c.getContentResolver(),
+                            Settings.Secure.VR_DISPLAY_MODE,
+                            /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
+                            currentUser);
+            vrDisplayPref.setValueIndex(current);
+            vrDisplayPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    int i = Integer.parseInt((String) newValue);
+                    int u = ActivityManager.getCurrentUser();
+                    if (!Settings.Secure.putIntForUser(c.getContentResolver(),
+                            Settings.Secure.VR_DISPLAY_MODE,
+                            i, u)) {
+                        Log.e(TAG, "Could not change setting for " +
+                                Settings.Secure.VR_DISPLAY_MODE);
+                    }
+                    return true;
+                }
+            });
+        } else {
+            removePreference(KEY_VR_DISPLAY_PREF);
         }
 
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
@@ -289,10 +323,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 com.android.internal.R.bool.config_cameraDoubleTapPowerGestureEnabled);
     }
 
+    private static boolean isVrDisplayModeAvailable(Context context) {
+        PackageManager pm = context.getPackageManager();
+        return pm.hasSystemFeature(PackageManager.FEATURE_VR_MODE_HIGH_PERFORMANCE);
+    }
+
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
-        ListPreference preference = mScreenTimeoutPreference;
+        TimeoutListPreference preference = mScreenTimeoutPreference;
         String summary;
-        if (currentTimeout < 0) {
+        if (preference.isDisabledByAdmin()) {
+            summary = getString(R.string.disabled_by_policy_title);
+        } else if (currentTimeout < 0) {
             // Unsupported value
             summary = "";
         } else {
@@ -308,107 +349,37 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         best = i;
                     }
                 }
-                summary = preference.getContext().getString(R.string.screen_timeout_summary,
-                        entries[best]);
+                summary = getString(R.string.screen_timeout_summary, entries[best]);
             }
         }
         preference.setSummary(summary);
-    }
-
-    private void disableUnusableTimeouts(ListPreference screenTimeoutPreference) {
-        final DevicePolicyManager dpm =
-                (DevicePolicyManager) getActivity().getSystemService(
-                Context.DEVICE_POLICY_SERVICE);
-        final long maxTimeout = dpm != null ? dpm.getMaximumTimeToLock(null) : 0;
-        if (maxTimeout == 0) {
-            return; // policy not enforced
-        }
-        final CharSequence[] entries = screenTimeoutPreference.getEntries();
-        final CharSequence[] values = screenTimeoutPreference.getEntryValues();
-        ArrayList<CharSequence> revisedEntries = new ArrayList<CharSequence>();
-        ArrayList<CharSequence> revisedValues = new ArrayList<CharSequence>();
-        for (int i = 0; i < values.length; i++) {
-            long timeout = Long.parseLong(values[i].toString());
-            if (timeout <= maxTimeout) {
-                revisedEntries.add(entries[i]);
-                revisedValues.add(values[i]);
-            }
-        }
-        if (revisedEntries.size() != entries.length || revisedValues.size() != values.length) {
-            final int userPreference = Integer.parseInt(screenTimeoutPreference.getValue());
-            screenTimeoutPreference.setEntries(
-                    revisedEntries.toArray(new CharSequence[revisedEntries.size()]));
-            screenTimeoutPreference.setEntryValues(
-                    revisedValues.toArray(new CharSequence[revisedValues.size()]));
-            if (userPreference <= maxTimeout) {
-                screenTimeoutPreference.setValue(String.valueOf(userPreference));
-            } else if (revisedValues.size() > 0
-                    && Long.parseLong(revisedValues.get(revisedValues.size() - 1).toString())
-                    == maxTimeout) {
-                // If the last one happens to be the same as the max timeout, select that
-                screenTimeoutPreference.setValue(String.valueOf(maxTimeout));
-            } else {
-                // There will be no highlighted selection since nothing in the list matches
-                // maxTimeout. The user can still select anything less than maxTimeout.
-                // TODO: maybe append maxTimeout to the list and mark selected.
-            }
-        }
-        screenTimeoutPreference.setEnabled(revisedEntries.size() > 0);
-    }
-
-    int floatToIndex(float val) {
-        String[] indices = getResources().getStringArray(R.array.entryvalues_font_size);
-        float lastVal = Float.parseFloat(indices[0]);
-        for (int i=1; i<indices.length; i++) {
-            float thisVal = Float.parseFloat(indices[i]);
-            if (val < (lastVal + (thisVal-lastVal)*.5f)) {
-                return i-1;
-            }
-            lastVal = thisVal;
-        }
-        return indices.length-1;
-    }
-
-    public void readFontSizePreference(ListPreference pref) {
-        try {
-            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
-        } catch (RemoteException e) {
-            Log.w(TAG, "Unable to retrieve font size");
-        }
-
-        // mark the appropriate item in the preferences list
-        int index = floatToIndex(mCurConfig.fontScale);
-        pref.setValueIndex(index);
-
-        // report the current size in the summary text
-        final Resources res = getResources();
-        String[] fontSizeNames = res.getStringArray(R.array.entries_font_size);
-        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
-                fontSizeNames[index]));
     }
 
     @Override
     public void onResume() {
         super.onResume();
         updateState();
-    }
 
-    @Override
-    public Dialog onCreateDialog(int dialogId) {
-        if (dialogId == DLG_GLOBAL_CHANGE_WARNING) {
-            return Utils.buildGlobalChangeWarningDialog(getActivity(),
-                    R.string.global_font_change_title,
-                    new Runnable() {
-                        public void run() {
-                            mFontSizePref.click();
-                        }
-                    });
+        final long currentTimeout = Settings.System.getLong(getActivity().getContentResolver(),
+                SCREEN_OFF_TIMEOUT, FALLBACK_SCREEN_TIMEOUT_VALUE);
+        mScreenTimeoutPreference.setValue(String.valueOf(currentTimeout));
+        mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
+        final DevicePolicyManager dpm = (DevicePolicyManager) getActivity().getSystemService(
+                Context.DEVICE_POLICY_SERVICE);
+        if (dpm != null) {
+            final EnforcedAdmin admin = RestrictedLockUtils.checkIfMaximumTimeToLockIsSet(
+                    getActivity());
+            final long maxTimeout = dpm
+                    .getMaximumTimeToLockForUserAndProfiles(UserHandle.myUserId());
+            mScreenTimeoutPreference.removeUnusableTimeouts(maxTimeout, admin);
         }
-        return null;
+        updateTimeoutPreferenceDescription(currentTimeout);
+
+        disablePreferenceIfManaged(KEY_WALLPAPER, UserManager.DISALLOW_SET_WALLPAPER);
     }
 
     private void updateState() {
-        readFontSizePreference(mFontSizePref);
+        updateFontSizeSummary();
         updateScreenSaverSummary();
 
         if (mSmartDimmer != null)
@@ -460,18 +431,25 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    public void writeFontSizePreference(Object objValue) {
-        try {
-            mCurConfig.fontScale = Float.parseFloat(objValue.toString());
-            ActivityManagerNative.getDefault().updatePersistentConfiguration(mCurConfig);
-        } catch (RemoteException e) {
-            Log.w(TAG, "Unable to save font size");
-        }
+    private void updateFontSizeSummary() {
+        final Context context = mFontSizePref.getContext();
+        final float currentScale = Settings.System.getFloat(context.getContentResolver(),
+                Settings.System.FONT_SCALE, 1.0f);
+        final Resources res = context.getResources();
+        final String[] entries = res.getStringArray(R.array.entries_font_size);
+        final String[] strEntryValues = res.getStringArray(R.array.entryvalues_font_size);
+        final int index = ToggleFontSizePreferenceFragment.fontSizeValueToIndex(currentScale,
+                strEntryValues);
+        mFontSizePref.setSummary(entries[index]);
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    public boolean onPreferenceClick(Preference preference) {
+       if (preference == mHDMIPref)
+            new HDMIOutChooserDialogFragment().show(getFragmentManager(), "hdmiselector");
+        else if (preference == mWallpaperPref)
+            new WallpaperModes().show(getFragmentManager(), "wallpapermodeselector");
+       return false;
     }
 
     @Override
@@ -485,9 +463,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist screen timeout setting", e);
             }
-        }
-        if (KEY_FONT_SIZE.equals(key)) {
-            writeFontSizePreference(objValue);
         }
 
         if (preference == mSmartDimmer)
@@ -530,31 +505,61 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Log.e(TAG, "could not persist night mode setting", e);
             }
         }
+
         return true;
-    }
-
-    @Override
-    public boolean onPreferenceClick(Preference preference) {
-        if (preference == mFontSizePref) {
-            if (Utils.hasMultipleUsers(getActivity())) {
-                showDialog(DLG_GLOBAL_CHANGE_WARNING);
-                return true;
-            } else {
-                mFontSizePref.click();
-            }
-        }
-        else if (preference == mHDMIPref)
-            new HDMIOutChooserDialogFragment().show(getFragmentManager(), "hdmiselector");
-        else if (preference == mWallpaperPref)
-            new WallpaperModes().show(getFragmentManager(), "wallpapermodeselector");
-
-        return false;
     }
 
     @Override
     protected int getHelpResource() {
         return R.string.help_uri_display;
     }
+
+    private void disablePreferenceIfManaged(String key, String restriction) {
+        final RestrictedPreference pref = (RestrictedPreference) findPreference(key);
+        if (pref != null) {
+            pref.setDisabledByAdmin(null);
+            if (RestrictedLockUtils.hasBaseUserRestriction(getActivity(), restriction,
+                    UserHandle.myUserId())) {
+                pref.setEnabled(false);
+            } else {
+                pref.checkRestrictionAndSetDisabled(restriction);
+            }
+        }
+    }
+
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+        private final Context mContext;
+        private final SummaryLoader mLoader;
+
+        private SummaryProvider(Context context, SummaryLoader loader) {
+            mContext = context;
+            mLoader = loader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                updateSummary();
+            }
+        }
+
+        private void updateSummary() {
+            boolean auto = Settings.System.getInt(mContext.getContentResolver(),
+                    SCREEN_BRIGHTNESS_MODE, SCREEN_BRIGHTNESS_MODE_AUTOMATIC)
+                    == SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
+            mLoader.setSummary(this, mContext.getString(auto ? R.string.display_summary_on
+                    : R.string.display_summary_off));
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
@@ -598,6 +603,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isCameraDoubleTapPowerGestureAvailable(context.getResources())) {
                         result.add(KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE);
+                    }
+                    if (!isVrDisplayModeAvailable(context)) {
+                        result.add(KEY_VR_DISPLAY_PREF);
                     }
                     return result;
                 }

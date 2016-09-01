@@ -22,10 +22,14 @@ import org.meerkats.katkiss.WMController;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
+import android.support.v7.preference.CheckBoxPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.DropDownPreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.Preference.OnPreferenceClickListener;
+
 import android.provider.Settings;
 import android.content.ContentResolver;
 import android.content.Intent;

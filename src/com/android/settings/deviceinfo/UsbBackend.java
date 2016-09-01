@@ -18,9 +18,11 @@ package com.android.settings.deviceinfo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.hardware.usb.UsbManager;
 import android.hardware.usb.UsbPort;
 import android.hardware.usb.UsbPortStatus;
+import android.os.UserHandle;
 import android.os.UserManager;
 
 public class UsbBackend {
@@ -36,6 +38,8 @@ public class UsbBackend {
     public static final int MODE_DATA_MIDI   = 0x03 << 1;
 
     private final boolean mRestricted;
+    private final boolean mRestrictedBySystem;
+    private final boolean mMidi;
 
     private UserManager mUserManager;
     private UsbManager mUsbManager;
@@ -47,12 +51,17 @@ public class UsbBackend {
     public UsbBackend(Context context) {
         Intent intent = context.registerReceiver(null,
                 new IntentFilter(UsbManager.ACTION_USB_STATE));
-        mIsUnlocked = intent.getBooleanExtra(UsbManager.USB_DATA_UNLOCKED, false);
+        mIsUnlocked = intent == null ?
+                false : intent.getBooleanExtra(UsbManager.USB_DATA_UNLOCKED, false);
 
         mUserManager = UserManager.get(context);
         mUsbManager = context.getSystemService(UsbManager.class);
 
         mRestricted = mUserManager.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER);
+        mRestrictedBySystem = mUserManager.hasBaseUserRestriction(
+                UserManager.DISALLOW_USB_FILE_TRANSFER, UserHandle.of(UserHandle.myUserId()));
+        mMidi = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_MIDI);
+
         UsbPort[] ports = mUsbManager.getPorts();
         // For now look for a connected port, in the future we should identify port in the
         // notification and pick based on that.
@@ -129,12 +138,29 @@ public class UsbBackend {
                     ? UsbPort.POWER_ROLE_SOURCE : UsbPort.POWER_ROLE_SINK;
     }
 
-    public boolean isModeSupported(int mode) {
+    public boolean isModeDisallowed(int mode) {
         if (mRestricted && (mode & MODE_DATA_MASK) != MODE_DATA_NONE
                 && (mode & MODE_DATA_MASK) != MODE_DATA_MIDI) {
             // No USB data modes are supported.
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isModeDisallowedBySystem(int mode) {
+        if (mRestrictedBySystem && (mode & MODE_DATA_MASK) != MODE_DATA_NONE
+                && (mode & MODE_DATA_MASK) != MODE_DATA_MIDI) {
+            // No USB data modes are supported.
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isModeSupported(int mode) {
+        if (!mMidi && (mode & MODE_DATA_MASK) == MODE_DATA_MIDI) {
             return false;
         }
+
         if (mPort != null) {
             int power = modeToPower(mode);
             if ((mode & MODE_DATA_MASK) != 0) {

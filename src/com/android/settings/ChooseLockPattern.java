@@ -16,17 +16,6 @@
 
 package com.android.settings;
 
-import com.android.internal.logging.MetricsLogger;
-import com.google.android.collect.Lists;
-import com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient;
-import com.android.internal.widget.LockPatternUtils;
-import com.android.internal.widget.LockPatternUtils.RequestThrottledException;
-import com.android.internal.widget.LockPatternView;
-import com.android.internal.widget.LockPatternView.Cell;
-import com.android.settings.notification.RedactionInterstitial;
-
-import static com.android.internal.widget.LockPatternView.DisplayMode;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -39,6 +28,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient;
+import com.android.internal.widget.LockPatternUtils;
+import com.android.internal.widget.LockPatternUtils.RequestThrottledException;
+import com.android.internal.widget.LockPatternView;
+import com.android.internal.widget.LockPatternView.Cell;
+import com.android.internal.widget.LockPatternView.DisplayMode;
+import com.android.settings.notification.RedactionInterstitial;
+import com.google.android.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -74,25 +73,25 @@ public class ChooseLockPattern extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context,
-            boolean requirePassword, boolean confirmCredentials) {
+            boolean requirePassword, boolean confirmCredentials, int userId) {
         Intent intent = new Intent(context, ChooseLockPattern.class);
         intent.putExtra("key_lock_method", "pattern");
         intent.putExtra(ChooseLockGeneric.CONFIRM_CREDENTIALS, confirmCredentials);
         intent.putExtra(EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, requirePassword);
+        intent.putExtra(Intent.EXTRA_USER_ID, userId);
         return intent;
     }
 
     public static Intent createIntent(Context context,
-            boolean requirePassword, String pattern) {
-        Intent intent = createIntent(context, requirePassword, false);
+            boolean requirePassword, String pattern, int userId) {
+        Intent intent = createIntent(context, requirePassword, false, userId);
         intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD, pattern);
         return intent;
     }
 
-
     public static Intent createIntent(Context context,
-            boolean requirePassword, long challenge) {
-        Intent intent = createIntent(context, requirePassword, false);
+            boolean requirePassword, long challenge, int userId) {
+        Intent intent = createIntent(context, requirePassword, false, userId);
         intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE, true);
         intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE, challenge);
         return intent;
@@ -109,7 +108,7 @@ public class ChooseLockPattern extends SettingsActivity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         // requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         CharSequence msg = getText(R.string.lockpassword_choose_your_pattern_header);
@@ -147,6 +146,7 @@ public class ChooseLockPattern extends SettingsActivity {
         private TextView mFooterLeftButton;
         private TextView mFooterRightButton;
         protected List<LockPatternView.Cell> mChosenPattern = null;
+        private boolean mHideDrawer = false;
 
         /**
          * The patten used during the help screen to show how to draw a pattern.
@@ -238,7 +238,7 @@ public class ChooseLockPattern extends SettingsActivity {
 
         @Override
         protected int getMetricsCategory() {
-            return MetricsLogger.CHOOSE_LOCK_PATTERN;
+            return MetricsEvent.CHOOSE_LOCK_PATTERN;
         }
 
 
@@ -356,6 +356,7 @@ public class ChooseLockPattern extends SettingsActivity {
 
         private ChooseLockSettingsHelper mChooseLockSettingsHelper;
         private SaveAndFinishWorker mSaveAndFinishWorker;
+        private int mUserId;
 
         private static final String KEY_UI_STAGE = "uiStage";
         private static final String KEY_PATTERN_CHOICE = "chosenPattern";
@@ -368,6 +369,23 @@ public class ChooseLockPattern extends SettingsActivity {
             if (!(getActivity() instanceof ChooseLockPattern)) {
                 throw new SecurityException("Fragment contained in wrong activity");
             }
+            Intent intent = getActivity().getIntent();
+            // Only take this argument into account if it belongs to the current profile.
+            mUserId = Utils.getUserIdFromBundle(getActivity(), intent.getExtras());
+
+            if (intent.getBooleanExtra(
+                    ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
+                SaveAndFinishWorker w = new SaveAndFinishWorker();
+                final boolean required = getActivity().getIntent().getBooleanExtra(
+                        EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, true);
+                String current = intent.getStringExtra(
+                        ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD);
+                w.setBlocking(true);
+                w.setListener(this);
+                w.start(mChooseLockSettingsHelper.utils(), required,
+                        false, 0, LockPatternUtils.stringToPattern(current), current, mUserId);
+            }
+            mHideDrawer = getActivity().getIntent().getBooleanExtra(EXTRA_HIDE_DRAWER, false);
         }
 
         @Override
@@ -416,7 +434,8 @@ public class ChooseLockPattern extends SettingsActivity {
                     boolean launchedConfirmationActivity =
                         mChooseLockSettingsHelper.launchConfirmationActivity(
                                 CONFIRM_EXISTING_REQUEST,
-                                getString(R.string.unlock_set_unlock_launch_picker_title), true);
+                                getString(R.string.unlock_set_unlock_launch_picker_title), true,
+                                mUserId);
                     if (!launchedConfirmationActivity) {
                         updateStage(Stage.Introduction);
                     }
@@ -461,7 +480,7 @@ public class ChooseLockPattern extends SettingsActivity {
         }
 
         protected Intent getRedactionInterstitialIntent(Context context) {
-            return RedactionInterstitial.createStartIntent(context);
+            return RedactionInterstitial.createStartIntent(context, mUserId);
         }
 
         public void handleLeftButton() {
@@ -638,27 +657,30 @@ public class ChooseLockPattern extends SettingsActivity {
             setRightButtonEnabled(false);
 
             mSaveAndFinishWorker = new SaveAndFinishWorker();
+            mSaveAndFinishWorker.setListener(this);
+
             getFragmentManager().beginTransaction().add(mSaveAndFinishWorker,
                     FRAGMENT_TAG_SAVE_AND_FINISH).commit();
-            mSaveAndFinishWorker.setListener(this);
+            getFragmentManager().executePendingTransactions();
 
             final boolean required = getActivity().getIntent().getBooleanExtra(
                     EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, true);
             mSaveAndFinishWorker.start(mChooseLockSettingsHelper.utils(), required,
-                    mHasChallenge, mChallenge, mChosenPattern, mCurrentPattern);
+                    mHasChallenge, mChallenge, mChosenPattern, mCurrentPattern, mUserId);
         }
 
         @Override
         public void onChosenLockSaveFinished(boolean wasSecureBefore, Intent resultData) {
             getActivity().setResult(RESULT_FINISHED, resultData);
-            getActivity().finish();
 
             if (!wasSecureBefore) {
                 Intent intent = getRedactionInterstitialIntent(getActivity());
                 if (intent != null) {
+                    intent.putExtra(EXTRA_HIDE_DRAWER, mHideDrawer);
                     startActivity(intent);
                 }
             }
+            getActivity().finish();
         }
     }
 
@@ -670,13 +692,14 @@ public class ChooseLockPattern extends SettingsActivity {
 
         public void start(LockPatternUtils utils, boolean credentialRequired,
                 boolean hasChallenge, long challenge,
-                List<LockPatternView.Cell> chosenPattern, String currentPattern) {
-            prepare(utils, credentialRequired, hasChallenge, challenge);
+                List<LockPatternView.Cell> chosenPattern, String currentPattern, int userId) {
+            prepare(utils, credentialRequired, hasChallenge, challenge, userId);
 
             mCurrentPattern = currentPattern;
             mChosenPattern = chosenPattern;
+            mUserId = userId;
 
-            mLockVirgin = !mUtils.isPatternEverChosen(UserHandle.myUserId());
+            mLockVirgin = !mUtils.isPatternEverChosen(mUserId);
 
             start();
         }
@@ -684,7 +707,7 @@ public class ChooseLockPattern extends SettingsActivity {
         @Override
         protected Intent saveAndVerifyInBackground() {
             Intent result = null;
-            final int userId = UserHandle.myUserId();
+            final int userId = mUserId;
             mUtils.saveLockPattern(mChosenPattern, mCurrentPattern, userId);
 
             if (mHasChallenge) {
@@ -709,7 +732,7 @@ public class ChooseLockPattern extends SettingsActivity {
         @Override
         protected void finish(Intent resultData) {
             if (mLockVirgin) {
-                mUtils.setVisiblePatternEnabled(true, UserHandle.myUserId());
+                mUtils.setVisiblePatternEnabled(true, mUserId);
             }
 
             super.finish(resultData);

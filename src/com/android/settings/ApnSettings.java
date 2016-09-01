@@ -36,33 +36,34 @@ import android.os.Message;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.preference.Preference;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
 import android.provider.Telephony;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceGroup;
+import android.support.v7.preference.PreferenceScreen;
 import android.telephony.CarrierConfigManager;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.dataconnection.ApnSetting;
 import com.android.internal.telephony.uicc.IccRecords;
 import com.android.internal.telephony.uicc.UiccController;
-
-import android.telephony.TelephonyManager;
+import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import java.util.ArrayList;
 
-public class ApnSettings extends SettingsPreferenceFragment implements
+public class ApnSettings extends RestrictedSettingsFragment implements
         Preference.OnPreferenceChangeListener {
     static final String TAG = "ApnSettings";
 
@@ -97,6 +98,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
     private static boolean mRestoreDefaultApnMode;
 
+    private UserManager mUserManager;
     private RestoreApnUiHandler mRestoreApnUiHandler;
     private RestoreApnProcessHandler mRestoreApnProcessHandler;
     private HandlerThread mRestoreDefaultApnThread;
@@ -104,8 +106,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private UiccController mUiccController;
     private String mMvnoType;
     private String mMvnoMatchData;
-
-    private UserManager mUm;
 
     private String mSelectedKey;
 
@@ -115,6 +115,10 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
     private boolean mHideImsApn;
     private boolean mAllowAddingApns;
+
+    public ApnSettings() {
+        super(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS);
+    }
 
     private final BroadcastReceiver mMobileStateReceiver = new BroadcastReceiver() {
         @Override
@@ -146,7 +150,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APN;
+        return MetricsEvent.APN;
     }
 
     @Override
@@ -156,14 +160,10 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         final int subId = activity.getIntent().getIntExtra(SUB_ID,
                 SubscriptionManager.INVALID_SUBSCRIPTION_ID);
 
-        mUm = (UserManager) getSystemService(Context.USER_SERVICE);
-
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
 
-        if (!mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS)) {
-            setHasOptionsMenu(true);
-        }
+        setIfOnlyAvailableForAdmins(true);
 
         mSubscriptionInfo = SubscriptionManager.from(activity).getActiveSubscriptionInfo(subId);
         mUiccController = UiccController.getInstance();
@@ -173,28 +173,23 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         PersistableBundle b = configManager.getConfig();
         mHideImsApn = b.getBoolean(CarrierConfigManager.KEY_HIDE_IMS_APN_BOOL);
         mAllowAddingApns = b.getBoolean(CarrierConfigManager.KEY_ALLOW_ADDING_APNS_BOOL);
+        mUserManager = UserManager.get(activity);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TextView empty = (TextView) getView().findViewById(android.R.id.empty);
-        if (empty != null) {
-            empty.setText(R.string.apn_settings_not_available);
-            getListView().setEmptyView(empty);
-        }
-
-        if (mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS)
-                || UserHandle.myUserId()!= UserHandle.USER_OWNER) {
-            mUnavailable = true;
-            setPreferenceScreen(new PreferenceScreen(getActivity(), null));
+        getEmptyTextView().setText(R.string.apn_settings_not_available);
+        mUnavailable = isUiRestricted();
+        setHasOptionsMenu(!mUnavailable);
+        if (mUnavailable) {
+            setPreferenceScreen(new PreferenceScreen(getPrefContext(), null));
+            getPreferenceScreen().removeAll();
             return;
         }
 
         addPreferencesFromResource(R.xml.apn_settings);
-
-        getListView().setItemsCanFocus(true);
     }
 
     @Override
@@ -230,6 +225,17 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         if (mRestoreDefaultApnThread != null) {
             mRestoreDefaultApnThread.quit();
         }
+    }
+
+    @Override
+    public EnforcedAdmin getRestrictionEnforcedAdmin() {
+        final UserHandle user = UserHandle.of(mUserManager.getUserHandle());
+        if (mUserManager.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS, user)
+                && !mUserManager.hasBaseUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS,
+                        user)) {
+            return EnforcedAdmin.MULTIPLE_ENFORCED_ADMIN;
+        }
+        return null;
     }
 
     private void fillList() {
@@ -272,7 +278,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 String mvnoType = cursor.getString(MVNO_TYPE_INDEX);
                 String mvnoMatchData = cursor.getString(MVNO_MATCH_DATA_INDEX);
 
-                ApnPreference pref = new ApnPreference(getActivity());
+                ApnPreference pref = new ApnPreference(getPrefContext());
 
                 pref.setKey(key);
                 pref.setTitle(name);
@@ -369,7 +375,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceTreeClick(Preference preference) {
         int pos = Integer.parseInt(preference.getKey());
         Uri url = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI, pos);
         startActivity(new Intent(Intent.ACTION_EDIT, url));
@@ -479,7 +485,11 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     @Override
     public Dialog onCreateDialog(int id) {
         if (id == DIALOG_RESTORE_DEFAULTAPN) {
-            ProgressDialog dialog = new ProgressDialog(getActivity());
+            ProgressDialog dialog = new ProgressDialog(getActivity()) {
+                public boolean onTouchEvent(MotionEvent event) {
+                    return true;
+                }
+            };
             dialog.setMessage(getResources().getString(R.string.restore_default_apn));
             dialog.setCancelable(false);
             return dialog;

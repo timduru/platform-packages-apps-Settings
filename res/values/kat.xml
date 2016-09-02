@@ -222,14 +222,14 @@
         <item>Switch To Previous App</item>
         <item>Immersive Mode</item>
         <item>Autorotation Toggle</item>
-        <item>Display Recent Apps</item>
+<!--        <item>Display Recent Apps</item> -->
         <item>Show Power Menu</item>
         <item>Show Notifications Panel</item>
         <item>Wifi Toggle</item>
 <!--        <item>Ethernet Toggle</item> -->
         <item>Bluetooth Toggle</item>
         <item>Touchpad Toggle</item>
-        <item>Launch Settings</item>
+<!--        <item>Launch Settings</item> -->
         <item>Take screenshot</item>
         <item>Brightness Down</item>
         <item>Brightness Up</item>
@@ -260,14 +260,14 @@
         <item>switch_toprevious_task</item>
         <item>expanded_desktop</item>
         <item>autorotation</item>
-        <item>recent</item>
+<!--        <item>recent</item> -->
         <item>show_powermenu</item>
         <item>show_notifications_panel</item>
         <item>wifi_toggle</item>
 <!--        <item>ethernet_toggle</item>-->
         <item>bluetooth_toggle</item>
         <item>touchpad_toggle</item>
-        <item>launch_settings</item>
+<!--        <item>launch_settings</item> -->
         <item>screenshot</item>
         <item>brightness_down</item>
         <item>brightness_up</item>

@@ -52,6 +52,7 @@ import android.widget.SearchView;
 import com.android.internal.util.ArrayUtils;
 import com.android.settings.Settings.WifiSettingsActivity;
 import com.android.settings.Settings.DockSettingsActivity;
+import com.android.settings.Settings.PerformanceSettingsActivity;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.AccessibilitySettingsForSetupWizard;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
@@ -134,6 +135,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.android.settings.katkiss.DockSettingsFragment;
+import com.android.settings.katkiss.Performance;
 
 public class SettingsActivity extends SettingsDrawerActivity
         implements PreferenceManager.OnPreferenceTreeClickListener,
@@ -243,6 +245,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.ManageApplicationsActivity.class.getName(),
             Settings.PowerUsageSummaryActivity.class.getName(),
             Settings.DockSettingsActivity.class.getName(),
+            Settings.PerformanceSettingsActivity.class.getName(),
             //personal_section
             Settings.LocationSettingsActivity.class.getName(),
             Settings.SecuritySettingsActivity.class.getName(),
@@ -350,6 +353,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
             DockSettingsFragment.class.getName(),
+            Performance.class.getName(),
     };
 
 
@@ -1009,6 +1013,16 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
+
+         if ("MediaScannerFilters".equals(fragmentName)) {
+            Intent intent = new Intent();                
+	    intent.setComponent(new  ComponentName("com.android.providers.media","com.android.providers.media.MediaScannerServiceFilter"));
+	    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+            return null;
+        }
+
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);

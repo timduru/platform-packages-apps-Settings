@@ -1929,6 +1929,48 @@
                 android:value="true" />
         </activity>
 
+        <activity android:name="Settings$PerformanceSettingsActivity"
+                android:label="@string/kk_performance"
+                android:icon="@drawable/ic_rocket"
+                android:taskAffinity=""
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.system" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.katkiss.Performance" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+
+        <activity android:name="Settings$MediaScannerFilterActivity"
+                android:label="@string/mediascanner_filters"
+                android:icon="@drawable/ic_settings_storage"
+                android:taskAffinity=""
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.system" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="MediaScannerFilters" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+
         <activity android:name="Settings$PrintSettingsActivity"
                 android:label="@string/print_settings"
                 android:icon="@drawable/ic_settings_print"
@@ -2585,7 +2627,6 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
-
 
         <activity android:name="Settings$DockSettingsActivity"
                 android:label="@string/autoparts_dock_settings"

@@ -29,12 +29,12 @@
 
     <PreferenceCategory
         android:title="@string/touchpad_setting_title">
-      <ListPreference android:key="touchpad"
+<!--      <ListPreference android:key="touchpad"
         android:title="@string/touchpad_mode_selector"
         android:entries="@array/touchpad_mode_selector_entries"
         android:defaultValue="@string/touchpad_mode_value_android32"
         android:entryValues="@array/touchpad_mode_selector_values" />
-
+-->
       <com.android.settings.PointerSpeedPreference
         android:key="pointer_speed"
         android:title="@string/pointer_speed"
@@ -47,6 +47,7 @@
        />
     </PreferenceCategory>
 
+<!--
     <PreferenceCategory
         android:title="@string/kk_dock_power">
 
@@ -56,7 +57,7 @@
           android:title="@string/kk_dock_power_title"
           android:summary="@string/kk_dock_power_summary"
        />
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 
 
 </PreferenceScreen>

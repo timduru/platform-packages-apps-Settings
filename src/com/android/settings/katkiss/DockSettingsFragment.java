@@ -69,18 +69,20 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
         _dockPowerMode = (SwitchPreference) findPreference(KEY_DOCK_POWERMODE);
         refreshState();
 
-        _touchpadModeList.setOnPreferenceChangeListener(this);
-        _rightClickMode.setOnPreferenceChangeListener(this);
-        _dockPowerMode.setOnPreferenceChangeListener(this);
+        if(_touchpadModeList != null) _touchpadModeList.setOnPreferenceChangeListener(this);
+        if(_rightClickMode != null) _rightClickMode.setOnPreferenceChangeListener(this);
+        if(_dockPowerMode != null) _dockPowerMode.setOnPreferenceChangeListener(this);
     }
 
 
     private void refreshState() {
         int touchpadMode = getTouchpadModeSetting(1);
-        _touchpadModeList.setValue(String.valueOf(touchpadMode));
-        _touchpadModeList.setSummary(getResources().getString(R.string.touchpad_mode_set) +  _touchpadModeList.getEntries()[touchpadMode]);
-        _rightClickMode.setChecked(Settings.System.getInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, 0) == 1);
-        _dockPowerMode.setChecked(SystemProperties.getInt(KEY_DOCK_POWERMODE, 0) == 1);
+        if(_touchpadModeList != null) { 
+            _touchpadModeList.setValue(String.valueOf(touchpadMode)); 
+            _touchpadModeList.setSummary(getResources().getString(R.string.touchpad_mode_set) +  _touchpadModeList.getEntries()[touchpadMode]);
+        }
+        if(_rightClickMode != null) _rightClickMode.setChecked(Settings.System.getInt(getContentResolver(), KKC.S.DEVICE_SETTINGS_RIGHTCLICK_MODE, 0) == 1);
+        if(_dockPowerMode != null) _dockPowerMode.setChecked(SystemProperties.getInt(KEY_DOCK_POWERMODE, 0) == 1);
     }
     
     @Override

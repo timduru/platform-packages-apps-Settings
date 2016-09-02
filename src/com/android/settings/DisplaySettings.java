@@ -146,13 +146,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mHDMIPref.setOnPreferenceClickListener(this);
 
         mWallpaperPref = (Preference) findPreference(KKC.S.SYSTEMUI_WALLPAPER_MODE);
-        mWallpaperPref.setOnPreferenceChangeListener(this);
-        mWallpaperPref.setOnPreferenceClickListener(this);
-        
+        if(mWallpaperPref != null) {
+            mWallpaperPref.setOnPreferenceChangeListener(this);
+            mWallpaperPref.setOnPreferenceClickListener(this);
+        }
 
 	if(SystemProperties.getBoolean("display.smart_dimmer", false)) {
             mSmartDimmer = (SwitchPreference) findPreference(KEY_SMART_DIMMER);
-            mSmartDimmer.setOnPreferenceChangeListener(this);
+            if(mSmartDimmer != null) mSmartDimmer.setOnPreferenceChangeListener(this);
         }
         else removePreference(KEY_SMART_DIMMER);
 

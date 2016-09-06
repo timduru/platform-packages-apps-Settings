@@ -25,8 +25,8 @@ import android.util.AttributeSet;
 import android.app.ProgressDialog;
 import android.provider.Settings;
 import android.net.wifi.WifiManager;
-import android.preference.Preference;
-import android.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.ListPreference;
 import android.os.Handler;
 
 

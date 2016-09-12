@@ -22,8 +22,7 @@
 
     <string name="kk_ui_barsize_title">Висота панелі навігації</string>
     <string name="kk_ui_barsize_summary">Оберіть розмір панелі навігації</string>
-    
-    
+
     <string name="kk_ui_interface_navkeys">Кнопки панелі навігації</string>
     <string name="kk_ui_interface_navkeys_summary">Призначити дії кнопок панелі навігації</string>
 
@@ -63,7 +62,8 @@
     <string name="kk_keycode_msg">Код клавіші:</string>
     <string name="kk_detectkey_title">Натисніть, щоб визначити клавішу</string>
     <string name="kk_keycode">Код клавіші:</string>
-    <string name="kk_keylabel">Ярлик клавіші:</string>    
+    <string name="kk_keylabel">Ярлик клавіші:</string>
+
     <string name="kk_wifi_regulatory_domain_selector">Зміна регіону Wi-Fi</string>
     <string name="kk_wifi_regulatory_domain_changed">Регіон Wi-Fi змінено (необхідне перезавантаження)</string>
     <string name="kk_wifi_restarting">Перезавантаження Wi-Fi...</string>
@@ -95,6 +95,7 @@
     
     <string name="kk_ui_clock_time_title">Показати час</string>
     <string name="kk_ui_clock_date_title">Показати дату</string>
+
     <string name="inputmethod_shownotification_title">Показати сповіщення вибору методу вводу</string>
     <string name="inputmethod_shownotification_summary">Ввімкнути/Вимкнути постійне сповіщення вибору методу вводу</string>
 
@@ -110,7 +111,7 @@
     <string name="kk_keyoverride_detectkey">Визначити клавішу</string>  
     <string name="kk_keyoverride_category_current_actions">Наявні дії комбанацій</string>    
 
-    <string name="systemui_audioadjust_sound_title">Play sounds when adjusting volume</string>
+    <string name="systemui_audioadjust_sound_title">Відтворювати звук при зміні гучності</string>
 
     <string name="kk_sendkey_title">Фукнціональні клавіші</string>    
     
@@ -210,14 +211,14 @@
         <item>Перехід до останнього додатка</item>
         <item>Розширений екран</item>
         <item>Автоповорот екрану</item>
-        <item>Запущені додатки</item>
+<!--        <item>Запущені додатки</item> -->
         <item>Меню живлення</item>
         <item>Розгорнути/Згорнути панель сповіщень</item>
         <item>Ввімкнути Wi-Fi</item>
 <!--        <item>Ввімкнути Ethernet</item> -->
         <item>Ввімкнути Bluetooth</item>
         <item>Тачпад</item>
-        <item>Запуск Налаштувань</item>
+<!--        <item>Запуск Налаштувань</item> -->
         <item>Знімок Екрану</item>
         <item>Зменшити Яскравість</item>
         <item>Збільшити Яскравість</item>

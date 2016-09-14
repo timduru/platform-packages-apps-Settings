@@ -83,14 +83,14 @@
     <string name="kk_performance_sweep2wake_on_boot">Запустити при завантаженні</string>
     <string name="kk_performance_zram_category">ZRAM</string>
     <string name="kk_performance_zram_title">Ввімкнути ZRAM при завантаженні</string>
-    <string name="kk_performance_zram_summary">10% RAM буде використано для swap-розділ</string>
+    <string name="kk_performance_zram_summary">10% RAM буде використано як swap-розділ</string>
     <string name="kk_performance_not_applied">Збільшення частоти процесора не виконано</string>
     <string name="kk_performance_notification_title">Збільшення частоти процесора</string>
     <string name="kk_performance_notification_text">Не виконано через недавнє перезавантаження (менш як 2 хвилини).</string>
 
     <string name="kk_ui_battery_icon_title">Показати іконку батареї</string>
-    <string name="kk_ui_battery_text_title">Показати процент заряду</string>
-    <string name="kk_ui_battery_text_on_icon_title">Показати процент заряду в іконці (коли не заряджається чи повністю зараджений)</string>
+    <string name="kk_ui_battery_text_title">Показати відсоток заряду</string>
+    <string name="kk_ui_battery_text_on_icon_title">Показати відсоток заряду в іконці (коли не заряджається чи повністю заряджений)</string>
     <string name="kk_ui_battery_text_percent_title">Показати %</string>
     
     <string name="kk_ui_clock_time_title">Показати час</string>
@@ -99,7 +99,7 @@
     <string name="inputmethod_shownotification_title">Показати сповіщення вибору методу вводу</string>
     <string name="inputmethod_shownotification_summary">Ввімкнути/Вимкнути постійне сповіщення вибору методу вводу</string>
 
-    <string name="kk_ui_recents_killall_button_title">Показати кнопку "Закрити Усе"</string>
+    <string name="kk_ui_recents_killall_button_title">Показати кнопку "Закрити усе"</string>
     <string name="kk_ui_recents_mem_display_title">Показувати інформацію про пам\'ять </string>    
 
     <string name="kk_hdmi_modes_title">Режим HDMI</string>    
@@ -113,7 +113,7 @@
 
     <string name="systemui_audioadjust_sound_title">Відтворювати звук при зміні гучності</string>
 
-    <string name="kk_sendkey_title">Фукнціональні клавіші</string>    
+    <string name="kk_sendkey_title">Призначити дію</string>    
     
     <string name="add">Додати</string>    
     
@@ -139,7 +139,7 @@
     <string name="kk_dock_power_title">Виходити зі сну будь-якою клавішею</string>
     <string name="kk_dock_power_summary">Зауважте: тоді док-станція залишатиметься активною і витрати батареї зростуть</string>
 
-    <string name="device_settings_rightclick_mode_title">Права кновпка мишки емулює НАЗАД</string>
+    <string name="device_settings_rightclick_mode_title">Права кнопка мишки емулює кнопку "Назад"</string>
     
     <string name="kk_ui_user_immersive_title">Розширений екран</string>
     <string name="kk_ui_user_immersive_mode">Обов\'язковий розширений екран в додатках</string>
@@ -152,9 +152,7 @@
    <!-- Menu label for reset the battery stats -->
     <string name="menu_stats_reset">Скинути</string>
 
-    <string name="smart_dimmer_title">Nvidia Smart Dimmer Video Mode</string>
     <string name="smart_dimmer_summary">Адаптує яскравість диспея відповідно до відео, що відтворюється</string>
-
 <!-- Arrays -->
 
     <string-array name="kk_ui_mode_entries">
@@ -190,7 +188,6 @@
         <item>2</item>
     </string-array>
 
-
     <string-array name="kk_wifi_regulatory_domain_entries">
         <item>США</item>
         <item>Японія</item>
@@ -202,11 +199,10 @@
         <item>EU</item>
     </string-array>
 
-    
     <string-array name="kk_action_dialog_entries">
         <item>Запуск додатка</item>
-        <item>Функціональні клавіші</item>
-        <item>Код символа</item>
+        <item>Призначити дію</item>
+        <item>Код клавіші</item>
         <item>Закрити додаток</item>
         <item>Перехід до останнього додатка</item>
         <item>Розширений екран</item>
@@ -242,7 +238,7 @@
 -->
         <item>Нічого</item>
     </string-array>
-    
+
     <string-array name="kk_hdmi_modes">
         <item>Центр</item>
         <item>Обрізати</item>
@@ -254,7 +250,6 @@
         <item>Вимкнути системний рендеринг фонового малюнку</item>
         <item>Вимкнути системний сервіс фонового малюнку (необхідне перезавантаження)</item>
     </string-array>
-
 
     <string-array name="kk_keyoverride_function_entries">
         <item>Wi-Fi</item>
@@ -350,8 +345,6 @@
      <item>92</item>
      <item>93</item>
     </string-array>
-    
-
 
 <!-- DOCK Settings -->
     <array name="touchpad_mode_selector_values">
@@ -368,6 +361,4 @@
     <string name="storage_worldwritable_title">Дозволити запис всім додаткам</string>    
     <string name="storage_worldwritable_summary">(братимуться до уваги після виявлення носія)</string>    
 
- 
 </resources>
-

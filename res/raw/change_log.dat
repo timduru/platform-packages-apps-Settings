@@ -1,3 +1,17 @@
+= 09/26/2016 V008 =
+- prevent MtpHost from crashing
+- reimplement Dock battery icon support
+- add battery icon/level text & Customizations (Settings => System UI Tuner => Status bar)
+- add Immersive mode options (Settings => System UI Tuner => General UI Settings)
+- readd busybox
+- switch to google codecs until further OMX fixes
+- switch to sdcardfs
+- cleanups: rm unused dhcpd + /mnt/sdcard
+- Ukrainian: Keyboard layout fixes
+- Ukrainian: Improve settings translation
+- A/V : misc fixes and enhancements
+
+
 = 09/09/2016 V007 =
 - Update to September Nougat release
 - Fix OMX codecs partially

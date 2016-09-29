@@ -273,7 +273,7 @@ public class KeyOverrideFragment extends ListFragment implements ActionPicker.IC
 
                 //callback.pickedAction(KKC.A.SENDKEY_BASE + choice);
                 ((TextView) getView().findViewById(R.id.detected_keycode)) .setText(choice);
-                ((TextView) getView().findViewById(R.id.detected_keylabel)) .setText(getKeyString(Integer.parseInt(choice)));
+                ((TextView) getView().findViewById(R.id.detected_keylabel)) .setText(  getKeyString(Integer.parseInt(choice)) + ": " );
 //                _currentKeyCode = choice;
                 return true; // true = close dialog
               }

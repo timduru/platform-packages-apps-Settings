@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/keyoverride_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -24,6 +25,13 @@
             android:layout_gravity="center_vertical"
             android:orientation="vertical" >
 
+            <TextView
+                android:text="@string/kk_label_keymodifiers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textAlignment="center" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -34,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/shiftL"
                     android:textOff="@string/shiftL"
-                    android:textOn="@string/shiftL" />
+                    android:textOn="@string/shiftL"
+                    android:textColor="@color/toggle_textcolor" />
 
                 <ToggleButton
                     android:id="@+id/shiftR"
@@ -42,9 +51,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/shiftR"
                     android:textOff="@string/shiftR"
-                    android:textOn="@string/shiftR" />
+                    android:textOn="@string/shiftR"
+                    android:textColor="@color/toggle_textcolor" />
 
-             </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,7 +67,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ctrlL"
                     android:textOff="@string/ctrlL"
-                    android:textOn="@string/ctrlL" />
+                    android:textOn="@string/ctrlL"
+                    android:textColor="@color/toggle_textcolor" />
 
                 <ToggleButton
                     android:id="@+id/ctrlR"
@@ -64,7 +76,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ctrlR"
                     android:textOff="@string/ctrlR"
-                    android:textOn="@string/ctrlR" />
+                    android:textOn="@string/ctrlR"
+                    android:textColor="@color/toggle_textcolor" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -76,7 +89,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/altL"
                     android:textOff="@string/altL"
-                    android:textOn="@string/altL" />
+                    android:textOn="@string/altL"
+                    android:textColor="@color/toggle_textcolor" />
 
                 <ToggleButton
                     android:id="@+id/altR"
@@ -84,51 +98,58 @@
                     android:layout_height="wrap_content"
                     android:text="@string/altR"
                     android:textOff="@string/altR"
-                    android:textOn="@string/altR" />
+                    android:textOn="@string/altR"
+                    android:textColor="@color/toggle_textcolor" />
 
              </LinearLayout>
-            
+
         </LinearLayout>
 
         <TableLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginRight="10dp" >
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/kk_keyoverride_functionkeys"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center_vertical" />
 
                 <Spinner
                     android:id="@+id/functionkeys_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/kk_keyoverride_function_entries" />
+                    android:entries="@array/kk_keyoverride_function_entries"
+                    android:dropDownWidth="wrap_content"
+                    android:textAlignment="viewEnd"
+                    android:gravity="center_vertical" />
 
                 <ImageButton
                     android:id="@+id/functionkeys_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                   android:src="@android:drawable/ic_input_add"
-                     />
+                    android:layout_marginLeft="15dp" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
 
                 <Button
                     android:id="@+id/detectkey_btn"
@@ -140,54 +161,37 @@
 
               <LinearLayout
                android:layout_width="wrap_content"
-                android:layout_height="match_parent" 
+                android:layout_height="match_parent"
                android:layout_weight="1"
-              >
+                  android:minWidth="200dp">
 
 
-                <TextView
-                    android:id="@+id/detected_keycode_msg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-		    android:layout_marginLeft="10dp"
-		    android:layout_marginRight="20dp"
-                    android:text="@string/kk_keycode"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/detected_keycode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-                <TextView
-                    android:id="@+id/detected_keylabel_msg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/kk_keylabel"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
+                  <TextView
                     android:id="@+id/detected_keylabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:layout_weight="1"
+                      android:layout_marginLeft="10dp" />
 
-               </LinearLayout>
+                  <TextView
+                    android:id="@+id/detected_keycode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:layout_weight="1" />
+
+
+              </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/detectkey_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                    android:src="@android:drawable/ic_input_add"
-                     />
+                    android:layout_marginLeft="15dp" />
 
             </TableRow>
 
@@ -199,9 +203,14 @@
             </TableRow>
         </TableLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
+
     </LinearLayout>
 
-  <TextView
+    <TextView
       android:id="@+id/textView3"
       style="?android:attr/listSeparatorTextViewStyle"
       android:layout_width="match_parent"

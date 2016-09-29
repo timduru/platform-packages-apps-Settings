@@ -222,7 +222,8 @@
         <item>Switch To Previous App</item>
         <item>Immersive Mode</item>
         <item>Autorotation Toggle</item>
-<!--        <item>Display Recent Apps</item> -->
+        <item>Display Recent Apps</item>
+        <item>Switch Input Language</item>
         <item>Show Power Menu</item>
         <item>Show Notifications Panel</item>
         <item>Wifi Toggle</item>
@@ -260,7 +261,8 @@
         <item>switch_toprevious_task</item>
         <item>expanded_desktop</item>
         <item>autorotation</item>
-<!--        <item>recent</item> -->
+        <item>recent</item>
+        <item>input_language_switch</item>
         <item>show_powermenu</item>
         <item>show_notifications_panel</item>
         <item>wifi_toggle</item>

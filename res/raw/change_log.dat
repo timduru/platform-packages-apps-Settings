@@ -1,3 +1,23 @@
+= 10/22/2016 V010 =
+- Update to Nougat MR0.5 release
+- fix widevine DRM (google play movies...)
+- Add per app signature faking permission support for MicroG
+- Global action: add relaunch top app in floating mode Action
+- Activate freeform windows by default
+- Statusbar drop down: allow to click on clock or date to go to alarms & calendar
+- Storage: fix "make writable to all apps" setting
+- av: add pre kitkat audio policy support
+- sqlite: update to 3.15.0
+- native: input: Adjust priority for hwc1 too
+- do not force sdcardfs flag
+- framework/base: misc fixes and enhancements
+- core: misc fixes 
+
+KatKernel TF300T 037 & TF700T-TF201 039: 
+- Fix CVE-2016-5195
+
+
+
 = 10/06/2016 V009 =
 - Update to October Nougat release
 - NavBar Editor: Add predefined layouts logic

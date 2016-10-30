@@ -1,3 +1,12 @@
+= 10/30/2016 V012 =
+- Upgrade to Android 7.1.0
+
+= 10/30/2016 V011 =
+- OMX codecs: fix nvidia hardware video decoding
+- OMX codecs: reactivate adaptive 
+- bionic: Sort and cache hosts file data for fast lookup
+- fix onboot performance values
+
 = 10/22/2016 V010 =
 - Update to Nougat MR0.5 release
 - fix widevine DRM (google play movies...)
@@ -15,8 +24,6 @@
 
 KatKernel TF300T 037 & TF700T-TF201 039: 
 - Fix CVE-2016-5195
-
-
 
 = 10/06/2016 V009 =
 - Update to October Nougat release

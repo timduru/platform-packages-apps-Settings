@@ -1,4 +1,9 @@
-=08/05/16 - V028 =
+=11/10/16 - V030 =
+- First TF701T version
+- Update to November Marshmallow release
+
+
+=08/05/16 - V029 =
 - Update to August Marshmallow release
 - add more optimization flags
 - Launcher3: use better icon ratio based on native icon size to avoid fuzzyness. 

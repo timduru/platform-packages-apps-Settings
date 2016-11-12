@@ -1,9 +1,22 @@
-=11/10/16 - V030 =
+= 12/11/16 - V031 =
+TF701: 
+- Fix Autorotation
+- Fix widevine DRM
+- Fix Bluetooth (for bluetooth speakers that have "phone audio" capability you need to uncheck the box in the bluetooth device settings right after pairing)
+- powerHAL: reimplement replacement base HAL for raydium
+- powerHAL: add more perf boosts
+
+TF701 KatKernel v002:
+- tweak for more perfs
+- reuse nvidia exclusive raydium touchscreen sleep pm
+
+
+= 11/10/16 - V030 =
 - First TF701T version
 - Update to November Marshmallow release
 
 
-=08/05/16 - V029 =
+= 08/05/16 - V029 =
 - Update to August Marshmallow release
 - add more optimization flags
 - Launcher3: use better icon ratio based on native icon size to avoid fuzzyness. 

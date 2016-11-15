@@ -1,3 +1,21 @@
+= 11/15/2016 V013 =
+- Update to November Nougat release
+- Fix Audio Recording
+- Remove old android browser
+- wifi: IP address refresh after successful legacy fast roam
+- wifi: Handle IP_REACHABILITY_LOST only for roaming scenarios
+- wifi: Kill wpa_supplicant before load driver
+- WifiStateMachine: Switch to ACTION_LOCKED_BOOT_COMPLETED
+- Wi-Fi : Abort setWifiEnabled if WifiController not ready
+- wifi: Set network notification if open network support WPS
+- Wifi: Clear scan caches while loading configured networks
+
+TF300T/TF201/TF700 Katkernel 040:
+- nf: IDLETIMER: Adds the uid field in the msg
+- netfilter: IDLETIMER: fix invalid deference of timer
+- Revert "netfilter: xt_IDLETIMER: Rename INTERFACE to LABEL in netlink notification."
+
+
 = 10/30/2016 V012 =
 - Upgrade to Android 7.1.0
 

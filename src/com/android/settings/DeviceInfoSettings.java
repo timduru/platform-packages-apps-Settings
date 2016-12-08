@@ -283,6 +283,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
         } else if (preference.getKey().equals(KEY_CHANGELOG)) {
                 changelog();
+        } else if (preference.getKey().equals(KEY_SECURITY_PATCH)) {
+            if (getPackageManager().queryIntentActivities(preference.getIntent(), 0).isEmpty()) {
+                // Don't send out the intent to stop crash
+                Log.w(LOG_TAG, "Stop click action on " + KEY_SECURITY_PATCH + ": "
+                        + "queryIntentActivities() returns empty" );
+                return true;
+            }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();
         } else if(preference.getKey().equals(KEY_SYSTEM_UPDATE_SETTINGS)) {

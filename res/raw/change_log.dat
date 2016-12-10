@@ -1,3 +1,16 @@
+= 12/10/2016 V014 =
+- Upgrade to Nougat 7.1.1 Release 4
+
+- Wifi: send CMD_IP_RECHABILITY_SESSION_END in L2ConnectedState
+- dexopt: use everything optimization profile
+
+
+TF300T/TF201/TF700 Katkernel 041:
+- sync: don't block the flusher thread waiting on IO
+- writeback: fix race that cause writeback hung
+
+
+
 = 11/15/2016 V013 =
 - Update to November Nougat release
 - Fix Audio Recording

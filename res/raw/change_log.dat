@@ -1,3 +1,18 @@
+= 01/07/2017 V015 =
+- Update to January Nougat release
+- Fix Bluetooth
+- Fix QuickSettings Immersive Tile disappearing after edit
+- Add back AppOps Settings (Settings => Security)
+- allow other webviewproviders
+- misc a/v changes
+- powerHAL: reimplement to lock cores on interactive mode
+
+TF300T/TF201/TF700 Katkernel 042:
+- user grouper interactive with core lock
+- add & use Zen io-scheduler by default
+- don't use freqs below 104
+
+
 = 12/10/2016 V014 =
 - Upgrade to Nougat 7.1.1 Release 4
 

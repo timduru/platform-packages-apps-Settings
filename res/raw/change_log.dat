@@ -1,3 +1,30 @@
+= 01/21/2017 V017 - TF701=
+TF701: 
+- Fix DRM
+- Fix audio recording
+- enable freeform floating windows by default
+- dock battery: fix icon not hiding when sysfs present while undocked
+- navbar: default to balanced buttons 
+- disable dexpreopt
+- installer: unmount system if mounted
+- add missing optimize scripts & sysctl
+- bt : define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM
+- init: rm /mnt/sdcard symlink
+- init: rm obsolete dhcp services
+- init: add 1 core to background cpuset
+
+
+= 01/18/2017 V016 - TF701=
+- tf701: fix Bluetooth
+- tf701: wifi: default to JP countrycode for more channels (change in wifi => advanced settings => wifi regulatory domain (requires reboot))
+- tf701: dexopt: use everything-profile where allowed
+- tf701: enable multiuser
+
+
+= 01/18/2017 V015 - TF701 =
+ - First TF701 version
+
+
 = 01/07/2017 V015 =
 - Update to January Nougat release
 - Fix Bluetooth

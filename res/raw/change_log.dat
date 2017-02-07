@@ -1,3 +1,26 @@
+= 02/09/2018 V018 =
+- Update to February Nougat Release
+- Bluetooth: prevent crash when turning off if Gatt not init
+- tf701: use sf encoding for screen cast and lower profile
+
+KatKernel TF300T, TF700, TF201 #043
+- mmc: sdhci: Do not allow tuning procedure to be interrupted
+
+KatKernel TF701 #007:
+- add cifs support
+- mmc: sdhci: Do not allow tuning procedure to be interrupted
+- net: wireless: bcmdhd: Disable OOB interrupt when WLAN is off
+- net: wireless: bcmdhd: Add WIPHY_WOWLAN_ANY support
+- net: wireless: bcmdhd: Set MAX_DTIM_ALLOWED_INTERVAL to 600
+- net: wireless: bcmdhd: Change DTIM skip policy in suspend
+- net: wireless: bcmdhd: cancel current PNO if connection will happen
+- net: wireless: bcmdhd: reduced the wakelock time of RX packet
+- net: wireless: bcmdhd: Fixed a problem of buganizer issue (11190960)
+- net: wireless: bcmdhd: Fix country checking
+- net: wireless: bcmdhd: fix for negative padding
+- net: wireless: bcmdhd: Fixed Wi-Fi Location Service issues.
+- net: wireless: bcmdhd: add code for WLS service.
+
 = 01/21/2017 V017 - TF701=
 TF701: 
 - Fix DRM

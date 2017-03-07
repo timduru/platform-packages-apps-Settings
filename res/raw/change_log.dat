@@ -1,3 +1,44 @@
+= 03/09/2017 V019=
+- Update to March Nougat Release
+- Launcher3: Enable Settings and add option to disable Quick Search Bar
+- SystemUITuner: fix Status bar battery options initial values
+
+TF701:
+- Launcher3 : increase max number of shortcuts on desktop & dock
+
+TF300T, TF700, TF201:
+- Fix camera video recording (720p max)
+- power hal: keep 4 cores while booting
+- power hal: keep 2 cores min in interactive mode
+- decrease number of max background apps
+- decrease mem trim percent
+
+KatKernel TF300T, TF700, TF201 #046
+- update init
+- increase vm dirty ratios
+- increase mmcblk0 read_ahead
+- delay tcp ack
+- Revert "sync: don't block the flusher thread waiting on IO"
+- Revert: writeback: fix race that cause writeback hung
+- enable USB_SERIAL_FTDI_SIO
+- cpufreq_interactive: add sysfs to set num of min cores to keep online
+
+
+= 02/26/2017 V018c=
+KatKernel TF300T, TF700, TF201 #045
+- Revert: net: wireless: bcmdhd: Disable OOB interrupt when WLAN is off
+
+
+= 02/19/2017 V018b=
+KatKernel TF300T, TF700, TF201 #044
+- switch back to ROW io-scheduler by default
+- net: wireless: bcmdhd: Change DTIM skip policy in suspend
+- net: wireless: bcmdhd: Set MAX_DTIM_ALLOWED_INTERVAL to 600
+- net: wireless: bcmdhd: reduced the wakelock time of RX packet
+- net: wireless: bcmdhd: Disable OOB interrupt when WLAN is off
+- vm bg write change
+
+
 = 02/09/2018 V018 =
 - Update to February Nougat Release
 - Bluetooth: prevent crash when turning off if Gatt not init

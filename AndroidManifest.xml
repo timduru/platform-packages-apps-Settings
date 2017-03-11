@@ -2820,6 +2820,9 @@
         <activity android:name=".katkiss.Performance" />
         <activity android:name=".katkiss.SoftKeyActions" />
         <activity android:name=".katkiss.DockSettingsFragment" />
+        <activity android:name=".katkiss.ActionPickerActivity" 
+                android:exported="true">
+        </activity>
 
         <activity android:name=".katkiss.HDMIReceiver" android:launchMode="singleTop">
             <intent-filter>

@@ -48,6 +48,7 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
     private static final String TAG = "DockSettingsFragment";
     private static final String KEY_TOUCHPAD = "touchpad";
     public static final String KEY_DOCK_POWERMODE = "persist.dock.ec_wakeup";
+    public static final String PATH_DOCK_POWERMODE = "/sys/class/power_supply/dock_battery/device/ec_wakeup";
 
 
     private ListPreference _touchpadModeList;
@@ -71,7 +72,13 @@ public class DockSettingsFragment extends SettingsPreferenceFragment implements 
 
         if(_touchpadModeList != null) _touchpadModeList.setOnPreferenceChangeListener(this);
         if(_rightClickMode != null) _rightClickMode.setOnPreferenceChangeListener(this);
-        if(_dockPowerMode != null) _dockPowerMode.setOnPreferenceChangeListener(this);
+
+        if(_dockPowerMode != null) {
+            if(Utils.hasKernelFeature(PATH_DOCK_POWERMODE))
+		 _dockPowerMode.setOnPreferenceChangeListener(this);
+            else
+                _dockPowerMode.setEnabled(false);
+        }
     }
 
 

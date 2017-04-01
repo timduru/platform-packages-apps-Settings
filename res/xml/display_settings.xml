@@ -43,13 +43,13 @@
                 android:title="@string/auto_brightness_title"
                 settings:keywords="@string/keywords_display_auto_brightness"
                 android:summary="@string/auto_brightness_summary" />
-<!--
+
        <SwitchPreference
                 android:key="smart_dimmer"
                 android:title="@string/smart_dimmer_title"
                 android:summary="@string/smart_dimmer_summary"
                 android:persistent="false" />
--->
+
 
         <com.android.settings.display.NightDisplayPreference
                 android:key="night_display"

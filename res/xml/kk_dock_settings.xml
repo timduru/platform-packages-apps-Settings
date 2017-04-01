@@ -47,7 +47,6 @@
        />
     </PreferenceCategory>
 
-<!--
     <PreferenceCategory
         android:title="@string/kk_dock_power">
 
@@ -57,7 +56,7 @@
           android:title="@string/kk_dock_power_title"
           android:summary="@string/kk_dock_power_summary"
        />
-    </PreferenceCategory> -->
+    </PreferenceCategory>
 
 
 </PreferenceScreen>

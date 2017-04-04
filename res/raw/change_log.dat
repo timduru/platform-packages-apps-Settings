@@ -1,3 +1,55 @@
+= 04/06/2017 V021=
+- Update to April Nougat Release
+- Update to sqlite 3.17.0
+- Use default aosp webview
+- Use swappiness only if zram enabled
+- Add smartdimmer setting (Settings => Display)
+- Default rom browser: rebase on Lightning Browser
+- Browser: reimplement & add pie controls
+- Browser: add bookmark import from Chrome locally synched bookmarks
+
+TF300T, TF700, TF201:
+- add setting to wakeup tablet on dock key press (Settings => Dock)
+- power hal: modify inital interactive values + on non interactive
+- switch to tablet-higher vm sizing
+- use MALLOC_SVELTE
+
+
+KatKernel TF300T, TF700, TF201 #048:
+- mmcblk0: save add_random overhead
+- add perms & handling for dock key wakeup + smartdimmer
+- fix dock ec_wakeup sysfs blocking
+
+KatKernel TF701 #007b:
+- disable smartdimmer by default
+- add perms & handling for smartdimmer
+
+
+
+
+= 03/18/2017 V020=
+- Fix Green video thumbnails (on dirty flash: will require to clear Data of Apps: Media Storage + Gallery + reboot in order to be regenerated) 
+
+- Launcher3: add more settings (long press on Desktop to access):
+-- Disable all apps pull up
+-- Show all apps icon in dock (if you activate and have an icon in the center slot, you'll need to move it)
+-- Enable search on pull down
+-- Enable transparent dock background
+
+- navbar: add longpress logic && refactor NavigationBarInflater
+- UITuner - navbar: allow to set custom LongPress actions on Buttons
+- UITuner - navbar: add new predefined layouts:
+-- Left aligned with default LongPress actions (kill on back and switch top floating on switch to previous app btn)
+-- Left + centered + Balanced buttons
+- Settings: add ActionPickerActivity
+- tablet-dalvik-heap: constrain growth limit to maxsize*target/2
+
+KatKernel TF300T, TF700, TF201 #047:
+- reuse 128 read_ahead
+- vm tweak reboot
+- allow swap
+- Revert "mmc: sdhci: Do not allow tuning procedure to be interrupted"
+
 = 03/09/2017 V019=
 - Update to March Nougat Release
 - Launcher3: Enable Settings and add option to disable Quick Search Bar

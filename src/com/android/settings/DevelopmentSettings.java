@@ -1711,11 +1711,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         String function = newValue.toString();
         SystemProperties.set("persist.usbconfiguration", function);
 
-        manager.setCurrentFunction(function);
         if (function.equals("none")) {
-            manager.setUsbDataUnlocked(false);
+            manager.setCurrentFunction(function, false);
         } else {
-            manager.setUsbDataUnlocked(true);
+            manager.setCurrentFunction(function, true);
         }
     }
 

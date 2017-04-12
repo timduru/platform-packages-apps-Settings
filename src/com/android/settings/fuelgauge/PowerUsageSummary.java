@@ -26,6 +26,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.os.UserHandle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.text.TextUtils;
@@ -43,6 +44,7 @@ import com.android.settings.Settings.HighPowerApplicationsActivity;
 import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.dashboard.SummaryLoader;
+import com.android.settings.overlay.FeatureFactory;
 import com.android.settingslib.BatteryInfo;
 
 import java.util.ArrayList;
@@ -59,6 +61,7 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final boolean DEBUG = false;
 
     private static final boolean USE_FAKE_DATA = false;
+
     static final String TAG = "PowerUsageSummary";
 
     private static final String KEY_APP_LIST = "app_list";
@@ -66,13 +69,14 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
-    private static final int MENU_BATTERY_EXTRA = Menu.FIRST + 4;
+    @VisibleForTesting
+    static final int MENU_ADDITIONAL_BATTERY_INFO = Menu.FIRST + 4;
+    private static final int MENU_HELP = Menu.FIRST + 5;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
 
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
-    private boolean mSkipExtra = true;
 
     private static final int MIN_POWER_THRESHOLD_MILLI_AMP = 5;
     private static final int MAX_ITEMS_TO_LIST = USE_FAKE_DATA ? 30 : 10;
@@ -130,17 +134,20 @@ public class PowerUsageSummary extends PowerUsageBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (DEBUG) {
-            menu.add(0, MENU_STATS_TYPE, 0, R.string.menu_stats_total)
+            menu.add(Menu.NONE, MENU_STATS_TYPE, Menu.NONE, R.string.menu_stats_total)
                     .setIcon(com.android.internal.R.drawable.ic_menu_info_details)
                     .setAlphabeticShortcut('t');
         }
 
-        menu.add(0, MENU_HIGH_POWER_APPS, 0, R.string.high_power_apps);
-        
-        MenuItem extra = menu.add(0, MENU_BATTERY_EXTRA, 0, R.string.battery_extra);
-        extra.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-        extra.setCheckable(true);
-        
+        menu.add(Menu.NONE, MENU_HIGH_POWER_APPS, Menu.NONE, R.string.high_power_apps);
+
+        PowerUsageFeatureProvider powerUsageFeatureProvider =
+                FeatureFactory.getFactory(getContext()).getPowerUsageFeatureProvider(getContext());
+        if (powerUsageFeatureProvider != null &&
+                powerUsageFeatureProvider.isAdditionalBatteryInfoEnabled()) {
+            menu.add(Menu.NONE, MENU_ADDITIONAL_BATTERY_INFO,
+                    Menu.NONE, R.string.additional_battery_info);
+        }
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -168,10 +175,10 @@ public class PowerUsageSummary extends PowerUsageBase {
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
                 return true;
-            case MENU_BATTERY_EXTRA:
-				mSkipExtra = !mSkipExtra;
-				item.setChecked(!mSkipExtra);
-				refreshStats();
+            case MENU_ADDITIONAL_BATTERY_INFO:
+                startActivity(FeatureFactory.getFactory(getContext())
+                        .getPowerUsageFeatureProvider(getContext())
+                        .getAdditionalBatteryInfoIntent());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -326,8 +333,12 @@ public class PowerUsageSummary extends PowerUsageBase {
                     if (sipper.totalPowerMah < ((mStatsHelper.getMaxRealPower()*2)/3)) {
                         continue;
                     }
-                    
-                    if (mSkipExtra || percentOfTotal < 10) continue;                    
+                    if (percentOfTotal < 10) {
+                        continue;
+                    }
+                    if ("user".equals(Build.TYPE)) {
+                        continue;
+                    }
                 }
                 if (sipper.drainType == BatterySipper.DrainType.UNACCOUNTED) {
                     // Don't show over-counted unless it is at least 1/2 the size of
@@ -335,8 +346,12 @@ public class PowerUsageSummary extends PowerUsageBase {
                     if (sipper.totalPowerMah < (mStatsHelper.getMaxRealPower()/2)) {
                         continue;
                     }
-                    
-                    if (mSkipExtra || percentOfTotal < 5 )  continue;                    
+                    if (percentOfTotal < 5) {
+                        continue;
+                    }
+                    if ("user".equals(Build.TYPE)) {
+                        continue;
+                    }
                 }
                 final UserHandle userHandle = new UserHandle(UserHandle.getUserId(sipper.getUid()));
                 final BatteryEntry entry = new BatteryEntry(getActivity(), mHandler, mUm, sipper);

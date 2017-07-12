@@ -4,7 +4,7 @@
     <!-- Strings -->
     <string name="kat_settings">Центр Управління</string>
     <string name="su_start">SuperSU</string>
-    <string name="settings_app_ops_title">Дозволи програм</string>
+    <string name="settings_app_ops_title">Дозволи додатків</string>
     <string name="autoparts_dock_settings">Док-станція</string>
     <string name="mediascanner_filters">Фільтри медіасканера</string>
 
@@ -362,4 +362,7 @@
     <string name="storage_worldwritable_title">Дозволити запис всім додаткам</string>    
     <string name="storage_worldwritable_summary">(братимуться до уваги після виявлення носія)</string>    
 
+    <string name="app_ops_settings">Дозволи додатків</string>
+    <string name="app_ops_settings_summary">Переглядати та змінювати дозволи додатків</string>
+    
 </resources>

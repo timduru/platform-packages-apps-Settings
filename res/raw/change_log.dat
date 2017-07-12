@@ -1,3 +1,47 @@
+= 07/14/2017 V024
+- Update to July Nougat Release
+- Update to June Nougat Release
+- Browser: don't limit number of tabs
+- Enable power save config of system apps and gms doze
+- Ukrainian: synch with EN resources 
+
+
+= 05/14/2017 V023
+- Update to May Nougat Release
+- Launcher3: fix disappearing icons on 1st row if QSB is disabled
+- WallpaperManagerService: constrain wallpaper dimensions to max_texture_size + Keep original image ratio 
+  (if you had a black wallpaper, try to set it again now)
+- Set respective devices max_texture_size System Property
+- Add missing WallpaperPicker
+- Recents: use dynamic grid layout from Pixel C
+- Recents: fix freeform window launching from task icon
+- Recents: prevent dismiss icon from getting out of View
+- Recents + Global Action: make newly launched freeform window take 1/2 width and 2/3 height of the screen size
+- Browser: Add basic keyboard shortcut support
+- Browser: Add ctrl+shift+R to reload all tabs
+- Browser: focus url after creating new tab via shortcut
+- UsbDeviceManager: fix usbconfig being disabled after boot completed 
+  (might require to wipe to be taken into account, try also to reset the setting to mtp first)
+
+TF701t: 
+- SystemUI: don't use noisy velocity_tracker_impl
+
+KatKernel TF300T, TF700, TF201 #048c:
+- fix ramdisk binaries location
+
+= 04/18/2017 V022 =
+- Upgrade to Nougat 7.1.2
+- fd whitelist: add device nodes needed for nvidia blobs
+- device trees: add first_api_level
+- NavBarEditor: add wifi_toggle button
+- NavBar: temporarily add WifiToggle button by default to workaround opengapps setupwizard incompatibility with 7.1.2
+
+
+KatKernel TF300T, TF700, TF201 #048b:
+KatKernel TF701 #007c:
+- Update for Nougat 7.1.2
+
+
 = 04/06/2017 V021=
 - Update to April Nougat Release
 - Update to sqlite 3.17.0

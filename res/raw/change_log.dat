@@ -1,3 +1,24 @@
+= 10/17/2017 V026
+- Port October 7.1.1 Nougat Security Fixes
+- Port September 7.1.1 Nougat Security Fixes
+- Port blueborne security fixes
+- wpa_supplicant: krack patches
+
+TF300T/TF201/TF700T Katkernel 049:
+- Port blueborne security fix
+
+TF701T Katkernel 008:
+- Port blueborne security fix
+
+
+= 08/25/2017 V025
+- Update to August Nougat Release
+- TF701t: lockscreen: decrease swipe distance needed to unlock
+- Browser: add ctrl+F shortcut for find in page
+- Browser: add shift + click on link to open in new tab 
+- Browser: add ctrl + click on link to open in new background tab
+
+
 = 07/14/2017 V024
 - Update to July Nougat Release
 - Update to June Nougat Release

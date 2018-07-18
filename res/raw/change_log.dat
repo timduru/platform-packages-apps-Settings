@@ -1,5 +1,14 @@
-= 06/10/2018 V031 =
+= 07/19/2018 V031 =
+- Port July 8.1 Oreo Security Fixes
 - Port June 8.1 Oreo Security Fixes
+
+TF300T/TF201/TF700T Katkernel 050:
+- Add mount namespace support
+
+TF701T Katkernel 009:
+- Add mount namespace support
+
+
 
 = 05/17/2018 V030 =
 - Port May 8.1 Oreo Security Fixes
